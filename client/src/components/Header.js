@@ -28,11 +28,6 @@ class Header extends Component {
                         </NavDropdown>
                     </Nav>
                 </Navbar>
-
-
-
-                <h1>Hotel NoMas - Header placeholder</h1>
-                <button className="btn btn-primary">test</button>
             </div>
         );
     }

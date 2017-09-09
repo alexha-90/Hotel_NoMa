@@ -7,8 +7,34 @@ body {
   margin-top: 20px;
 }
 
+
+ul {
+  margin: 2px 0;
+}
+
+
+/*============== Footer CSS ==============*/
+
 .footer {
   background-color: darkgray;
   bottom: 0;
   text-align: center;
+  opacity: 0.55;
+  margin-bottom: 20px;
 }
+
+.footerOffset {
+  margin-top: 40px;
+}
+
+#googleMap {
+  height: 175px;
+  width: 175px;
+}
+
+#social_links {
+  height: 50%;
+  width: 50%;
+}
+
+/*============== END CSS ==============*/

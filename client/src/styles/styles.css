@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  background-color: pink;
+  margin-top: 20px;
+}
+
+.footer {
+  background-color: darkgray;
+  bottom: 0;
+  text-align: center;
+}

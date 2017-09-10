@@ -1,31 +1,40 @@
 import React, { Component } from 'react';
-import { Jumbotron, Button, Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import 'react-dom';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // https://react-bootstrap.github.io/components.html
 
 class Header extends Component {
     render() {
         return (
-            <div>
-
+            <div className="navTop">
                 <Navbar>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="#">React-Bootstrap</a>
+                            <a href="/">Hotel NoMas</a>
                         </Navbar.Brand>
                     </Navbar.Header>
-                    <Nav>
-                        <NavItem eventKey={1} href="#">Link</NavItem>
-                        <NavItem eventKey={2} href="#">Link</NavItem>
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>Action</MenuItem>
-                            <MenuItem eventKey={3.2}>Another action</MenuItem>
-                            <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                    <Nav pullRight={true}>
+                        <NavDropdown eventKey={1} title="Our Other Properties" id="basic-nav-dropdown">
+                            <MenuItem eventKey={1.1}>
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" />
+                                &nbsp;&nbsp;<Link to="#">Hotel Marketplace</Link>
+                            </MenuItem>
                             <MenuItem divider />
-                            <MenuItem eventKey={3.4}>Separated link</MenuItem>
+                            <MenuItem eventKey={1.2}>
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" />
+                                &nbsp;&nbsp;<Link to="#">Hotel North Beach</Link>
+                            </MenuItem>
+                            <MenuItem divider />
+                            <MenuItem eventKey={1.3}>
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" />
+                                &nbsp;&nbsp;<Link to="#">Hotel South Beach</Link>
+                            </MenuItem>
+                            <MenuItem divider />
                         </NavDropdown>
+                        <NavItem eventKey={2} href="#">Retrieve Reservation</NavItem>
+                        <NavItem eventKey={3} href="#">Sign In</NavItem>
                     </Nav>
                 </Navbar>
             </div>

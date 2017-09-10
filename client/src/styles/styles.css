@@ -1,22 +1,64 @@
+
+/*============== General CSS ==============*/
 body {
   font-family: sans-serif;
 }
-
-.container {
-  background-color: pink;
-  margin-top: 20px;
-}
-
 
 ul {
   margin: 2px 0;
 }
 
+hr {
+  color: darkgray;
+}
+
+.container {
+  width: 80%;
+  background-color: pink;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+/*============== Landing Page CSS ==============*/
+.userInput {
+  border: 2px solid blue;
+  margin: 0 225px 20px 225px;
+}
+
+.adultCount {
+  height: 48px;
+}
+
+#homeSearchButton {
+  height: 45px;
+  width: 100px;
+}
+
+.threeBlurbs {
+  text-align: center;
+}
+
+.threeBlurbs img {
+  display: block;
+  margin: auto;
+}
+
+
+
+/*============== Header CSS ==============*/
+.navTop {
+  font-size: 14px;
+  padding-bottom: 30px;
+}
+
+
 
 /*============== Footer CSS ==============*/
-
 .footer {
-  background-color: darkgray;
+  background-color: green;
   bottom: 0;
   text-align: center;
   opacity: 0.55;

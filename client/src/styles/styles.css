@@ -47,6 +47,48 @@ hr {
 }
 
 
+/*============== Results Page CSS ==============*/
+
+#excaliburResult {
+  margin: 50px auto 0 auto;
+  background-color: yellowgreen;
+  border: 2px solid green;
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+#priceResult {
+  color: orange;
+  text-align: right;
+  position: inherit;
+}
+
+/* broken. grid automatically leaves -15px margin. Can't get to correct sie with responsiveness */
+.resultsGrid {
+  background-color: orangered;
+  margin-left: -85px;
+  margin-right: -85px;
+  position: relative;
+}
+
+#thumbResult {
+  background-color: darkcyan;
+}
+
+#highlightResult {
+  background-color: darkslategray;
+}
+
+/* broken. grid automatically leaves -15px margin. Can't get to correct sie with responsiveness */
+.amenities {
+  margin-top: -15px;
+  margin-left: -60px;
+  text-align: center;
+}
+
+
+
 
 /*============== Header CSS ==============*/
 .navTop {

@@ -18,17 +18,17 @@ class Header extends Component {
                     <Nav pullRight={true}>
                         <NavDropdown eventKey={1} title="Our Other Properties" id="basic-nav-dropdown">
                             <MenuItem eventKey={1.1}>
-                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" />
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" alt="temp_breakfast" />
                                 &nbsp;&nbsp;<Link to="#">Hotel Marketplace</Link>
                             </MenuItem>
                             <MenuItem divider />
                             <MenuItem eventKey={1.2}>
-                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" />
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" alt="temp_breakfast" />
                                 &nbsp;&nbsp;<Link to="#">Hotel North Beach</Link>
                             </MenuItem>
                             <MenuItem divider />
                             <MenuItem eventKey={1.3}>
-                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" />
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" alt="temp_breakfast"/>
                                 &nbsp;&nbsp;<Link to="#">Hotel South Beach</Link>
                             </MenuItem>
                             <MenuItem divider />

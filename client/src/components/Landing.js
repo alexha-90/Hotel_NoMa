@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import { DateRangePicker } from 'react-dates';
-import { Carousel } from 'react-responsive-carousel';
+//import { Carousel } from 'react-responsive-carousel';
 import 'react-dates/lib/css/_datepicker.css';
 
 
@@ -84,7 +84,7 @@ class Landing extends Component {
                             <option value="3">3 Adults</option>
                             <option value="4">4 Adults</option>
                         </select>
-                        <Button bsStyle="success" id="homeSearchButton">Go!</Button>
+                        <Button bsStyle="success" id="homeSearchButton" href="/results">Go!</Button>
                     </div>
 
                     { /*

@@ -25,7 +25,8 @@ hr {
 /*============== Landing Page CSS ==============*/
 .userInput {
   border: 2px solid blue;
-  margin: 0 225px 20px 225px;
+  margin: 0 100px 20px 100px;
+  text-align: center;
 }
 
 .adultCount {

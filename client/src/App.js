@@ -3,11 +3,14 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 // Page linking imports
 import Header from './components/Header';
-import Footer from "./components/Footer";
+import Footer from './components/Footer';
+import Terms from './components/Terms';
 import Landing from './components/Landing';
 import Amenities from './components/Amenities';
 import ListResults from './components/Results';
-import Page1 from './components/Page1';
+import Checkout from './components/Checkout';
+import Confirmation from './components/Confirmation';
+//import FourOhFour from './components/FourOhFour';
 import Page2 from './components/Page2';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,10 +25,12 @@ class App extends Component {
                   <div>
                       <Header/>
                       <Route exact path='/' component={Landing} />
-                      <Route exact path='/Page1' component={Page1} />
+                      <Route exact path='/Terms' component={Terms} />
                       <Route exact path='/Page2' component={Page2} />
                       <Route exact path='/Amenities' component={Amenities} />
                       <Route exact path='/Results' component={ListResults} />
+                      <Route exact path='/Checkout' component={Checkout} />
+                      <Route exact path='/Confirmation' component={Confirmation} />
                       <Footer/>
                   </div>
               </BrowserRouter>
@@ -35,3 +40,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <Route path ='/' component={FourOhFour} />

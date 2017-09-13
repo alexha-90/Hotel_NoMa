@@ -19,3 +19,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# personal note docs
+todo.txt
+lorem_ipsum.txt
+/src/assets
+ConfirmationBucky.js

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
+        console.log(this.props);
         return (
             <div className="navTop">
                 <Navbar>
@@ -43,3 +44,18 @@ class Header extends Component {
 }
 
 export default Header;
+
+
+/*
+                            <MenuItem divider />
+                            <MenuItem eventKey={1.2}>
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" alt="temp_breakfast" />
+                                &nbsp;&nbsp;<Link to="#">Hotel North Beach</Link>
+                            </MenuItem>
+                            <MenuItem divider />
+                            <MenuItem eventKey={1.3}>
+                                <img src="https://tbcdn.talentbrew.com/company/1065/img/favicon/favicon-3974.png" alt="temp_breakfast"/>
+                                &nbsp;&nbsp;<Link to="#">Hotel South Beach</Link>
+                            </MenuItem>
+                            <MenuItem divider />
+ */

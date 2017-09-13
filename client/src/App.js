@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-// Page linking imports
+// Import and define page routes for entire application
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
@@ -13,11 +13,9 @@ import Confirmation from './components/Confirmation';
 //import FourOhFour from './components/FourOhFour';
 import Page2 from './components/Page2';
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-
+//===============================================================================================//
 
 class App extends Component {
-
   render() {
         return (
           <div className="container">

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import { DateRangePicker } from 'react-dates';
 //import { Carousel } from 'react-responsive-carousel';
-import 'react-dates/lib/css/_datepicker.css';
+//import 'react-dates/lib/css/_datepicker.css';
 
 
 //carousel not working. images loaded stacked on each other.
@@ -37,25 +37,29 @@ class Landing extends Component {
     }
 
     // initial state for calendar
+    /*
     constructor(props) {
         super(props);
         this.state = {
-            focused: props.autoFocus,
-            date: props.initialDate,
+            date        : props.initialDate,
+            startDate   : '',
+            endDate     : '',
+            numAdults   : 1
         };
 
+
+        this.handleStartDate    = this.handleStartDate.bind(this);
+        this.handleEndDate      = this.handleEndDate.bind(this);
+        this.handleNumAdults    = this.handleNumAdults.bind(this);
+
         this.onDateChange = this.onDateChange.bind(this);
-        this.onFocusChange = this.onFocusChange.bind(this);
     }
 
     onDateChange(date) {
         this.setState({ date });
-        alert("test");
     }
+    */
 
-    onFocusChange({ focused }) {
-        this.setState({ focused });
-    }
 
 
 
@@ -65,11 +69,12 @@ class Landing extends Component {
         return (
             <div className="landingMain">
 
-                { /* User input to obtain: length of stay, # of adults*/ }
+                { /* User input required: start of stay, end of stay, # of adults */ }
                 <div className="userInput">
                     <div className="formArea">
                         <h4>A worthwhile rendezvous. Tell us about your stay...</h4>
 
+                        { /*
                         <DateRangePicker
                             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
                             endDate={this.state.endDate} // momentPropTypes.momentObj or null,
@@ -77,6 +82,7 @@ class Landing extends Component {
                             focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                             onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
                         />
+                        */}
 
                         <select name="numGuests" className="adultCount">
                             <option value="1">1 Adult</option>
@@ -112,22 +118,22 @@ class Landing extends Component {
                 <Jumbotron>
                     <h3>The best amenities. Hands down.</h3>
                     <p>World class meeting rooms, restaurant, and fitness facilities all on-site and complimentary for our guests.</p>
-                    <p><Button Style="primary"><Link to="/amenities">Learn more</Link></Button></p>
+                    <p><Button bsStyle="primary"><Link to="/amenities">Learn more</Link></Button></p>
                 </Jumbotron>
                 <div className="threeBlurbs">
 
                     <Grid>
                         <Row className="show-grid">
                             <Col sm={6} md={4}>
-                                <p><h3>Hourly SFO shuttle service</h3><br/>We are at the heart of San Francisco. Market Street, close to BART. You can't beat us.Donec hendrerit tempor tellus. t, convallis nec, purus</p>
+                                <h3>Hourly SFO shuttle service</h3><br/><p>We are at the heart of San Francisco. Market Street, close to BART. You can't beat us.Donec hendrerit tempor tellus. t, convallis nec, purus</p>
                                 <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
                             </Col>
                             <Col sm={6} md={4}>
-                                <p><h3>Complementary breakfast</h3><br/>ndrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis</p>
+                                <h3>Complementary breakfast</h3><br/><p>ndrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis</p>
                                 <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
                             </Col>
                             <Col sm={6} md={4}>
-                                <p><h3>Automatic late checkout</h3><br/>amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam</p>
+                                <h3>Automatic late checkout</h3><br/><p>amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam</p>
                                 <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
                             </Col>
                         </Row>
@@ -140,7 +146,6 @@ class Landing extends Component {
         );
     }
 }
-
 
 
 export default Landing;

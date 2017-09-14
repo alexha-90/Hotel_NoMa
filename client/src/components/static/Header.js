@@ -9,8 +9,8 @@ class Header extends Component {
     render() {
         console.log(this.props);
         return (
-            <div className="navTop">
-                <Navbar>
+            <div>
+                <Navbar className="navTop">
                     <Navbar.Header>
                         <Navbar.Brand>
                             <a href="/">Hotel NoMas</a>
@@ -35,7 +35,7 @@ class Header extends Component {
                             <MenuItem divider />
                         </NavDropdown>
                         <NavItem eventKey={2} href="#">Retrieve Reservation</NavItem>
-                        <NavItem eventKey={3} href="#">Sign In</NavItem>
+                        <NavItem eventKey={3} href="/login">Sign In</NavItem>
                     </Nav>
                 </Navbar>
             </div>

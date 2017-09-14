@@ -63,6 +63,7 @@ hr {
   color: orange;
   text-align: right;
   position: inherit;
+  /* missing inline prop. forgot name */
 }
 
 /* broken. grid automatically leaves -15px margin. Can't get to correct sie with responsiveness */
@@ -89,14 +90,32 @@ hr {
 }
 
 
+/*============== Amenity Page CSS ==============*/
+#leftAmenityImage {
+  background-color: gold;
+}
+
+#rightAmenityImage {
+  background-color: gold;
+}
+
+.amenityTextBox {
+  background-color: green;
+  margin-bottom: 40px;
+}
+
+/*============== Login Page CSS ==============*/
+
+
 
 
 /*============== Header CSS ==============*/
 .navTop {
-  font-size: 14px;
-  padding-bottom: 30px;
-}
+  font-size: 16px;
+  background-color: gold;
+  margin-bottom: 20px;
 
+}
 
 
 /*============== Footer CSS ==============*/

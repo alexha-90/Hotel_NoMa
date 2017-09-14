@@ -19,9 +19,9 @@ class ListResults extends Component {
                                 <p><img src="http://cdn.linkresearchtools.com/wp-content/uploads/2014/09/10-rated-on-tripadvisor-badge.png" alt="tripadvisor" /></p>
                             </Col>
                             <Col id="highlightResult" sm={8} md={8}>
-                                <h3>Excalibur</h3>
+                                Excalibur
                                 <div id="priceResult">
-                                    <h3>Starting at $99.99/night</h3>
+                                    Starting at $99.99/night
                                 </div>
                                 <div className="amenities">
                                     <Grid>
@@ -53,6 +53,7 @@ class ListResults extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
+                                <Link to="#">More details&nbsp;&nbsp;</Link>
                                 <Link to="#">Room size: 986 sq. ft&nbsp;&nbsp;</Link>
                                 <Button bsStyle="success" href="/checkout">See available rooms</Button>
                             </Col>

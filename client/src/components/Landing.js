@@ -116,6 +116,26 @@ class Landing extends Component {
                 </div>
 
                 <Jumbotron>
+
+                    {/*
+                    <Grid>
+                        <div className="amenityTextBox">
+                            <Row className="">
+                                <Col sm={4} md={3} id="leftAmenityImage">
+                                    <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
+                                </Col>
+                                <Col sm={8} md={9}>
+                                    <h3>Amenities tagline</h3>
+                                    <p>World class meeting rooms, restaurant, and fitness facilities all on-site and complimentary for our guests.</p>
+
+                                </Col>
+                            </Row>
+                        </div>
+                    </Grid>
+                    */}
+
+
+
                     <h3>The best amenities. Hands down.</h3>
                     <p>World class meeting rooms, restaurant, and fitness facilities all on-site and complimentary for our guests.</p>
                     <p><Button bsStyle="primary"><Link to="/amenities">Learn more</Link></Button></p>
@@ -123,7 +143,7 @@ class Landing extends Component {
                 <div className="threeBlurbs">
 
                     <Grid>
-                        <Row className="show-grid">
+                        <Row className="landingHighlights">
                             <Col sm={6} md={4}>
                                 <h3>Hourly SFO shuttle service</h3><br/><p>We are at the heart of San Francisco. Market Street, close to BART. You can't beat us.Donec hendrerit tempor tellus. t, convallis nec, purus</p>
                                 <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />

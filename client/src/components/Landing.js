@@ -91,6 +91,8 @@ class Landing extends Component {
                             <option value="4">4 Adults</option>
                         </select>
                         <Button bsStyle="success" id="homeSearchButton" href="/results">Go!</Button>
+                        <hr />
+                        Local time. Local temperature
                     </div>
 
                     { /*

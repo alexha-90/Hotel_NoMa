@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 
-
 // Import dynamic page routes for application
 import Landing from './components/Landing';
 import Login from './components/Login';
@@ -17,7 +16,7 @@ import Footer from './components/static/Footer';
 import Terms from './components/static/Terms';
 import Amenities from './components/static/Amenities';
 import About from './components/static/About';
-import Page2 from './components/Page2';
+import Page2 from './components/static/Page2';
 //import FourOhFour from './components/static/FourOhFour';
 
 

@@ -20,9 +20,12 @@ class ListResults extends Component {
                             </Col>
                             <Col id="highlightResult" sm={8} md={8}>
                                 Excalibur
+                                Starting at $99.99/night
+                                {/*
                                 <div id="priceResult">
                                     Starting at $99.99/night
                                 </div>
+                                */}
                                 <div className="amenities">
                                     <Grid>
                                         <Row className="amenityText">

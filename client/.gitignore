@@ -25,3 +25,5 @@ todo.txt
 lorem_ipsum.txt
 /src/assets
 ConfirmationBucky.js
+tempkeys.js
+.gitignore

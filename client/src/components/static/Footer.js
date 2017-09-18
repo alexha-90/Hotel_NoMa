@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Iframe from 'react-iframe';
+import googleMapsKey from '../../tempkeys';
 
 
 class Footer extends Component {
@@ -13,7 +15,11 @@ class Footer extends Component {
                     <Row className="show-grid">
                         <Col sm={6} md={1}></Col>
                         <Col sm={6} md={3}>
-                            <img src="https://www.mailinglists.com/sites/default/files/GoogleMap2_small.gif" id="googleMap" alt="location_map" />
+                            <Iframe url={ 'https://www.google.com/maps/embed/v1/place?q=37.788383%2C%20-122.407793' + googleMapsKey }
+                                width="175px"
+                                height="175px"
+                                position="static"
+                                allowFullScreen />
                         </Col>
                         <div className="footerOffset">
                             <Col sm={6} md={3}>

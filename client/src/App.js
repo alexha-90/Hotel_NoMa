@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import * as actions from './actions';
 
 
 // Import dynamic page routes for application
@@ -16,8 +17,13 @@ import Footer from './components/static/Footer';
 import Terms from './components/static/Terms';
 import Amenities from './components/static/Amenities';
 import About from './components/static/About';
-import Page2 from './components/static/Page2';
 //import FourOhFour from './components/static/FourOhFour';
+
+// testing pages
+import Page2 from './components/static/Page2';
+import DateTest from './components/DateTest';
+import ConfirmationBucky from './components/ConfirmationBucky';
+
 
 
 //===============================================================================================//
@@ -42,7 +48,12 @@ class App extends Component {
                       <Route exact path='/terms' component={Terms} />
                       <Route exact path='/amenities' component={Amenities} />
                       <Route exact path='/about' component={About} />
+
+                      { /* Define test page routes */ }
                       <Route exact path='/page2' component={Page2} />
+                      <Route exact path='/date' component={DateTest} />
+                      <Route exact path='/confirmationbucky' component={ConfirmationBucky} />
+
                       <Footer/>
                   </div>
               </BrowserRouter>
@@ -51,6 +62,5 @@ class App extends Component {
   }
 }
 
-export default App;
-
+export default connect(null, actions)(App);
 // <Route path ='/' component={FourOhFour} />

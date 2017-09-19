@@ -1,10 +1,12 @@
 export default function() {
+    const today = new Date();
+
     return [
         {
             id: 1,
-            name: "testname",
-            month: "January",
-            day: 30
+            month: today.getMonth() + 1,
+            day: today.getDate(),
+            year: today.getFullYear()
         },
         {
             id: 2,

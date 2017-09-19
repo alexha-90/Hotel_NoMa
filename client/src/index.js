@@ -8,8 +8,8 @@ import 'react-bootstrap';
 import allReducers from './reducers/index';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import showResults from './actions';
-import Landing from './components/Landing';
+//import showResults from './actions';
+//import Landing from './components/Landing';
 
 const store = createStore(allReducers);
 

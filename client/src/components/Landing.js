@@ -1,31 +1,24 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
 import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
-import { Field, reduxForm} from 'redux-form';
+import { Link } from 'react-router-dom';
+//import { Field, reduxForm} from 'redux-form';
+import { connect } from 'react-redux';
 
+//===============================================================================================//
 
 class Landing extends Component {
 
-    // initial state for calendar
-
     constructor(props) {
         super(props);
+        const today = new Date();
         this.state = {
-            numAdults: '1'
+            numAdults: '1',
+            month: today.getMonth() + 1,
+            day: today.getDate(),
+            year: today.getFullYear()
         };
 
-        this.onSubmit = this.onSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-
-
-    }
-
-    // Temporary. Used to explicitly print form inputs
-    onSubmit(event) {
-        event.preventDefault();
-        alert('Number of adults is: ' + this.state.numAdults);
-        console.log(this.state);
     }
 
 
@@ -37,27 +30,28 @@ class Landing extends Component {
 
 
     render() {
+        // Information needed for results component
+        console.log(this.state);
+
         return (
             <div className="landingMain">
-
                 { /* User input required: start of stay, end of stay, # of adults */ }
                 <div className="userInput">
                     <div className="formArea">
                         <h4>A worthwhile rendezvous. Tell us about your stay...</h4>
 
-                        <form onSubmit={this.onSubmit}>
+                        <form onSubmit={this.handleChange}>
                             <select name="numAdults" value={this.state.numAdults} onChange={this.handleChange}>
                                 <option value="1">1 Adult</option>
                                 <option value="2">2 Adults</option>
                                 <option value="3">3 Adults</option>
                                 <option value="4">4 Adults</option>
                             </select>
-                            <input type="submit" value="Submit"/>
-                        </form>
 
-                        <Button bsStyle="success" id="homeSearchButton" href="/results">Go!</Button>
+                                <Button type="submit" bsStyle="success" id="homeSearchButton">Go!</Button>
+                        </form>
                         <hr />
-                        Local time. Local temperature
+                        Local time. Local temperature is {this.state.numAdults}
                     </div>
 
                 </div>
@@ -87,12 +81,32 @@ class Landing extends Component {
                         </Row>
                     </Grid>
                 </div>
-
-
-
             </div>
         );
     }
 }
 
-export default Landing;
+function mapStateToProps(state) {
+    console.log('current mapStateToProps is: ' + state);
+    return {
+        numAdults: state.numAdults
+    }
+}
+
+export default connect(mapStateToProps)(Landing);
+
+
+
+
+
+/*
+        //this.onSubmit = this.onSubmit.bind(this);
+
+Temporary. Used to explicitly print form inputs
+// helpful link: https://stackoverflow.com/questions/43695128/input-elements-should-not-switch-from-controlled-to-uncontrolled-reactjs-error/43695213#43695213
+onSubmit(event) {
+    event.preventDefault();
+    alert('Number of adults is: ' + this.state.numAdults);
+    //window.location.replace("/results");  //temporary
+}
+*/

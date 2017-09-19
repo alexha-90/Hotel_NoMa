@@ -2,9 +2,23 @@ import React, { Component } from 'react';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
 import 'react-dom';
 import { Link } from 'react-router-dom';
+import Landing from './Landing';
+
+//===============================================================================================//
 
 class ListResults extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            numAdults: props.numAdults
+        };
+
+
+    }
+
     render () {
+        console.log(this.state);
+
         return (
             <div>
                 <p>Results that match 1 adult guest from 12/25/2017 to 12/31/2017:</p>

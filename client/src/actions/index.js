@@ -1,3 +1,11 @@
+export default (async function showResults(values) {
+    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+});
+
+
+
+
+/* from bucky tutorial
 export const selectUser = (user) => {
     console.log("You clciked on user :", user.name);
     return {
@@ -5,3 +13,4 @@ export const selectUser = (user) => {
         payload: user
     }
 };
+*/

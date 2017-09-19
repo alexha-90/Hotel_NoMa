@@ -42,6 +42,7 @@ class Login extends Component {
                         </form>
                         */}
                     </div>
+                    <Button bsStyle="success" id="homeSearchButton" href="/results">Go!</Button>
                     Forgot password
                     New User
                 </div>

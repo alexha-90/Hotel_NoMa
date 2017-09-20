@@ -170,16 +170,3 @@ class Checkout extends Component {
 }
 
 export default Checkout;
-
-/*
-
-
-                Room cost: $99.99 x 6 nights
-                Cleaning fee: $15.00 x 6 nights
-                S.F. occupancy tax (14%): $42.00
-                S.F. tourism tax (1.5%): $35.23
-                <h3>Total cost of your stay: $765.23</h3>
-                <h2>Enter credit card information</h2>
-                <Button bsStyle="primary" href="/confirmation">Pay Later (cancel by 12/24/2017)</Button>
-                <Button bsStyle="success" href="/confirmation">Pay Now</Button>
- */

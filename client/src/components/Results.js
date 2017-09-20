@@ -5,6 +5,7 @@ import 'react-dom';
 // import Landing from './Landing';
 
 //to-do: define number of rooms available per day, see if available. If conditions not met, remove from results
+//to-do: link action to pressing room button
 
 //===============================================================================================//
 
@@ -15,8 +16,8 @@ class ListResults extends Component {
             numAdults: 2,
             roomSelection: '',
             selectedDates: '',
-            expandRoomExcalibur: false,
-            expandRoomNugget: false
+            expandExcaliburView: false,
+            expandNuggetView: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -28,6 +29,7 @@ class ListResults extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         this.setState({
             roomSelection: event.target.value
         });
@@ -83,10 +85,10 @@ class ListResults extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
-                                <Button bsStyle="success" onClick={ ()=> this.setState({ expandRoomExcalibur: !this.state.expandRoomExcalibur })}>
+                                <Button bsStyle="success" onClick={ ()=> this.setState({ expandExcaliburView: !this.state.expandExcaliburView })}>
                                     See available rooms
                                 </Button>
-                                <Panel collapsible expanded={this.state.expandRoomExcalibur}>
+                                <Panel collapsible expanded={this.state.expandExcaliburView}>
                                     <div>
                                         <h1>Executive Suite (Room size: 986 sq) $150.00/night</h1>
                                         <Button bsStyle="success" value="executiveSuite" onClick={this.handleSubmit}>Book now</Button>
@@ -143,10 +145,10 @@ class ListResults extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
-                                <Button bsStyle="success" onClick={ ()=> this.setState({ expandRoomNugget: !this.state.expandRoomNugget })}>
+                                <Button bsStyle="success" onClick={ ()=> this.setState({ expandNuggetView: !this.state.expandNuggetView })}>
                                     See available rooms
                                 </Button>
-                                <Panel collapsible expanded={this.state.expandRoomNugget}>
+                                <Panel collapsible expanded={this.state.expandNuggetView}>
                                     <div>
                                         <h1>Den (Room size: 650 sq) $100.00/night</h1>
                                         <Button bsStyle="success" value="den" onClick={this.handleSubmit}>Book now</Button>

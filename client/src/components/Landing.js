@@ -3,6 +3,9 @@ import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 //import { Field, reduxForm} from 'redux-form';
 import { connect } from 'react-redux';
+import moment from 'moment';
+
+//to-do: account for PST timezone. http://momentjs.com/docs/#/parsing/string-format/
 
 //===============================================================================================//
 
@@ -10,12 +13,12 @@ class Landing extends Component {
 
     constructor(props) {
         super(props);
-        const today = new Date();
+
         this.state = {
             numAdults: '1',
-            month: today.getMonth() + 1,
-            day: today.getDate(),
-            year: today.getFullYear()
+            enterDate: moment().format("MM/DD/YYYY"),
+            exitDate: moment().add(1, 'days').format("MM/DD/YYYY"),
+            numNights: (moment().add(1, 'days')).diff(moment(), 'days')  //use this for next page. not needed here
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -108,4 +111,7 @@ onSubmit(event) {
     alert('Number of adults is: ' + this.state.numAdults);
     //window.location.replace("/results");  //temporary
 }
+
+
+        let currentDate = [today.getFullYear(), today.getMonth(), today.getDate()];
 */

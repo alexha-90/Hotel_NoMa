@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 import 'react-dom';
-import { Link } from 'react-router-dom';
-import Landing from './Landing';
+// import { Link } from 'react-router-dom';
+// import Landing from './Landing';
+
+//to-do: define number of rooms available per day, see if available. If conditions not met, remove from results
 
 //===============================================================================================//
 
@@ -10,21 +12,35 @@ class ListResults extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            numAdults: props.numAdults,
+            numAdults: 2,
+            roomSelection: '',
+            selectedDates: '',
             expandRoomExcalibur: false,
             expandRoomNugget: false
         };
-
-
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        if (this.state.numAdults > 3) {
+            console.log('remove smaller room options');
+        }
+    }
+
+    handleSubmit(event) {
+        this.setState({
+            roomSelection: event.target.value
+        });
+    }
+
+
     render () {
-        console.log(Landing.props);
+        console.log(this.state);
 
         return (
             <div>
 
-                <p>Results that match 1 adult guest from 12/25/2017 to 12/31/2017:</p>
+                <p>Results that match {this.state.numAdults} adult guest from 12/25/2017 to 12/31/2017:</p>
                 <Button bsStyle="primary">Modify Search</Button>
                 <div id="excaliburResult">
                     <Grid>
@@ -72,8 +88,8 @@ class ListResults extends Component {
                                 </Button>
                                 <Panel collapsible expanded={this.state.expandRoomExcalibur}>
                                     <div>
-                                        <h1>Executive Suite (Room size: 986 sq) $154.99/night</h1>
-                                        <Button bsStyle="success" href="/checkout">Book now</Button>
+                                        <h1>Executive Suite (Room size: 986 sq) $150.00/night</h1>
+                                        <Button bsStyle="success" value="executiveSuite" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One king bed, city view. Pictures TBD</p>
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
                                         Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
@@ -83,7 +99,7 @@ class ListResults extends Component {
                                     <hr />
                                     <div>
                                         <h1>Family Accommodation (Room size: 700 sq) $120.00/night</h1>
-                                        <Button bsStyle="success" href="/checkout">Book now</Button>
+                                        <Button bsStyle="success" value="familyAccommodation" onClick={this.handleSubmit}>Book now</Button>
                                         <p>Two Double beds, swimming pool view. Pictures TBD</p>
                                         Number of form groups, we recommend building a higher-level component encapsulating a complete field
                                         group that renders the label, the control, and any other necessary components. We don't provide this
@@ -132,8 +148,8 @@ class ListResults extends Component {
                                 </Button>
                                 <Panel collapsible expanded={this.state.expandRoomNugget}>
                                     <div>
-                                        <h1>Den (Room size: 650 sq) $99.99/night</h1>
-                                        <Button bsStyle="success" href="/checkout">Book now</Button>
+                                        <h1>Den (Room size: 650 sq) $100.00/night</h1>
+                                        <Button bsStyle="success" value="den" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One queen bed, city view. Pictures TBD</p>
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
                                         Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
@@ -142,8 +158,8 @@ class ListResults extends Component {
                                     </div>
                                     <hr />
                                     <div>
-                                        <h1>Frugal Traveler (Room size: 500 sq) $74.99/night</h1>
-                                        <Button bsStyle="success" href="/checkout">Book now</Button>
+                                        <h1>Frugal Traveler (Room size: 500 sq) $75.00/night</h1>
+                                        <Button bsStyle="success" value="frugalTraveler" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One Double bed, swimming pool view. Pictures TBD</p>
                                         Number of form groups, we recommend building a higher-level component encapsulating a complete field
                                         group that renders the label, the control, and any other necessary components. We don't provide this

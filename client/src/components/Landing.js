@@ -47,8 +47,7 @@ class Landing extends Component {
                                 <option value="3">3 Adults</option>
                                 <option value="4">4 Adults</option>
                             </select>
-
-                                <Button type="submit" bsStyle="success" id="homeSearchButton">Go!</Button>
+                             <Button type="submit" bsStyle="success" id="homeSearchButton">Go!</Button>
                         </form>
                         <hr />
                         Local time. Local temperature is {this.state.numAdults}

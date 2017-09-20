@@ -38,7 +38,7 @@ class App extends Component {
                       { /* Define dynamic page routes */ }
                       <Route exact path='/' component={Landing} />
                       <Route exact path='/login' component={Login} />
-                      <Route exact path='/results' component={ListResults} />
+                      <Route exact path='/results/:id' component={ListResults} />
                       <Route exact path='/checkout' component={Checkout} />
                       {/*
                       <Route exact path='/confirmation' component={Confirmation} />

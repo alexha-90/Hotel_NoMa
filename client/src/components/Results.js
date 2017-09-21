@@ -5,10 +5,15 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 //import { fetchItinerary } from '../actions'
 
+// add loading. Like https://stackoverflow.com/questions/33097064/react-delayed-rendering
 //to-do: define number of rooms available per day, see if available. If conditions not met, remove from results
 //to-do: link checkout action to pressing room button
+//to-do: change grammar if 1 night
+//to-do: functional modify search button
+//to-do: image carousel and/or modal
 
 //===============================================================================================//
+
 
 class ListResults extends Component {
     constructor(props) {
@@ -21,21 +26,17 @@ class ListResults extends Component {
             roomSelection: '',
             selectedDates: '',
         };
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    /*
     componentDidMount() {
         if (this.props.itinerary.numAdults > 3) {
             console.log('need to remove smaller room options');
         }
     }
-
-    /*
-    componentDidMount() {
-        this.props.dispatch(fetchItinerary());
-    }
     */
-
 
     handleSubmit(event) {
         event.preventDefault();
@@ -51,10 +52,11 @@ class ListResults extends Component {
         return (
             <div>
 
-                <p>Results that match {this.props.itinerary.numAdults} adult guest
+                <h3>Results that match {this.props.itinerary.numAdults} adult guest
                     from {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate}.
-                    Your total stay is {this.props.itinerary.numNights} nights. (note: change grammar if 1)
-                </p>
+                    Your total stay is {this.props.itinerary.numNights} night(s).
+                </h3>
+
                 <Button bsStyle="primary">Modify Search</Button>
 
                 <div id="excaliburResult">
@@ -103,7 +105,7 @@ class ListResults extends Component {
                                 </Button>
                                 <Panel collapsible expanded={this.state.expandExcaliburView}>
                                     <div>
-                                        <h1>Executive Suite (Room size: 986 sq) $150.00/night</h1>
+                                        <h1>Executive Suite (Room size: 986 sq) ${this.props.pricing.executiveSuite}/night</h1>
                                         <Button bsStyle="success" value="executiveSuite" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One king bed, city view. Pictures TBD</p>
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
@@ -113,7 +115,7 @@ class ListResults extends Component {
                                     </div>
                                     <hr />
                                     <div>
-                                        <h1>Family Accommodation (Room size: 700 sq) $120.00/night</h1>
+                                        <h1>Family Accommodation (Room size: 700 sq) ${this.props.pricing.familyAccommodation}/night</h1>
                                         <Button bsStyle="success" value="familyAccommodation" onClick={this.handleSubmit}>Book now</Button>
                                         <p>Two Double beds, swimming pool view. Pictures TBD</p>
                                         Number of form groups, we recommend building a higher-level component encapsulating a complete field
@@ -164,7 +166,7 @@ class ListResults extends Component {
                                 </Button>
                                 <Panel collapsible expanded={this.state.expandNuggetView}>
                                     <div>
-                                        <h1>Den (Room size: 650 sq) $100.00/night</h1>
+                                        <h1>Den (Room size: 650 sq) ${this.props.pricing.den}</h1>
                                         <Button bsStyle="success" value="den" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One queen bed, city view. Pictures TBD</p>
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
@@ -174,7 +176,7 @@ class ListResults extends Component {
                                     </div>
                                     <hr />
                                     <div>
-                                        <h1>Frugal Traveler (Room size: 500 sq) $75.00/night</h1>
+                                        <h1>Frugal Traveler (Room size: 500 sq) ${this.props.pricing.frugalTraveler}/night</h1>
                                         <Button bsStyle="success" value="frugalTraveler" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One Double bed, swimming pool view. Pictures TBD</p>
                                         Number of form groups, we recommend building a higher-level component encapsulating a complete field
@@ -195,6 +197,7 @@ class ListResults extends Component {
 function mapStateToProps(state) {
     return {
         itinerary: state.userInput.itinerary,
+        pricing: state.pricing,
     }
 }
 

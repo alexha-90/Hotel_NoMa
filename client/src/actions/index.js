@@ -1,11 +1,47 @@
+
+export function fetchItinerary() {
+    console.log('update imminent!!');
+    return {
+        type: "FETCH_DATA",
+        payload: {
+            numAdults: 4,
+            numNights: 4,
+        }
+    };
+}
+
+
+// more actions to come
+
+
+
+/*
+
+export function fetchItinerary() {
+    console.log('update imminent!!');
+    return {
+        type: "FETCH DATA",
+        payload: {
+            numAdults: 4,
+            numNights: 4,
+        }
+    };
+}
+ */
+
+
+
+
+
+
+
+
 /*
 
 export default (async function showResults(values) {
     window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
 });
 */
-
-
 
 /* from bucky tutorial */
 export const selectUser = (user) => {

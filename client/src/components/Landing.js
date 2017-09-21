@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 
+// for testing:
+import { fetchItinerary } from '../actions'
+
 //===============================================================================================//
 
 class Landing extends Component {
@@ -31,6 +34,11 @@ class Landing extends Component {
     }
 
 
+    componentDidMount() {
+        this.props.dispatch(fetchItinerary());
+    }
+
+
     render() {
         // Information needed for results component
         console.log('Current state of component:');
@@ -41,6 +49,11 @@ class Landing extends Component {
                 { /* User input required: start of stay, end of stay, # of adults */ }
                 <div className="userInput">
                     <div className="formArea">
+                        <h1>Testing temp: {this.props.testValue}</h1>
+                        <h1>Testing temp: {this.props.hello}</h1>
+                        <h4>Testing temp: {this.props.helloDeep.nestedTest}</h4>
+
+
                         <h4>A worthwhile rendezvous. Tell us about your stay...</h4>
 
                         <form onSubmit={this.handleChange}>
@@ -89,9 +102,13 @@ class Landing extends Component {
 }
 
 function mapStateToProps(state) {
-    //console.log('current mapStateToProps is: ' + state);
+    console.log('Current mapStateToProps is:');
+    console.log(state);
     return {
-        numAdults: state.numAdults
+        //userInput: state.userInput.itinerary
+        hello: state.userInput.someTest,
+        helloDeep: state.userInput.itinerary,
+        testValue: 'successful prop test'
     }
 }
 
@@ -102,6 +119,11 @@ export default connect(mapStateToProps)(Landing);
 
 
 /*
+
+        userInput: state.userInput
+        userInput: state.userInput.itinerary.numAdults,
+
+
         //this.onSubmit = this.onSubmit.bind(this);
 
 Temporary. Used to explicitly print form inputs
@@ -113,5 +135,20 @@ onSubmit(event) {
 }
 
 
-        let currentDate = [today.getFullYear(), today.getMonth(), today.getDate()];
+class MyComponent extends React.Component{....}
+
+function mapStateToProps(state) {
+    return { oneProp: state.oneReducer.oneProp }
+}
+export default connect(mapStateToProps)(MyComponent );﻿
+
+
+function mapStateToProps(state) {
+    //see all values and objects: console.log(state);
+    console.log('current mapStateToProps is: ' + state);
+    //whatever is returned will show up as props to const/class component
+    return { formValues: state.form.surveyForm.values };
+}
+
+
 */

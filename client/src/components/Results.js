@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 import 'react-dom';
+import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 // import Landing from './Landing';
 
@@ -41,6 +42,7 @@ class ListResults extends Component {
 
         return (
             <div>
+                <h1>Testing temp: {this.props.testvalue}</h1>
 
                 <p>Results that match {this.state.numAdults} adult guest from 12/25/2017 to 12/31/2017:</p>
                 <Button bsStyle="primary">Modify Search</Button>
@@ -177,6 +179,7 @@ class ListResults extends Component {
     }
 }
 
-export default ListResults;
+export default connect()(ListResults);
+
 
 //                                <Button bsStyle="success" href="/checkout">See available rooms</Button>

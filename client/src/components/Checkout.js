@@ -100,7 +100,7 @@ class Checkout extends Component {
                         <td>${(this.state.cleaningCost * this.state.numNights).toFixed(2)}</td>
                     </tr>
                     <tr>
-                        <td>S.F. occupancy tax ({(this.state.occupancyTax * 100).toFixed(3)}%</td>
+                        <td>S.F. occupancy tax ({(this.state.occupancyTax * 100).toFixed(3)}%)</td>
                         <td>${(((this.state.roomCost + this.state.cleaningCost) * this.state.numNights) * this.state.occupancyTax).toFixed(2)}</td>
                     </tr>
                     <tr>
@@ -146,7 +146,7 @@ class Checkout extends Component {
                         <td>
                             <label>
                                 <input type="checkbox" onChange={this.handleChange} value={this.state.breakfast} />
-                                &nbsp;Continential Breakfast (charged per guest)
+                                &nbsp;Continental Breakfast (charged per guest)
                             </label>
                         </td>
                     </tr>

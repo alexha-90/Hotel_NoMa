@@ -13,6 +13,8 @@ import { Button, Table } from 'react-bootstrap';
 
 //===============================================================================================//
 
+const occupancyTax = 100;
+const tourismTax = 500;
 
 class Checkout extends Component {
     constructor(props) {
@@ -164,6 +166,8 @@ class Checkout extends Component {
                 <h2>Enter credit card information</h2>
                 <Button bsStyle="primary" href="/confirmation">Pay Later (cancel by 12/24/2017)</Button>
                 <Button bsStyle="success" href="/confirmation">Pay Now</Button>
+                <h2>temp. tax is {occupancyTax}</h2>
+                <h2>temp. tax is {tourismTax}</h2>
             </div>
         );
     }

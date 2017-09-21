@@ -1,4 +1,4 @@
-//import moment from 'moment';
+import moment from 'moment';
 
 // to-do: limit stay to 30 days max
 // to-do: can only start stay 1 month in advance. Ending past is ok
@@ -8,12 +8,11 @@
 
 export default function (state={
     itinerary: {
-        numAdults: 3,
-        enterDate: null,
-        exitDate: null,
-        numNights: null,
-        furthestAllowedEnterDate: null,
-        deepTest: '',
+        numAdults: 1,
+        numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
+        enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
+        exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
+        furthestAllowedEnterDate: moment().utcOffset(-420).add(1, 'months').format("MM/DD/YYYY"),
     },
     fetching: false,
     fetched: false,
@@ -21,6 +20,7 @@ export default function (state={
     }, action) {
 
     switch (action.type) {
+        /* may be able to delete these cases
         case "FETCH_DATA": {
             //successfully accessed. updates fetching in props
             console.log('fetch data reached');
@@ -28,10 +28,19 @@ export default function (state={
         }
 
         case "FETCH_DATA_FULFILLED": {
-            console.log('updating entry reached');
+            console.log('fetch data entry reached');
             return {
                 ...state,
                 itinerary: action.payload
+            }
+        }
+        */
+
+        case "UPDATE_NUM_ADULTS": {
+            console.log('update number of adults reached');
+            return {
+                ...state,
+                itinerary: {...state.itinerary, numAdults: action.payload}
             }
         }
 
@@ -44,16 +53,3 @@ export default function (state={
     }
 
 }
-
-/*
-
-export default function (state={
-    itinerary: {
-        numAdults: 1,
-        enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
-        exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
-        numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
-        furthestAllowedEnterDate: moment().utcOffset(-420).add(1, 'months').format("MM/DD/YYYY")
-    },
-
- */

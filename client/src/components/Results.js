@@ -3,10 +3,10 @@ import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 import 'react-dom';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
-// import Landing from './Landing';
+//import { fetchItinerary } from '../actions'
 
 //to-do: define number of rooms available per day, see if available. If conditions not met, remove from results
-//to-do: link action to pressing room button
+//to-do: link checkout action to pressing room button
 
 //===============================================================================================//
 
@@ -14,20 +14,28 @@ class ListResults extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            numAdults: 2,
+            expandExcaliburView: false,
+            expandNuggetView: false,
+
+            // below wont be needed
             roomSelection: '',
             selectedDates: '',
-            expandExcaliburView: false,
-            expandNuggetView: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        if (this.state.numAdults > 3) {
-            console.log('remove smaller room options');
+        if (this.props.itinerary.numAdults > 3) {
+            console.log('need to remove smaller room options');
         }
     }
+
+    /*
+    componentDidMount() {
+        this.props.dispatch(fetchItinerary());
+    }
+    */
+
 
     handleSubmit(event) {
         event.preventDefault();
@@ -42,10 +50,13 @@ class ListResults extends Component {
 
         return (
             <div>
-                <h1>Testing temp: {this.props.testvalue}</h1>
 
-                <p>Results that match {this.state.numAdults} adult guest from 12/25/2017 to 12/31/2017:</p>
+                <p>Results that match {this.props.itinerary.numAdults} adult guest
+                    from {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate}.
+                    Your total stay is {this.props.itinerary.numNights} nights. (note: change grammar if 1)
+                </p>
                 <Button bsStyle="primary">Modify Search</Button>
+
                 <div id="excaliburResult">
                     <Grid>
                         <Row className="resultsGrid">
@@ -114,6 +125,7 @@ class ListResults extends Component {
                         </Row>
                     </Grid>
                 </div>
+
                 <div id="excaliburResult">
                     <Grid>
                         <Row className="resultsGrid">
@@ -174,11 +186,16 @@ class ListResults extends Component {
                         </Row>
                     </Grid>
                 </div>
+
             </div>
         );
     }
 }
 
-export default ListResults;
+function mapStateToProps(state) {
+    return {
+        itinerary: state.userInput.itinerary,
+    }
+}
 
-//                                <Button bsStyle="success" href="/checkout">See available rooms</Button>
+export default connect(mapStateToProps)(ListResults);

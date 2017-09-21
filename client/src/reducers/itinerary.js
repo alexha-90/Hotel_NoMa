@@ -13,10 +13,11 @@ export default function (state={
         enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
         exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
         furthestAllowedEnterDate: moment().utcOffset(-420).add(1, 'months').format("MM/DD/YYYY"),
+        roomType: ''
     },
-    fetching: false,
-    fetched: false,
-    error: null,
+    //fetching: false,
+    //fetched: false,
+    //error: null,
     }, action) {
 
     switch (action.type) {
@@ -41,6 +42,14 @@ export default function (state={
             return {
                 ...state,
                 itinerary: {...state.itinerary, numAdults: action.payload}
+            }
+        }
+
+        case "UPDATE_ROOM_TYPE": {
+            console.log('update room type reached');
+            return {
+                ...state,
+                itinerary: {...state.itinerary, roomType: action.payload}
             }
         }
 

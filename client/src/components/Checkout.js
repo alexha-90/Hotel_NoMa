@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import { Button, Table } from 'react-bootstrap';
 
 //to-do: integrate stripe
+//future feature: dynamic pricing. Increase by a % factor if date lands on weekend
 // bug: all addons change together
 // checkbox reference: https://stackoverflow.com/questions/32923255/react-checkbox-doesnt-toggle
-// price sheet:
-//      frugal traveler: 75,
-//      den: 100,
-//      family accommodation: 120,
-//      executive suite: 150
 
 
 //===============================================================================================//

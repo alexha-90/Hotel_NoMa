@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 import 'react-dom';
 import { connect } from 'react-redux';
+import { updateRoomType} from "../actions"
 // import { Link } from 'react-router-dom';
 //import { fetchItinerary } from '../actions'
 
@@ -21,12 +22,7 @@ class ListResults extends Component {
         this.state = {
             expandExcaliburView: false,
             expandNuggetView: false,
-
-            // below wont be needed
-            roomSelection: '',
-            selectedDates: '',
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -40,9 +36,11 @@ class ListResults extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({
-            roomSelection: event.target.value
-        });
+        let roomSelection = event.target.value;
+        this.props.dispatch(updateRoomType(roomSelection));
+
+        //temporary. Just to test if room type is successfully updating
+        //{alert(this.props.itinerary.roomType)}
     }
 
 
@@ -56,7 +54,6 @@ class ListResults extends Component {
                     from {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate}.
                     Your total stay is {this.props.itinerary.numNights} night(s).
                 </h3>
-
                 <Button bsStyle="primary">Modify Search</Button>
 
                 <div id="excaliburResult">
@@ -196,7 +193,7 @@ class ListResults extends Component {
 
 function mapStateToProps(state) {
     return {
-        itinerary: state.userInput.itinerary,
+        itinerary: state.itineraryReducer.itinerary,
         pricing: state.pricing,
     }
 }

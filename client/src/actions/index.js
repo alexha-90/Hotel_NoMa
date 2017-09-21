@@ -1,11 +1,19 @@
-export function updateNumAdults (inputNumAdults) {
-    console.log('update number adults imminent!!');
+export function updateNumAdults(inputNumAdults) {
+    console.log('updating number adults!!');
     return {
         type: "UPDATE_NUM_ADULTS",
         payload: inputNumAdults
     };
 }
 
+
+export function updateRoomType(roomSelection) {
+    console.log('updating room selection!!');
+    return {
+        type: "UPDATE_ROOM_TYPE",
+        payload: roomSelection
+    }
+}
 
 /*
 export function fetchItinerary() {

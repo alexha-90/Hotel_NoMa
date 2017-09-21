@@ -3,7 +3,8 @@ import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import 'react-dom';
 import { Link } from 'react-router-dom';
 
-// https://react-bootstrap.github.io/components.html
+
+//===============================================================================================//
 
 class Header extends Component {
     render() {
@@ -12,6 +13,7 @@ class Header extends Component {
                 <Navbar className="navTop">
                     <Navbar.Header>
                         <Navbar.Brand>
+                            {/* maybe change this to Link */}
                             <a href="/">Hotel NoMas</a>
                         </Navbar.Brand>
                     </Navbar.Header>

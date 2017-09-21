@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-//to-do: account for PST timezone. http://momentjs.com/docs/#/parsing/string-format/
 
 //===============================================================================================//
 
@@ -16,9 +15,9 @@ class Landing extends Component {
 
         this.state = {
             numAdults: '1',
-            enterDate: moment().format("MM/DD/YYYY"),
-            exitDate: moment().add(1, 'days').format("MM/DD/YYYY"),
-            numNights: (moment().add(1, 'days')).diff(moment(), 'days')  //use this for next page. not needed here
+            enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
+            exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
+            numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days')  //use this for next page. not needed here
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -34,6 +33,7 @@ class Landing extends Component {
 
     render() {
         // Information needed for results component
+        console.log('Current state of component:');
         console.log(this.state);
 
         return (
@@ -89,7 +89,7 @@ class Landing extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('current mapStateToProps is: ' + state);
+    //console.log('current mapStateToProps is: ' + state);
     return {
         numAdults: state.numAdults
     }

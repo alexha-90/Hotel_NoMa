@@ -4,6 +4,7 @@ export default function() {
     return [
         {
             id: 1,
+            name: 'dategrabber',
             month: today.getMonth() + 1,
             day: today.getDate(),
             year: today.getFullYear()

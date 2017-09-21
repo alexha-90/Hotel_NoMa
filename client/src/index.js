@@ -13,6 +13,18 @@ import { Provider } from 'react-redux';
 
 const store = createStore(allReducers);
 
+//----------------------------------------------------------------//
+// for learning and debugging. subscribe = listen to store
+
+store.subscribe(() => {
+    console.log("Current state of store is:", store.getState())
+});
+
+store.dispatch({type: "INC", payload: 1});
+//----------------------------------------------------------------//
+
+
+
 ReactDOM.render(
     <Provider store={ store }>
         <div>

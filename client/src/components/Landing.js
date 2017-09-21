@@ -33,10 +33,11 @@ class Landing extends Component {
         });
     }
 
-
+    /*
     componentDidMount() {
         this.props.dispatch(fetchItinerary());
     }
+    */
 
 
     render() {
@@ -49,10 +50,7 @@ class Landing extends Component {
                 { /* User input required: start of stay, end of stay, # of adults */ }
                 <div className="userInput">
                     <div className="formArea">
-                        <h1>Testing temp: {this.props.testValue}</h1>
-                        <h1>Testing temp: {this.props.hello}</h1>
-                        <h4>Testing temp: {this.props.helloDeep.nestedTest}</h4>
-
+                        {/* <h4>mapStateToProps test for retrieving redux store values: {this.props.itinerary.deepTest}</h4> */}
 
                         <h4>A worthwhile rendezvous. Tell us about your stay...</h4>
 
@@ -66,7 +64,7 @@ class Landing extends Component {
                              <Button type="submit" bsStyle="success" id="homeSearchButton">Go!</Button>
                         </form>
                         <hr />
-                        Local time. Local temperature is {this.state.numAdults}
+                        Local time. Local temperature is {this.props.itinerary.numAdults}
                     </div>
 
                 </div>
@@ -105,10 +103,7 @@ function mapStateToProps(state) {
     console.log('Current mapStateToProps is:');
     console.log(state);
     return {
-        //userInput: state.userInput.itinerary
-        hello: state.userInput.someTest,
-        helloDeep: state.userInput.itinerary,
-        testValue: 'successful prop test'
+        itinerary: state.userInput.itinerary,
     }
 }
 

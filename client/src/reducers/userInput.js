@@ -8,14 +8,13 @@
 
 export default function (state={
     itinerary: {
-        numAdults: null,
+        numAdults: 3,
         enterDate: null,
         exitDate: null,
         numNights: null,
         furthestAllowedEnterDate: null,
-        nestedTest: 'hello from inside the itinerary inside the userInput reducer',
+        deepTest: '',
     },
-    someTest: 'hello from inside the userInput reducer',
     fetching: false,
     fetched: false,
     error: null,
@@ -24,8 +23,16 @@ export default function (state={
     switch (action.type) {
         case "FETCH_DATA": {
             //successfully accessed. updates fetching in props
-            alert('fetch data reached');
+            console.log('fetch data reached');
             return {...state, fetching: true}
+        }
+
+        case "FETCH_DATA_FULFILLED": {
+            console.log('updating entry reached');
+            return {
+                ...state,
+                itinerary: action.payload
+            }
         }
 
         // more cases to come

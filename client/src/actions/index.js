@@ -2,10 +2,11 @@
 export function fetchItinerary() {
     console.log('update imminent!!');
     return {
-        type: "FETCH_DATA",
+        type: "FETCH_DATA_FULFILLED",
         payload: {
             numAdults: 4,
             numNights: 4,
+            deepTest: 'hi from inside the itinerary inside the userInput reducer',
         }
     };
 }
@@ -20,13 +21,15 @@ export function fetchItinerary() {
 export function fetchItinerary() {
     console.log('update imminent!!');
     return {
-        type: "FETCH DATA",
+        type: "FETCH_DATA",
         payload: {
+            injectTest: 'successfully injected via index',
             numAdults: 4,
             numNights: 4,
         }
     };
 }
+
  */
 
 

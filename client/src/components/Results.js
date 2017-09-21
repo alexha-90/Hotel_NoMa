@@ -179,7 +179,6 @@ class ListResults extends Component {
     }
 }
 
-export default connect()(ListResults);
-
+export default ListResults;
 
 //                                <Button bsStyle="success" href="/checkout">See available rooms</Button>

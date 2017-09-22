@@ -29,7 +29,7 @@ class Landing extends Component {
                                 <option value="3">3 Adults</option>
                                 <option value="4">4 Adults</option>
                             </select>
-                            <Link to="/results/:id"><Button type="submit" bsStyle="success" id="homeSearchButton">Go!</Button></Link>
+                            <Button type="submit" bsStyle="success" id="homeSearchButton"><Link to="/results/:id">Go!</Link></Button>
                         </form>
 
                         <hr />

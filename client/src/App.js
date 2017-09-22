@@ -9,7 +9,7 @@ import Landing from './components/Landing';
 import Login from './components/Login';
 import ListResults from './components/Results';
 import Checkout from './components/Checkout';
-//import Confirmation from './components/Confirmation';
+import Confirmation from './components/Confirmation';
 
 // Import static page routes for application
 import Header from './components/static/Header';
@@ -40,6 +40,7 @@ class App extends Component {
                       <Route exact path='/login' component={Login} />
                       <Route exact path='/results/:id' component={ListResults} />
                       <Route exact path='/checkout' component={Checkout} />
+                      <Route exact path='/confirmation' component={Confirmation} />
                       {/*
                       <Route exact path='/confirmation' component={Confirmation} />
                       */}

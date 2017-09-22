@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { Redirect} from 'react-router';
 import { Button, Table } from 'react-bootstrap';
 
 //to-do: integrate stripe
 //to-do: show pricing each day
 //to-do: change grammar for adults
 //to-do: bill shuttle and breakfast per person
-//to-do: throw error if no room type and somehow on checkout page.
+//to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 //future feature: dynamic pricing. Increase by a % factor if date lands on weekend
 // bug: all addons change together
 // checkbox reference: https://stackoverflow.com/questions/32923255/react-checkbox-doesnt-toggle
@@ -23,63 +23,45 @@ class Checkout extends Component {
         this.state = {
             numAdults: 2,
             roomCost: 100,
-            roomSelection: 'executiveSuite',
             selectedDates: '',
             carePackage: false,
             lateCheckout: false,
             shuttleRide: false,
             breakfast: false,
         };
-        this.handleChange = this.handleChange.bind(this);
         this.addonCost = this.addonCost.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentWillMount() {
     // Associating a price with room type. Will find refactor later
         switch (this.props.itinerary.roomType) {
-
             case 'executiveSuite': {
-                this.totalCost = this.props.pricing.executiveSuite;
+                this.roomCostPerNight = this.props.pricing.executiveSuite;
                 break;
             }
 
             case 'familyAccommodation': {
-                this.totalCost = this.props.pricing.familyAccommodation;
+                this.roomCostPerNight = this.props.pricing.familyAccommodation;
                 break;
             }
 
             case 'den': {
-                this.totalCost = this.props.pricing.den;
+                this.roomCostPerNight = this.props.pricing.den;
                 break;
             }
 
             case 'frugalTraveler': {
-                this.totalCost = this.props.pricing.frugalTraveler;
+                this.roomCostPerNight = this.props.pricing.frugalTraveler;
                 break;
             }
 
             default: {
-                throw new Error("No room type was entered. Please return to the homepage and start a new search");
+                //throw new Error("No room type was entered. Please return to the homepage and start a new search");
+                console.log(' ');
             }
-
         }
-    }
-
-
-
-    handleChange(event) {
-        this.setState({
-            carePackage: !this.state.carePackage,
-            lateCheckout: !this.state.lateCheckout,
-            shuttleRide: !this.state.shuttleRide,
-            breakfast: !this.state.breakfast,
-        });
-        /* use this to inject addons into table and update total
-        return (
-            <li>{alert('hello')}</li>
-        );
-        */
-
     }
 
     addonCost() {
@@ -104,8 +86,34 @@ class Checkout extends Component {
         return carePackageCost + lateCheckoutCost + shuttleRideCost + breakfastCost;
     }
 
+    handleChange(event) {
+        //broken. changes all at once
+        this.setState({
+            carePackage: !this.state.carePackage,
+            lateCheckout: !this.state.lateCheckout,
+            shuttleRide: !this.state.shuttleRide,
+            breakfast: !this.state.breakfast,
+        });
+        /* use this to inject addons into table and update total
+        return (
+            <li>{alert('hello')}</li>
+        );
+        */
+
+    }
+
+    handleSubmit() {
+        this.setState({redirect: true});
+    }
+
+
+
     render() {
         console.log(this.state);
+
+        if (this.state.redirect) {
+            return <Redirect push to="/confirmation" />;
+        }
 
         return (
             <div>
@@ -116,7 +124,7 @@ class Checkout extends Component {
                     Please consider the following add-ons before checking out:
                 </h1>
 
-                <h1>Temporary. Your room cost is ${this.totalCost} for {this.props.itinerary.roomType}</h1>
+                <h1>Temporary. Your room cost is ${this.roomCostPerNight} for {this.props.itinerary.roomType}</h1>
 
                 Your stay:
                 <Table striped bordered condensed>
@@ -181,10 +189,11 @@ class Checkout extends Component {
                     <tr>
                         <td>
                             <label>
-                                <input type="checkbox" onChange={this.handleChange} value={this.state.breakfast} />
+                                <input type="checkbox" onChange={this.handleChange} />
                                 &nbsp;Continental Breakfast (charged per guest)
                             </label>
                         </td>
+                        <td>{this.props.pricing.breakfast}</td>
                     </tr>
                     <tr>
                         <td>TOTAL</td>
@@ -198,8 +207,7 @@ class Checkout extends Component {
                 </Table>
 
                 <h2>Enter credit card information</h2>
-                <Button bsStyle="primary" href="/confirmation">Pay Later (cancel by 12/24/2017)</Button>
-                <Button bsStyle="success" href="/confirmation">Pay Now</Button>
+                <Button bsStyle="success" onClick={this.handleSubmit}>Book Now (free cancellations until {this.props.itinerary.cancelByDate})</Button>
 
             </div>
         );

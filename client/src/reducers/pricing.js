@@ -15,6 +15,11 @@ export default function(state={
     // Service charges
     cleaningCost: 12.00,
 
+    // Addon services
+    carePackageCost: 5.00,
+    lateCheckoutCost: 10.00,
+    shuttleRideCost: 25.00,
+    breakfastCost: 10.00,
     }, ) {
         return state;
     }

@@ -2,8 +2,10 @@ import moment from 'moment';
 
 // to-do: limit stay to 30 days max
 // to-do: can only start stay 1 month in advance. Ending past is ok
+// to-do: more flexible enter, exit dates. cancelBy based on exit
 
 // Default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
+
 
 
 export default function (state={
@@ -12,8 +14,10 @@ export default function (state={
         numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
         enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
         exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
+        cancelByDate: moment().utcOffset(-420).subtract(1, 'days').format("MM/DD/YYYY"),
         furthestAllowedEnterDate: moment().utcOffset(-420).add(1, 'months').format("MM/DD/YYYY"),
-        roomType: ''
+        roomType: '',
+        totalCostOfStay: null
     },
     //fetching: false,
     //fetched: false,

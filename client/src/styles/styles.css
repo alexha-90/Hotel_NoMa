@@ -1,7 +1,8 @@
 
-/*============== General CSS ==============*/
+/*============== Global CSS ==============*/
 body {
   font-family: sans-serif;
+
 }
 
 ul {
@@ -9,12 +10,17 @@ ul {
 }
 
 hr {
-  color: darkgray;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid black;
+  border-radius: 20px;
+  margin: 2em 0;
+  padding: 0;
 }
 
 .container {
-  width: 80%;
-  background-color: pink;
+  width: 90%;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -23,6 +29,12 @@ hr {
 
 
 /*============== Landing Page CSS ==============*/
+
+.topHalf {
+  background-color: darkgray;
+  padding-top: 20px;
+}
+
 .userInput {
   border: 2px solid blue;
   margin: 0 100px 20px 100px;
@@ -38,13 +50,37 @@ hr {
   width: 100px;
 }
 
+.learnMoreButton {
+  float: right;
+}
+
+.blurbHeader {
+  text-decoration: underline;
+  margin-bottom: 50px;
+}
+
 .threeBlurbs {
+  margin-top: 40px;
   text-align: center;
 }
 
-.threeBlurbs img {
-  display: block;
-  margin: auto;
+.blurbBG1 {
+  padding: 0 30px 0 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: yellow;
+}
+
+.blurbBG2 {
+  padding: 0 30px 0 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: darkgray;
+}
+
+/* used for blurb vector icons */
+h9 {
+  font-size: 70px;
 }
 
 
@@ -111,15 +147,22 @@ hr {
 /*============== Header CSS ==============*/
 .navTop {
   font-size: 16px;
-  background-color: gold;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
 
+.logoLeft {
+  position: absolute;
+  left: 0;
+}
+
+.menuRight {
+  position: absolute;
+  right: 0;
 }
 
 
 /*============== Footer CSS ==============*/
 .footer {
-  background-color: green;
   bottom: 0;
   text-align: center;
   opacity: 0.55;

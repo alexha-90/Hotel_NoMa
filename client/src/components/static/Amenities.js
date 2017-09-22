@@ -1,15 +1,21 @@
 import React, { Component }from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Panel, Image} from 'react-bootstrap';
 
 class Amenities extends Component {
     render() {
         return (
             <div>
+                <Panel>
+                    <div>
+                        <Image src="http://embassysuites3.hilton.com/resources/media/es/HSVESES/en_US/img/shared/full_page_image_gallery/main/ES_extnight001_2_712x342_FitToBoxSmallDimension_Center.jpg" responsive className="img-responsive center-block"/>
+                    </div>
+                </Panel>
+
                 <Grid>
                     <div className="amenityTextBox">
                         <Row className="">
                             <Col sm={4} md={3} id="leftAmenityImage">
-                                <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
+                                <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" className="img-responsive center-block"/>
                             </Col>
                             <Col sm={8} md={9}>
                                 <h3>Highlight 1</h3>

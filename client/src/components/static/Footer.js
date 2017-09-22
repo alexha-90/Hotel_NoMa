@@ -30,11 +30,12 @@ class Footer extends Component {
                                     <ul><img src="http://optinflow.com/wp-content/uploads/2017/03/fbinstatwitter.png" id="social_links" alt="social_links"/></ul>
                             </Col>
                             <Col sm={6} md={3}>
+
                                 <ul><Link to="/About">About Us</Link></ul>
                                 <ul><Link to="/">Contact Us</Link></ul>
                                 <ul><Link to="/Terms">Terms of Use</Link></ul>
                             </Col>
-                        </div>
+                    </div>
                         <Col sm={6} md={1}></Col>
                     </Row>
                 </Grid>

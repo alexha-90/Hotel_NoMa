@@ -74,6 +74,7 @@ class ListResults extends Component {
                             <Col id="highlightResult" sm={8} md={8}>
                                 <h1>Excalibur</h1>
                                 <div className="amenities">
+                                    fitness center
                                     <Grid>
                                         <Row className="amenityText">
                                             <Col id="thumbResult" sm={2} md={2}>

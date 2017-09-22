@@ -70,7 +70,7 @@ class Landing extends Component {
 function mapStateToProps(state) {
     return {
         itinerary: state.itineraryReducer.itinerary,
-    }
+    };
 }
 
 export default connect(mapStateToProps)(Landing);

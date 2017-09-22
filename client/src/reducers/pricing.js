@@ -1,10 +1,20 @@
 // Adjust room pricing here. Cents can be added, but will be rounded and only two digits displayed
 
 export default function(state={
-    executiveSuite: (150).toFixed(2),
-    familyAccommodation: (120).toFixed(2),
-    den: (100).toFixed(2),
-    frugalTraveler: (75).toFixed(2),
+    // Room rates
+    executiveSuite: 150.00,
+    familyAccommodation: 120.00,
+    den: 100.00,
+    frugalTraveler: 75.00,
+
+
+    // Tax rates
+    occupancyTax: 0.0525,
+    tourismTax: 0.03125,
+
+    // Service charges
+    cleaningCost: 12.00,
+
     }, ) {
         return state;
     }

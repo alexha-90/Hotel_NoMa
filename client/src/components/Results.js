@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
-import 'react-dom';
 import { connect } from 'react-redux';
-import { updateRoomType} from "../actions"
-// import { Link } from 'react-router-dom';
+import { updateRoomType} from '../actions';
+import { Redirect } from 'react-router';
+import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
+
+//import { Link } from 'react-router-dom';
 //import { fetchItinerary } from '../actions'
 
 // add loading. Like https://stackoverflow.com/questions/33097064/react-delayed-rendering
@@ -38,14 +39,19 @@ class ListResults extends Component {
         event.preventDefault();
         let roomSelection = event.target.value;
         this.props.dispatch(updateRoomType(roomSelection));
-
+        this.setState({redirect: true});
         //temporary. Just to test if room type is successfully updating
         //{alert(this.props.itinerary.roomType)}
     }
 
 
     render () {
-        console.log(this.state);
+        // Use this to see if panels are collapsed or not: console.log(this.state);
+
+        // Using react-router to navigate to checkout after room type selected
+        if (this.state.redirect) {
+            return <Redirect push to="/checkout" />;
+        }
 
         return (
             <div>
@@ -102,7 +108,7 @@ class ListResults extends Component {
                                 </Button>
                                 <Panel collapsible expanded={this.state.expandExcaliburView}>
                                     <div>
-                                        <h1>Executive Suite (Room size: 986 sq) ${this.props.pricing.executiveSuite}/night</h1>
+                                        <h1>Executive Suite (Room size: 986 sq) ${(this.props.pricing.executiveSuite).toFixed(2)}/night</h1>
                                         <Button bsStyle="success" value="executiveSuite" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One king bed, city view. Pictures TBD</p>
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
@@ -112,7 +118,7 @@ class ListResults extends Component {
                                     </div>
                                     <hr />
                                     <div>
-                                        <h1>Family Accommodation (Room size: 700 sq) ${this.props.pricing.familyAccommodation}/night</h1>
+                                        <h1>Family Accommodation (Room size: 700 sq) ${(this.props.pricing.familyAccommodation).toFixed(2)}/night</h1>
                                         <Button bsStyle="success" value="familyAccommodation" onClick={this.handleSubmit}>Book now</Button>
                                         <p>Two Double beds, swimming pool view. Pictures TBD</p>
                                         Number of form groups, we recommend building a higher-level component encapsulating a complete field
@@ -163,7 +169,7 @@ class ListResults extends Component {
                                 </Button>
                                 <Panel collapsible expanded={this.state.expandNuggetView}>
                                     <div>
-                                        <h1>Den (Room size: 650 sq) ${this.props.pricing.den}</h1>
+                                        <h1>Den (Room size: 650 sq) ${(this.props.pricing.den).toFixed(2)}/night</h1>
                                         <Button bsStyle="success" value="den" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One queen bed, city view. Pictures TBD</p>
                                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
@@ -173,7 +179,7 @@ class ListResults extends Component {
                                     </div>
                                     <hr />
                                     <div>
-                                        <h1>Frugal Traveler (Room size: 500 sq) ${this.props.pricing.frugalTraveler}/night</h1>
+                                        <h1>Frugal Traveler (Room size: 500 sq) ${(this.props.pricing.frugalTraveler).toFixed(2)}/night</h1>
                                         <Button bsStyle="success" value="frugalTraveler" onClick={this.handleSubmit}>Book now</Button>
                                         <p>One Double bed, swimming pool view. Pictures TBD</p>
                                         Number of form groups, we recommend building a higher-level component encapsulating a complete field
@@ -195,7 +201,21 @@ function mapStateToProps(state) {
     return {
         itinerary: state.itineraryReducer.itinerary,
         pricing: state.pricing,
-    }
+    };
 }
 
 export default connect(mapStateToProps)(ListResults);
+
+
+
+/*
+        setTimeout(() => {
+            return (
+                alert('delayed  test')
+            )
+        }, 1000);
+
+                                                <Link to="/checkout" role="button" value="executiveSuite" onClick={this.handleSubmit}>Test linkbutton</Link>
+
+
+ */

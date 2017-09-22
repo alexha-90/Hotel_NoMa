@@ -42,7 +42,7 @@ export default function (state={
             return {
                 ...state,
                 itinerary: {...state.itinerary, numAdults: action.payload}
-            }
+            };
         }
 
         case "UPDATE_ROOM_TYPE": {
@@ -50,7 +50,7 @@ export default function (state={
             return {
                 ...state,
                 itinerary: {...state.itinerary, roomType: action.payload}
-            }
+            };
         }
 
         // more cases to come

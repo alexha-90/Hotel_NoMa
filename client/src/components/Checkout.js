@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { Button, Table } from 'react-bootstrap';
 
 //to-do: integrate stripe
+//to-do: show pricing each day
+//to-do: change grammar for adults
+//to-do: bill shuttle and breakfast per person
+//to-do: throw error if no room type and somehow on checkout page.
 //future feature: dynamic pricing. Increase by a % factor if date lands on weekend
 // bug: all addons change together
 // checkbox reference: https://stackoverflow.com/questions/32923255/react-checkbox-doesnt-toggle
@@ -9,19 +15,14 @@ import { Button, Table } from 'react-bootstrap';
 
 //===============================================================================================//
 
-const occupancyTax = 100;
-const tourismTax = 500;
+
 
 class Checkout extends Component {
     constructor(props) {
         super(props);
         this.state = {
             numAdults: 2,
-            numNights: 6,
-            roomCost: 150,
-            cleaningCost: 12,
-            occupancyTax: 0.0525,
-            tourismTax: 0.03125,
+            roomCost: 100,
             roomSelection: 'executiveSuite',
             selectedDates: '',
             carePackage: false,
@@ -32,6 +33,39 @@ class Checkout extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.addonCost = this.addonCost.bind(this);
     }
+
+    componentWillMount() {
+    // Associating a price with room type. Will find refactor later
+        switch (this.props.itinerary.roomType) {
+
+            case 'executiveSuite': {
+                this.totalCost = this.props.pricing.executiveSuite;
+                break;
+            }
+
+            case 'familyAccommodation': {
+                this.totalCost = this.props.pricing.familyAccommodation;
+                break;
+            }
+
+            case 'den': {
+                this.totalCost = this.props.pricing.den;
+                break;
+            }
+
+            case 'frugalTraveler': {
+                this.totalCost = this.props.pricing.frugalTraveler;
+                break;
+            }
+
+            default: {
+                throw new Error("No room type was entered. Please return to the homepage and start a new search");
+            }
+
+        }
+    }
+
+
 
     handleChange(event) {
         this.setState({
@@ -75,10 +109,14 @@ class Checkout extends Component {
 
         return (
             <div>
-                <h1>You chose room {this.state.roomSelection} with travel dates 12/25/2017 - 12/31/2017
-                    and {this.state.numAdults} adults. We hope you enjoy your stay!
+
+                <h1>You chose room {this.props.itinerary.roomType} with travel
+                    dates {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}!
+                    There are {this.props.itinerary.numAdults} adult(s). We hope you enjoy your stay!
                     Please consider the following add-ons before checking out:
                 </h1>
+
+                <h1>Temporary. Your room cost is ${this.totalCost} for {this.props.itinerary.roomType}</h1>
 
                 Your stay:
                 <Table striped bordered condensed>
@@ -90,20 +128,20 @@ class Checkout extends Component {
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Room base charge (${this.state.roomCost.toFixed(2)} x {this.state.numNights} nights)</td>
-                        <td>${(this.state.roomCost * this.state.numNights).toFixed(2)}</td>
+                        <td>Room base charge (${this.state.roomCost.toFixed(2)} x {this.props.itinerary.numNights} nights)</td>
+                        <td>${(this.state.roomCost * this.props.itinerary.numNights).toFixed(2)}</td>
                     </tr>
                     <tr>
-                        <td>Cleaning fee (${this.state.cleaningCost.toFixed(2)} x {this.state.numNights} nights)</td>
-                        <td>${(this.state.cleaningCost * this.state.numNights).toFixed(2)}</td>
+                        <td>Cleaning fee (${this.props.pricing.cleaningCost.toFixed(2)} x {this.props.itinerary.numNights} nights)</td>
+                        <td>${(this.props.pricing.cleaningCost * this.props.itinerary.numNights).toFixed(2)}</td>
                     </tr>
                     <tr>
-                        <td>S.F. occupancy tax ({(this.state.occupancyTax * 100).toFixed(3)}%)</td>
-                        <td>${(((this.state.roomCost + this.state.cleaningCost) * this.state.numNights) * this.state.occupancyTax).toFixed(2)}</td>
+                        <td>S.F. occupancy tax ({(this.props.pricing.occupancyTax * 100).toFixed(3)}%)</td>
+                        <td>${(((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax).toFixed(2)}</td>
                     </tr>
                     <tr>
-                        <td>S.F. tourism tax ({(this.state.tourismTax * 100).toFixed(3)}%)</td>
-                        <td>${(((this.state.roomCost + this.state.cleaningCost) * this.state.numNights) * this.state.tourismTax).toFixed(2)}</td>
+                        <td>S.F. tourism tax ({(this.props.pricing.tourismTax * 100).toFixed(3)}%)</td>
+                        <td>${(((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax).toFixed(2)}</td>
                     </tr>
                     <tr>
                         <td> </td>
@@ -150,9 +188,9 @@ class Checkout extends Component {
                     </tr>
                     <tr>
                         <td>TOTAL</td>
-                        <td>${(((this.state.roomCost + this.state.cleaningCost) * this.state.numNights)
-                            + (((this.state.roomCost + this.state.cleaningCost) * this.state.numNights) * this.state.occupancyTax)
-                            + (((this.state.roomCost + this.state.cleaningCost) * this.state.numNights) * this.state.tourismTax)
+                        <td>${(((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights)
+                            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax)
+                            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax)
                             + this.addonCost()).toFixed(2)}
                         </td>
                     </tr>
@@ -162,11 +200,18 @@ class Checkout extends Component {
                 <h2>Enter credit card information</h2>
                 <Button bsStyle="primary" href="/confirmation">Pay Later (cancel by 12/24/2017)</Button>
                 <Button bsStyle="success" href="/confirmation">Pay Now</Button>
-                <h2>temp. tax is {occupancyTax}</h2>
-                <h2>temp. tax is {tourismTax}</h2>
+
             </div>
         );
     }
 }
 
-export default Checkout;
+
+function mapStateToProps(state) {
+    return {
+        itinerary: state.itineraryReducer.itinerary,
+        pricing: state.pricing,
+    };
+}
+
+export default connect(mapStateToProps)(Checkout);

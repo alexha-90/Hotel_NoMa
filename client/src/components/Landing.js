@@ -18,25 +18,43 @@ class Landing extends Component {
     render () {
         return (
             <div className="container">
-                <div className="topHalf">
-                <div className="userInput">
-                    <div className="formArea">
-                        <h4>Welcome to Hotel NoMa. We are a premier hotel located in the heart of San Francisco. Tell us about your stay...</h4>
-                        { /* User inputs required: start of stay, end of stay, # of adults */ }
-                        <form onSubmit={this.handleChange.bind(this)}>
-                            <select name="numAdults" value={this.props.itinerary.numAdults} onChange={this.handleChange.bind(this)}>
-                                <option value="1">1 Adult</option>
-                                <option value="2">2 Adults</option>
-                                <option value="3">3 Adults</option>
-                                <option value="4">4 Adults</option>
-                            </select>
-                            <Link to="/results/:id"><Button type="submit" bsStyle="success" id="homeSearchButton">Go!</Button></Link>
-                        </form>
 
-                        <hr />
-                        Local time. Local temperature is TBD. Number of adults (should match dropdown): {this.props.itinerary.numAdults}
+                {/*
+                <div className="extended-content-container">
+                    <div className="extended-content">
+                    */}
+
+                        <div className="userInput">
+                            <div className="formArea">
+                                <h4>Welcome to Hotel NoMa. We are a premier hotel located in the heart of San Francisco. Tell us about your stay...</h4>
+                                { /* User inputs required: start of stay, end of stay, # of adults */ }
+                                <form onSubmit={this.handleChange.bind(this)}>
+                                    <select name="numAdults" value={this.props.itinerary.numAdults} onChange={this.handleChange.bind(this)}>
+                                        <option value="1">1 Adult</option>
+                                        <option value="2">2 Adults</option>
+                                        <option value="3">3 Adults</option>
+                                        <option value="4">4 Adults</option>
+                                    </select>
+                                    <Link to="/results/:id"><Button type="submit" bsStyle="success" id="homeSearchButton">Go!</Button></Link>
+                                </form>
+
+                                <hr />
+                                Local time. Local temperature is TBD. Number of adults (should match dropdown): {this.props.itinerary.numAdults}
+                            </div>
+                        </div>
+
+                        {/*
                     </div>
                 </div>
+                */}
+
+                <Jumbotron>
+                    <h2>The best amenities. Hands down.</h2>
+                    <p>Our hotel features a world-class auditorium, newly remodeled fitness facility, and the best downtown views of San Francisco's historic Market Street. Fantastic restaurants are plentiful and only short walks away. Public transportation via BART and MUNI are very accessible.</p>
+                    <div className="learnMoreButton">
+                        <Link to="/amenities"><Button bsStyle="success">Learn more</Button></Link>
+                    </div>
+                </Jumbotron>
 
                 <div>
                     <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
@@ -51,15 +69,8 @@ class Landing extends Component {
                         </div>
                     </Carousel>
                 </div>
-                </div>
 
-                <Jumbotron>
-                    <h2>The best amenities. Hands down.</h2>
-                    <p>Our hotel features a world-class auditorium, newly remodeled fitness facility, and the best downtown views of San Francisco's historic Market Street. Fantastic restaurants are plentiful and only short walks away. Public transportation via BART and MUNI are very accessible.</p>
-                    <div className="learnMoreButton">
-                        <Link to="/amenities"><Button bsStyle="success">Learn more</Button></Link>
-                    </div>
-                </Jumbotron>
+
 
                 <div className="threeBlurbs">
                     <div className="blurbHeader">

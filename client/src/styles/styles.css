@@ -2,7 +2,7 @@
 /*============== Global CSS ==============*/
 body {
   font-family: sans-serif;
-
+  background-image: url("http://images.all-free-download.com/images/graphicthumb/linen_fabric_background_01_hd_picture_169828.jpg");
 }
 
 ul {
@@ -24,9 +24,19 @@ hr {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-
+  background-color: white;
 }
 
+.alignLeft {
+  float: left;
+  font-size: 30px;
+  vertical-align: top;
+}
+.alignRight {
+  margin-top: 10px;
+  float: right;
+  font-size: 20px;
+}
 
 /*============== Landing Page CSS ==============*/
 
@@ -83,10 +93,29 @@ h9 {
   font-size: 70px;
 }
 
+/*
+.extended-content-container {
+  width: 500%;
+  margin-left: -200%;
+  background-color:#777;
+  padding: 20px 0;
+}
+
+.extended-content {
+  width:100%;
+  height: 100px;
+  background-color:#ec008b;
+  text-align:center;
+}
+
+*/
+
+
+
 
 /*============== Results Page CSS ==============*/
 
-#excaliburResult {
+#resultContainer {
   margin: 50px auto 0 auto;
   background-color: yellowgreen;
   border: 2px solid green;
@@ -95,7 +124,6 @@ h9 {
 }
 
 #priceResult {
-  color: orange;
   text-align: right;
   position: inherit;
   /* missing inline prop. forgot name */
@@ -103,26 +131,38 @@ h9 {
 
 /* broken. grid automatically leaves -15px margin. Can't get to correct sie with responsiveness */
 .resultsGrid {
-  background-color: orangered;
-  margin-left: -85px;
-  margin-right: -85px;
+  margin-left: -25px;
+  margin-right: -25px;
   position: relative;
 }
 
+
+.thumbPhoto {
+  width: 100%;
+}
+
+.thumbPhoto img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 #thumbResult {
-  background-color: darkcyan;
+}
+
+.resultsGrid {
+  background-color: darkslategray;
+  color: gray;
+}
+
+.amenityText {
+  background-color: darkslategray;
+
 }
 
 #highlightResult {
   background-color: darkslategray;
 }
 
-/* broken. grid automatically leaves -15px margin. Can't get to correct sie with responsiveness */
-.amenities {
-  margin-top: -15px;
-  margin-left: -60px;
-  text-align: center;
-}
 
 
 /*============== Amenity Page CSS ==============*/

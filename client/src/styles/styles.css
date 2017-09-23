@@ -40,6 +40,20 @@ hr {
 
 /*============== Landing Page CSS ==============*/
 
+#citySkyline {
+  width: 100%;
+}
+
+#welcomeMsg {
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.calendar {
+  background-color: yellow;
+  margin-bottom: 15px;
+}
+
 .topHalf {
   background-color: darkgray;
   padding-top: 20px;
@@ -47,18 +61,17 @@ hr {
 
 .userInput {
   border: 2px solid blue;
-  margin: 0 100px 20px 100px;
+  border-radius: 10px;
+  margin: 35px 0 35px;
+  background-color: darkseagreen;
   text-align: center;
 }
 
-.adultCount {
-  height: 48px;
+.formArea {
+  margin: 15px 20% 20px 20%;
+  text-align: center;
 }
 
-#homeSearchButton {
-  height: 45px;
-  width: 100px;
-}
 
 .learnMoreButton {
   float: right;
@@ -92,26 +105,6 @@ hr {
 h9 {
   font-size: 70px;
 }
-
-/*
-.extended-content-container {
-  width: 500%;
-  margin-left: -200%;
-  background-color:#777;
-  padding: 20px 0;
-}
-
-.extended-content {
-  width:100%;
-  height: 100px;
-  background-color:#ec008b;
-  text-align:center;
-}
-
-*/
-
-
-
 
 /*============== Results Page CSS ==============*/
 

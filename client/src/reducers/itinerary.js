@@ -15,7 +15,6 @@ export default function (state={
         enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
         exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
         cancelByDate: moment().utcOffset(-420).subtract(1, 'days').format("MM/DD/YYYY"),
-        furthestAllowedEnterDate: moment().utcOffset(-420).add(1, 'months').format("MM/DD/YYYY"),
         roomType: '',
         totalCostOfStay: null
     },

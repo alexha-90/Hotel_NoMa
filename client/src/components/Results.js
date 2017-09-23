@@ -12,6 +12,7 @@ import NuggetPhotoModal from './subcomponents/resultsNuggetModal';
 
 // vector images courtesy of: https://icons8.com
 
+// expand bg beyond container: http://www.modusagency.com/css-trick-expanding-a-div-beyond-a-parent-container/
 // add loading. Like https://stackoverflow.com/questions/33097064/react-delayed-rendering
 //to-do: define number of rooms available per day, see if available. If conditions not met, remove from results
 //to-do: link checkout action to pressing room button
@@ -213,6 +214,7 @@ class ListResults extends Component {
                     </Grid>
                 </div>
                 <a href="https://icons8.com">Icon pack by Icons8</a>
+                <a href="https://pexels.com">Great place for images. No attribution required.</a>
             </div>
         );
     }

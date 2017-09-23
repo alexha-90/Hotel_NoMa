@@ -11,6 +11,7 @@
     "react-addons-shallow-compare": "^15.6.0",
     "react-bootstrap": "^0.31.3",
     "react-dates": "^12.6.0",
+    "react-day-picker": "^6.1.0",
     "react-dom": "^15.6.1",
     "react-iframe": "^1.0.7",
     "react-redux": "^5.0.6",

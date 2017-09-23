@@ -1,15 +1,12 @@
 import moment from 'moment';
 
 // to-do: limit stay to 30 days max
-// to-do: can only start stay 1 month in advance. Ending past is ok
-// to-do: more flexible enter, exit dates. cancelBy based on exit
-
-// Default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
 
 
 
 export default function (state={
     itinerary: {
+        // Default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
         numAdults: 1,
         enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
         exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
@@ -58,14 +55,20 @@ export default function (state={
 
         case "UPDATE_CALENDAR_DATES": {
             console.log('update calendar dates reached');
+            const enterDate = action.payload[0];
+            const exitDate = action.payload[2];
+            const numNights = moment(exitDate).diff(moment(enterDate), 'days');
+
+            // initially creates an deprecation error since attempting to parse a null time. Timeout does not solve.
+            const cancelByDate = moment(exitDate).subtract(1, 'days').format("MM/DD/YYYY");
             return {
                 ...state,
                 itinerary: {
                     ...state.itinerary,
-                    enterDate: action.payload,
-                    exitDate: action.payload,
-                    cancelByDate: action.payload,
-                    numNights: action.payload
+                    enterDate: enterDate,
+                    exitDate: exitDate,
+                    cancelByDate: cancelByDate,
+                    numNights: numNights
                 }
             };
         }
@@ -73,7 +76,6 @@ export default function (state={
         // more cases to come
 
         default: {
-            //alert('default case reached');
             return state;
         }
     }

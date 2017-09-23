@@ -9,10 +9,11 @@ import moment from 'moment';
 
 import { Jumbotron, Button, Grid, Row, Col, Glyphicon, Form, FormGroup, FormControl } from 'react-bootstrap';
 
-import { updateNumAdults } from "../actions";
+import { updateNumAdults, updateCalendarDates } from "../actions";
 
 
 //bug: when number of adults changed, automatically cycles back to first pic
+//feature: validate for max stay of 30 days.
 //===============================================================================================//
 
 class Landing extends Component {
@@ -35,15 +36,36 @@ class Landing extends Component {
     };
 
     handleCalendarDayClick = day => {
-        if (moment(day).isAfter(moment().utcOffset(-420).add(2, 'months').add(1, 'days'))){
+        if (moment(day).isAfter(moment().utcOffset(-420).add(2, 'months').add(1, 'days'))) {
              return alert('Sorry we only accept reservations two months out from today. You may need to adjust your departure date.');
         }
-        const range = DateUtils.addDayToRange(day, this.state);
 
+        if (moment(day).isBefore(moment().utcOffset(-420))) {
+            return alert('Please select a valid date.');
+        }
+
+        const range = DateUtils.addDayToRange(day, this.state);
         this.setState(range);
         this.state.selectedDays.push(range);
-    };
 
+        // Timeout to prevent retrieving this.state.to value of null. Values will be retrieved as an array and plucked in redux store
+        setTimeout(() => {
+            let dateConcat = [moment(this.state.from).format("MM/DD/YYYY"), '<--enter | exit-->', moment(this.state.to).format("MM/DD/YYYY")];
+            console.log(dateConcat);
+            this.props.dispatch(updateCalendarDates(dateConcat));
+        }, 1000);
+
+
+
+
+        /*
+        setTimeout(() => {
+            console.log('from: ' + this.state.from + '****' + 'to: ' + this.state.to);
+        }, 1000);
+        console.log('hey');
+        */
+
+    };
 
 
 
@@ -55,7 +77,8 @@ class Landing extends Component {
     }
 
     render () {
-        console.log(this.state);
+        //console.log('the current state is');
+        //console.log(this.state);
         return (
             <div className="container">
 
@@ -209,26 +232,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Landing);
-
-/*
-                    <Grid>
-                        <Row>
-                            <Col sm={6} md={4}>
-                                <div className="highlightText">
-                                    <h3>Hourly SFO shuttle service</h3><br/><p>We are at the heart of San Francisco. Market Street, close to BART. You can't beat us.Donec hendrerit tempor tellus. t, convallis nec, purus</p>
-                                </div>
-                                <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
-                            </Col>
-                            <Col sm={6} md={4}>
-                                <div className="highlightText">
-                                <h3>Complementary breakfast</h3><br/><p>ndrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis</p>
-                                </div>
-                                    <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
-                            </Col>
-                            <Col sm={6} md={4}>
-                                <h3>Automatic late checkout</h3><br/><p>amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam</p>
-                                <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
-                            </Col>
-                        </Row>
-                    </Grid>
- */

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateRoomType} from '../actions';
 import { Redirect } from 'react-router';
-import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
+import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 
 import ExcaliburPhotoModal from './subcomponents/results/resultsExcaliburModal';
 import NuggetPhotoModal from './subcomponents/results/resultsNuggetModal';
 
-//import { Link } from 'react-router-dom';
 
 // vector images courtesy of: https://icons8.com
 
@@ -76,7 +76,7 @@ class ListResults extends Component {
                     from {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate}.
                     Your total stay is {this.props.itinerary.numNights} night(s).
                 </h3>
-                <Button bsStyle="primary">Modify Search</Button>
+                <Link to="/"><Button bsStyle="primary">Modify Search</Button></Link>
 
                 <div id="resultContainer">
                     <Grid>

@@ -16,7 +16,7 @@ export function updateRoomType(roomSelection) {
 }
 
 
-export function updateCalendar(dates){
+export function updateCalendarDates(dates){
     console.log('updating calendar dates!!');
     return {
         type: "UPDATE_CALENDAR_DATES",

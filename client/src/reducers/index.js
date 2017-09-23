@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 //import UserReducer from './users';
 import itineraryReducerSource from './itinerary';
-import pricing from './pricing';
+import pricingReducerSource from './pricing';
 
 
 const allReducers = combineReducers({
     //users: UserReducer,
     itineraryReducer: itineraryReducerSource,
-    pricing: pricing,
+    pricingReducer: pricingReducerSource,
 });
 
 export default allReducers;

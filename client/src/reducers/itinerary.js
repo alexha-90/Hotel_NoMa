@@ -11,10 +11,10 @@ import moment from 'moment';
 export default function (state={
     itinerary: {
         numAdults: 1,
-        numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
         enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
         exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
         cancelByDate: moment().utcOffset(-420).subtract(1, 'days').format("MM/DD/YYYY"),
+        numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
         roomType: '',
         totalCostOfStay: null
     },
@@ -53,6 +53,20 @@ export default function (state={
             return {
                 ...state,
                 itinerary: {...state.itinerary, roomType: action.payload}
+            };
+        }
+
+        case "UPDATE_CALENDAR_DATES": {
+            console.log('update calendar dates reached');
+            return {
+                ...state,
+                itinerary: {
+                    ...state.itinerary,
+                    enterDate: action.payload,
+                    exitDate: action.payload,
+                    cancelByDate: action.payload,
+                    numNights: action.payload
+                }
             };
         }
 

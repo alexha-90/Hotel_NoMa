@@ -5,8 +5,8 @@ import { Redirect } from 'react-router';
 import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 
 
-import ExcaliburPhotoModal from './subcomponents/resultsExcaliburModal';
-import NuggetPhotoModal from './subcomponents/resultsNuggetModal';
+import ExcaliburPhotoModal from './subcomponents/results/resultsExcaliburModal';
+import NuggetPhotoModal from './subcomponents/results/resultsNuggetModal';
 
 //import { Link } from 'react-router-dom';
 
@@ -223,7 +223,7 @@ class ListResults extends Component {
 function mapStateToProps(state) {
     return {
         itinerary: state.itineraryReducer.itinerary,
-        pricing: state.pricing,
+        pricing: state.pricingReducer
     };
 }
 

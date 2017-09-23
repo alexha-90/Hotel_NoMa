@@ -12,8 +12,18 @@ export function updateRoomType(roomSelection) {
     return {
         type: "UPDATE_ROOM_TYPE",
         payload: roomSelection
-    }
+    };
 }
+
+
+export function updateCalendar(dates){
+    console.log('updating calendar dates!!');
+    return {
+        type: "UPDATE_CALENDAR_DATES",
+        payload: dates
+    };
+}
+
 
 /*
 export function fetchItinerary() {

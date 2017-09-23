@@ -218,7 +218,7 @@ class Checkout extends Component {
 function mapStateToProps(state) {
     return {
         itinerary: state.itineraryReducer.itinerary,
-        pricing: state.pricing,
+        pricing: state.pricingReducer
     };
 }
 

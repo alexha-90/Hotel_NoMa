@@ -12,7 +12,7 @@ import { Jumbotron, Button, Grid, Row, Col, Glyphicon, Form, FormGroup, FormCont
 import { updateNumAdults } from "../actions";
 
 
-//bug: when number of adults changed, automatically cycles back to first pic. May not be fixable
+//bug: when number of adults changed, automatically cycles back to first pic
 //===============================================================================================//
 
 class Landing extends Component {
@@ -25,7 +25,7 @@ class Landing extends Component {
         }
     }
 
-    handleResetClick = event => {
+    handleCalendarResetClick = event => {
         event.preventDefault();
         this.setState({
             from: null,
@@ -34,8 +34,12 @@ class Landing extends Component {
         });
     };
 
-    handleDayClick = day => {
+    handleCalendarDayClick = day => {
+        if (moment(day).isAfter(moment().utcOffset(-420).add(2, 'months').add(1, 'days'))){
+             return alert('Sorry we only accept reservations two months out from today. You may need to adjust your departure date.');
+        }
         const range = DateUtils.addDayToRange(day, this.state);
+
         this.setState(range);
         this.state.selectedDays.push(range);
     };
@@ -75,16 +79,24 @@ class Landing extends Component {
                                 to
                                 {' '}
                                 {moment(this.state.to).format('L')}
-                                . Is this correct?
-                                {' '}<a href="." onClick={this.handleResetClick}>(change)</a>
+                                . Need to make a
+                                {' '}<a href="." onClick={this.handleCalendarResetClick}>(change)</a>
+                                ?
                             </p>}
                             <div className="calendar">
                                 <DayPicker
                                     numberOfMonths={2}
-                                    fromMonth={new Date(moment())}
-                                    toMonth={new Date(moment().add(2, 'months'))}
+                                    disabledDays={[
+                                        {
+                                            before: new Date(moment().utcOffset(-420)),
+                                            after: new Date(moment().utcOffset(-420).add(2, 'months')),
+                                        },
+                                    ]}
+
+                                    fromMonth={new Date(moment().utcOffset(-420))}
+                                    toMonth={new Date(moment().utcOffset(-420).add(2, 'months'))}
                                     selectedDays={this.state.selectedDays}
-                                    onDayClick={this.handleDayClick}
+                                    onDayClick={this.handleCalendarDayClick}
                                     fixedWeeks
                                 />
                             </div>
@@ -105,7 +117,7 @@ class Landing extends Component {
                         </Form>
 
                         <hr />
-                        The local time in San Francisco, CA is: {moment().utcOffset(-420).format('hh:mm a')}. Local temperature is TBD. Number of adults (should match dropdown): {this.props.itinerary.numAdults}
+                        The local time in San Francisco, CA is currently: {moment().utcOffset(-420).format('hh:mm a')}. Local temperature is TBD. Number of adults (should match dropdown): {this.props.itinerary.numAdults}
                     </div>
 
 

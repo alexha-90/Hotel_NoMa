@@ -93,9 +93,9 @@ class Checkout extends Component {
         /*
 
         // flow:
-        Yvalue property of addon is null (in jsx)
-        Ystate of addon is false (unchecked)
-        YonChange, call handleChange function
+        value property of addon is null (in jsx)
+        state of addon is false (unchecked)
+        onclick, call handleChange function
         switch statement: if (event.target.name) {
             case 'carePackage': {
                 this.setState(carePackage) = !this.state.carePackage;
@@ -116,7 +116,7 @@ class Checkout extends Component {
             if toothbrush... !this.state.carePackage
         */
 
-
+        
         this.setState({
             carePackage: !this.state.carePackage,
             lateCheckout: !this.state.lateCheckout,
@@ -191,11 +191,11 @@ class Checkout extends Component {
                     <tr>
                         <td>
                             <label>
-                                <input name="carePackage" type="checkbox" onChange={this.handleChange} value={null} />
+                                <input name="carePackage" type="checkbox" onChange={this.handleChange} value={this.state.carePackage} />
                                 &nbsp;Care package (toothbrush, toothpaste, water, gum)
                             </label>
                         </td>
-                        <td>{null}</td>
+                        <td>{this.addonCost()}</td>
                     </tr>
                     <tr>
                         <td>
@@ -218,7 +218,7 @@ class Checkout extends Component {
                     <tr>
                         <td>
                             <label>
-                                <input name="breakfast" type="checkbox" onChange={this.handleChange} value={5} />
+                                <input name="breakfast" type="checkbox" onChange={this.handleChange} />
                                 &nbsp;Continental Breakfast (charged per guest)
                             </label>
                         </td>

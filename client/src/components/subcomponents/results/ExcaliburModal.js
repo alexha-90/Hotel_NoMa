@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { Carousel } from 'react-responsive-carousel';
 
-class NuggetPhotoModal extends Component{
+//===============================================================================================//
+
+class ExcaliburPhotoModal extends Component {
     render() {
         return (
             <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-lg">Additional photos of our Nugget guest rooms:</Modal.Title>
+                    <Modal.Title id="contained-modal-title-lg">Additional photos of our Excalibur Suites:</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>
                         <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                             <div>
-                                <img alt="frugalTravelerBed" src="https://www.goodnewsnetwork.org/wp-content/uploads/2016/05/Room-released-Amazon.jpg" />
+                                <img alt="singleKingSuite" src="https://storage.googleapis.com/cdncontent/web2/crestonbarkly/images/slider/crest-on-barkly-hotel-room-st-kilda-10.jpg" />
                                 <p className="legend">Bed arrangement (single king bed)</p>
                             </div>
                             <div>
@@ -39,4 +41,4 @@ class NuggetPhotoModal extends Component{
     }
 }
 
-export default NuggetPhotoModal;
+export default ExcaliburPhotoModal;

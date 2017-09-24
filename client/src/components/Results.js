@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { updateRoomType} from '../actions';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-
 import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 
-import ExcaliburPhotoModal from './subcomponents/results/resultsExcaliburModal';
-import NuggetPhotoModal from './subcomponents/results/resultsNuggetModal';
+import ExcaliburPhotoModal from './subcomponents/results/ExcaliburModal';
+import NuggetPhotoModal from './subcomponents/results/NuggetModal';
 
+//===============================================================================================//
 
 // vector images courtesy of: https://icons8.com
 
@@ -72,9 +72,9 @@ class ListResults extends Component {
         return (
             <div>
 
-                <h3>Results that match {this.props.itinerary.numAdults} adult guest
+                <h3>You are searching for a room suitable for {this.props.itinerary.numAdults} adult guest
                     from {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate}.
-                    Your total stay is {this.props.itinerary.numNights} night(s).
+                    Your total stay would be {this.props.itinerary.numNights} night(s).
                 </h3>
                 <Link to="/"><Button bsStyle="primary">Modify Search</Button></Link>
 
@@ -92,7 +92,7 @@ class ListResults extends Component {
                                     <p className="alignLeft">Excalibur Suites</p>
                                     <p className="alignRight">From ${(this.props.pricing.familyAccommodation).toFixed(2)}/night</p>
                                 </div>
-                                <div style={{clear: 'both', textAlign: 'center'}}>
+                                <div className="resultsThumbs">
                                     <Grid>
                                         <Row className="amenityText">
                                             <Col id="thumbResult" sm={2} md={2}>
@@ -164,7 +164,7 @@ class ListResults extends Component {
                                     <p className="alignLeft">Den Guest Rooms</p>
                                     <p className="alignRight">From ${(this.props.pricing.frugalTraveler).toFixed(2)}/night</p>
                                 </div>
-                                <div style={{clear: 'both', textAlign: 'center'}}>
+                                <div className="resultsThumbs">
                                     <Grid>
                                         <Row className="amenityText">
                                             <Col id="thumbResult" sm={2} md={2}>
@@ -214,6 +214,7 @@ class ListResults extends Component {
                     </Grid>
                 </div>
                 <a href="https://icons8.com">Icon pack by Icons8</a>
+                <hr />
                 <a href="https://pexels.com">Great place for images. No attribution required.</a>
             </div>
         );

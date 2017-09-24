@@ -38,6 +38,7 @@ hr {
   font-size: 20px;
 }
 
+
 /*============== Landing Page CSS ==============*/
 
 #citySkyline {
@@ -120,6 +121,11 @@ h9 {
   text-align: right;
   position: inherit;
   /* missing inline prop. forgot name */
+}
+
+.resultsThumbs {
+  clear: both;
+  text-align: center;
 }
 
 /* broken. grid automatically leaves -15px margin. Can't get to correct sie with responsiveness */

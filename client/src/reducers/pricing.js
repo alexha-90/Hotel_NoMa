@@ -20,6 +20,6 @@ export default function(state={
     lateCheckoutCost: 10.00,
     shuttleRideCost: 25.00,
     breakfastCost: 10.00,
-    }, ) {
+}, ) {
         return state;
     }

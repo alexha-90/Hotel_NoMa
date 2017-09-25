@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
 import { Button, Table } from 'react-bootstrap';
 
+
 //to-do: integrate stripe
-//to-do: show pricing each day
 //to-do: change grammar for adults
-//to-do: bill shuttle and breakfast per person
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 //future feature: dynamic pricing. Increase by a % factor if date lands on weekend
-// bug: all addons change together
-// checkbox reference: https://stackoverflow.com/questions/32923255/react-checkbox-doesnt-toggle
 
 
 //===============================================================================================//
@@ -29,14 +26,19 @@ class Checkout extends Component {
             lateCheckout: false,
             shuttleRide: false,
             breakfast: false,
+            carePackageTogglePrice: null,
+            lateCheckoutTogglePrice: null,
+            shuttleTogglePrice: null,
+            breakfastTogglePrice: null,
+
         };
         this.addonCost = this.addonCost.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleAddonChange = this.handleAddonChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentWillMount() {
-    // Associating a price with room type. Will find refactor later
+    // Associating a price with room type selected in previous results page.
         switch (this.props.itinerary.roomType) {
             case 'executiveSuite': {
                 this.roomCostPerNight = this.props.pricing.executiveSuite;
@@ -60,18 +62,18 @@ class Checkout extends Component {
 
             default: {
                 //throw new Error("No room type was entered. Please return to the homepage and start a new search");
-                console.log(' ');
+                console.log('Placeholder for throw error. If removed, unable to access this page directly');
             }
         }
     }
 
     addonCost() {
-        // broken. all items turn on/off together.
-        let carePackageCost = 5;
-        let lateCheckoutCost = 10;
-        let shuttleRideCost = 25;
-        let breakfastCost = 10;
+        let carePackageCost = this.props.pricing.carePackageCost;
+        let lateCheckoutCost = this.props.pricing.lateCheckoutCost;
+        let shuttleRideCost = this.props.pricing.shuttleRideCost;
+        let breakfastCost = this.props.pricing.breakfastCost;
 
+        // If addon option is not selected, default to zero. Else get price from redux store. Sum is added to total
         if (!this.state.carePackage) {
             carePackageCost = 0;
         }
@@ -87,48 +89,70 @@ class Checkout extends Component {
         return carePackageCost + lateCheckoutCost + shuttleRideCost + breakfastCost;
     }
 
-    handleChange(event) {
-        //broken. changes all at once
-        //alert(event.target.name);
-        /*
+    handleAddonChange(event) {
+        switch (event.target.name) {
+            case 'carePackage' : {
+                this.setState({carePackage: !this.state.carePackage});
 
-        // flow:
-        Yvalue property of addon is null (in jsx)
-        Ystate of addon is false (unchecked)
-        YonChange, call handleChange function
-        switch statement: if (event.target.name) {
-            case 'carePackage': {
-                this.setState(carePackage) = !this.state.carePackage;
-                if (!value) {
-                    value = this.props.pricing.carePackageCost
-                } else  {
-                    value = null
-                }
+                setTimeout(() => {
+                    if (this.state.carePackage) {
+                        this.setState({carePackageTogglePrice: '$' + this.props.pricing.carePackageCost.toFixed(2)});
+                    } else {
+                        this.setState({carePackageTogglePrice: null});
+                    }
+                }, 100);
+                break;
             }
 
+            case 'lateCheckout' : {
+            this.setState({lateCheckout: !this.state.lateCheckout});
 
-            case: lateCheckout
-            case: shuttleRide
-            case: breakfast
+            setTimeout(() => {
+                if (this.state.lateCheckout) {
+                    this.setState({lateCheckoutTogglePrice: '$' + this.props.pricing.lateCheckoutCost.toFixed(2)});
+                } else {
+                    this.setState({lateCheckoutTogglePrice: null});
+                }
+            }, 100);
+            break;
+        }
 
+            case 'shuttleRide' : {
+                this.setState({shuttleRide: !this.state.shuttleRide});
 
-        switch values
-            if toothbrush... !this.state.carePackage
-        */
+                setTimeout(() => {
+                    if (this.state.shuttleRide) {
+                        this.setState({shuttleTogglePrice: '$' + (this.props.pricing.shuttleRideCost * this.props.itinerary.numAdults).toFixed(2)});
+                    } else {
+                        this.setState({shuttleTogglePrice: null});
+                    }
+                }, 100);
+                break;
+            }
 
+            case 'breakfast' : {
+                this.setState({breakfast: !this.state.breakfast});
 
-        this.setState({
-            carePackage: !this.state.carePackage,
-            lateCheckout: !this.state.lateCheckout,
-            shuttleRide: !this.state.shuttleRide,
-            breakfast: !this.state.breakfast,
-        });
-        /* use this to inject addons into table and update total
-        return (
-            <li>{alert('hello')}</li>
-        );
-        */
+                setTimeout(() => {
+                    if (this.state.breakfast) {
+                        this.setState({breakfastTogglePrice: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numAdults).toFixed(2)});
+                    } else {
+                        this.setState({breakfastTogglePrice: null});
+                    }
+                }, 100);
+                break;
+            }
 
+            // Prevent unexpected addon behavior
+            default: {
+                this.setState({
+                    carePackageTogglePrice: null,
+                    lateCheckoutTogglePrice: null,
+                    shuttleTogglePrice: null,
+                    breakfastTogglePrice: null
+                });
+            }
+        }
     }
 
     handleSubmit() {
@@ -138,8 +162,7 @@ class Checkout extends Component {
 
 
     render() {
-        console.log(this.state);
-
+        //console.log(this.state);
         if (this.state.redirect) {
             return <Redirect push to="/confirmation" />;
         }
@@ -153,7 +176,8 @@ class Checkout extends Component {
                     Please consider the following add-ons before checking out:
                 </h1>
 
-                <h1>Temporary. Your room cost is ${this.roomCostPerNight} for {this.props.itinerary.roomType}</h1>
+                <h4>Temporary. Your room cost is ${this.roomCostPerNight}/night for {this.props.itinerary.roomType}.
+                    Total cost is ${this.roomCostPerNight * this.props.itinerary.numNights}. Staying {this.props.itinerary.numNights} nights</h4>
 
                 Your stay:
                 <Table striped bordered condensed>
@@ -185,44 +209,44 @@ class Checkout extends Component {
                         <td> </td>
                     </tr>
                     <tr>
-                        <td>Optional addons (prices includes sales tax):</td>
+                        <td>Optional addons (all prices includes sales tax):</td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td>
                             <label>
-                                <input name="carePackage" type="checkbox" onChange={this.handleChange} value={null} />
+                                <input name="carePackage" type="checkbox" onChange={this.handleAddonChange} />
                                 &nbsp;Care package (toothbrush, toothpaste, water, gum)
                             </label>
                         </td>
-                        <td>{null}</td>
+                        <td>{this.state.carePackageTogglePrice}</td>
                     </tr>
                     <tr>
                         <td>
                             <label>
-                                <input name="lateCheckout" type="checkbox" onChange={this.handleChange} value={this.state.lateCheckout} />
-                                &nbsp;Late checkout (2:00pm PST)
+                                <input name="lateCheckout" type="checkbox" onChange={this.handleAddonChange} />
+                                &nbsp;Late checkout (2:00pm PST, day of departure)
                             </label>
                         </td>
-                        <td>{this.addonCost()}</td>
+                        <td>{this.state.lateCheckoutTogglePrice}</td>
                     </tr>
                     <tr>
                         <td>
                             <label>
-                                <input name="shuttle" type="checkbox" onChange={this.handleChange} value={this.state.shuttleRide} />
-                                &nbsp;San Francisco Airport shuttle
+                                <input name="shuttleRide" type="checkbox" onChange={this.handleAddonChange} />
+                                &nbsp;San Francisco Airport shuttle (charged per guest)
                             </label>
                         </td>
-                        <td>{this.addonCost()}</td>
+                        <td>{this.state.shuttleTogglePrice}</td>
                     </tr>
                     <tr>
                         <td>
                             <label>
-                                <input name="breakfast" type="checkbox" onChange={this.handleChange} value={5} />
+                                <input name="breakfast" type="checkbox" onChange={this.handleAddonChange} />
                                 &nbsp;Continental Breakfast (charged per guest)
                             </label>
                         </td>
-                        <td>{this.props.pricing.breakfast}</td>
+                        <td>{this.state.breakfastTogglePrice}</td>
                     </tr>
                     <tr>
                         <td>TOTAL</td>

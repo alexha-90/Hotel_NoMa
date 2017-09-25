@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 // to-do: randomly generated confirmation number.
 // to-do: update text with generated confirmation number

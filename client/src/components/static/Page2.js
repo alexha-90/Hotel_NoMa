@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Page2 extends Component {
+class BlankPageTemplate extends Component {
     render() {
         return (
             <div>
-                <h1>Page 2</h1>
+                <h1>Blank page template. Ignore me!</h1>
             </div>
         );
     }
 }
 
-export default Page2;
+export default BlankPageTemplate;

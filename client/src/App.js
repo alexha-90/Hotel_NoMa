@@ -20,10 +20,7 @@ import About from './components/static/About';
 //import FourOhFour from './components/static/FourOhFour';
 
 // testing pages
-import Page2 from './components/static/Page2';
-import DateTest from './components/DateTest';
-import ConfirmationBucky from './components/ConfirmationBucky';
-
+import BlankPageTemplate from './components/static/Page2';
 
 
 //===============================================================================================//
@@ -35,6 +32,7 @@ class App extends Component {
               <BrowserRouter>
                   <div>
                       <Header/>
+
                       { /* Define dynamic page routes */ }
                       <Route exact path='/' component={Landing} />
                       <Route exact path='/login' component={Login} />
@@ -51,9 +49,7 @@ class App extends Component {
                       <Route exact path='/about' component={About} />
 
                       { /* Define test page routes */ }
-                      <Route exact path='/page2' component={Page2} />
-                      <Route exact path='/date' component={DateTest} />
-                      <Route exact path='/confirmationbucky' component={ConfirmationBucky} />
+                      <Route path='/blank' component={BlankPageTemplate} />
 
                       <Footer/>
                   </div>
@@ -64,4 +60,3 @@ class App extends Component {
 }
 
 export default connect(null, actions)(App);
-// <Route path ='/' component={FourOhFour} />

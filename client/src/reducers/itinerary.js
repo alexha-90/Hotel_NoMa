@@ -73,6 +73,14 @@ export default function (state={
             };
         }
 
+        case "UPDATE_ITINERARY_TOTAL_COST": {
+            console.log('update itinerary total cost reached');
+            return {
+                ...state,
+                itinerary: {...state.itinerary, totalCostOfStay: action.payload}
+            };
+        }
+
         // more cases to come
 
         default: {

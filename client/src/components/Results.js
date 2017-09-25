@@ -76,7 +76,7 @@ class ListResults extends Component {
                     from {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate}.
                     Your total stay would be {this.props.itinerary.numNights} night(s).
                 </h3>
-                <Link to="/"><Button bsStyle="primary">Modify Search</Button></Link>
+                <Link to="/"><Button bsStyle="primary">Modify search</Button></Link>
 
                 <div id="resultContainer">
                     <Grid>
@@ -229,17 +229,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(ListResults);
-
-
-
-/*
-        setTimeout(() => {
-            return (
-                alert('delayed  test')
-            )
-        }, 1000);
-
-                                                <Link to="/checkout" role="button" value="executiveSuite" onClick={this.handleSubmit}>Test linkbutton</Link>
-
-
- */

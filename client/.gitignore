@@ -29,3 +29,4 @@ tempkeys.js
 .gitignore
 LandingBackup.js
 users.js
+handleAddonChange.js

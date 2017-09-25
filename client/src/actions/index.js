@@ -24,6 +24,14 @@ export function updateCalendarDates(dates){
     };
 }
 
+export function updateItineraryTotalCost(cost){
+    console.log('updating total itinerary cost!!');
+    return {
+        type: "UPDATE_ITINERARY_TOTAL_COST",
+        payload: cost
+    };
+}
+
 
 /*
 export function fetchItinerary() {

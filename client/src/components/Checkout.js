@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
+import { Link } from 'react-router-dom';
 import { Button, Table } from 'react-bootstrap';
 
+
+import { updateItineraryTotalCost} from '../actions';
 
 //to-do: integrate stripe
 //to-do: change grammar for adults
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 //future feature: dynamic pricing. Increase by a % factor if date lands on weekend
+//to-do: was unable to refactor handleAddonChange function. Was having issues with improper use of global 'event.'
 
 
 //===============================================================================================//
@@ -19,9 +23,7 @@ class Checkout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            numAdults: 2,
-            roomCost: 100,
-            selectedDates: '',
+            roomCost: 100, //temporary. Just for testing
             carePackage: false,
             lateCheckout: false,
             shuttleRide: false,
@@ -38,7 +40,7 @@ class Checkout extends Component {
     }
 
     componentWillMount() {
-    // Associating a price with room type selected in previous results page.
+        // Associating a price with room type selected in previous results page.
         switch (this.props.itinerary.roomType) {
             case 'executiveSuite': {
                 this.roomCostPerNight = this.props.pricing.executiveSuite;
@@ -61,7 +63,7 @@ class Checkout extends Component {
             }
 
             default: {
-                //throw new Error("No room type was entered. Please return to the homepage and start a new search");
+                //throw new Error("We did not receive a room type for your trip. Please return to the homepage and start a new search");
                 console.log('Placeholder for throw error. If removed, unable to access this page directly');
             }
         }
@@ -86,6 +88,7 @@ class Checkout extends Component {
         if (!this.state.breakfast) {
             breakfastCost = 0;
         }
+
         return carePackageCost + lateCheckoutCost + shuttleRideCost + breakfastCost;
     }
 
@@ -105,17 +108,17 @@ class Checkout extends Component {
             }
 
             case 'lateCheckout' : {
-            this.setState({lateCheckout: !this.state.lateCheckout});
+                this.setState({lateCheckout: !this.state.lateCheckout});
 
-            setTimeout(() => {
-                if (this.state.lateCheckout) {
-                    this.setState({lateCheckoutTogglePrice: '$' + this.props.pricing.lateCheckoutCost.toFixed(2)});
-                } else {
-                    this.setState({lateCheckoutTogglePrice: null});
-                }
-            }, 100);
-            break;
-        }
+                setTimeout(() => {
+                    if (this.state.lateCheckout) {
+                        this.setState({lateCheckoutTogglePrice: '$' + this.props.pricing.lateCheckoutCost.toFixed(2)});
+                    } else {
+                        this.setState({lateCheckoutTogglePrice: null});
+                    }
+                }, 100);
+                break;
+            }
 
             case 'shuttleRide' : {
                 this.setState({shuttleRide: !this.state.shuttleRide});
@@ -135,7 +138,7 @@ class Checkout extends Component {
 
                 setTimeout(() => {
                     if (this.state.breakfast) {
-                        this.setState({breakfastTogglePrice: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numAdults).toFixed(2)});
+                        this.setState({breakfastTogglePrice: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numNights * this.props.itinerary.numAdults).toFixed(2)});
                     } else {
                         this.setState({breakfastTogglePrice: null});
                     }
@@ -155,10 +158,19 @@ class Checkout extends Component {
         }
     }
 
-    handleSubmit() {
-        this.setState({redirect: true});
+    totalCostDynamic() {
+        return ('$' +
+            ((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights
+            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax)
+            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax)
+            + this.addonCost()).toFixed(2)
+        );
     }
 
+    handleSubmit() {
+        this.props.dispatch(updateItineraryTotalCost(this.totalCostDynamic()));
+        this.setState({redirect: true});
+    }
 
 
     render() {
@@ -172,7 +184,13 @@ class Checkout extends Component {
 
                 <h1>You chose room {this.props.itinerary.roomType} with travel
                     dates {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}!
-                    There are {this.props.itinerary.numAdults} adult(s). We hope you enjoy your stay!
+                    There are {this.props.itinerary.numAdults} adult(s). Not correct? Please make a change below:
+                </h1>
+                <Link to="/"><Button bsStyle="primary">Modify dates</Button></Link>
+                <Link to="/results/:id"><Button bsStyle="info">Modify room</Button></Link>
+
+
+                <h1>We hope you enjoy your stay!
                     Please consider the following add-ons before checking out:
                 </h1>
 
@@ -234,7 +252,7 @@ class Checkout extends Component {
                         <td>
                             <label>
                                 <input name="shuttleRide" type="checkbox" onChange={this.handleAddonChange} />
-                                &nbsp;San Francisco Airport shuttle (charged per guest)
+                                &nbsp;San Francisco Airport shuttle (charged per guest, roundtrip)
                             </label>
                         </td>
                         <td>{this.state.shuttleTogglePrice}</td>
@@ -243,18 +261,15 @@ class Checkout extends Component {
                         <td>
                             <label>
                                 <input name="breakfast" type="checkbox" onChange={this.handleAddonChange} />
-                                &nbsp;Continental Breakfast (charged per guest)
+                                &nbsp;Continental Breakfast (charged per guest, per day)
                             </label>
                         </td>
                         <td>{this.state.breakfastTogglePrice}</td>
                     </tr>
                     <tr>
                         <td>TOTAL</td>
-                        <td>${(((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights)
-                            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax)
-                            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax)
-                            + this.addonCost()).toFixed(2)}
-                        </td>
+                        <td>{this.totalCostDynamic()}
+                    </td>
                     </tr>
                     </tbody>
                 </Table>

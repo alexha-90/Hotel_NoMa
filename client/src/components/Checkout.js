@@ -7,6 +7,7 @@ import { Button, Table } from 'react-bootstrap';
 
 import { updateItineraryTotalCost} from '../actions';
 
+//to-do: add luggage hold (free!) to optional addons
 //to-do: integrate stripe
 //to-do: change grammar for adults
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN

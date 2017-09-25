@@ -1,18 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
+
+//const keys = require('./config/keys');
+
 const app = express();
 
-const keys = require('./config/keys');
-
 // fetch hidden DB key
-mongoose.connect(keys.mongoURI);
+//mongoose.connect(keys.mongoURI);
 
 app.get('/', (req, res) => {
     res.send("hello");
 });
 
 
-//require("./routes/...")(App);
 
 // =================================================================================================
 // SERVER CONFIGURATION
@@ -21,5 +21,5 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log("Server started on port 5000")
+    console.log("NodeJS server started on port 5000")
 });

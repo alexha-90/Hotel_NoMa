@@ -24,10 +24,8 @@ yarn-error.log*
 todo.txt
 lorem_ipsum.txt
 /src/assets
-ConfirmationBucky.js
 tempkeys.js
 .gitignore
-LandingBackup.js
 users.js
 handleAddonChange.js
 totalCost.js

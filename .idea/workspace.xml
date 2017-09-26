@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="009ec4d5-35a1-491c-8ccb-f0fb41e43fe1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/actions/index.js" afterPath="$PROJECT_DIR$/client/src/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Checkout.js" afterPath="$PROJECT_DIR$/client/src/components/Checkout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/checkout/stripeBilling.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/checkout/stripeBilling.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/reducers/itinerary.js" afterPath="$PROJECT_DIR$/client/src/reducers/itinerary.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-    </list>
+    <list default="true" id="009ec4d5-35a1-491c-8ccb-f0fb41e43fe1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -48,8 +39,8 @@
       <file leaf-file-name="Checkout.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/Checkout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="233" column="61" lean-forward="false" selection-start-line="233" selection-start-column="61" selection-end-line="233" selection-end-column="61" />
+            <state relative-caret-position="460">
+              <caret line="159" column="13" lean-forward="true" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -121,7 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>landingMa</find>
       <find>landingMain</find>
       <find>ListResults</find>
       <find>MyLargeModal</find>
@@ -151,6 +141,7 @@
       <find>this.state.numAdul</find>
       <find>addonCost</find>
       <find>pricingReducer</find>
+      <find>.prod</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -377,12 +368,12 @@
       <updated>1504848502335</updated>
       <workItem from="1504848503718" duration="65628000" />
       <workItem from="1505160135540" duration="162882000" />
-      <workItem from="1506287732284" duration="53880000" />
+      <workItem from="1506287732284" duration="54401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282390000" />
+    <option name="totallyTimeSpent" value="282911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1621" y="-323" width="1491" height="968" extended-state="0" />
@@ -850,8 +841,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Checkout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="233" column="61" lean-forward="false" selection-start-line="233" selection-start-column="61" selection-end-line="233" selection-end-column="61" />
+        <state relative-caret-position="460">
+          <caret line="159" column="13" lean-forward="true" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

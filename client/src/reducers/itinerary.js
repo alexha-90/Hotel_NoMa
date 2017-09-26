@@ -13,11 +13,21 @@ export default function (state={
         cancelByDate: moment().utcOffset(-420).subtract(1, 'days').format("MM/DD/YYYY"),
         numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
         roomType: '',
-        totalCostOfStay: null
+        totalCostOfStay: null,
     },
+
+    //not accounted for yet **************************
+    contactInfo: {
+        firstName: '',
+        lastName: '',
+        emailAddress: '',
+        phoneNumber: ''
+    },
+
     //fetching: false,
     //fetched: false,
     //error: null,
+
     }, action) {
 
     switch (action.type) {
@@ -41,7 +51,7 @@ export default function (state={
             console.log('update number of adults reached');
             return {
                 ...state,
-                itinerary: {...state.itinerary, numAdults: action.payload}
+                itinerary: {...state.itinerary, numAdults: parseInt(action.payload, 10)}
             };
         }
 

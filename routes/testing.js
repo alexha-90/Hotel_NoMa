@@ -1,8 +1,7 @@
-const express   = require('express');
-const router    = express.Router();
+const passport = require('passport');
 
-router.get('/page1', function(req, res, next) {
-    res.render('testing', {title: 'Express'});
-});
-
-module.exports = router;
+module.exports = (app) => {
+    app.get('/test', (req, res) => {
+        res.send("testpage");
+    });
+};

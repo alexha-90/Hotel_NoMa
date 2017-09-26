@@ -1,12 +1,28 @@
+// maybe need to make model for pricing?
+// check if reservation number is unique.    User.findOne (mongoose queries, lecture 4, 5:00)
+
 const express = require('express');
 const mongoose = require('mongoose');
-
-//const keys = require('./config/keys');
-
 const app = express();
 
+//import DB  model schema
+require('./models/itinerary');
+require('./models/contactInfo');
+
+
+// import passport authentication. does not return anything, so does not require variable assignment
+require('./services/passport');
+
+// import routes
+require('./routes/testing')(app);
+
+
 // fetch hidden DB key
-//mongoose.connect(keys.mongoURI);
+const keys = require('./config/keys');
+mongoose.connect(keys.mongoURI);
+
+
+
 
 app.get('/', (req, res) => {
     res.send("hello");

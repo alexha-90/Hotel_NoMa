@@ -159,6 +159,7 @@ class Checkout extends Component {
         }
     }
 
+
     totalCostDynamic() {
         return ('$' +
             ((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights

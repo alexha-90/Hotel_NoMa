@@ -34,3 +34,9 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
+
+/*
+console.log('stripe key is:', process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+console.log('node env key is: ' + process.env.NODE_ENV);
+console.log('google key is: ', process.env.REACT_APP_GOOGLE_MAPS_KEY);
+*/

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { Button } from 'react-bootstrap';
+
+import { connect } from 'react-redux';
+
+//import * as actions from '../../../actions';
+
+//import { handleToken } from '../../../actions';
 //import { Redirect} from 'react-router';
 //import { Link } from 'react-router-dom';
 
@@ -12,20 +17,27 @@ import { Button } from 'react-bootstrap';
 
 class CheckoutForm extends Component {
     render(){
-        let description = 'Reservation total: $' + this.props.itinerary.totalCostOfStay;
+        //let description = 'Please enter total: $' + this.props.itinerary.totalCostOfStay;
+        /*description={description} */
+
+        /*
+                            token={token => this.props.handleToken(token)}
+
+
+        */
+        // token used to be  token={token => console.log(token)}
 
         return(
             <div>
                 <StripeCheckout
                     name='Hotel NoMa'
-                    description={description}
-                    amount={this.props.itinerary.totalCostOfStay}
+                    amount={this.props.itinerary.totalCostOfStay * 100}
                     token={token => console.log(token)}
                     stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                     billingAddress={true}
                     zipCode={true}
                     allowRememberMe={false}
-                    panelLabel="Submit reservation!"
+                    panelLabel="Reservation total: "
                     image= 'https://us.123rf.com/450wm/djvstock/djvstock1511/djvstock151102927/48451966-hotel-services-and-travel-graphic-design-vector-illustration-eps10.jpg?ver=6'
                 >
                     <Button bsStyle="success">Book Now (free cancellations until {this.props.itinerary.cancelByDate}!)</Button>
@@ -36,6 +48,7 @@ class CheckoutForm extends Component {
     }
 }
 
+
 function mapStateToProps(state) {
     return {
         itinerary: state.itineraryReducer.itinerary,
@@ -43,4 +56,7 @@ function mapStateToProps(state) {
     };
 }
 
+
 export default connect(mapStateToProps)(CheckoutForm);
+
+// export default connect(mapStateToProps, handleToken)(CheckoutForm);

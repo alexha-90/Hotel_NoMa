@@ -3,7 +3,11 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
+
+// middleware to parse all POST/PUT/PATCH boody request to req.body
+app.use(bodyParser.json());
 
 //import DB  model schema
 require('./models/itinerary');
@@ -15,7 +19,7 @@ require('./services/passport');
 
 // import routes
 require('./routes/testing')(app);
-
+require('./routes/billing')(app);
 
 // fetch hidden DB key
 const keys = require('./config/keys');

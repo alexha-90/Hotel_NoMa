@@ -291,7 +291,7 @@ class Checkout extends Component {
 
                 <h2>Enter credit card information</h2>
 
-                <CheckoutForm onChange={console.log('update time')}/>
+                <CheckoutForm />
 
 
                 <Button bsStyle="success" onClick={this.handleSubmit}>Book Now (free cancellations until {this.props.itinerary.cancelByDate})</Button>

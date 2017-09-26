@@ -21,7 +21,7 @@ class Confirmation extends Component {
                     </h3>
                     <h4>
                         Your stay details: {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate} for
-                        a total cost of {this.props.itinerary.totalCostOfStay}. To cancel and receive a full refund for your stay, please
+                        a total cost of ${this.props.itinerary.totalCostOfStay}. To cancel and receive a full refund for your stay, please
                         cancel by {this.props.itinerary.cancelByDate}.
                     </h4>
 

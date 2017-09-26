@@ -8,7 +8,7 @@ import Iframe from 'react-iframe';
 class Footer extends Component {
     render() {
         const googleMapURL='https://www.google.com/maps/embed/v1/place?q=37.788383%2C%20-122.407793&key=' + process.env.REACT_APP_GOOGLE_MAPS_KEY;
-        console.log(googleMapURL);
+
         return (
             <div className="footer">
                 <hr />

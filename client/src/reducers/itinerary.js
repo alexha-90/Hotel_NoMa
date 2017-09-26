@@ -87,7 +87,7 @@ export default function (state={
             console.log('update itinerary total cost reached');
             return {
                 ...state,
-                itinerary: {...state.itinerary, totalCostOfStay: action.payload}
+                itinerary: {...state.itinerary, totalCostOfStay: parseFloat(action.payload)}
             };
         }
 

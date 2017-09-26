@@ -6,12 +6,14 @@ import { Button, Table } from 'react-bootstrap';
 
 
 import { updateItineraryTotalCost} from '../actions';
+import CheckoutForm from './subcomponents/checkout/stripeBilling';
 
 //to-do: add luggage hold (free!) to optional addons
 //to-do: integrate stripe
 //to-do: change grammar for adults
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 //future feature: dynamic pricing. Increase by a % factor if date lands on weekend
+//future: can pay for someone, stay someone e.se
 //to-do: was unable to refactor handleAddonChange function. Was having issues with improper use of global 'event.'
 
 
@@ -157,11 +159,15 @@ class Checkout extends Component {
                 });
             }
         }
+        // update total cost every time an addon is toggled
+        setTimeout(() => {
+            this.props.dispatch(updateItineraryTotalCost(this.totalCostDynamic()));
+        }, 100);
     }
 
 
     totalCostDynamic() {
-        return ('$' +
+        return (//'$' +
             ((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights
             + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax)
             + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax)
@@ -169,6 +175,13 @@ class Checkout extends Component {
         );
     }
 
+    // Retrieve total cost of reservation upon loading, no addons
+    componentDidMount(){
+        this.props.dispatch(updateItineraryTotalCost(this.totalCostDynamic()));
+    }
+
+
+//handle submit wont be needed
     handleSubmit() {
         this.props.dispatch(updateItineraryTotalCost(this.totalCostDynamic()));
         this.setState({redirect: true});
@@ -270,13 +283,17 @@ class Checkout extends Component {
                     </tr>
                     <tr>
                         <td>TOTAL</td>
-                        <td>{this.totalCostDynamic()}
+                        <td>${this.totalCostDynamic()}
                     </td>
                     </tr>
                     </tbody>
                 </Table>
 
                 <h2>Enter credit card information</h2>
+
+                <CheckoutForm onChange={console.log('update time')}/>
+
+
                 <Button bsStyle="success" onClick={this.handleSubmit}>Book Now (free cancellations until {this.props.itinerary.cancelByDate})</Button>
 
             </div>

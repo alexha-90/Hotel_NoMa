@@ -1,9 +1,9 @@
 //goal: get all itinerary details from this.props (redux store) and post into mongoDB. Excluding billing at this time
 const mongoose = require('mongoose');
+const moment = require('moment');
 const Itinerary = mongoose.model('itinerary');
 
-//get values from billing
-require('./billing');
+
 //===============================================================================================//
 
 module.exports = app => {
@@ -12,10 +12,13 @@ module.exports = app => {
         app.post('/api/itinerary', async (req, res) => {
         console.log('attempt to post itinerary to DB');
 
-        const { numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, customerName } = req.body;
+        const {
+            /*from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay,
+            /*from stripe checkout:*/ customerName, customerAddress, customerCity, customerZip, customerCountry
+            } = req.body;
+
 
         // data from front end should be available at this point. Will be assigned to new schema instance below
-        //console.log('req.body is (should not be empty): ');
         //console.log(req.body);
 
 
@@ -27,12 +30,17 @@ module.exports = app => {
             numNights: numNights,
             roomType: roomType,
             totalCostOfStay: totalCostOfStay,
+            bookTime: moment().utcOffset(-420).format("MM/DD/YYYY") + ' @ ' + moment().utcOffset(-420).format('hh:mm a') + ' (PST)',
             contactInfo: {
-                customerName: customerName
+                customerName: customerName,
+                customerAddress: customerAddress,
+                customerCity: customerCity,
+                customerZip: customerZip,
+                customerCountry: customerCountry
             }
         });
 
-        // grabs data from instance above.
+        // grab data from instance above.
         console.log('itinerary is: ' + itinerary);
 
 
@@ -48,12 +56,6 @@ module.exports = app => {
             //res.status(422).send(err);
         }
 
-        });
-
-
-        // basic test route
-        app.get('/api/test', (req, res) => {
-            res.send('test page accessed');
         });
 
 };

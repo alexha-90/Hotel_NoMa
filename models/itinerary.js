@@ -8,6 +8,7 @@ const itinerarySchema = new mongoose.Schema({
     numNights: Number,
     roomType: String,
     totalCostOfStay: Number,
+    bookTime: String,
     contactInfo: {
         customerName: String,
         customerAddress: String,

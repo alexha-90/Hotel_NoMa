@@ -19,8 +19,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 
 //import DB  model schema
 require('./models/itinerary');
-require('./models/contactInfo');
-
 
 // import passport authentication. does not return anything, so does not require variable assignment
 require('./services/passport');
@@ -37,11 +35,13 @@ mongoose.connect(keys.mongoURI);
 
 //app.use(express.static(path.join(__dirname, 'client/build')));
 
-
+// basic test routes
 app.get('/', (req, res) => {
     res.send("hello");
 });
-
+app.get('/api/test', (req, res) => {
+    res.send('test page accessed');
+});
 
 
 // =================================================================================================

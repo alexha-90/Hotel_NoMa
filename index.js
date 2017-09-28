@@ -11,7 +11,8 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // middleware to parse all POST/PUT/PATCH body request to req.body
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // handle json data
+app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 
 //import DB  model schema
 require('./models/itinerary');

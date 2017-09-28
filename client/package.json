@@ -21,6 +21,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -28,5 +29,10 @@
     "deploy": "npm run build&&gh-pages -d build",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000"
+
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  }
 }

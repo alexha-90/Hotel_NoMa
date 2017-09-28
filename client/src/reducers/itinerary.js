@@ -96,10 +96,13 @@ export default function (state={
             return action.payload;
         }
 
-        case "PUSH_ITINERARY": {
+        /* Not needed due to axios. Am receiving a error in console log after POST is made to backend though.
+        case "ITINERARY_TO_DB": {
             console.log('pushing test numAdults (itinerary) to DB');
-            return action.payload;
+            console.log(action.payload);
+            return {...state, actionPayload: action.payload};
         }
+        */
 
 
         // more cases to come

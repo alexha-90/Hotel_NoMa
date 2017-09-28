@@ -1,5 +1,16 @@
 import axios from 'axios'
 
+export const handleToken = (token) => async dispatch => {
+    alert('handleToken action!!');
+    const res = await axios.post('/api/stripe', token);
+    dispatch({
+        type: "OBTAIN_STRIPE_OUTPUT",
+        payload: res.data
+    });
+};
+
+
+
 export const updateNumAdults = (inputNumAdults) => {
     console.log('updating number adults!!');
     return {
@@ -34,25 +45,27 @@ export const updateItineraryTotalCost = (cost) => {
     };
 };
 
-export const handleToken = (token) => async dispatch => {
-    alert('handleToken action!!');
-    const res = await axios.post('/api/stripe', token);
-    dispatch({
-        type: "OBTAIN_STRIPE_OUTPUT",
-        payload: res.data
-    });
-};
 
+//async and .then statement required or else code breaks.
 export const pushItinerary = (testNumAdults) => async dispatch => {
-    //const proxyURL = "https://cors-anywhere.herokuapp.com/";
-    const serverURL = "http://localhost:5000/api/itinerary";
-    const res = await axios.post(serverURL, testNumAdults);
-    //const res = await axios.post('/api/itinerary', values);
-    dispatch({ type: "PUSH_ITINERARY", payload: res.data })
+    const serverAPI = "http://localhost:5000/api/itinerary";
+    //successfully grabs testNumAdults from checkout page
+    alert('you\'re in');
+    console.log(testNumAdults);
+
+    return axios({
+        url: serverAPI,
+        method: 'post',
+        data: {
+            numAdults: testNumAdults,
+        },
+    })
+    .then(res => {
+        dispatch({ type: "ITINERARY_TO_DB", payload: res.data })
+    });
 
 };
 
 
-/*
-http://localhost:5000/api/itinerary
-*/
+// pushItinerary method credit to: https://github.com/mzabriskie/axios/issues/196
+

@@ -5,25 +5,21 @@ const Itinerary = mongoose.model('itinerary');
 
 module.exports = app => {
 
-        // test route to confirm connection (successful)
-        app.get('/api/test', (req, res) => {
-            res.send('test page accessed');
-        });
 
-        // post itinerary details to mongoDB
+        // post itinerary as a entry in mongoDB
         app.post('/api/itinerary', async (req, res) => {
         console.log('attempt to post itinerary to DB');
         //const { numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay } = req.body;
         const { numAdults } = req.body;
 
         // data from front end should be available at this point. Will be assigned to new schema instance below
-        console.log('req.body is: ');
+        console.log('req.body is (should not be empty): ');
         console.log(req.body);
 
 
         const itinerary = new Itinerary({
-            numAdults: 7,
-            enterDate: '10/31/17',
+            numAdults: numAdults,
+            enterDate: '10/30/17',
             /*
             exitDate: exitDate,
             cancelByDate: cancelByDate,
@@ -33,6 +29,7 @@ module.exports = app => {
             */
         });
 
+        // grabs data from instance above. Works with static values
         console.log('itinerary is: ' + itinerary);
 
         // try is successful with static values inside new itinerary instance. Still get error 422 regardless though
@@ -46,5 +43,13 @@ module.exports = app => {
             res.status(422).send(err);
         }
 
-    })
+    });
+
+
+
+    // test route to confirm connection (successful)
+    app.get('/api/test', (req, res) => {
+        res.send('test page accessed');
+    });
+
 };

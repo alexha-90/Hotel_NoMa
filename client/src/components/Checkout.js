@@ -83,7 +83,8 @@ class Checkout extends Component {
     }
     */
     sendAllInfo() {
-        let testNumAdults = 5
+        let testNumAdults = 99;
+        //pushItinerary(testNumAdults);
         this.props.dispatch(pushItinerary(testNumAdults));
     }
 
@@ -212,6 +213,7 @@ class Checkout extends Component {
 
         return (
             <div>
+                {/*
 
                 <h1>You chose room {this.props.itinerary.roomType} with travel
                     dates {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}!
@@ -307,7 +309,7 @@ class Checkout extends Component {
 
                 <h2>Enter credit card information</h2>
 
-                {/* <CheckoutForm /> */}
+                */}
 
 
                 <Button bsStyle="success" onClick={this.sendAllInfo}>link to next page</Button>
@@ -325,4 +327,7 @@ function mapStateToProps(state) {
     };
 }
 
+
 export default connect(mapStateToProps)(Checkout);
+
+{/* <CheckoutForm /> */}

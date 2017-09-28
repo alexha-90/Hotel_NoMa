@@ -24,8 +24,7 @@ class CheckoutForm extends Component {
                 <StripeCheckout
                     name='Hotel NoMa'
                     amount={this.props.itinerary.totalCostOfStay * 100}
-                    token={token => handleToken(token)}
-
+                    token={token => console.log(token)}
                     stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                     billingAddress={true}
                     zipCode={true}
@@ -67,6 +66,40 @@ export default connect(mapStateToProps, handleToken)(CheckoutForm);
 //maybe change to toekn => handleToken(token)
 
 
+sample output
+
+
+d: "tok_1B6tsHAOi1ThesMxwUnZjro4", object: "token", card: {…}, client_ip: "73.162.49.12", created: 1506573829, …}
+card
+:
+{id: "card_1B6tsHAOi1ThesMxpKRBfeeZ", object: "card", address_city: "Union City", address_country: "United States", address_line1: "31355 Santa Ana Way", …}
+client_ip
+:
+"73.162.49.12"
+created
+:
+1506573829
+email
+:
+"chowyows@gmail.com"
+id
+:
+"tok_1B6tsHAOi1ThesMxwUnZjro4"
+livemode
+:
+false
+object
+:
+"token"
+type
+:
+"card"
+used
+:
+false
+__proto__
+:
+Object
 
 
  */

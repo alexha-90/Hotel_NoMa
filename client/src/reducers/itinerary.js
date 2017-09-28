@@ -91,6 +91,7 @@ export default function (state={
             };
         }
 
+
         case "OBTAIN_STRIPE_OUTPUT": {
             console.log('??? stripe output reached');
             return action.payload;

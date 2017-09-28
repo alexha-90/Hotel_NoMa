@@ -29,10 +29,5 @@
     "deploy": "npm run build&&gh-pages -d build",
     "eject": "react-scripts eject"
   },
-
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:5000"
-    }
-  }
+  "proxy": "http://localhost:5000"
 }

@@ -310,6 +310,7 @@ class Checkout extends Component {
 
                 <h2>Enter credit card information</h2>
 
+                <CheckoutForm />
 
 
                 <Button bsStyle="success" onClick={this.sendAllInfo}>link to next page</Button>

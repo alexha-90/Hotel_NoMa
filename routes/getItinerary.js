@@ -12,8 +12,8 @@ module.exports = app => {
         const { numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay } = req.body;
 
         // data from front end should be available at this point. Will be assigned to new schema instance below
-        console.log('req.body is (should not be empty): ');
-        console.log(req.body);
+        //console.log('req.body is (should not be empty): ');
+        //console.log(req.body);
 
 
         const itinerary = new Itinerary({

@@ -4,11 +4,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 //const path = require('path');
 
 
 const app = express();
+
+// allow CORS
+app.use(cors());
 
 // middleware to parse all POST/PUT/PATCH body request to req.body
 app.use(bodyParser.json()); // handle json data
@@ -24,7 +27,6 @@ require('./services/passport');
 
 // import routes
 require('./routes/getItinerary')(app);
-require('./routes/testing')(app);
 require('./routes/billing')(app);
 
 // fetch hidden DB key

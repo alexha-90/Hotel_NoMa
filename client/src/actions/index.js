@@ -1,15 +1,6 @@
 import axios from 'axios'
 
-export const handleToken = (token) => async dispatch => {
-    alert('handleToken action!!');
-    const res = await axios.post('/api/stripe', token);
-    dispatch({
-        type: "OBTAIN_STRIPE_OUTPUT",
-        payload: res.data
-    });
-};
-
-
+//===============================================================================================//
 
 export const updateNumAdults = (inputNumAdults) => {
     console.log('updating number adults!!');
@@ -37,6 +28,7 @@ export const updateCalendarDates = (dates) => {
     };
 };
 
+
 export const updateItineraryTotalCost = (cost) => {
     console.log('updating total itinerary cost!!');
     return {
@@ -44,6 +36,21 @@ export const updateItineraryTotalCost = (cost) => {
         payload: cost
     };
 };
+
+
+
+
+export const handleToken = (token) => async dispatch => {
+    console.log('handleToken action!!');
+    const res = await axios.post('/api/stripe', token);
+    dispatch({
+        type: "OBTAIN_STRIPE_OUTPUT",
+        payload: res.data
+    });
+};
+
+
+
 
 
 export const pushItinerary = (userInput) => async dispatch => {
@@ -65,10 +72,10 @@ export const pushItinerary = (userInput) => async dispatch => {
     .then(res => {
         dispatch({ type: "ITINERARY_TO_DB", payload: res.data })
     });
-
 };
 
 
 // pushItinerary method credit to: https://github.com/mzabriskie/axios/issues/196
 // https://stackoverflow.com/questions/38798451/how-to-catch-and-handle-error-response-422-with-redux-axios
+
 

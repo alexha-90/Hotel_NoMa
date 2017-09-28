@@ -30,7 +30,7 @@ class Checkout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            roomCost: 100, //temporary. Just for testing
+            roomCost: 100, //temporary. Just for testing. Can remove entirely later.
             carePackage: false,
             lateCheckout: false,
             shuttleRide: false,
@@ -77,15 +77,18 @@ class Checkout extends Component {
         }
     }
 
-    /*for testing to see if db can be updated.
-    handleTest() {
-        this.props.dispatch(handleToken());
-    }
-    */
+
     sendAllInfo() {
-        let testNumAdults = 99;
-        //pushItinerary(testNumAdults);
-        this.props.dispatch(pushItinerary(testNumAdults));
+        let userInput = {
+            numAdults: this.props.itinerary.numAdults,
+            enterDate: this.props.itinerary.enterDate,
+            exitDate: this.props.itinerary.exitDate,
+            cancelByDate: this.props.itinerary.cancelByDate,
+            numNights: this.props.itinerary.numNights,
+            roomType: this.props.itinerary.roomType,
+            totalCostOfStay: this.props.itinerary.totalCostOfStay
+        };
+        this.props.dispatch(pushItinerary(userInput));
     }
 
 
@@ -213,8 +216,6 @@ class Checkout extends Component {
 
         return (
             <div>
-                {/*
-
                 <h1>You chose room {this.props.itinerary.roomType} with travel
                     dates {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}!
                     There are {this.props.itinerary.numAdults} adult(s). Not correct? Please make a change below:
@@ -309,7 +310,6 @@ class Checkout extends Component {
 
                 <h2>Enter credit card information</h2>
 
-                */}
 
 
                 <Button bsStyle="success" onClick={this.sendAllInfo}>link to next page</Button>

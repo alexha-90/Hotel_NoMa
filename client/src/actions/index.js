@@ -46,20 +46,22 @@ export const updateItineraryTotalCost = (cost) => {
 };
 
 
-//async and .then statement required or else code breaks.
-export const pushItinerary = (testNumAdults) => async dispatch => {
+export const pushItinerary = (userInput) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itinerary";
-    //successfully grabs testNumAdults from checkout page
-    alert('you\'re in');
-    console.log(testNumAdults);
-
+    //console.log(userInput);
     return axios({
         url: serverAPI,
-        method: 'post',
+        method: 'POST',
         data: {
-            numAdults: testNumAdults,
+            numAdults: userInput.numAdults,
+            enterDate: userInput.enterDate,
+            exitDate: userInput.exitDate,
+            cancelByDate: userInput.cancelByDate,
+            numNights: userInput.numNights,
+            roomType: userInput.roomType,
         },
     })
+    // segment below isn't actually used
     .then(res => {
         dispatch({ type: "ITINERARY_TO_DB", payload: res.data })
     });
@@ -68,4 +70,5 @@ export const pushItinerary = (testNumAdults) => async dispatch => {
 
 
 // pushItinerary method credit to: https://github.com/mzabriskie/axios/issues/196
+// https://stackoverflow.com/questions/38798451/how-to-catch-and-handle-error-response-422-with-redux-axios
 

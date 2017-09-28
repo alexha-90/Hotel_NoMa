@@ -91,6 +91,15 @@ export default function (state={
             };
         }
 
+        case "OBTAIN_STRIPE_OUTPUT": {
+            console.log('??? stripe output reached');
+            return action.payload;
+        }
+
+        case "PUSH_ITINERARY": {
+            console.log('pushing test numAdults (itinerary) to DB');
+            return action.payload;
+        }
 
 
         // more cases to come

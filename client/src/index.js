@@ -7,12 +7,16 @@ import 'react-bootstrap';
 
 // linking react to redux
 import allReducers from './reducers/index';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 //import showResults from './actions';
 //import Landing from './components/Landing';
 
-const store = createStore(allReducers);
+const store = createStore(
+    allReducers,
+    applyMiddleware(thunk)
+);
 
 //----------------------------------------------------------------//
 // for learning and debugging. subscribe = listen to store

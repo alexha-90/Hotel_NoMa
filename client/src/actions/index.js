@@ -35,9 +35,24 @@ export const updateItineraryTotalCost = (cost) => {
 };
 
 export const handleToken = (token) => async dispatch => {
+    alert('handleToken action!!');
     const res = await axios.post('/api/stripe', token);
     dispatch({
         type: "OBTAIN_STRIPE_OUTPUT",
         payload: res.data
     });
 };
+
+export const pushItinerary = (testNumAdults) => async dispatch => {
+    //const proxyURL = "https://cors-anywhere.herokuapp.com/";
+    const serverURL = "http://localhost:5000/api/itinerary";
+    const res = await axios.post(serverURL, testNumAdults);
+    //const res = await axios.post('/api/itinerary', values);
+    dispatch({ type: "PUSH_ITINERARY", payload: res.data })
+
+};
+
+
+/*
+http://localhost:5000/api/itinerary
+*/

@@ -4,9 +4,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
+//const path = require('path');
+
+
 const app = express();
 
-// middleware to parse all POST/PUT/PATCH boody request to req.body
+// middleware to parse all POST/PUT/PATCH body request to req.body
 app.use(bodyParser.json());
 
 //import DB  model schema
@@ -18,6 +22,7 @@ require('./models/contactInfo');
 require('./services/passport');
 
 // import routes
+require('./routes/getItinerary')(app);
 require('./routes/testing')(app);
 require('./routes/billing')(app);
 
@@ -26,6 +31,7 @@ const keys = require('./config/keys');
 mongoose.connect(keys.mongoURI);
 
 
+//app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 app.get('/', (req, res) => {

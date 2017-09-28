@@ -4,8 +4,12 @@ import { Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'react-bootstrap';
 
+//for testing
+//import { handleToken } from '../actions';
+import { pushItinerary} from '../actions';
 
-import { updateItineraryTotalCost} from '../actions';
+
+import { updateItineraryTotalCost } from '../actions';
 import CheckoutForm from './subcomponents/checkout/stripeBilling';
 
 //to-do: add luggage hold (free!) to optional addons
@@ -40,6 +44,7 @@ class Checkout extends Component {
         this.addonCost = this.addonCost.bind(this);
         this.handleAddonChange = this.handleAddonChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.sendAllInfo = this.sendAllInfo.bind(this);
     }
 
     componentWillMount() {
@@ -71,6 +76,17 @@ class Checkout extends Component {
             }
         }
     }
+
+    /*for testing to see if db can be updated.
+    handleTest() {
+        this.props.dispatch(handleToken());
+    }
+    */
+    sendAllInfo() {
+        let testNumAdults = 5
+        this.props.dispatch(pushItinerary(testNumAdults));
+    }
+
 
     addonCost() {
         let carePackageCost = this.props.pricing.carePackageCost;
@@ -291,10 +307,10 @@ class Checkout extends Component {
 
                 <h2>Enter credit card information</h2>
 
-                <CheckoutForm />
+                {/* <CheckoutForm /> */}
 
 
-                <Button bsStyle="success" onClick={this.handleSubmit}>Book Now (free cancellations until {this.props.itinerary.cancelByDate})</Button>
+                <Button bsStyle="success" onClick={this.sendAllInfo}>link to next page</Button>
 
             </div>
         );

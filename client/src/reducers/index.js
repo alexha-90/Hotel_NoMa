@@ -9,15 +9,3 @@ const allReducers = combineReducers({
 });
 
 export default allReducers;
-
-
-
-
-
-
-
-
-/* probably needed later for checkout and/or contact page
-import { reducer as formReducer } from 'redux-form';
-form: formReducer,
-*/

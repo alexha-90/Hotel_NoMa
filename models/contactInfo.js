@@ -1,3 +1,5 @@
+//probably wont be needed
+
 const mongoose = require("mongoose");
 
 const contactInfoSchema = new mongoose.Schema({

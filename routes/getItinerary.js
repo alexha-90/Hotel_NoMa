@@ -1,15 +1,18 @@
 //goal: get all itinerary details from this.props (redux store) and post into mongoDB. Excluding billing at this time
 const mongoose = require('mongoose');
-
 const Itinerary = mongoose.model('itinerary');
 
-module.exports = app => {
+//get values from billing
+require('./billing');
+//===============================================================================================//
 
+module.exports = app => {
 
         // post itinerary as a entry in mongoDB
         app.post('/api/itinerary', async (req, res) => {
         console.log('attempt to post itinerary to DB');
-        const { numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay } = req.body;
+
+        const { numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, customerName } = req.body;
 
         // data from front end should be available at this point. Will be assigned to new schema instance below
         //console.log('req.body is (should not be empty): ');
@@ -23,7 +26,10 @@ module.exports = app => {
             cancelByDate: cancelByDate,
             numNights: numNights,
             roomType: roomType,
-            totalCostOfStay: totalCostOfStay
+            totalCostOfStay: totalCostOfStay,
+            contactInfo: {
+                customerName: customerName
+            }
         });
 
         // grabs data from instance above.

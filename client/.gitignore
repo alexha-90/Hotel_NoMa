@@ -26,8 +26,6 @@ yarn-error.log*
 
 
 # personal note docs
-todo.txt
-lorem_ipsum.txt
 /src/assets
 tempkeys.js
 .gitignore

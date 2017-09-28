@@ -7,7 +7,14 @@ const itinerarySchema = new mongoose.Schema({
     cancelByDate: String,
     numNights: Number,
     roomType: String,
-    totalCostOfStay: Number
+    totalCostOfStay: Number,
+    contactInfo: {
+        customerName: String,
+        customerAddress: String,
+        customerCity: String,
+        customerZip: Number,
+        customerCountry: String
+    }
 });
 
 mongoose.model('itinerary', itinerarySchema);

@@ -1,6 +1,5 @@
-import axios from 'axios'
-// Note: payment is handled separately in ./stripeBilling.js
-//===============================================================================================//
+
+// Note: payment and backend submissions are handled separately in ./checkoutButton.js
 
 export const updateNumAdults = (inputNumAdults) => {
     console.log('updating number adults!!');
@@ -36,31 +35,3 @@ export const updateItineraryTotalCost = (cost) => {
         payload: cost
     };
 };
-
-
-export const pushItinerary = (userInput) => async dispatch => {
-    const serverAPI = "http://localhost:5000/api/itinerary";
-    //console.log(userInput);
-    return axios({
-        url: serverAPI,
-        method: 'POST',
-        data: {
-            numAdults: userInput.numAdults,
-            enterDate: userInput.enterDate,
-            exitDate: userInput.exitDate,
-            cancelByDate: userInput.cancelByDate,
-            numNights: userInput.numNights,
-            roomType: userInput.roomType,
-        },
-    })
-    // segment below isn't actually used
-    .catch(res => {
-        console.log(res);
-    });
-};
-
-
-// pushItinerary method credit to: https://github.com/mzabriskie/axios/issues/196
-// https://stackoverflow.com/questions/38798451/how-to-catch-and-handle-error-response-422-with-redux-axios
-
-

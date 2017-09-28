@@ -4,16 +4,15 @@ import { Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'react-bootstrap';
 
-
-import { pushItinerary} from '../actions';
 import { updateItineraryTotalCost } from '../actions';
-import CheckoutForm from '../actions/stripeBilling';
+import CheckoutButton from '../actions/checkoutButton';
 
 //to-do: add luggage hold (free!) to optional addons
 //to-do: change grammar for adults
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 //future feature: dynamic pricing. Increase by a % factor if date lands on weekend
 //future: can pay for someone, stay someone e.se
+//future: history so checkboxes remembered on checkout page.
 //to-do: was unable to refactor handleAddonChange function. Was having issues with improper use of global 'event.'
 
 
@@ -39,8 +38,6 @@ class Checkout extends Component {
         };
         this.addonCost = this.addonCost.bind(this);
         this.handleAddonChange = this.handleAddonChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.sendAllInfo = this.sendAllInfo.bind(this);
     }
 
     componentWillMount() {
@@ -71,20 +68,6 @@ class Checkout extends Component {
                 console.log('Placeholder for throw error. If removed, unable to access this page directly');
             }
         }
-    }
-
-
-    sendAllInfo() {
-        let userInput = {
-            numAdults: this.props.itinerary.numAdults,
-            enterDate: this.props.itinerary.enterDate,
-            exitDate: this.props.itinerary.exitDate,
-            cancelByDate: this.props.itinerary.cancelByDate,
-            numNights: this.props.itinerary.numNights,
-            roomType: this.props.itinerary.roomType,
-            totalCostOfStay: this.props.itinerary.totalCostOfStay
-        };
-        this.props.dispatch(pushItinerary(userInput));
     }
 
 
@@ -197,13 +180,6 @@ class Checkout extends Component {
     }
 
 
-//handle submit wont be needed
-    handleSubmit() {
-        this.props.dispatch(updateItineraryTotalCost(this.totalCostDynamic()));
-        this.setState({redirect: true});
-    }
-
-
     render() {
         //console.log(this.state);
         if (this.state.redirect) {
@@ -211,7 +187,7 @@ class Checkout extends Component {
         }
 
         return (
-            <div>
+            <div className="container">
                 <h1>You chose room {this.props.itinerary.roomType} with travel
                     dates {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}!
                     There are {this.props.itinerary.numAdults} adult(s). Not correct? Please make a change below:
@@ -306,10 +282,7 @@ class Checkout extends Component {
 
                 <h2>Enter credit card information</h2>
 
-                <CheckoutForm />
-
-
-                <Button bsStyle="success" onClick={this.sendAllInfo}>link to next page</Button>
+                <CheckoutButton />
 
             </div>
         );

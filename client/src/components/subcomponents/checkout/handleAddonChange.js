@@ -1,9 +1,5 @@
-/* cant get it to work
-
-import '../../Checkout';
-
-export function handleAddonChange (myEvent) {
-    switch (myEvent.target.name) {
+export function handleAddonChange(event) {
+    switch (event.target.name) {
         case 'carePackage' : {
             this.setState({carePackage: !this.state.carePackage});
 
@@ -48,7 +44,7 @@ export function handleAddonChange (myEvent) {
 
             setTimeout(() => {
                 if (this.state.breakfast) {
-                    this.setState({breakfastTogglePrice: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numAdults).toFixed(2)});
+                    this.setState({breakfastTogglePrice: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numNights * this.props.itinerary.numAdults).toFixed(2)});
                 } else {
                     this.setState({breakfastTogglePrice: null});
                 }
@@ -66,17 +62,7 @@ export function handleAddonChange (myEvent) {
             });
         }
     }
-
-
-
-
-
-
-
-
-
-
-
+    // update total cost every time an addon is toggled
 
 }
-*/
+

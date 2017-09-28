@@ -14,21 +14,9 @@ export default function (state={
         numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
         roomType: '',
         totalCostOfStay: null,
-    },
+    }},
 
-    //not accounted for yet **************************
-    contactInfo: {
-        firstName: '',
-        lastName: '',
-        emailAddress: '',
-        phoneNumber: ''
-    },
-
-    //fetching: false,
-    //fetched: false,
-    //error: null,
-
-    }, action) {
+    action) {
 
     switch (action.type) {
 
@@ -76,8 +64,7 @@ export default function (state={
             };
         }
 
-
-        // cases involving backend (itinerary to db, payment) are handled separately in actions with axios
+        // cases involving backend (itinerary to db, payment) are handled separately in actions/checkoutButton.js
 
         default: {
             return state;

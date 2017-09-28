@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import {} from 'redux-form';
 import { Button } from 'react-bootstrap';
 
 class Login extends Component {

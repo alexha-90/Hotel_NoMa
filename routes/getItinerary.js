@@ -34,11 +34,11 @@ module.exports = app => {
             console.log('in try to push');
             await itinerary.save();
             //this route needs to be changed for production
-            res.redirect('http://localhost:3000/confirmation');
+            //res.redirect('http://localhost:3000/confirmation');
         }
-        catch (err)
+        catch (res)
         {
-            console.log(err);
+            console.log(res.err);
             //res.status(422).send(err);
         }
 

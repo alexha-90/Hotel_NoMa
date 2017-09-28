@@ -1,38 +1,51 @@
 const mongoose = require('mongoose');
 const keys = require ('../config/keys');
 const stripe = require('stripe')(keys.stripeSecretKey);
-const itinerary = require('../models/itinerary');
 
 module.exports = app => {
-    app.post('/api/stripe', async (req, res) => {
-        console.log('test****************');
-        console.log(req.body);
 
-        const charge = await stripe.charges.create({
-            amount: 500, //500 cents
+    //try to integrate below. and get stripe charge working. error in console is from the stripe charge
+    const postStripeCharge = res => (stripeErr, stripeRes) => {
+        if (stripeErr) {
+            res.status(500).send({ error: stripeErr });
+        } else {
+            res.status(200).send({ success: stripeRes });
+        }
+    };
+
+    app.post('/api/stripe', (req, res) => {
+        console.log('in stripe post');
+        console.log(req.body);
+        console.log('***********');
+        console.log(req.body.amount);
+        console.log(req.body.customerName);
+        console.log(req.body.email);
+        //stripe.charges.create(req.body, postStripeCharge(res));
+        stripe.charges.create({
+            amount: req.body.amount,
             currency: 'usd',
-            description: '$5 for 5 marketing campaign credits',
+            description: 'test',
             source: req.body
         });
-
-        console.log(charge);
-
-
-        try {
-            console.log('try to push billing');
-            await charge.save();
-            //this route needs to be changed for production
-            res.redirect('http://localhost:3000/confirmation');
-        }
-        catch (err)
-        {
-            console.log(err);
-            //res.status(422).send(err);
-        }
-
     });
 
+    return app;
+
+
+
+
+    /*
+    app.post('/api/stripe', (req, res) => {
+        console.log('in stripe post');
+        console.log(req.body);
+        stripe.charges.create(req.body, postStripeCharge(res));
+    });
+
+    return app;
+    */
 };
+
+
         /*
         const charge = await stripe.charges.create({
             amount: 500, //500 cents

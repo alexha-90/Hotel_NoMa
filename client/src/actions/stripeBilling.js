@@ -2,20 +2,40 @@ import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { handleToken } from '../../../actions';
+import axios from 'axios'
 
-//import * as actions from '../../../actions';
 
-//import { handleToken } from '../../../actions';
 //import { Redirect} from 'react-router';
 //import { Link } from 'react-router-dom';
 
-
-// push info after stripe to props.intinerary. if props... = true, then redirect.
+// ******** very helpful guide: https://www.robinwieruch.de/react-express-stripe-payment/
+// to-do: maybe add description back into stripe
 //to-do: let stringVar = this.props. if equal to moment().utc420 today, then set stringVar = ''
 //===============================================================================================//
 
 class CheckoutForm extends Component {
+    constructor(props) {
+        super(props);
+        this.onToken = this.onToken.bind(this);
+    }
+
+    // billingAddress, customerName, email are all optional inputs
+    onToken(token, billingAddress) {
+        console.log(token);
+        console.log(billingAddress);
+        const serverAPI = "http://localhost:5000/api/stripe";
+        axios.post(serverAPI,
+            {
+                source: token,
+                amount: this.props.itinerary.totalCostOfStay * 100,
+                customerName: billingAddress.billing_name,
+                email: token.email
+            })
+            .then(console.log('test then'))
+            .catch(console.log('test catch'));
+        alert('next up');
+    }
+
 
     render(){
 
@@ -24,7 +44,7 @@ class CheckoutForm extends Component {
                 <StripeCheckout
                     name='Hotel NoMa'
                     amount={this.props.itinerary.totalCostOfStay * 100}
-                    token={token => console.log(token)}
+                    token={ (token, billingAddress) => this.onToken(token, billingAddress) }
                     stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                     billingAddress={true}
                     zipCode={true}
@@ -50,56 +70,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, handleToken)(CheckoutForm);
-
-
-/*
-                    <Button bsStyle="success" onClick={testAction()}>
-
-        //let description = 'Please enter total: $' + this.props.itinerary.totalCostOfStay;
-        description={description}
-
-                    token={token => this.props.handleToken(token)}
-
-
-// token used to be  token={token => console.log(token)}
-//maybe change to toekn => handleToken(token)
-
-
-sample output
-
-
-d: "tok_1B6tsHAOi1ThesMxwUnZjro4", object: "token", card: {…}, client_ip: "73.162.49.12", created: 1506573829, …}
-card
-:
-{id: "card_1B6tsHAOi1ThesMxpKRBfeeZ", object: "card", address_city: "Union City", address_country: "United States", address_line1: "31355 Santa Ana Way", …}
-client_ip
-:
-"73.162.49.12"
-created
-:
-1506573829
-email
-:
-"chowyows@gmail.com"
-id
-:
-"tok_1B6tsHAOi1ThesMxwUnZjro4"
-livemode
-:
-false
-object
-:
-"token"
-type
-:
-"card"
-used
-:
-false
-__proto__
-:
-Object
-
-
- */
+export default connect(mapStateToProps)(CheckoutForm);

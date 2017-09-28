@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+// Note: payment is handled separately in ./stripeBilling.js
 //===============================================================================================//
 
 export const updateNumAdults = (inputNumAdults) => {
@@ -38,21 +38,6 @@ export const updateItineraryTotalCost = (cost) => {
 };
 
 
-
-
-export const handleToken = (token) => async dispatch => {
-    console.log('handleToken action!!');
-    const res = await axios.post('/api/stripe', token);
-    dispatch({
-        type: "OBTAIN_STRIPE_OUTPUT",
-        payload: res.data
-    });
-};
-
-
-
-
-
 export const pushItinerary = (userInput) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itinerary";
     //console.log(userInput);
@@ -69,8 +54,8 @@ export const pushItinerary = (userInput) => async dispatch => {
         },
     })
     // segment below isn't actually used
-    .then(res => {
-        dispatch({ type: "ITINERARY_TO_DB", payload: res.data })
+    .catch(res => {
+        console.log(res);
     });
 };
 

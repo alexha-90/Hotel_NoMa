@@ -4,16 +4,12 @@ import { Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'react-bootstrap';
 
-//for testing
-//import { handleToken } from '../actions';
+
 import { pushItinerary} from '../actions';
-
-
 import { updateItineraryTotalCost } from '../actions';
-import CheckoutForm from './subcomponents/checkout/stripeBilling';
+import CheckoutForm from '../actions/stripeBilling';
 
 //to-do: add luggage hold (free!) to optional addons
-//to-do: integrate stripe
 //to-do: change grammar for adults
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 //future feature: dynamic pricing. Increase by a % factor if date lands on weekend
@@ -330,5 +326,3 @@ function mapStateToProps(state) {
 
 
 export default connect(mapStateToProps)(Checkout);
-
-{/* <CheckoutForm /> */}

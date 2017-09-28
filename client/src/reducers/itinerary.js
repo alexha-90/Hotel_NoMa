@@ -31,21 +31,6 @@ export default function (state={
     }, action) {
 
     switch (action.type) {
-        /* may be able to delete these cases
-        case "FETCH_DATA": {
-            //successfully accessed. updates fetching in props
-            console.log('fetch data reached');
-            return {...state, fetching: true}
-        }
-
-        case "FETCH_DATA_FULFILLED": {
-            console.log('fetch data entry reached');
-            return {
-                ...state,
-                itinerary: action.payload
-            }
-        }
-        */
 
         case "UPDATE_NUM_ADULTS": {
             console.log('update number of adults reached');
@@ -92,25 +77,10 @@ export default function (state={
         }
 
 
-        case "OBTAIN_STRIPE_OUTPUT": {
-            console.log('??? stripe output reached');
-            return action.payload;
-        }
-
-        /* Not needed due to axios. Am receiving a error in console log after POST is made to backend though.
-        case "ITINERARY_TO_DB": {
-            console.log('pushing test numAdults (itinerary) to DB');
-            console.log(action.payload);
-            return {...state, actionPayload: action.payload};
-        }
-        */
-
-
-        // more cases to come
+        // cases involving backend (itinerary to db, payment) are handled separately in actions with axios
 
         default: {
             return state;
         }
     }
-
 }

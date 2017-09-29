@@ -14,7 +14,7 @@ import CheckoutButton from '../actions/checkoutButton';
 //future: can pay for someone, stay someone e.se
 //future: history so checkboxes remembered on checkout page.
 //to-do: was unable to refactor handleAddonChange function. Was having issues with improper use of global 'event.'
-
+//to-do check if roomType exists. if not, alert stop trying to cheat system and link back to homepage
 
 //===============================================================================================//
 

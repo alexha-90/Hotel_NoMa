@@ -17,7 +17,7 @@ class Confirmation extends Component {
         return (
             <div className="container">
                     <div className="userInput">
-                    <h3>Your reservation has been booked! Your stay confirmation number is #TBD. A receipt has been sent to your email (testuser@example.com).
+                    <h3>Your reservation has been booked! Your stay confirmation number is #{this.props.itinerary.confirmationNumber}. A receipt has been sent to your email ({this.props.itinerary.email}).
                     </h3>
                     <h4>
                         Your stay details: {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate} for
@@ -26,7 +26,7 @@ class Confirmation extends Component {
                     </h4>
 
                     Please feel free to contact us by phone at (555) 415-5104 or by
-                    email at <a href={emailRef}>HotelNoMa@example.com</a> if
+                    email at <a href={emailRef}>hotelnomaSF@gmail.com</a> if
                     you have any questions or concerns. We look forward to your stay!
 
                     <p>

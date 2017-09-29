@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { Button } from 'react-bootstrap';
+import { Redirect} from 'react-router';
 import { connect } from 'react-redux';
 import axios from 'axios'
+import moment from 'moment';
 
 //import { Redirect} from 'react-router';
 
@@ -19,12 +21,25 @@ import axios from 'axios'
 class CheckoutButton extends Component {
     constructor(props) {
         super(props);
+        this.state = { redirect: false };
         this.onToken = this.onToken.bind(this);
     }
 
 
     onToken(token, billingAddress) {
         //console.log(token, billingAddress);
+        const bookTime = moment().utcOffset(-420).format("MM/DD/YYYY") + ' @ ' + moment().utcOffset(-420).format('hh:mm a') + ' (PST)';
+
+        // favorable output arrangement to help employees
+        const confirmationNumber = this.props.itinerary.numAdults + billingAddress.billing_name.slice(0,1) + this.props.itinerary.numNights
+            + (this.props.itinerary.roomType.slice(0,1)).toUpperCase() + billingAddress.billing_address_country_code.slice(0,1)
+            + (billingAddress.billing_address_zip.slice(0,2)).toUpperCase() + Math.floor(Math.random()* 10) + Math.floor(Math.random()* 10);
+
+        // saving booking info to display on upcoming confirmation page (avoids doing a server get request)
+        this.props.itinerary.confirmationNumber = confirmationNumber;
+        this.props.itinerary.bookTime = bookTime;
+        this.props.itinerary.email = token.email;
+
         const serverAPI = "http://localhost:5000/api/itinerary";
 
         // submit all info to backend at once
@@ -47,13 +62,24 @@ class CheckoutButton extends Component {
                 cancelByDate: this.props.itinerary.cancelByDate,
                 numNights: this.props.itinerary.numNights,
                 roomType: this.props.itinerary.roomType,
-                totalCostOfStay: this.props.itinerary.totalCostOfStay
+                totalCostOfStay: this.props.itinerary.totalCostOfStay,
 
+                // newly generated booking info
+                bookTime: bookTime,
+                confirmationNumber: confirmationNumber
             })
-            .catch(console.log('test catch'));
+            .catch(console.log('error occurred trying to post'));
+
+        // delay one second before loading confirmation page
+        setTimeout(() => {
+            this.setState({redirect: true});
+        }, 1000);
     }
 
     render(){
+        if (this.state.redirect) {
+            return <Redirect push to="/confirmation" />;
+        }
 
         return(
             <div>
@@ -69,7 +95,7 @@ class CheckoutButton extends Component {
                     image= 'https://us.123rf.com/450wm/djvstock/djvstock1511/djvstock151102927/48451966-hotel-services-and-travel-graphic-design-vector-illustration-eps10.jpg?ver=6'
                 >
                     <Button bsStyle="success">
-                        Book Now (free cancellations until {this.props.itinerary.cancelByDate}!)
+                        Book Now (free cancellations until {setTimeout(() => { canCancel(this.props.itinerary.enterDate)}, 1000)}
                     </Button>
                 </StripeCheckout>
             </div>
@@ -87,3 +113,13 @@ function mapStateToProps(state) {
 
 
 export default connect(mapStateToProps)(CheckoutButton);
+
+
+function canCancel (start) {
+    alert(moment(start).subtract(1, 'days'));
+    alert(moment().utcOffset(-420));
+    if (moment(start).subtract(1, 'days').isSame(moment().utcOffset(-420))) {
+        return 'same date test';
+    }
+    return 'different date test';
+}

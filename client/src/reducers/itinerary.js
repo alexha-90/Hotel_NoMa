@@ -14,6 +14,9 @@ export default function (state={
         numNights: (moment().utcOffset(-420).add(1, 'days')).diff(moment().utcOffset(-420), 'days'),
         roomType: '',
         totalCostOfStay: null,
+        confirmationNumber: null,
+        bookTime: null,
+        email: null
     }},
 
     action) {

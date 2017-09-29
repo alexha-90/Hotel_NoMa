@@ -23,9 +23,13 @@ require('./models/itinerary');
 // import passport authentication. does not return anything, so does not require variable assignment
 require('./services/passport');
 
+// import nodemailer email service for reservation confirmation
+require('./services/nodemailer');
+
 // import routes
 require('./routes/getItinerary')(app);
 require('./routes/billing')(app);
+
 
 // fetch hidden DB key
 const keys = require('./config/keys');

@@ -102,6 +102,7 @@ class Checkout extends Component {
                 setTimeout(() => {
                     if (this.state.carePackage) {
                         this.setState({carePackageTogglePrice: '$' + this.props.pricing.carePackageCost.toFixed(2)});
+                        this.props.itinerary.carePackage = true;
                     } else {
                         this.setState({carePackageTogglePrice: null});
                     }
@@ -115,6 +116,7 @@ class Checkout extends Component {
                 setTimeout(() => {
                     if (this.state.lateCheckout) {
                         this.setState({lateCheckoutTogglePrice: '$' + this.props.pricing.lateCheckoutCost.toFixed(2)});
+                        this.props.itinerary.lateCheckout = true;
                     } else {
                         this.setState({lateCheckoutTogglePrice: null});
                     }
@@ -128,6 +130,7 @@ class Checkout extends Component {
                 setTimeout(() => {
                     if (this.state.shuttleRide) {
                         this.setState({shuttleTogglePrice: '$' + (this.props.pricing.shuttleRideCost * this.props.itinerary.numAdults).toFixed(2)});
+                        this.props.itinerary.shuttleRide = true;
                     } else {
                         this.setState({shuttleTogglePrice: null});
                     }
@@ -141,6 +144,7 @@ class Checkout extends Component {
                 setTimeout(() => {
                     if (this.state.breakfast) {
                         this.setState({breakfastTogglePrice: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numNights * this.props.itinerary.numAdults).toFixed(2)});
+                        this.props.itinerary.breakfast = true;
                     } else {
                         this.setState({breakfastTogglePrice: null});
                     }

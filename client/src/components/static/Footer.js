@@ -33,9 +33,9 @@ class Footer extends Component {
                             </Col>
                             <Col sm={6} md={3}>
 
-                                <ul><Link to="/About">About Us</Link></ul>
-                                <ul><Link to="/">Contact Us</Link></ul>
-                                <ul><Link to="/Terms">Terms of Use</Link></ul>
+                                <ul><Link to="/about">About Us</Link></ul>
+                                <ul><Link to="/contact">Contact Us</Link></ul>
+                                <ul><Link to="/terms">Terms of Use</Link></ul>
                             </Col>
                     </div>
                         <Col sm={6} md={1}></Col>

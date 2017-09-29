@@ -24,6 +24,7 @@ class Landing extends Component {
     }
 
     render () {
+        let resultsURL = '/results/numAdults=' + this.props.itinerary.numAdults + '_from=' + this.props.itinerary.enterDate + '_to=' + this.props.itinerary.exitDate;
         //console.log('the current state is');
         //console.log(this.state);
         return (
@@ -50,7 +51,7 @@ class Landing extends Component {
                                 </FormControl>
                             </FormGroup>
                             {' '}
-                            <Link to="/results/:id"><Button type="submit" bsStyle="success" bsSize="large">Go!</Button></Link>
+                            <Link to={resultsURL}><Button type="submit" bsStyle="success" bsSize="large">Go!</Button></Link>
                         </Form>
 
                         <hr />

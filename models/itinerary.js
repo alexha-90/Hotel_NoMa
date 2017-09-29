@@ -10,6 +10,12 @@ const itinerarySchema = new mongoose.Schema({
     totalCostOfStay: Number,
     bookTime: String,
     confirmationNumber: String,
+    addons: {
+        carePackage: Boolean,
+        lateCheckout: Boolean,
+        breakfast: Boolean,
+        shuttleRide: Boolean
+    },
     contactInfo: {
         email: String,
         customerName: String,

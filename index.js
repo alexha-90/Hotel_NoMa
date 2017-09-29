@@ -27,9 +27,10 @@ require('./services/passport');
 require('./services/nodemailer');
 
 // import routes
-require('./routes/getItinerary')(app);
+require('./routes/itinerary-post')(app);
+require('./routes/itinerary-get')(app);
+require('./routes/itinerary-delete')(app);
 require('./routes/billing')(app);
-
 
 // fetch hidden DB key
 const keys = require('./config/keys');

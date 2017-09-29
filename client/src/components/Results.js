@@ -64,11 +64,6 @@ class ListResults extends Component {
             return <Redirect push to="/checkout" />;
         }
 
-        let excaliburClose = () => this.setState({ excaliburShow: false });
-        let nuggetClose = () => this.setState({ nuggetShow: false });
-
-
-
         return (
             <div>
 
@@ -77,14 +72,13 @@ class ListResults extends Component {
                     Your total stay would be {this.props.itinerary.numNights} night(s).
                 </h3>
                 <Link to="/"><Button bsStyle="primary">Modify search</Button></Link>
-
                 <div id="resultContainer">
                     <Grid>
                         <Row className="resultsGrid">
                             <Col id="thumbResult" sm={4} md={4}>
                                 <div className="thumbPhoto">
                                     <img alt="excaliburPreview" onClick={()=>this.setState({ excaliburShow: true })} src="https://secure.fourseasons.com/content/dam/fourseasons/images/web/CFS/CFS_1208_aspect16x9.jpg/jcr:content/renditions/cq5dam.web.468.263.jpeg" />
-                                    <ExcaliburPhotoModal show={this.state.excaliburShow} onHide={excaliburClose} />
+                                    <ExcaliburPhotoModal show={this.state.excaliburShow} onHide={()=>this.setState({ excaliburShow: false })} />
                                 </div>
                             </Col>
                             <Col id="highlightResult" sm={8} md={8}>
@@ -156,7 +150,7 @@ class ListResults extends Component {
                             <Col id="thumbResult" sm={4} md={4}>
                                 <div className="thumbPhoto">
                                     <img alt="excaliburPreview" onClick={()=>this.setState({ nuggetShow: true })} src="https://secure.fourseasons.com/content/dam/fourseasons/images/web/CFS/CFS_1208_aspect16x9.jpg/jcr:content/renditions/cq5dam.web.468.263.jpeg" />
-                                    <NuggetPhotoModal show={this.state.nuggetShow} onHide={nuggetClose} />
+                                    <NuggetPhotoModal show={this.state.nuggetShow} onHide={()=>this.setState({ nuggetShow: false })} />
                                 </div>
                             </Col>
                             <Col id="highlightResult" sm={8} md={8}>

@@ -1,3 +1,4 @@
+.gitignore
 node_modules
 .idea
 
@@ -6,3 +7,5 @@ node_modules
 keys.js
 dev.js
 prod.js
+itinerary-get.js
+itinerary-delete.js

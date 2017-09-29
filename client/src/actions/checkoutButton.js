@@ -63,6 +63,10 @@ class CheckoutButton extends Component {
                 numNights: this.props.itinerary.numNights,
                 roomType: this.props.itinerary.roomType,
                 totalCostOfStay: this.props.itinerary.totalCostOfStay,
+                carePackage: this.props.itinerary.carePackage,
+                lateCheckout: this.props.itinerary.lateCheckout,
+                breakfast: this.props.itinerary.breakfast,
+                shuttleRide: this.props.itinerary.shuttleRide,
 
                 // newly generated booking info
                 bookTime: bookTime,
@@ -95,7 +99,7 @@ class CheckoutButton extends Component {
                     image= 'https://us.123rf.com/450wm/djvstock/djvstock1511/djvstock151102927/48451966-hotel-services-and-travel-graphic-design-vector-illustration-eps10.jpg?ver=6'
                 >
                     <Button bsStyle="success">
-                        Book Now (free cancellations until {setTimeout(() => { canCancel(this.props.itinerary.enterDate)}, 1000)}
+                        Book Now (free cancellations until {canCancel()}
                     </Button>
                 </StripeCheckout>
             </div>
@@ -116,9 +120,7 @@ export default connect(mapStateToProps)(CheckoutButton);
 
 
 function canCancel (start) {
-    alert(moment(start).subtract(1, 'days'));
-    alert(moment().utcOffset(-420));
-    if (moment(start).subtract(1, 'days').isSame(moment().utcOffset(-420))) {
+    if (moment(start).subtract(1, 'days').isSameOrAfter(moment().utcOffset(-420))) {
         return 'same date test';
     }
     return 'different date test';

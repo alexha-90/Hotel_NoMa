@@ -38,7 +38,7 @@ class Header extends Component {
                                 </MenuItem>
                                 <MenuItem divider />
                             </NavDropdown>
-                            <NavItem eventKey={2} href="#">Retrieve Reservation</NavItem>
+                            <NavItem eventKey={2} href="/reservations">Retrieve Reservation</NavItem>
                         </Nav>
                     </div>
                 </Navbar>

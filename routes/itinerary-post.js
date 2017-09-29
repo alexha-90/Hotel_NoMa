@@ -11,17 +11,16 @@ module.exports = app => {
         app.post('/api/itinerary', async (req, res) => {
             console.log('attempt to post itinerary to DB');
 
-
             const {
-                /*from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay,
+                /*from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, carePackage, lateCheckout, breakfast, shuttleRide,
                 /*from stripe checkout:*/ email, customerName, customerAddress, customerCity, customerZip, customerCountry,
                 /*helper info:*/ bookTime, confirmationNumber
                 } = req.body;
 
-
             // data from front end should be available at this point. Will be assigned to new schema instance below
-            //console.log(req.body);
+            //console.log(req.body.confirmationNumber);
 
+            // define new entry in accordance with model schema and req.body result from front-end axios post request
             const itinerary = new Itinerary({
                 numAdults: numAdults,
                 enterDate: enterDate,
@@ -32,6 +31,12 @@ module.exports = app => {
                 totalCostOfStay: totalCostOfStay,
                 bookTime: bookTime,
                 confirmationNumber: confirmationNumber,
+                addons: {
+                    carePackage: carePackage,
+                    lateCheckout: lateCheckout,
+                    breakfast: breakfast,
+                    shuttleRide: shuttleRide
+                },
                 contactInfo: {
                     email: email,
                     customerName: customerName,
@@ -84,7 +89,7 @@ module.exports = app => {
                     'if you need suggestions for activities in the area, please visit TBD. Your confirmation number is ' + confirmationNumber + '.',
                 html: '<h4>Thanks for booking your upcoming stay in San Francisco with us! We look forward to seeing you. If you need suggestions ' +
                     'for activities in the area, please visit TBD. Your confirmation number is</h4>' + confirmationNumber +
-                    '<h4>. You paid $</h4>' + totalCostOfStay + '<h4>.</h4>'
+                    '<h4>. You paid $</h4>' + totalCostOfStay + '<h4>. if you chose breakfast, you will get a voucher at check in. if not, stay hungry my friend. shuttle ride</h4>'
             };
 
             // send mail with defined transport object
@@ -96,4 +101,21 @@ module.exports = app => {
             });
 
         });
+
+
+
+    app.get('/api/itinerary', async (req, res) => {
+        const getItinerary = await Itinerary.find({ confirmationNumber: '3A12FU9449' });
+        res.send(getItinerary);
+        //res.send('hello');
+    });
+
+
+
+
+
+
+
+
+
 };

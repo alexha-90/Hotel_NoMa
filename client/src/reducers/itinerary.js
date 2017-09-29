@@ -5,8 +5,9 @@ import moment from 'moment';
 
 
 export default function (state={
+    // all client info batched together here. Reorganized once entry is saved into DB
     itinerary: {
-        // Default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
+        // default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
         numAdults: 1,
         enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
         exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
@@ -16,7 +17,11 @@ export default function (state={
         totalCostOfStay: null,
         confirmationNumber: null,
         bookTime: null,
-        email: null
+        email: null,
+        carePackage: false,
+        lateCheckout: false,
+        breakfast: false,
+        shuttleRide: false
     }},
 
     action) {

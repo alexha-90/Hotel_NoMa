@@ -2,25 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
-import { Button, Table } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import { updateItineraryTotalCost } from '../actions';
 import CheckoutButton from '../actions/checkoutButton';
-
-import addonCost from './subcomponents/checkout/addonCost';
+import { addonCost } from './subcomponents/checkout/AddonCost';
+import { pricingTable } from './subcomponents/checkout/PricingTable';
 //to-do: add luggage hold (free!) to optional addons
 //to-do: change grammar for adults
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
-//future feature: dynamic pricing. Increase by a % factor if date lands on weekend
-//future: can pay for someone, stay someone e.se
-//future: history so checkboxes remembered on checkout page.
-//to-do: was unable to refactor handleAddonChange function. Was having issues with improper use of global 'event.'
 //to-do check if roomType exists. if not, alert stop trying to cheat system and link back to homepage
-
-//===============================================================================================//
-
 //to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 
+//===============================================================================================//
 
 class Checkout extends Component {
     constructor(props) {
@@ -37,9 +31,9 @@ class Checkout extends Component {
             breakfastCost: null,
 
         };
-        //this.addonCost = this.addonCost.bind(this);
         this.handleAddonChange = this.handleAddonChange.bind(this);
     }
+
 
     componentWillMount() {
         // Associating a price with room type selected in previous results page.
@@ -72,8 +66,15 @@ class Checkout extends Component {
     }
 
 
+    // retrieve default total cost of reservation upon loading component, no addons
+    componentDidMount(){
+        this.props.dispatch(updateItineraryTotalCost(this.totalCostDynamic()));
+    }
+
+
     // determine if checkbox is selected for each individual addon. If yes, dynamically update the itinerary's total cost
     // price is grabbed from the props.pricing reducer. This makes it extremely easy for management to update prices
+    // NOTE: having issues refactoring and exporting this function due to event argument and amount of references
     handleAddonChange(event) {
         switch (event.target.name) {
             case 'carePackage' : {
@@ -144,24 +145,18 @@ class Checkout extends Component {
         }, 200);
     }
 
-
+    // dynamically update price with addon selections
     totalCostDynamic() {
         return (//'$' +
             ((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights
-            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax)
-            + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax)
-            + addonCost(this.props.pricing, this.state)).toFixed(2)
+                + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax)
+                + (((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax)
+                + addonCost(this.props.pricing, this.state)).toFixed(2)
         );
     }
 
-    // Retrieve total cost of reservation upon loading, no addons
-    componentDidMount(){
-        this.props.dispatch(updateItineraryTotalCost(this.totalCostDynamic()));
-    }
-
-
     render() {
-        //console.log(this.state);
+        // initiated after successful stripe payment checkout
         if (this.state.redirect) {
             return <Redirect push to="/confirmation" />;
         }
@@ -184,81 +179,10 @@ class Checkout extends Component {
                     Total cost is ${this.roomCostPerNight * this.props.itinerary.numNights}. Staying {this.props.itinerary.numNights} nights</h4>
 
                 Your stay:
-                <Table striped bordered condensed>
-                    <thead>
-                    <tr>
-                        <th>Item/Description</th>
-                        <th>Cost</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Room base charge (${this.state.roomCost.toFixed(2)} x {this.props.itinerary.numNights} nights)</td>
-                        <td>${(this.state.roomCost * this.props.itinerary.numNights).toFixed(2)}</td>
-                    </tr>
-                    <tr>
-                        <td>Cleaning fee (${this.props.pricing.cleaningCost.toFixed(2)} x {this.props.itinerary.numNights} nights)</td>
-                        <td>${(this.props.pricing.cleaningCost * this.props.itinerary.numNights).toFixed(2)}</td>
-                    </tr>
-                    <tr>
-                        <td>S.F. occupancy tax ({(this.props.pricing.occupancyTax * 100).toFixed(3)}%)</td>
-                        <td>${(((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.occupancyTax).toFixed(2)}</td>
-                    </tr>
-                    <tr>
-                        <td>S.F. tourism tax ({(this.props.pricing.tourismTax * 100).toFixed(3)}%)</td>
-                        <td>${(((this.state.roomCost + this.props.pricing.cleaningCost) * this.props.itinerary.numNights) * this.props.pricing.tourismTax).toFixed(2)}</td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
-                    <tr>
-                        <td>Optional addons (all prices includes sales tax):</td>
-                        <td> </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <input name="carePackage" type="checkbox" onChange={this.handleAddonChange} />
-                                &nbsp;Care package (toothbrush, toothpaste, water, gum)
-                            </label>
-                        </td>
-                        <td>{this.state.carePackageCost}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <input name="lateCheckout" type="checkbox" onChange={this.handleAddonChange} />
-                                &nbsp;Late checkout (2:00pm PST, day of departure)
-                            </label>
-                        </td>
-                        <td>{this.state.lateCheckoutCost}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <input name="shuttleRide" type="checkbox" onChange={this.handleAddonChange} />
-                                &nbsp;San Francisco Airport shuttle (charged per guest, roundtrip)
-                            </label>
-                        </td>
-                        <td>{this.state.shuttleRideCost}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <input name="breakfast" type="checkbox" onChange={this.handleAddonChange} />
-                                &nbsp;Continental Breakfast (charged per guest, per day)
-                            </label>
-                        </td>
-                        <td>{this.state.breakfastCost}</td>
-                    </tr>
-                    <tr>
-                        <td>TOTAL</td>
-                        <td>${this.totalCostDynamic()}
-                    </td>
-                    </tr>
-                    </tbody>
-                </Table>
+                {/* Imported component: entire table output */}
+                {pricingTable(this.state, this.props.itinerary, this.props.pricing, this.handleAddonChange, this.totalCostDynamic())}
+                {/* Imported component: entire table output */}
+
 
                 {/* Imported component: Stripe billing */}
                 <CheckoutButton />

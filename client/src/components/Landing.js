@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'react-day-picker/lib/style.css';
 import moment from 'moment';
-import { Jumbotron, Button, Grid, Row, Col, Glyphicon, Form, FormGroup, FormControl } from 'react-bootstrap';
+import { Jumbotron, Button, Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 
 
 import InputCalendar from './subcomponents/landing/InputCalendar';
 import { updateNumAdults } from '../actions';
 import LandingCarousel from './subcomponents/landing/MainCarousel';
-
+import { inputAdults } from './subcomponents/landing/InputAdults';
 
 //bug: when number of adults changed, automatically cycles back to first pic
 //feature: validate for max stay of 30 days.
@@ -24,9 +24,6 @@ class Landing extends Component {
     }
 
     render () {
-        let resultsURL = '/results/numAdults=' + this.props.itinerary.numAdults + '_from=' + this.props.itinerary.enterDate + '_to=' + this.props.itinerary.exitDate;
-        //console.log('the current state is');
-        //console.log(this.state);
         return (
             <div className="container">
 
@@ -37,22 +34,14 @@ class Landing extends Component {
 
                     <div className="formArea">
 
-                        {/* Imported component */}
+                        {/* Imported component - dynamic calendar */}
                         <InputCalendar />
-                        {/* Imported component */}
+                        {/* Imported component - dynamic calendar*/}
 
-                        <Form inline onSubmit={this.handleNumAdultChange.bind(this)}>
-                            <FormGroup controlId="formControlsSelect" bsSize="large">
-                                <FormControl name="numAdults" value={this.props.itinerary.numAdults} onChange={this.handleNumAdultChange.bind(this)} componentClass="select">
-                                    <option value="1">1 Adult</option>
-                                    <option value="2">2 Adults</option>
-                                    <option value="3">3 Adults</option>
-                                    <option value="4">4 Adults</option>
-                                </FormControl>
-                            </FormGroup>
-                            {' '}
-                            <Link to={resultsURL}><Button type="submit" bsStyle="success" bsSize="large">Go!</Button></Link>
-                        </Form>
+
+                        {/* Imported component - adult guests input & submit button */}
+                        {inputAdults(this.props, this.handleNumAdultChange.bind(this))}
+                        {/* Imported component - adult guests input & submit button */}
 
                         <hr />
                         The local time in San Francisco, CA is currently: {moment().utcOffset(-420).format('hh:mm a')}. Local temperature is TBD.
@@ -67,9 +56,9 @@ class Landing extends Component {
                     </div>
                 </Jumbotron>
 
-                {/* Imported component */}
+                {/* Imported component - large image carousel */}
                 <LandingCarousel />
-                {/* Imported component */}
+                {/* Imported component - large image carousel */}
 
                 <div className="threeBlurbs">
                     <div className="blurbHeader">

@@ -2,10 +2,10 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 
 // maybe rename to makeItinerary
-
+//===============================================================================================//
 
 const itineraryReducerSource = (state={
-    // all client info batched together here. Reorganized once entry is saved into DB
+    // all customer info batched together here. Reorganized once entry is saved into DB
     itinerary: {
         // default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
         numAdults: 1,
@@ -22,7 +22,6 @@ const itineraryReducerSource = (state={
         lateCheckout: false,
         breakfast: false,
         shuttleRide: false,
-        test: ''
     }},
 
     action) => {
@@ -30,28 +29,21 @@ const itineraryReducerSource = (state={
     switch (action.type) {
 
         case "UPDATE_NUM_ADULTS": {
-            console.log('update number of adults reached');
+            // console.log('update number of adults reached');
             return {
                 ...state,
                 itinerary: {...state.itinerary, numAdults: parseInt(action.payload, 10)}
             };
         }
 
-        case "UPDATE_ROOM_TYPE": {
-            console.log('update room type reached');
-            return {
-                ...state,
-                itinerary: {...state.itinerary, roomType: action.payload}
-            };
-        }
 
         case "UPDATE_CALENDAR_DATES": {
-            console.log('update calendar dates reached');
+            // console.log('update calendar dates reached');
             const enterDate = action.payload[0];
             const exitDate = action.payload[2];
             const numNights = moment(exitDate).diff(moment(enterDate), 'days');
 
-            // initially creates an deprecation error since attempting to parse a null time. Timeout does not solve.
+            // initially creates an deprecation error since attempting to parse a null time. Ignore the error.
             const cancelByDate = moment(exitDate).subtract(1, 'days').format("MM/DD/YYYY");
             return {
                 ...state,
@@ -65,15 +57,24 @@ const itineraryReducerSource = (state={
             };
         }
 
+
+        case "UPDATE_ROOM_TYPE": {
+            // console.log('update room type reached');
+            return {
+                ...state,
+                itinerary: {...state.itinerary, roomType: action.payload}
+            };
+        }
+
+
         case "UPDATE_ITINERARY_TOTAL_COST": {
-            console.log('update itinerary total cost reached');
+            //console.log('update itinerary total cost reached');
             return {
                 ...state,
                 itinerary: {...state.itinerary, totalCostOfStay: parseFloat(action.payload)}
             };
         }
 
-        // cases involving backend (itinerary to db, payment) are handled separately in actions/checkoutButton.js
 
         case "SEARCH_EXISTING_ITINERARY":
             console.log('search existing itinerary reached');
@@ -82,10 +83,12 @@ const itineraryReducerSource = (state={
 
 
         case "FETCH_EXISTING_ITINERARY":
-            console.log('fetch existing itinerary reached!');
+            console.log('fetch existing itinerary reached');
             console.log(action.payload);
             return action.payload;
 
+
+        // cases involving backend (itinerary to db, payment) are handled separately in actions/checkoutButton.js
 
 
         default: {

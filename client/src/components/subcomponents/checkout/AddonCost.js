@@ -1,10 +1,14 @@
-const addonCost = (pricing, state) => {
+// arguments received: this.props.pricing, this.state
+//===============================================================================================//
+
+export function addonCost(pricing, state) {
+    // pricing obtained from reducers/pricing.js file. Very easy for hotel management to adjust prices.
     let carePackageCost = pricing.carePackageCost;
     let lateCheckoutCost = pricing.lateCheckoutCost;
     let shuttleRideCost = pricing.shuttleRideCost;
     let breakfastCost = pricing.breakfastCost;
 
-    // if addon option is not selected, default to zero. Else get price from redux store. Sum is added to total
+    // this approach avoids attempting to sum null values in total itinerary cost
     if (!state.carePackage) {
         carePackageCost = 0;
     }
@@ -18,6 +22,4 @@ const addonCost = (pricing, state) => {
         breakfastCost = 0;
     }
     return carePackageCost + lateCheckoutCost + shuttleRideCost + breakfastCost;
-};
-
-export default addonCost;
+}

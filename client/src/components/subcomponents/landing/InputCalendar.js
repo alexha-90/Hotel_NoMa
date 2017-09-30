@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import moment from 'moment';
 import { connect } from 'react-redux';
-
 import { updateCalendarDates } from "../../../actions";
 
 //===============================================================================================//

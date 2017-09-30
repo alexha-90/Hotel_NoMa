@@ -7,7 +7,7 @@ import axios from 'axios'
 import moment from 'moment';
 
 //import { Redirect} from 'react-router';
-
+// refactor to make action here and updating in reducer.
 // ******** very helpful guide: https://www.robinwieruch.de/react-express-stripe-payment/
 // to-do: maybe add description back into stripe
 // to-do: get customer phoen number

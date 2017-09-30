@@ -104,15 +104,16 @@ module.exports = app => {
 
 
 
-    app.get('/api/itinerary', async (req, res) => {
-        const getItinerary = await Itinerary.find({ confirmationNumber: '3A12FU9449' });
+    app.post('/api/itinerarySearch', async (req, res) => {
+        console.log(req.body);
+        const getItinerary = await Itinerary.find({ confirmationNumber: req.body.payload });
+        console.log(getItinerary);
         res.send(getItinerary);
-        //res.send('hello');
     });
 
 
 
-
+// add .select({ recipients: false }); to exclude some details
 
 
 

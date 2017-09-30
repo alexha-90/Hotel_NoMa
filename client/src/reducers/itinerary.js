@@ -1,7 +1,6 @@
 import moment from 'moment';
 
-// to-do: limit stay to 30 days max
-
+// maybe rename to makeItinerary
 
 
 export default function (state={
@@ -73,6 +72,12 @@ export default function (state={
         }
 
         // cases involving backend (itinerary to db, payment) are handled separately in actions/checkoutButton.js
+
+        case "SEARCH_EXISTING_ITINERARY":
+            console.log('update fetch itinerary reached');
+            console.log(action.payload);
+            return action.payload;
+
 
         default: {
             return state;

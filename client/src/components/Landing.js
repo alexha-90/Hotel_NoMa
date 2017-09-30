@@ -7,7 +7,7 @@ import { Jumbotron, Button, Grid, Row, Col, Glyphicon, Form, FormGroup, FormCont
 
 
 import InputCalendar from './subcomponents/landing/InputCalendar';
-import { updateNumAdults } from "../actions";
+import { updateNumAdults } from '../actions';
 import LandingCarousel from './subcomponents/landing/MainCarousel';
 
 

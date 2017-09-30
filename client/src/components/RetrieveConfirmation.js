@@ -12,26 +12,17 @@ class RetrieveConfirmation extends Component {
         super(props);
         this.state = {
             confirmationNum: '',
-            email: '',
             getReservation: false,
             deleteReservation: false
         };
-
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.myTest = this.myTest.bind(this);
+        this.handleGetReservation = this.handleGetReservation.bind(this);
     }
 
+    /*
     componentDidMount() {
-        axios.get('http://localhost:5000/api/itinerarySearch')
-            .then(res => {
-                const posts = res.data.getItinerary;
-                console.log('*******');
-                console.log(posts);
-
-                //this.setState({ posts });
-            });
     }
+    */
 
 
 
@@ -39,69 +30,43 @@ class RetrieveConfirmation extends Component {
         if (event.target.name === 'confirmationNum') {
             this.setState({confirmationNum: event.target.value});
         }
-        if (event.target.name === 'email') {
-            this.setState({email: event.target.value});
-        }
     }
 
-    handleSubmit() {
-        console.log('keeps disappearing after props dispatch');
-        if (this.state.getReservation) {
-            console.log('time to get reservation');
-            //const confirmationNum = this.state.confirmationNum;
-            this.props.dispatch(searchExistingItinerary());
-        }
 
-        if (this.state.deleteReservation) {
-            alert(this.state.confirmationNum);
-            alert(this.state.email);
-        }
+    handleGetReservation() {
+        //3A12FU9484
+        this.setState({ getReservation: true});
+        this.props.dispatch(searchExistingItinerary(this.state.confirmationNum));
+        console.log('loading... replace me');
+        // if response from server = Array(0).... no results
+        setTimeout(() => {
+            alert('test ends here. Cant get res yet');
+        }, 1000);
     }
 
-    myTest() {
-        let testConfirmationNum = '3A12FU9484';
-        this.props.dispatch(searchExistingItinerary(testConfirmationNum));
-    }
-
-    renderResults() {
-        return (
-            <div>
-                itinerary
-            </div>
-        );
-    }
-
+    //tbd: handle delete
 
 
     render() {
         return (
             <div className="container">
 
-                <Button bsStyle="primary" onClick={this.myTest}>
-                    test button
-                </Button>
-
-
-                <Form onSubmit={this.handleSubmit}>
+                <Form>
                     <FormGroup>
                         <ControlLabel>Confirmation number:</ControlLabel>
                         <FormControl type="text" name="confirmationNum" value={this.state.confirmationNum} onChange={this.handleChange}/>
                     </FormGroup>
-                    <FormGroup>
-                        <ControlLabel>Email used:</ControlLabel>
-                        <FormControl type="text" name="email" value={this.state.email} onChange={this.handleChange} />
-                    </FormGroup>
                     I would like to.....
                     <br />
-                    <Button bsStyle="success" type="submit" value="getReservation" onClick={() => this.setState({ getReservation: true })}>
+                    <Button bsStyle="success" value="getReservation"
+                            onClick={this.handleGetReservation}>
                         Get my reservation
                     </Button>
                     {' '}
-                    <Button bsStyle="danger" type="submit" value="deleteReservation" onClick={() => this.setState({ deleteReservation: true })}>
+                    <Button bsStyle="danger" value="deleteReservation" onClick={() => this.setState({ deleteReservation: true })}>
                         Delete my reservation
                     </Button>
                 </Form>
-
 
             </div>
         );
@@ -111,6 +76,7 @@ class RetrieveConfirmation extends Component {
 function mapStateToProps(state) {
     return {
         itinerary: state.itineraryReducer.itinerary,
+        pricing: state.pricingReduce
     };
 }
 

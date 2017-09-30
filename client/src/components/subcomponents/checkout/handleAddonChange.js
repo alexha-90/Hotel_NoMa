@@ -5,9 +5,9 @@ export function handleAddonChange(event) {
 
             setTimeout(() => {
                 if (this.state.carePackage) {
-                    this.setState({carePackageTogglePrice: '$' + this.props.pricing.carePackageCost.toFixed(2)});
+                    this.setState({carePackageCost: '$' + this.props.pricing.carePackageCost.toFixed(2)});
                 } else {
-                    this.setState({carePackageTogglePrice: null});
+                    this.setState({carePackageCost: null});
                 }
             }, 100);
             break;
@@ -18,9 +18,9 @@ export function handleAddonChange(event) {
 
             setTimeout(() => {
                 if (this.state.lateCheckout) {
-                    this.setState({lateCheckoutTogglePrice: '$' + this.props.pricing.lateCheckoutCost.toFixed(2)});
+                    this.setState({lateCheckoutCost: '$' + this.props.pricing.lateCheckoutCost.toFixed(2)});
                 } else {
-                    this.setState({lateCheckoutTogglePrice: null});
+                    this.setState({lateCheckoutCost: null});
                 }
             }, 100);
             break;
@@ -31,9 +31,9 @@ export function handleAddonChange(event) {
 
             setTimeout(() => {
                 if (this.state.shuttleRide) {
-                    this.setState({shuttleTogglePrice: '$' + (this.props.pricing.shuttleRideCost * this.props.itinerary.numAdults).toFixed(2)});
+                    this.setState({shuttleRideCost: '$' + (this.props.pricing.shuttleRideCost * this.props.itinerary.numAdults).toFixed(2)});
                 } else {
-                    this.setState({shuttleTogglePrice: null});
+                    this.setState({shuttleRideCost: null});
                 }
             }, 100);
             break;
@@ -44,9 +44,9 @@ export function handleAddonChange(event) {
 
             setTimeout(() => {
                 if (this.state.breakfast) {
-                    this.setState({breakfastTogglePrice: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numNights * this.props.itinerary.numAdults).toFixed(2)});
+                    this.setState({breakfastCost: '$' + (this.props.pricing.breakfastCost * this.props.itinerary.numNights * this.props.itinerary.numAdults).toFixed(2)});
                 } else {
-                    this.setState({breakfastTogglePrice: null});
+                    this.setState({breakfastCost: null});
                 }
             }, 100);
             break;
@@ -55,10 +55,10 @@ export function handleAddonChange(event) {
         // Prevent unexpected addon behavior
         default: {
             this.setState({
-                carePackageTogglePrice: null,
-                lateCheckoutTogglePrice: null,
-                shuttleTogglePrice: null,
-                breakfastTogglePrice: null
+                carePackageCost: null,
+                lateCheckoutCost: null,
+                shuttleRideCost: null,
+                breakfastCost: null
             });
         }
     }

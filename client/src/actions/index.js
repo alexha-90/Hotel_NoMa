@@ -1,5 +1,7 @@
 import axios from 'axios';
+
 // Note: payment and backend submissions are handled separately in ./checkoutButton.js
+// to-do: refactor server address as an environment/global variable
 
 export const updateNumAdults = (inputNumAdults) => {
     console.log('updating number adults!!');
@@ -41,17 +43,25 @@ export const searchExistingItinerary = (testConfirmationNum) => async dispatch =
     const serverAPI = "http://localhost:5000/api/itinerarySearch";
 
     try {
+        // .post search term to query database
+        const req = testConfirmationNum;
         await axios.post(serverAPI,
+            dispatch({
+                type: "SEARCH_EXISTING_ITINERARY",
+                payload: req
+        }));
+
+        // .get response back from database query
+        const res = await axios.get(serverAPI);
         dispatch({
-            type: "SEARCH_EXISTING_ITINERARY",
-            payload: testConfirmationNum
-        }))
-    } catch(error) {
-        console.log(error);
+                type: "FETCH_EXISTING_ITINERARY",
+                payload: res
+        });
+
+    } catch(res) {
+        console.log(res.err);
     }
 };
-
-
 
 
 

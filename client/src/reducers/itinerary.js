@@ -1,9 +1,10 @@
 import moment from 'moment';
+import { connect } from 'react-redux';
 
 // maybe rename to makeItinerary
 
 
-export default function (state={
+const itineraryReducerSource = (state={
     // all client info batched together here. Reorganized once entry is saved into DB
     itinerary: {
         // default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
@@ -20,10 +21,11 @@ export default function (state={
         carePackage: false,
         lateCheckout: false,
         breakfast: false,
-        shuttleRide: false
+        shuttleRide: false,
+        test: ''
     }},
 
-    action) {
+    action) => {
 
     switch (action.type) {
 
@@ -74,13 +76,38 @@ export default function (state={
         // cases involving backend (itinerary to db, payment) are handled separately in actions/checkoutButton.js
 
         case "SEARCH_EXISTING_ITINERARY":
-            console.log('update fetch itinerary reached');
+            console.log('search existing itinerary reached');
             console.log(action.payload);
             return action.payload;
+
+
+        case "FETCH_EXISTING_ITINERARY":
+            console.log('fetch existing itinerary reached!');
+            console.log(action.payload);
+            return action.payload;
+
 
 
         default: {
             return state;
         }
     }
+};
+
+
+export default itineraryReducerSource;
+
+
+
+/*
+
+//------------------------------------------------
+function mapStateToProps(state) {
+    return {
+        itinerary: state.itineraryReducer.itinerary,
+    };
 }
+
+export default connect(mapStateToProps)(RetrieveConfirmation);
+
+*/

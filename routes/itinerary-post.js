@@ -103,20 +103,27 @@ module.exports = app => {
         });
 
 
+    // route for retrieving reservations - .post itinerary number, .get itinerary number
+    app.route('/api/itinerarySearch')
+        .post(async (req,res) => {
+            try {
+                console.log(req.body);
+                const getItinerary = await Itinerary.find({confirmationNumber: req.body.payload});
+                console.log(getItinerary);
+                res.send(getItinerary);
+                // defining getItinerary as global variable in order to pass value to .get request below
+                global.getItinerary = getItinerary;
+            } catch (res) {
+                console.log(res.err);
+            }
+        })
 
-    app.post('/api/itinerarySearch', async (req, res) => {
-        console.log(req.body);
-        const getItinerary = await Itinerary.find({ confirmationNumber: req.body.payload });
-        console.log(getItinerary);
-        res.send(getItinerary);
-    });
-
-
-
-// add .select({ recipients: false }); to exclude some details
-
-
-
-
-
+        .get(async (req,res) => {
+            try {
+                res.send({ res: global.getItinerary });
+            } catch (res) {
+                console.log(res.err);
+            }
+        })
 };
+

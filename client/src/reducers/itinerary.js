@@ -78,7 +78,6 @@ const itineraryReducerSource = (state={
 
         case "SEARCH_EXISTING_ITINERARY":
             console.log('search existing itinerary reached');
-            console.log(action.payload);
             return action.payload;
 
 
@@ -87,6 +86,15 @@ const itineraryReducerSource = (state={
             console.log(action.payload);
             return action.payload;
 
+
+        case "EXISTING_ITINERARY_TO_REDUX_STORE": {
+            console.log('existing itinerary to redux store state reached');
+            return {
+                ...state,
+                itinerary: action.payload
+            };
+
+        }
 
         // cases involving backend (itinerary to db, payment) are handled separately in actions/checkoutButton.js
 

@@ -38,9 +38,13 @@ class RetrieveConfirmation extends Component {
         this.setState({ getReservation: true});
         this.props.dispatch(searchExistingItinerary(this.state.confirmationNum));
         console.log('loading... replace me');
-        // if response from server = Array(0).... no results
+        // if response from server = Array(0).... no results.  if .length = 0. or undefined
         setTimeout(() => {
-            alert('test ends here. Cant get res yet');
+            console.log('test ends here. Cant get res yet');
+
+            console.log(this.props.itinerary);
+            console.log('full above');
+            console.log(this.props.itinerary.numAdults);
         }, 1000);
     }
 
@@ -76,7 +80,6 @@ class RetrieveConfirmation extends Component {
 function mapStateToProps(state) {
     return {
         itinerary: state.itineraryReducer.itinerary,
-        pricing: state.pricingReduce
     };
 }
 

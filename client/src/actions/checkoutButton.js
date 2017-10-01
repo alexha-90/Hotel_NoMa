@@ -42,6 +42,8 @@ class CheckoutButton extends Component {
 
         const serverAPI = "http://localhost:5000/api/itinerary";
 
+        //refactor into action creator here
+
         // submit all info to backend at once
         axios.post(serverAPI,
             {

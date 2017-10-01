@@ -1,4 +1,7 @@
 import axios from 'axios';
+import store from '../index';
+import { createStore } from 'redux'
+import allReducers from "../reducers/index";
 
 // Note: payment and backend submissions are handled separately in ./checkoutButton.js
 // to-do: refactor server address as an environment/global variable
@@ -39,12 +42,15 @@ export const updateItineraryTotalCost = (cost) => {
 };
 
 
-export const searchExistingItinerary = (testConfirmationNum) => async dispatch => {
+export const searchExistingItinerary = (confirmationNum) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itinerarySearch";
+
+    store.dispatch({type: "INC", payload: 1});
+
 
     try {
         // .post search term to query database
-        const req = testConfirmationNum;
+        const req = confirmationNum;
         await axios.post(serverAPI,
             dispatch({
                 type: "SEARCH_EXISTING_ITINERARY",
@@ -58,45 +64,12 @@ export const searchExistingItinerary = (testConfirmationNum) => async dispatch =
                 payload: res
         });
 
+        // server response with itinerary. Empty if no match.
+        console.log(res.data.res[0]);
+        //dispatch itinerary to redux store state
+        store.dispatch({type: "EXISTING_ITINERARY_TO_REDUX_STORE", payload: res.data.res[0]});
+
     } catch(res) {
         console.log(res.err);
     }
 };
-
-
-
-/*
-export const fetchItinerary = (testConfirmationNum) => async dispatch => {
-    const serverAPI = "http://localhost:5000/api/itinerarySearch";
-
-    try {
-        await axios.post(serverAPI,
-            dispatch({
-                type: "FETCH_ITINERARY",
-                payload: testConfirmationNum
-            }))
-    } catch(error) {
-        console.log(error);
-    }
-};
-*/
-
-
-
-
-
-
-/*
-export const fetchItinerary = (testConfirmationNum) => async dispatch => {
-    await axios.post('/api/itineraryz');
-    dispatch({ type: "FETCH_ITINERARY", payload: testConfirmationNum });
-};
-*/
-
-
-/*
-export const fetchItinerary = () => async dispatch => {
-    const res = await axios.get('/api/itinerary');
-    dispatch({ type: "FETCH_ITINERARY", payload: res.data });
-};
-*/

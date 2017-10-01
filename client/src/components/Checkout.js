@@ -183,7 +183,8 @@ class Checkout extends Component {
                 {pricingTable(this.state, this.props.itinerary, this.props.pricing, this.handleAddonChange, this.totalCostDynamic())}
                 {/* Imported component: entire table output */}
 
-
+                Note: for the sake of testing, please use credit card # 4242424242
+                stripe still doesn't actually go to backend
                 {/* Imported component: Stripe billing */}
                 <CheckoutButton />
                 {/* Imported component: Stripe billing */}

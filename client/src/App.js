@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 
 
-// Import dynamic page routes for application
+// import dynamic page routes for application
 import Landing from './components/Landing';
-import Login from './components/Login';
 import ListResults from './components/Results';
 import Checkout from './components/Checkout';
 import Confirmation from './components/Confirmation';
 import RetrieveConfirmation from './components/RetrieveConfirmation';
 
-// Import static page routes for application
+// import static page routes for application
 import Header from './components/static/Header';
 import Footer from './components/static/Footer';
 import Terms from './components/static/Terms';
@@ -20,7 +19,7 @@ import Amenities from './components/static/Amenities';
 import About from './components/static/About';
 import ContactUs from './components/static/ContactUs';
 
-// testing pages
+// test page(s)
 import BlankPageTemplate from './components/static/Page2';
 //import FourOhFour from './components/static/FourOhFour';
 
@@ -38,7 +37,6 @@ class App extends Component {
                       { /* Define dynamic page routes */ }
                       <Route path='/results/' component={ListResults} />
                       <Route exact path='/' component={Landing} />
-                      <Route exact path='/login' component={Login} />
                       <Route exact path='/checkout' component={Checkout} />
                       <Route exact path='/confirmation' component={Confirmation} />
                       <Route exact path='/reservations' component={RetrieveConfirmation} />

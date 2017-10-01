@@ -20,9 +20,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 //import DB  model schema
 require('./models/itinerary');
 
-// import passport authentication. does not return anything, so does not require variable assignment
-require('./services/passport');
-
 // import nodemailer email service for reservation confirmation
 require('./services/nodemailer');
 

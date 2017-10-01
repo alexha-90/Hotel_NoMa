@@ -1,5 +1,6 @@
 import { updateItineraryTotalCost } from '../../../actions';
 
+// not used i think
 
 export function handleAddonChange(event, b, state, pricing, itinerary) {
     switch (event.target.name) {

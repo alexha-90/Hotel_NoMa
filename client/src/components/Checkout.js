@@ -157,6 +157,7 @@ class Checkout extends Component {
 
     render() {
         // initiated after successful stripe payment checkout
+        /// NOT CURRENTLY USED
         if (this.state.redirect) {
             return <Redirect push to="/confirmation" />;
         }

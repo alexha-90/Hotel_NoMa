@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import { searchExistingItinerary } from '../actions';
 import { connect } from 'react-redux';
+import { Redirect} from 'react-router';
+
+import DisplayReservation from './subcomponents/retrieveConfirmation/DisplayReservation';
+//import { displayReservation } from './DisplayReservation';
+//import { displayReservation} from './subcomponents/retrieveConfirmation/DisplayReservation';
 import axios from 'axios';
 
 // to-do: add modal to confirm delete see: https://react-bootstrap.github.io/components.html?#modals-contained
@@ -13,7 +18,8 @@ class RetrieveConfirmation extends Component {
         this.state = {
             confirmationNum: '',
             getReservation: false,
-            deleteReservation: false
+            deleteReservation: false,
+            //showReservation: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleGetReservation = this.handleGetReservation.bind(this);
@@ -30,6 +36,8 @@ class RetrieveConfirmation extends Component {
         if (event.target.name === 'confirmationNum') {
             this.setState({confirmationNum: event.target.value});
         }
+
+        //if = delete then..
     }
 
 
@@ -39,12 +47,14 @@ class RetrieveConfirmation extends Component {
         this.props.dispatch(searchExistingItinerary(this.state.confirmationNum));
         console.log('loading... replace me');
         // if response from server = Array(0).... no results.  if .length = 0. or undefined
+        // set case for above. Currently get routed no matter what
         setTimeout(() => {
-            console.log('test ends here. Cant get res yet');
-
+            console.log('enter timeout after get reservation');
             console.log(this.props.itinerary);
-            console.log('full above');
-            console.log(this.props.itinerary.numAdults);
+            //console.log('full above');
+            //console.log(this.props.itinerary.numAdults);
+            //this.setState({ showReservation: true });
+            this.setState({redirect: true});
         }, 1000);
     }
 
@@ -52,6 +62,9 @@ class RetrieveConfirmation extends Component {
 
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect push to="/displayReservation" />;
+        }
         return (
             <div className="container">
 
@@ -71,6 +84,13 @@ class RetrieveConfirmation extends Component {
                         Delete my reservation
                     </Button>
                 </Form>
+                <hr />
+                {/*
+                your reservation is:
+                <br />
+                <DisplayReservation />
+                {displayReservation(this.state, this.props.itinerary)}
+                */}
 
             </div>
         );

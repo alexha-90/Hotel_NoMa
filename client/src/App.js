@@ -10,6 +10,7 @@ import ListResults from './components/Results';
 import Checkout from './components/Checkout';
 import Confirmation from './components/Confirmation';
 import RetrieveConfirmation from './components/RetrieveConfirmation';
+import DisplayReservation from './components/subcomponents/retrieveConfirmation/DisplayReservation';
 
 // import static page routes for application
 import Header from './components/static/Header';
@@ -40,6 +41,8 @@ class App extends Component {
                       <Route exact path='/checkout' component={Checkout} />
                       <Route exact path='/confirmation' component={Confirmation} />
                       <Route exact path='/reservations' component={RetrieveConfirmation} />
+                      <Route exact path='/displayReservation' component={DisplayReservation} />
+
 
                       { /* Define static page routes */ }
                       <Route exact path='/terms' component={Terms} />

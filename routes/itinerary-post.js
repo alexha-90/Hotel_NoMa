@@ -56,14 +56,13 @@ module.exports = app => {
                 console.log('in try to push');
                 const itineraryToDB= await itinerary.save();
                 res.send(itineraryToDB);
-                //this route needs to be changed for production
-                //res.redirect('http://localhost:3000/confirmation');
             }
             catch (res)
             {
                 console.log(res.err);
-                //res.status(422).send(err);
             }
+
+            //refactor out below:
 
 
             // send confirmation email
@@ -103,29 +102,38 @@ module.exports = app => {
         });
 
 
-    // route for retrieving reservations - .post itinerary number, .get itinerary number
+    // route for retrieving reservations
     app.route('/api/itinerarySearch')
         .post(async (req,res) => {
             try {
-                console.log("*********");
-                console.log(req.body);
+                console.log("reached post api route for retrieving");
                 console.log(req.body.payload[1]);
                 const getItinerary = await Itinerary.find({confirmationNumber: req.body.payload[0], ["contactInfo.email"]: req.body.payload[1] });
-                console.log(getItinerary);
                 res.send(getItinerary);
-                // defining getItinerary as global variable in order to pass value to .get request below
-                global.getItinerary = getItinerary;
             } catch (res) {
                 console.log(res.err);
             }
-        })
+        });
 
-        .get(async (req,res) => {
+
+    // route for deleting reservations
+    app.route('/api/itineraryDelete')
+        .post(async (req,res) => {
             try {
-                res.send({ res: global.getItinerary });
+                console.log("reached post api route for deleting");
+                console.log(req.body.payload[1]);
+                const deleteItinerary = await Itinerary.remove({confirmationNumber: req.body.payload[0], ["contactInfo.email"]: req.body.payload[1] });
+
+                // mongoose returns 1 if entry is deleted, 0 if not
+                //console.log(deleteItinerary.result.n);
+                if (deleteItinerary.result.n === 1) {
+                    res.send({res: 'YES DELETED' });
+                } else {
+                    res.send({res: 'NOT DELETED' });
+                }
+
             } catch (res) {
                 console.log(res.err);
             }
         })
 };
-

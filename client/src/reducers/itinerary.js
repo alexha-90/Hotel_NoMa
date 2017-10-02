@@ -1,7 +1,6 @@
 import moment from 'moment';
-import { connect } from 'react-redux';
-
 // maybe rename to makeItinerary
+// lifecycle explanation: user input transferred here (itinerary reducer) as action.payload, received as req.body (backend via bodyParser), then back to action creator (actions/index.js) as res.data
 //===============================================================================================//
 
 const itineraryReducerSource = (state={
@@ -76,20 +75,19 @@ const itineraryReducerSource = (state={
         }
 
 
-        case "SEARCH_EXISTING_ITINERARY":
-            alert(action.payload);
+        case "FETCH_EXISTING_ITINERARY":
             console.log('search existing itinerary reached');
             return action.payload;
 
 
-        case "FETCH_EXISTING_ITINERARY":
-            console.log('fetch existing itinerary reached');
+        case "DELETE_EXISTING_ITINERARY":
+            console.log('delete existing itinerary reached');
             console.log(action.payload);
             return action.payload;
 
 
-        case "EXISTING_ITINERARY_TO_REDUX_STORE": {
-            console.log('existing itinerary to redux store state reached');
+        case "ITINERARY_RESULTS_TO_REDUX_STORE": {
+            console.log('itinerary results to redux store state reached');
             return {
                 ...state,
                 itinerary: action.payload

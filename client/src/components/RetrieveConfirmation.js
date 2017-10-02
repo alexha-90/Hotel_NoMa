@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
-import { searchExistingItinerary } from '../actions';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
 
-import DisplayReservation from './subcomponents/retrieveConfirmation/DisplayReservation';
-//import { displayReservation } from './DisplayReservation';
-//import { displayReservation} from './subcomponents/retrieveConfirmation/DisplayReservation';
-import axios from 'axios';
+import { fetchExistingItinerary } from '../actions';
+import { deleteExistingItinerary } from '../actions';
 
 // to-do: add modal to confirm delete see: https://react-bootstrap.github.io/components.html?#modals-contained
 // to-do: refactor with validation instead of alerts
+// to-do: would like to refactor handleGet and handleDelete into one function. Unable to select button props though?
+// currently delete removes reservation from db entirely. maybe better to set everything to null and deleted = yes
+//===============================================================================================//
 
 class RetrieveConfirmation extends Component {
     constructor(props) {
@@ -18,19 +18,11 @@ class RetrieveConfirmation extends Component {
         this.state = {
             confirmationNum: '',
             email: '',
-            getReservation: false,
-            deleteReservation: false,
-            //showReservation: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleGetReservation = this.handleGetReservation.bind(this);
+        this.handleDeleteReservation = this.handleDeleteReservation.bind(this);
     }
-
-    /*
-    componentDidMount() {
-    }
-    */
-
 
 
     handleChange(event) {
@@ -41,28 +33,35 @@ class RetrieveConfirmation extends Component {
         if (event.target.name === 'email') {
             this.setState({email: event.target.value});
         }
-
-        //if = delete then..
     }
 
 
+    // search database for existing itinerary and redirect to display results if match is found. If not, prompt error
     handleGetReservation() {
-        //3A12FU9484
-        this.setState({ getReservation: true});
-        this.props.dispatch(searchExistingItinerary(this.state.confirmationNum, this.state.email));
-        // if response from server = Array(0).... no results.  if .length = 0. or undefined
-        // set case for above. Currently get routed no matter what
+        this.props.dispatch(fetchExistingItinerary(this.state.confirmationNum, this.state.email));
         setTimeout(() => {
-            console.log('enter timeout after get reservation');
-            console.log(this.props.itinerary);
-            //console.log('full above');
-            //console.log(this.props.itinerary.numAdults);
-            //this.setState({ showReservation: true });
-            this.setState({redirect: true});
-        }, 1000);
+            if (!this.props.itinerary) {
+                return alert('Shucks.... we were unable to locate an itinerary from the confirmation number and email you provided. Please check your inputs and try again.');
+            } else {
+                return this.setState({redirect: true});
+            }
+        }, 1500);
     }
 
-    //tbd: handle delete
+
+    // search database for existing itinerary and delete if match is found. If no match, prompt error
+    // currently delete removes reservation from db entirely. maybe better to set everything to null and deleted = yes
+    handleDeleteReservation() {
+        this.props.dispatch(deleteExistingItinerary(this.state.confirmationNum, this.state.email));
+        setTimeout(() => {
+            if (this.props.itinerary.res === 'YES DELETED') {
+                alert('Your itinerary has has been deleted. We hope you will consider staying with us in the future.');
+                return window.location.reload();
+            }
+            return alert('Shucks.... we were unable to locate an itinerary from the confirmation number and email you provided. ' +
+                'Perhaps you have already deleted your reservation? Please check your inputs.');
+        }, 1500);
+    }
 
 
     render() {
@@ -83,22 +82,16 @@ class RetrieveConfirmation extends Component {
                     </FormGroup>
                     I would like to.....
                     <br />
-                    <Button bsStyle="success" value="getReservation"
-                            onClick={this.handleGetReservation}>
+                    <Button bsStyle="success" value="getReservation" id="getReservation"
+                        onClick={this.handleGetReservation}>
                         Get my reservation
                     </Button>
                     {' '}
-                    <Button bsStyle="danger" value="deleteReservation" onClick={() => this.setState({ deleteReservation: true })}>
+                    <Button bsStyle="danger" value="deleteReservation"
+                        onClick={this.handleDeleteReservation}>
                         Delete my reservation
                     </Button>
                 </Form>
-                <hr />
-                {/*
-                your reservation is:
-                <br />
-                <DisplayReservation />
-                {displayReservation(this.state, this.props.itinerary)}
-                */}
 
             </div>
         );
@@ -112,61 +105,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(RetrieveConfirmation);
-
-
-
-/*
-
-
-
-class RetrieveConfirmation extends Component {
-    state = { confirmationNum: ''};
-
-    handleFetch(event) {
-        this.setState({confirmationNum: event.target.value});
-        if (this.state.confirmationNum === '') {
-            return alert('Please enter a valid confirmation number');
-        }
-
-        alert(this.state.confirmationNum);
-        this.props.dispatch(fetchItinerary());
-    }
-
-
-    handleDelete() {
-        alert('test 2');
-        //this.props.dispatch(updateNumAdults(inputNumAdults));
-    }
-
-
-    render() {
-        return (
-            <div className="container">
-
-                <Form>
-                    <FormGroup>
-                        <ControlLabel>Confirmation number:</ControlLabel>
-                        <FormControl value={this.state.confirmationNum} onChange={this.handleFetch} />
-                    </FormGroup>
-                    <FormGroup>
-                        <ControlLabel>Email used:</ControlLabel>
-                        <FormControl type="text" placeholder="Email address" />
-                    </FormGroup>
-                    I would like to.....
-                    <br />
-                    <Button bsStyle="success" onClick={this.handleFetch.bind(this)}>
-                        Get my reservation
-                    </Button>
-                    {' '}
-                    <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>
-                        Delete my reservation
-                    </Button>
-                </Form>
-
-
-            </div>
-        );
-    }
-}
-
- */

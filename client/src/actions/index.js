@@ -1,7 +1,5 @@
 import axios from 'axios';
 import store from '../index';
-import { createStore } from 'redux'
-import allReducers from "../reducers/index";
 
 // Note: payment and backend submissions are handled separately in ./checkoutButton.js
 // to-do: refactor server address as an environment/global variable
@@ -33,6 +31,7 @@ export const updateCalendarDates = (dates) => {
 };
 
 
+// update total cost every time an addon is toggled on the checkout page
 export const updateItineraryTotalCost = (cost) => {
     console.log('updating total itinerary cost!!');
     return {
@@ -41,35 +40,38 @@ export const updateItineraryTotalCost = (cost) => {
     };
 };
 
-// find existing itinerary. Post request to search database, get request to retrieve result
-export const searchExistingItinerary = (confirmationNum, email) => async dispatch => {
+
+// search database for existing itinerary. Return itinerary or undefined if not found
+export const fetchExistingItinerary = (confirmationNum, email) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itinerarySearch";
-
-    //store.dispatch({type: "INC", payload: 1});
-
-
     try {
         // .post search term to query database
         const req = [confirmationNum, email];
-        alert(req);
-        await axios.post(serverAPI,
+        const res = await axios.post(serverAPI,
             dispatch({
-                type: "SEARCH_EXISTING_ITINERARY",
+                type: "FETCH_EXISTING_ITINERARY",
                 payload: req
         }));
+        await console.log(res.data[0]);
+        await store.dispatch({ type: "ITINERARY_RESULTS_TO_REDUX_STORE", payload: res.data[0] });
+    } catch(res) {
+        console.log(res.err);
+    }
+};
 
-        // .get response back from database query
-        const res = await axios.get(serverAPI);
-        dispatch({
-                type: "FETCH_EXISTING_ITINERARY",
-                payload: res
-        });
 
-        // server response with itinerary. Empty if no match.
-        console.log(res.data.res[0]);
-        //dispatch itinerary to redux store state
-        store.dispatch({type: "EXISTING_ITINERARY_TO_REDUX_STORE", payload: res.data.res[0]});
-
+// search database for existing itinerary. Return string describes if query was successful
+export const deleteExistingItinerary = (confirmationNum, email) => async dispatch => {
+    const serverAPI = "http://localhost:5000/api/itineraryDelete";
+    try {
+        const req = [confirmationNum, email];
+        const res = await axios.post(serverAPI,
+            dispatch({
+                type: "DELETE_EXISTING_ITINERARY",
+                payload: req
+            }));
+        await console.log(res.data);
+        await store.dispatch({ type: "ITINERARY_RESULTS_TO_REDUX_STORE", payload: res.data });
     } catch(res) {
         console.log(res.err);
     }

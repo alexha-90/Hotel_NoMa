@@ -13,7 +13,6 @@ class DisplayReservation extends Component {
     }
 
 
-
     render() {
         return (
             <div>

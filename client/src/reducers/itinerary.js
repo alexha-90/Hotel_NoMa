@@ -77,6 +77,7 @@ const itineraryReducerSource = (state={
 
 
         case "SEARCH_EXISTING_ITINERARY":
+            alert(action.payload);
             console.log('search existing itinerary reached');
             return action.payload;
 

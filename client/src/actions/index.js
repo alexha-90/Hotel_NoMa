@@ -41,16 +41,17 @@ export const updateItineraryTotalCost = (cost) => {
     };
 };
 
-
-export const searchExistingItinerary = (confirmationNum) => async dispatch => {
+// find existing itinerary. Post request to search database, get request to retrieve result
+export const searchExistingItinerary = (confirmationNum, email) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itinerarySearch";
 
-    store.dispatch({type: "INC", payload: 1});
+    //store.dispatch({type: "INC", payload: 1});
 
 
     try {
         // .post search term to query database
-        const req = confirmationNum;
+        const req = [confirmationNum, email];
+        alert(req);
         await axios.post(serverAPI,
             dispatch({
                 type: "SEARCH_EXISTING_ITINERARY",

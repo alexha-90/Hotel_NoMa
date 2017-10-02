@@ -17,6 +17,7 @@ class RetrieveConfirmation extends Component {
         super(props);
         this.state = {
             confirmationNum: '',
+            email: '',
             getReservation: false,
             deleteReservation: false,
             //showReservation: false
@@ -37,6 +38,10 @@ class RetrieveConfirmation extends Component {
             this.setState({confirmationNum: event.target.value});
         }
 
+        if (event.target.name === 'email') {
+            this.setState({email: event.target.value});
+        }
+
         //if = delete then..
     }
 
@@ -44,8 +49,7 @@ class RetrieveConfirmation extends Component {
     handleGetReservation() {
         //3A12FU9484
         this.setState({ getReservation: true});
-        this.props.dispatch(searchExistingItinerary(this.state.confirmationNum));
-        console.log('loading... replace me');
+        this.props.dispatch(searchExistingItinerary(this.state.confirmationNum, this.state.email));
         // if response from server = Array(0).... no results.  if .length = 0. or undefined
         // set case for above. Currently get routed no matter what
         setTimeout(() => {
@@ -72,6 +76,10 @@ class RetrieveConfirmation extends Component {
                     <FormGroup>
                         <ControlLabel>Confirmation number:</ControlLabel>
                         <FormControl type="text" name="confirmationNum" value={this.state.confirmationNum} onChange={this.handleChange}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <ControlLabel>Email address:</ControlLabel>
+                        <FormControl type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
                     </FormGroup>
                     I would like to.....
                     <br />

@@ -12,9 +12,9 @@ module.exports = app => {
             console.log('attempt to post itinerary to DB');
 
             const {
-                /*from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, carePackage, lateCheckout, breakfast, shuttleRide,
-                /*from stripe checkout:*/ email, customerName, customerAddress, customerCity, customerZip, customerCountry,
-                /*helper info:*/ bookTime, confirmationNumber
+                /* from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, carePackage, lateCheckout, breakfast, shuttleRide,
+                /* from stripe checkout:*/ email, customerName, customerAddress, customerCity, customerZip, customerCountry,
+                /* helper info:*/ bookTime, confirmationNumber
                 } = req.body;
 
             // data from front end should be available at this point. Will be assigned to new schema instance below
@@ -107,8 +107,10 @@ module.exports = app => {
     app.route('/api/itinerarySearch')
         .post(async (req,res) => {
             try {
+                console.log("*********");
                 console.log(req.body);
-                const getItinerary = await Itinerary.find({confirmationNumber: req.body.payload});
+                console.log(req.body.payload[1]);
+                const getItinerary = await Itinerary.find({confirmationNumber: req.body.payload[0], ["contactInfo.email"]: req.body.payload[1] });
                 console.log(getItinerary);
                 res.send(getItinerary);
                 // defining getItinerary as global variable in order to pass value to .get request below

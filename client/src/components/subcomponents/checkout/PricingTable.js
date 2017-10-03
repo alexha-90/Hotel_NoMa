@@ -10,10 +10,10 @@ import { Table } from 'react-bootstrap';
 export function pricingTable (state, itinerary, pricing, handleAddonChange, totalCostDynamic) {
     return(
         <Table striped bordered condensed>
-            <thead>
+            <thead id="tableHeader">
             <tr>
-                <th>Item/Description</th>
-                <th id="costAlignRight">Cost</th>
+                <th>Item/Description:</th>
+                <th id="costAlignRight">Cost:</th>
             </tr>
             </thead>
             <tbody>
@@ -37,7 +37,7 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                 <td> </td>
                 <td> </td>
             </tr>
-            <tr>
+            <tr id="tableHeader">
                 <td>Optional addons (all prices includes sales tax):</td>
                 <td> </td>
             </tr>
@@ -77,9 +77,9 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                 </td>
                 <td id="costAlignRight">{state.breakfastCost}</td>
             </tr>
-            <tr>
+            <tr id="totalHighlight">
                 <td>TOTAL</td>
-                <td id="costAlignRight">${totalCostDynamic}</td>
+                <td id="costAlignRight">${totalCostDynamic} USD</td>
             </tr>
             </tbody>
         </Table>

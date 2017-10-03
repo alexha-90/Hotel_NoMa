@@ -196,9 +196,11 @@ class Checkout extends Component {
                                     {' '}
                                     <Button bsStyle="primary" id="grayed">{this.props.itinerary.numNights} Nights</Button>
                                     {' '}
+                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.roomType} Room</Button>
+                                    <br />
+                                    <br />
                                     <Button bsStyle="primary" id="grayed">{this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}</Button>
                                     {' '}
-                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.roomType} Room</Button>
                                     <br />
                                     <br />
                                     <Link to="/"><Button bsStyle="warning">Modify dates</Button></Link>
@@ -224,8 +226,9 @@ class Checkout extends Component {
                     </Grid>
                 </div>
 
-                <h3>We hope you enjoy your stay at Hotel NoMa, San Francisco! Please ensure the itinerary above is accurate
-                    before proceeding.
+                <h3 style={{ textAlign: 'center'}}>
+                    We hope you enjoy your stay at Hotel NoMa, San Francisco! Please ensure the
+                    itinerary above is accurate before proceeding.
                 </h3>
 
                 <div id="resultContainer">
@@ -233,13 +236,15 @@ class Checkout extends Component {
                     {pricingTable(this.state, this.props.itinerary, this.props.pricing, this.handleAddonChange, this.totalCostDynamic())}
                     {/* Imported component: entire table output */}
                 </div>
-
-
-                    Note: for the sake of testing, please use credit card # 4242424242
-                    stripe still doesn't actually go to backend
+                <div id="checkoutButton">
+                    <h5>Note: for testing please use credit card
+                        <br/>
+                        #4242424242424242. Exp 4/22. CVC 222
+                    </h5>
                     {/* Imported component: Stripe billing */}
                     <CheckoutButton />
                     {/* Imported component: Stripe billing */}
+                </div>
             </div>
         );
     }

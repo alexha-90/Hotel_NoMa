@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
+import { Grid, Col, Row, Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
 
@@ -65,33 +65,62 @@ class RetrieveConfirmation extends Component {
 
 
     render() {
+        window.scrollTo(0, 0);
         if (this.state.redirect) {
             return <Redirect push to="/displayReservation" />;
         }
         return (
             <div className="container">
 
-                <Form>
-                    <FormGroup>
-                        <ControlLabel>Confirmation number:</ControlLabel>
-                        <FormControl type="text" name="confirmationNum" value={this.state.confirmationNum} onChange={this.handleChange}/>
-                    </FormGroup>
-                    <FormGroup>
-                        <ControlLabel>Email address:</ControlLabel>
-                        <FormControl type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
-                    </FormGroup>
-                    I would like to.....
-                    <br />
-                    <Button bsStyle="success" value="getReservation" id="getReservation"
+                <div>
+                    <Grid>
+                        <Row>
+                            <Col sm={0} md={2}><hr /></Col>
+                            <Col sm={12} md={8}>
+                                <div id="roomTypeHeading">
+                                    <h3>Lookup Itinerary</h3>
+                                </div>
+                            </Col>
+                            <Col sm={0} md={2}><hr /></Col>
+                        </Row>
+                    </Grid>
+                </div>
+
+                <div id="resultContainer">
+                    <div>
+                        <Grid>
+                            <Row id="lookupForm">
+                                <Col sm={0} md={2}></Col>
+                                <Col sm={12} md={8}>
+                                    <h4>
+                                        <Form>
+                                            <FormGroup>
+                                                <ControlLabel>Confirmation number:</ControlLabel>
+                                                <FormControl type="text" name="confirmationNum" value={this.state.confirmationNum} onChange={this.handleChange}/>
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <ControlLabel>Email address:</ControlLabel>
+                                                <FormControl type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
+                                            </FormGroup>
+                                        </Form>
+                                    </h4>
+                                </Col>
+                                <Col sm={0} md={2}></Col>
+                            </Row>
+                        </Grid>
+                    </div>
+
+                </div>
+                <br />
+                <Button id="getButton" bsStyle="success" value="getReservation"
                         onClick={this.handleGetReservation}>
-                        Get my reservation
-                    </Button>
-                    {' '}
-                    <Button bsStyle="danger" value="deleteReservation"
+                    Get reservation
+                </Button>
+                {' '}
+                <Button id="deleteButton" bsStyle="danger" value="deleteReservation"
                         onClick={this.handleDeleteReservation}>
-                        Delete my reservation
-                    </Button>
-                </Form>
+                    Delete reservation
+                </Button>
 
             </div>
         );

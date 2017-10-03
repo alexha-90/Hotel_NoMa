@@ -44,7 +44,7 @@ export const updateItineraryTotalCost = (cost) => {
 
 // search database for existing itinerary. Return itinerary or undefined if not found
 export const fetchExistingItinerary = (confirmationNum, email) => async dispatch => {
-    const serverAPI = "http://localhost:5000/api/itinerarySearch";
+    const serverAPI = "http://localhost:5000/api/itineraryRead";
     try {
         // .post search term to query database
         const req = [confirmationNum, email];

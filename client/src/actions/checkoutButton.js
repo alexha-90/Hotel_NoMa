@@ -43,7 +43,7 @@ class CheckoutButton extends Component {
         this.props.itinerary.bookTime = bookTime;
         this.props.itinerary.email = token.email;
 
-        const serverAPI = "http://localhost:5000/api/itinerary";
+        const serverAPI = 'http://localhost:5000/api/itineraryCreate';
 
         // submit all info to backend at once
         axios.post(serverAPI,

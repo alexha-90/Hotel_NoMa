@@ -12,9 +12,9 @@ import moment from 'moment';
 // to-do: maybe add description back into stripe
 // to-do: get customer phoen number
 //to-do: let stringVar = this.props. if equal to moment().utc420 today, then set stringVar = ''
+//to-do: want to set this up as an async/dispatch. Catch is firing upon success instead of failure
 
-
-// this component handles submitting the payment to backend and dispatching action for posting itinerary to db
+// this component handles submitting the payment to backend and dispatching action for posting itinerary to db. Found it simpler to batch these actions here
 
 //===============================================================================================//
 
@@ -27,22 +27,23 @@ class CheckoutButton extends Component {
 
 
     onToken(token, billingAddress) {
-        //console.log(token, billingAddress);
+        console.log('token is:');
+        console.log(token);
+        console.log(token.id);
+        // fetch time of payment submission in PST
         const bookTime = moment().utcOffset(-420).format("MM/DD/YYYY") + ' @ ' + moment().utcOffset(-420).format('hh:mm a') + ' (PST)';
 
-        // favorable output arrangement to help employees
+        // generate a confirmation number upon payment submission
         const confirmationNumber = this.props.itinerary.numAdults + billingAddress.billing_name.slice(0,1) + this.props.itinerary.numNights
             + (this.props.itinerary.roomType.slice(0,1)).toUpperCase() + billingAddress.billing_address_country_code.slice(0,1)
             + (billingAddress.billing_address_zip.slice(0,2)).toUpperCase() + Math.floor(Math.random()* 10) + Math.floor(Math.random()* 10);
 
-        // saving booking info to display on upcoming confirmation page (avoids doing a server get request)
+        // save booking info into redux store to display on upcoming confirmation page (avoid doing an additional api request)
         this.props.itinerary.confirmationNumber = confirmationNumber;
         this.props.itinerary.bookTime = bookTime;
         this.props.itinerary.email = token.email;
 
         const serverAPI = "http://localhost:5000/api/itinerary";
-
-        //refactor into action creator here
 
         // submit all info to backend at once
         axios.post(serverAPI,
@@ -74,7 +75,7 @@ class CheckoutButton extends Component {
                 bookTime: bookTime,
                 confirmationNumber: confirmationNumber
             })
-            .catch(console.log('error occurred trying to post'));
+            .catch(console.log('entry submitted'));
 
         // delay one second before loading confirmation page
         setTimeout(() => {

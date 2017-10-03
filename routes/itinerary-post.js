@@ -1,26 +1,52 @@
 const mongoose = require('mongoose');
 const Itinerary = mongoose.model('itinerary');
-const nodemailer = require('nodemailer');
+const mailer = require('../services/nodemailer');
 const keys = require ('../config/keys');
+const stripe = require('stripe')(keys.stripeSecretKey);
 
+//const json2csv = require('json2csv');
+//const fs = require('fs'); //node filesystem
 //===============================================================================================//
 
 module.exports = app => {
 
-        // post itinerary as a entry in mongoDB
+        // post route for saving itinerary as an entry in mongoDB
         app.post('/api/itinerary', async (req, res) => {
             console.log('attempt to post itinerary to DB');
 
             const {
                 /* from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, carePackage, lateCheckout, breakfast, shuttleRide,
-                /* from stripe checkout:*/ email, customerName, customerAddress, customerCity, customerZip, customerCountry,
+                /* from stripe checkout:*/ source, amount, email, customerName, customerAddress, customerCity, customerZip, customerCountry,
                 /* helper info:*/ bookTime, confirmationNumber
                 } = req.body;
+
+            console.log('WwwWWWwwWWW');
+            console.log(source.id);
+            console.log(amount);
 
             // data from front end should be available at this point. Will be assigned to new schema instance below
             //console.log(req.body.confirmationNumber);
 
-            // define new entry in accordance with model schema and req.body result from front-end axios post request
+            // initiate charge on customer's credit card using Stripe
+            stripe.charges.create({
+                amount: amount,
+                currency: 'usd',
+                description: 'Hotel NoMa SF (' + enterDate + '- ' + exitDate + ')',
+                source: source.id
+            });
+
+
+            const postStripeCharge = res => (stripeErr, stripeRes) => {
+                if (stripeErr) {
+                    res.status(500).send({error: stripeErr});
+                } else {
+                    res.status(200).send({success: stripeRes});
+                }
+            };
+
+
+
+            // define new DB entry in accordance with mongoose model schema. Intake req.body from front-end axios request
             const itinerary = new Itinerary({
                 numAdults: numAdults,
                 enterDate: enterDate,
@@ -62,43 +88,8 @@ module.exports = app => {
                 console.log(res.err);
             }
 
-            //refactor out below:
-
-
-            // send confirmation email
-            let transporter = nodemailer.createTransport({
-                host: 'smtp.gmail.com',
-                port: 587,
-                secure: false, // true for 465, false for other ports
-                auth: {
-                    user: 'hotelnomaSF@gmail.com',
-                    pass: keys.emailPassword
-                },
-                tls: {
-                    rejectUnauthorized: false
-                }
-            });
-
-            // setup email data with unicode symbols
-            let mailOptions = {
-                from: '"Hotel NoMa" <hotelnomaSF@gmail.com>',
-                to: email,
-                subject: 'Your upcoming stay in San Francisco, CA (' + enterDate + '- ' + exitDate + ')',
-                text: 'Thanks for booking your upcoming stay in San Francisco with us! We look forward to seeing you. ' +
-                    'if you need suggestions for activities in the area, please visit TBD. Your confirmation number is ' + confirmationNumber + '.',
-                html: '<h4>Thanks for booking your upcoming stay in San Francisco with us! We look forward to seeing you. If you need suggestions ' +
-                    'for activities in the area, please visit TBD. Your confirmation number is</h4>' + confirmationNumber +
-                    '<h4>. You paid $</h4>' + totalCostOfStay + '<h4>. if you chose breakfast, you will get a voucher at check in. if not, stay hungry my friend. shuttle ride</h4>'
-            };
-
-            // send mail with defined transport object
-            transporter.sendMail(mailOptions, (err, info) => {
-                if (err) {
-                    return console.log(err);
-                }
-                console.log('Message sent: %s', info.messageId);
-            });
-
+            // import function - confirmation email sender
+            mailer.sendConfirmation(enterDate, exitDate, email, confirmationNumber, totalCostOfStay);
         });
 
 
@@ -116,7 +107,7 @@ module.exports = app => {
         });
 
 
-    // route for deleting reservations
+    // route for deleting reservations. Refund customer.
     app.route('/api/itineraryDelete')
         .post(async (req,res) => {
             try {
@@ -131,6 +122,19 @@ module.exports = app => {
                 } else {
                     res.send({res: 'NOT DELETED' });
                 }
+
+                /*
+                https://stripe.com/docs/refunds
+                var stripe = require("stripe")("sk_test_PWYhqRAZ4oIHbBXTm3dYGLrw");
+
+                stripe.refunds.create({
+                  charge: "ch_ATbgYw7MpO4hlv",
+                }, function(err, refund) {
+                  // asynchronously called
+                });
+
+
+                 */
 
             } catch (res) {
                 console.log(res.err);

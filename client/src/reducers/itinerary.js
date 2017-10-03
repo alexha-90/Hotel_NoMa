@@ -1,12 +1,11 @@
 import moment from 'moment';
-// maybe rename to makeItinerary
 // lifecycle explanation: user input transferred here (itinerary reducer) as action.payload, received as req.body (backend via bodyParser), then back to action creator (actions/index.js) as res.data
 //===============================================================================================//
 
 const itineraryReducerSource = (state={
     // all customer info batched together here. Reorganized once entry is saved into DB
     itinerary: {
-        // default input upon visiting app: one adult, staying one night based on current date in San Francisco, CA
+        // default input parameters: one adult, staying one night based on current date in San Francisco, CA
         numAdults: 1,
         enterDate: moment().utcOffset(-420).format("MM/DD/YYYY"),
         exitDate: moment().utcOffset(-420).add(1, 'days').format("MM/DD/YYYY"),
@@ -76,18 +75,18 @@ const itineraryReducerSource = (state={
 
 
         case "FETCH_EXISTING_ITINERARY":
-            console.log('search existing itinerary reached');
+            //console.log('search existing itinerary reached');
             return action.payload;
 
 
         case "DELETE_EXISTING_ITINERARY":
-            console.log('delete existing itinerary reached');
+            //console.log('delete existing itinerary reached');
             console.log(action.payload);
             return action.payload;
 
 
         case "ITINERARY_RESULTS_TO_REDUX_STORE": {
-            console.log('itinerary results to redux store state reached');
+            //console.log('itinerary results to redux store state reached');
             return {
                 ...state,
                 itinerary: action.payload
@@ -106,18 +105,3 @@ const itineraryReducerSource = (state={
 
 
 export default itineraryReducerSource;
-
-
-
-/*
-
-//------------------------------------------------
-function mapStateToProps(state) {
-    return {
-        itinerary: state.itineraryReducer.itinerary,
-    };
-}
-
-export default connect(mapStateToProps)(RetrieveConfirmation);
-
-*/

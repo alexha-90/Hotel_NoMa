@@ -33,6 +33,7 @@ class App extends Component {
           <div className="container">
               <BrowserRouter>
                   <div>
+
                       <Header/>
 
                       { /* Define dynamic page routes */ }

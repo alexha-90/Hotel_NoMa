@@ -13,25 +13,25 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
             <thead>
             <tr>
                 <th>Item/Description</th>
-                <th>Cost</th>
+                <th id="costAlignRight">Cost</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>Room base charge (${state.roomCost.toFixed(2)} x {itinerary.numNights} nights)</td>
-                <td>${(state.roomCost * itinerary.numNights).toFixed(2)}</td>
+                <td id="costAlignRight">${(state.roomCost * itinerary.numNights).toFixed(2)}</td>
             </tr>
             <tr>
                 <td>Cleaning fee (${pricing.cleaningCost.toFixed(2)} x {itinerary.numNights} nights)</td>
-                <td>${(pricing.cleaningCost * itinerary.numNights).toFixed(2)}</td>
+                <td id="costAlignRight">${(pricing.cleaningCost * itinerary.numNights).toFixed(2)}</td>
             </tr>
             <tr>
                 <td>S.F. occupancy tax ({(pricing.occupancyTax * 100).toFixed(3)}%)</td>
-                <td>${(((state.roomCost + pricing.cleaningCost) * itinerary.numNights) * pricing.occupancyTax).toFixed(2)}</td>
+                <td id="costAlignRight">${(((state.roomCost + pricing.cleaningCost) * itinerary.numNights) * pricing.occupancyTax).toFixed(2)}</td>
             </tr>
             <tr>
                 <td>S.F. tourism tax ({(pricing.tourismTax * 100).toFixed(3)}%)</td>
-                <td>${(((state.roomCost + pricing.cleaningCost) * itinerary.numNights) * pricing.tourismTax).toFixed(2)}</td>
+                <td id="costAlignRight">${(((state.roomCost + pricing.cleaningCost) * itinerary.numNights) * pricing.tourismTax).toFixed(2)}</td>
             </tr>
             <tr>
                 <td> </td>
@@ -48,7 +48,7 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                         &nbsp;Care package (toothbrush, toothpaste, water, gum)
                     </label>
                 </td>
-                <td>{state.carePackageCost}</td>
+                <td id="costAlignRight">{state.carePackageCost}</td>
             </tr>
             <tr>
                 <td>
@@ -57,7 +57,7 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                         &nbsp;Late checkout (2:00pm PST, day of departure)
                     </label>
                 </td>
-                <td>{state.lateCheckoutCost}</td>
+                <td id="costAlignRight">{state.lateCheckoutCost}</td>
             </tr>
             <tr>
                 <td>
@@ -66,7 +66,7 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                         &nbsp;San Francisco Airport shuttle (charged per guest, roundtrip)
                     </label>
                 </td>
-                <td>{state.shuttleRideCost}</td>
+                <td id="costAlignRight">{state.shuttleRideCost}</td>
             </tr>
             <tr>
                 <td>
@@ -75,12 +75,11 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                         &nbsp;Continental Breakfast (charged per guest, per day)
                     </label>
                 </td>
-                <td>{state.breakfastCost}</td>
+                <td id="costAlignRight">{state.breakfastCost}</td>
             </tr>
             <tr>
                 <td>TOTAL</td>
-                <td>${totalCostDynamic}
-                </td>
+                <td id="costAlignRight">${totalCostDynamic}</td>
             </tr>
             </tbody>
         </Table>

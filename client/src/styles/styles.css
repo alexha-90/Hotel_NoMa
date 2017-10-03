@@ -1,8 +1,10 @@
 
 /*============== Global CSS ==============*/
+/*   background-image: url("http://images.all-free-download.com/images/graphicthumb/linen_fabric_background_01_hd_picture_169828.jpg");
+*/
 body {
-  font-family: sans-serif;
-  background-image: url("http://images.all-free-download.com/images/graphicthumb/linen_fabric_background_01_hd_picture_169828.jpg");
+  font-family: 'Pontano Sans', sans-serif;
+  background-color: white;
 }
 
 ul {
@@ -20,26 +22,26 @@ hr {
 }
 
 .container {
-  width: 90%;
+  width: 70%;
+  padding-left: 0;
+  padding-right: 0;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
 }
 
-.alignLeft {
-  float: left;
-  font-size: 30px;
-  vertical-align: top;
+#grayed {
+  opacity: 0.6;
 }
-.alignRight {
-  margin-top: 10px;
-  float: right;
-  font-size: 20px;
-}
-
 
 /*============== Landing Page CSS ==============*/
+
+#fullSpan {
+  width: 100%;
+  margin: 15px 0 20px 0;
+  position: relative;
+}
 
 #citySkyline {
   width: 100%;
@@ -109,13 +111,61 @@ h9 {
 
 /*============== Results Page CSS ==============*/
 
+.searchBanner {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  text-align: center;
+}
+
+#roomTypeHeading {
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+
 #resultContainer {
-  margin: 50px auto 0 auto;
-  background-color: yellowgreen;
-  border: 2px solid green;
+  margin: 3px auto 0 auto;
+  background-color: #e0e0d2;
+  border: 2px solid #3c3c2a;
+  border-radius: 4px;
   width: 100%;
+  position: inherit;
+}
+
+#fullResultSpan {
+  background-color: #e0e0d2;
+  width: 100%;
+  margin: 15px 0 15px 0;
+  padding: 0 15px 0 15px;
   position: relative;
 }
+
+.alignLeft {
+  float: left;
+  font-size: 30px;
+  vertical-align: top;
+  letter-spacing: 2px;
+}
+
+.alignRight {
+  float: right;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.roomExpandedLeftHeadline {
+  float: left;
+  font-size: 25px;
+  vertical-align: top;
+  letter-spacing: 2px;
+}
+
+.roomExpandedRightButton {
+  float: right;
+  font-size: 25px;
+  vertical-align: top;
+}
+
 
 #priceResult {
   text-align: right;
@@ -123,43 +173,33 @@ h9 {
   /* missing inline prop. forgot name */
 }
 
+.roomDescription {
+  clear: both;
+}
+
 .resultsThumbs {
   clear: both;
   text-align: center;
 }
-
-/* broken. grid automatically leaves -15px margin. Can't get to correct sie with responsiveness */
-.resultsGrid {
-  margin-left: -25px;
-  margin-right: -25px;
-  position: relative;
-}
-
 
 .thumbPhoto {
   width: 100%;
 }
 
 .thumbPhoto img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 200px;
+  width: 100%;
 }
 
-#thumbResult {
-}
 
-.resultsGrid {
-  background-color: darkslategray;
-  color: gray;
-}
 
 .amenityText {
-  background-color: darkslategray;
-
+  color: #5a5a3f;
+  background-color: #e0e0d2;
 }
 
 #highlightResult {
-  background-color: darkslategray;
+  background-color: #e0e0d2;
 }
 
 
@@ -178,8 +218,10 @@ h9 {
   margin-bottom: 40px;
 }
 
-/*============== Login Page CSS ==============*/
-
+/*============== Checkout Page CSS ==============*/
+#costAlignRight {
+  text-align: right;
+}
 
 
 
@@ -223,3 +265,84 @@ h9 {
 }
 
 /*============== END CSS ==============*/
+
+/* test for slideshow. access with /blank */
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.slideshow li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1) {
+  background-image: url(https://static.pexels.com/photos/268533/pexels-photo-268533.jpeg)
+}
+.slideshow li:nth-child(2) {
+  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  animation-delay: 40s;
+}
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+
+.thumbnail {
+  padding: 0;
+}
+
+.thumbnail img {
+  width: 100%;
+}
+
+.thumbnail .caption-full {
+  padding: 10px;
+}
+
+#delete-form {
+  display: inline;
+}
+

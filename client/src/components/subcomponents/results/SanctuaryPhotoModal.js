@@ -4,30 +4,30 @@ import { Carousel } from 'react-responsive-carousel';
 
 //===============================================================================================//
 
-class ExcaliburPhotoModal extends Component {
+class SanctuaryPhotoModal extends Component {
     render() {
         return (
             <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-lg">Additional photos of our Excalibur suites:</Modal.Title>
+                    <Modal.Title id="contained-modal-title-lg">Additional photos of our Sanctuary rooms:</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>
                         <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                             <div>
-                                <img alt="excaliburView" src="https://static.pexels.com/photos/53577/hotel-architectural-tourism-travel-53577.jpeg" />
-                                <p className="legend">Hallway</p>
+                                <img alt="sanctuaryBed" src="https://static.pexels.com/photos/164595/pexels-photo-164595.jpeg" />
+                                <p className="legend">Bed arrangement area</p>
                             </div>
                             <div>
-                                <img alt="excaliburView" src="https://static.pexels.com/photos/462331/pexels-photo-462331.jpeg" />
-                                <p className="legend">City view</p>
+                                <img alt="sanctuaryLivingArea" src="https://static.pexels.com/photos/189333/pexels-photo-189333.jpeg" />
+                                <p className="legend">Living area</p>
                             </div>
                             <div>
-                                <img alt="excaliburFamilyRoom" src="https://static.pexels.com/photos/460537/pexels-photo-460537.jpeg" />
-                                <p className="legend">Family room</p>
+                                <img alt="sanctuaryGift" src="https://static.pexels.com/photos/67723/pexels-photo-67723.jpeg" />
+                                <p className="legend">Gift towels</p>
                             </div>
                             <div>
-                                <img alt="excaliburBathroom" src="https://static.pexels.com/photos/342800/pexels-photo-342800.jpeg" />
+                                <img alt="sanctuaryBathroom" src="https://static.pexels.com/photos/271631/pexels-photo-271631.jpeg" />
                                 <p className="legend">Bathroom</p>
                             </div>
                         </Carousel>
@@ -41,4 +41,4 @@ class ExcaliburPhotoModal extends Component {
     }
 }
 
-export default ExcaliburPhotoModal;
+export default SanctuaryPhotoModal;

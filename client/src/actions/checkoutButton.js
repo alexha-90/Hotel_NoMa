@@ -99,10 +99,10 @@ class CheckoutButton extends Component {
                     zipCode={true}
                     allowRememberMe={false}
                     panelLabel="Reservation total: "
-                    image= 'https://us.123rf.com/450wm/djvstock/djvstock1511/djvstock151102927/48451966-hotel-services-and-travel-graphic-design-vector-illustration-eps10.jpg?ver=6'
+                    image= 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAC30lEQVRoQ+1YTWsTQRh+JskhRmnrqYgBDY2C3YLNRXpT8OjBXKygB+MviAhehEAh4EWQ5h/Ug4L10h48ivYmXlKhaUET2kJFejIUP3JIduTtzqRL2E1m4mxpYOaUDTPzPl/vzLIMIz7YiOOHJdDPwS3ghgs0HWA9KqcjdWADWCLgM0DhxBIgla8AH/0AN4BFBlwHMCv+X+fA2gzwyD8vaK0u0f92oAbsxDwSO7L4NjDxB1iBR4LGWgrIZ4CmnLMFXHSBDw6Q0QXtnz80gZoH8IJQmRRuxoGHkohwoUjFOFCR6gvgFK1xuRbArgPkhyGiRGBTbD7tgT4cAghFh0jQyPmbtQYsxEQPuEDBARbk2poXrap43u11MKheGLm+BESh2zhShwisSqAUH1KeAVdTwFkZkValfIm3Y/cZ2B3PAf6WJdxXyWLpGz2LiP3kwBcGjMsYDaoXRGKgA3SSMOCBiMJLeaIIEHkHWKJmPD2XG5u8O5/jLp8Hw3SgYhybLMaW998sV39/qh5Q89eAQgpYkeTD6g3lAC2iAgAW6TcDCv4YkdLMTdzrBc07nQbf/7HXqX9N07p49vIemzyXZvH4VBeIIMNj7dfSmUH1hnKA1E2Ki6gFzGYq5e/9QPNGPc0PmkdAfVXZ2ESDTWX7ktkuls776/Ue0b0kBkaIFgxSuh/oUOsVyPid0Y5QFKCjIBPqQOvFMy4LykwPo7Tu2R4Ws+Tjp4FYQwn8fV6uUyMeB2gVZ049KWW1mvjXzWtdB3RVjGL+mfef9RywBAzbYB0wLKj2dkYcSNwKfuNtv+u+pB4CMz2P9rQEolBW1SnrgOw4VcVMzzPmgPbRYXCBkSY2iEd7K0tA9RQKy7+U3H9nqPaKsR5QKWgJAOi92a0DOvfAiY6QytmnQ0BlPznn2I5RSyDEFuuAal5thExFyP9lTlX9KOdpf5kbeQJRqmlyb6XP6yYLmt7LEjCtqO5+I+/AP09m7EDFcoUsAAAAAElFTkSuQmCC'
                 >
                     <Button bsStyle="success">
-                        Book Now (free cancellations until {canCancel()}
+                        Book my stay now!
                     </Button>
                 </StripeCheckout>
             </div>
@@ -120,11 +120,3 @@ function mapStateToProps(state) {
 
 
 export default connect(mapStateToProps)(CheckoutButton);
-
-
-function canCancel (start) {
-    if (moment(start).subtract(1, 'days').isSameOrAfter(moment().utcOffset(-420))) {
-        return 'same date test';
-    }
-    return 'different date test';
-}

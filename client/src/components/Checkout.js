@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Grid, Row, Col } from 'react-bootstrap';
 
 import { updateItineraryTotalCost } from '../actions';
 import CheckoutButton from '../actions/checkoutButton';
@@ -36,6 +36,8 @@ class Checkout extends Component {
 
 
     componentWillMount() {
+        window.scrollTo(0, 0);
+
         // Associating a price with room type selected in previous results page.
         switch (this.props.itinerary.roomType) {
             case 'executiveSuite': {
@@ -164,32 +166,80 @@ class Checkout extends Component {
 
         return (
             <div className="container">
-                <h1>You chose room {this.props.itinerary.roomType} with travel
-                    dates {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}!
-                    There are {this.props.itinerary.numAdults} adult(s). Not correct? Please make a change below:
-                </h1>
-                <Link to="/"><Button bsStyle="primary">Modify dates</Button></Link>
-                <Link to="/results/:id"><Button bsStyle="info">Modify room</Button></Link>
-
-
-                <h1>We hope you enjoy your stay!
-                    Please consider the following add-ons before checking out:
-                </h1>
 
                 <h4>Temporary. Your room cost is ${this.roomCostPerNight}/night for {this.props.itinerary.roomType}.
                     Total cost is ${this.roomCostPerNight * this.props.itinerary.numNights}. Staying {this.props.itinerary.numNights} nights</h4>
 
-                Your stay:
-                {/* Imported component: entire table output */}
-                {pricingTable(this.state, this.props.itinerary, this.props.pricing, this.handleAddonChange, this.totalCostDynamic())}
-                {/* Imported component: entire table output */}
 
-                Note: for the sake of testing, please use credit card # 4242424242
-                stripe still doesn't actually go to backend
-                {/* Imported component: Stripe billing */}
-                <CheckoutButton />
-                {/* Imported component: Stripe billing */}
 
+                <div>
+                    <Grid>
+                        <Row>
+                            <Col sm={0} md={4}><hr /></Col>
+                            <Col sm={12} md={4}>
+                                <div id="roomTypeHeading">
+                                    <h3>Itinerary</h3>
+                                </div>
+                            </Col>
+                            <Col sm={0} md={4}><hr /></Col>
+                        </Row>
+                    </Grid>
+                </div>
+
+
+                <div className="searchBanner">
+                    <Grid>
+                        <Row>
+                            <Col sm={12} md={12}>
+                                <h3>
+                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.numAdults} Adult(s)</Button>
+                                    {' '}
+                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.numNights} Nights</Button>
+                                    {' '}
+                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}</Button>
+                                    {' '}
+                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.roomType} Room</Button>
+                                    <br />
+                                    <br />
+                                    <Link to="/"><Button bsStyle="warning">Modify dates</Button></Link>
+                                    {' '}
+                                    <Link to="/results"><Button bsStyle="warning">Modify room</Button></Link>
+                                </h3>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </div>
+
+                <div>
+                    <Grid>
+                        <Row>
+                            <Col sm={0} md={4}><hr /></Col>
+                            <Col sm={12} md={4}>
+                                <div id="roomTypeHeading">
+                                    <h3>Payment</h3>
+                                </div>
+                            </Col>
+                            <Col sm={0} md={4}><hr /></Col>
+                        </Row>
+                    </Grid>
+                </div>
+
+                <h3>We hope you enjoy your stay at Hotel NoMa, San Francisco! Please ensure the itinerary above is accurate
+                    before proceeding.
+                </h3>
+
+                <div id="resultContainer">
+                    {/* Imported component: entire table output */}
+                    {pricingTable(this.state, this.props.itinerary, this.props.pricing, this.handleAddonChange, this.totalCostDynamic())}
+                    {/* Imported component: entire table output */}
+                </div>
+
+
+                    Note: for the sake of testing, please use credit card # 4242424242
+                    stripe still doesn't actually go to backend
+                    {/* Imported component: Stripe billing */}
+                    <CheckoutButton />
+                    {/* Imported component: Stripe billing */}
             </div>
         );
     }

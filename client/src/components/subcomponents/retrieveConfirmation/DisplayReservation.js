@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Table, Grid, Row, Col } from 'react-bootstrap';
+
 //===============================================================================================//
 
 class DisplayReservation extends Component {
-
 
     componentWillMount() {
         if (!this.props.itinerary.confirmationNumber) {
@@ -11,22 +12,102 @@ class DisplayReservation extends Component {
         }
     }
 
-
     render() {
         return (
-            <div>
-                <ul>
-                    <li>Confirmation number: {this.props.itinerary.confirmationNumber}</li>
-                    <li>addons tbd: {this.props.itinerary.addons.toString()}</li>
-                    <li>cancel by date: {this.props.itinerary.cancelByDate}</li>
-                    <li>email: {this.props.itinerary.contactInfo.email}</li>
-                    <li>total cost: {this.props.itinerary.totalCostOfStay}</li>
-                    <li>room type: {this.props.itinerary.roomType}</li>
-                    <li>number of adult guests: {this.props.itinerary.numAdults}</li>
-                    <li>enter date: {this.props.itinerary.enterDate}</li>
-                    <li>exit date: {this.props.itinerary.exitDate}</li>
-                    <li>length of stay: {this.props.itinerary.numNights}</li>
-                </ul>
+            <div className="container">
+
+                <div>
+                    <Grid>
+                        <Row>
+                            <Col sm={3} md={4}><hr /></Col>
+                            <Col sm={6} md={4}>
+                                <div id="centeredHeading">
+                                    <h3>Itinerary</h3>
+                                </div>
+                            </Col>
+                            <Col sm={3} md={4}><hr /></Col>
+                        </Row>
+                    </Grid>
+                </div>
+
+                <div>
+                    <Grid>
+                        <Row>
+                            <Col sm={1} md={2}>{' '}</Col>
+                            <Col sm={10} md={8}>
+                                <Table striped bordered condensed>
+                                    <tbody>
+                                    <tr>
+                                        <td>Confirmation number</td>
+                                        <td id="costAlignRight">{this.props.itinerary.confirmationNumber}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email address</td>
+                                        <td id="costAlignRight">{this.props.itinerary.contactInfo.email}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time at booking</td>
+                                        <td id="costAlignRight">{this.props.itinerary.bookTime}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total cost of stay</td>
+                                        <td id="costAlignRight">${this.props.itinerary.totalCostOfStay}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Room type</td>
+                                        <td id="costAlignRight">{this.props.itinerary.roomType}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number of adult guests</td>
+                                        <td id="costAlignRight">{this.props.itinerary.numAdults}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Check-in Date:</td>
+                                        <td id="costAlignRight">{this.props.itinerary.enterDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Check-out Date</td>
+                                        <td id="costAlignRight">{this.props.itinerary.exitDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Length of stay</td>
+                                        <td id="costAlignRight">{this.props.itinerary.numNights} nights</td>
+                                    </tr>
+                                    </tbody>
+                                </Table>
+
+
+                                <Table striped bordered condensed>
+                                    <tbody>
+                                    <tr>
+                                        <td><h4>Optional addons:</h4></td>
+                                        <td>{' '}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Breakfast</td>
+                                        <td id="costAlignRight">{this.props.itinerary.addons.breakfast.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Care Package</td>
+                                        <td id="costAlignRight">{this.props.itinerary.addons.carePackage.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Late Checkout</td>
+                                        <td id="costAlignRight">{this.props.itinerary.addons.lateCheckout.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>shuttleRide</td>
+                                        <td id="costAlignRight">{this.props.itinerary.addons.shuttleRide.toString()}</td>
+                                    </tr>
+                                    </tbody>
+                                </Table>
+                            </Col>
+                            <Col sm={1} md={2}>{' '}</Col>
+                        </Row>
+                    </Grid>
+                </div>
+
             </div>
         );
     }
@@ -42,74 +123,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(DisplayReservation);
-
-
-/*
-addons:
-:
-breakfast
-:
-true
-carePackage
-:
-true
-lateCheckout
-:
-true
-shuttleRide
-:
-false
-__proto__
-:
-Object
-bookTime
-:
-"09/29/2017 @ 02:36 pm (PST)"
-cancelByDate
-:
-"10/29/2017"
-confirmationNumber
-:
-"3A12FU9484"
-contactInfo
-:
-customerAddress
-:
-"31355 Santa Ana Way"
-customerCity
-:
-"Union City"
-customerCountry
-:
-"US"
-customerName
-:
-"Alex Ha"
-customerZip
-:
-94587
-email
-:
-"chowyows@gmail.com"
-__proto__
-:
-Object
-enterDate
-:
-"10/18/2017"
-exitDate
-:
-"10/30/2017"
-numAdults
-:
-3
-numNights
-:
-12
-roomType
-:
-"frugalTraveler"
-totalCostOfStay
-:
-1481.56
- */

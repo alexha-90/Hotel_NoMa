@@ -170,13 +170,13 @@ class Checkout extends Component {
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={0} md={4}><hr /></Col>
-                            <Col sm={12} md={4}>
+                            <Col sm={3} md={4}><hr /></Col>
+                            <Col sm={6} md={4}>
                                 <div id="centeredHeading">
                                     <h3>Itinerary</h3>
                                 </div>
                             </Col>
-                            <Col sm={0} md={4}><hr /></Col>
+                            <Col sm={3} md={4}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>
@@ -210,13 +210,13 @@ class Checkout extends Component {
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={0} md={4}><hr /></Col>
-                            <Col sm={12} md={4}>
+                            <Col sm={3} md={4}><hr /></Col>
+                            <Col sm={6} md={4}>
                                 <div id="centeredHeading">
                                     <h3>Payment</h3>
                                 </div>
                             </Col>
-                            <Col sm={0} md={4}><hr /></Col>
+                            <Col sm={3} md={4}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>

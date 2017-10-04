@@ -76,13 +76,13 @@ class ListResults extends Component {
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={0} md={4}><hr /></Col>
-                            <Col sm={12} md={4}>
+                            <Col sm={1} md={4}><hr /></Col>
+                            <Col sm={10} md={4}>
                                 <div id="centeredHeading">
                                     <h3>Itinerary</h3>
                                 </div>
                             </Col>
-                            <Col sm={0} md={4}><hr /></Col>
+                            <Col sm={1} md={4}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>
@@ -117,13 +117,13 @@ class ListResults extends Component {
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={2} md={4}><hr /></Col>
-                            <Col sm={8} md={4}>
+                            <Col sm={1} md={4}><hr /></Col>
+                            <Col sm={10} md={4}>
                                 <div id="centeredHeading">
                                     <h3>Guest Rooms</h3>
                                 </div>
                             </Col>
-                            <Col sm={2} md={4}><hr /></Col>
+                            <Col sm={1} md={4}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>
@@ -534,7 +534,7 @@ class ListResults extends Component {
                                     </Grid>
                                 </div>
                                 <Button bsStyle="default" block onClick={ ()=> this.setState({ expandThriftyShowView: !this.state.expandThriftyShowView })}>
-                                    See available rooms <strong>(SPECIAL PRICING)</strong>
+                                    See available rooms
                                 </Button>
 
                                 <Panel collapsible expanded={this.state.expandThriftyShowView}>

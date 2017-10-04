@@ -67,6 +67,7 @@ module.exports = app => {
         }
 
         // execute import function - confirmation email sender
-        mailer.sendConfirmation(enterDate, exitDate, email, confirmationNumber, totalCostOfStay);
+        mailer.sendConfirmation(customerName, confirmationNumber, email, bookTime, totalCostOfStay,
+            roomType, numAdults, enterDate, exitDate, numNights, carePackage.toString(), lateCheckout.toString(), breakfast.toString(), shuttleRide.toString());
     });
 };

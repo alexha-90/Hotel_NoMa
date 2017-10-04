@@ -30,7 +30,6 @@ hr {
   margin-left: auto;
   margin-right: auto;
   background-color: white;
-  z-index: 0;
 }
 
 #grayed {
@@ -253,11 +252,12 @@ h9 {
 /*============== Retrieve Reservation CSS ==============*/
 
 #getButton {
-  float: left;
+  float: right;
 }
 
 #deleteButton {
-  float: right;
+  float: left;
+  margin-bottom: 250px;
 }
 
 #lookupForm {
@@ -266,22 +266,83 @@ h9 {
 }
 /* borrow #resultContainer from results page */
 
+.displayItineraryTable {
+  display: block;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 50%;
+}
+
+#getItinerarySpacing {
+  margin-top: 150px;
+}
 
 
 
 
 
 /*============== Header CSS ==============*/
-.headerFull {
+
+.headerBlackout {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 800;
   width: 100%;
-  height: 65px;
+  height: 70px;
   background-color: black;
   color: #f2f2f2;
 }
+
+.headerContainer {
+  margin: 0 18% 5px 18%;
+}
+
+
+#hotelNomaLogoLeft {
+  display: block;
+  height: 65px;
+  margin: 0 auto;
+  position: fixed;
+  background-color: black;
+
+}
+
+#headerRow {
+  margin-top: 0;
+  width: 100%;
+}
+
+.headerContainer img {
+  margin-left: 0;
+  height: 65px;
+}
+
+.headerRightContent {
+  float: right;
+  position: absolute;
+  display: inline-block;
+}
+
+
+#dropdownNav {
+  color: inherit;
+  letter-spacing: 1px;
+  font-size: 15px;
+  text-decoration: none;
+  background-color: black;
+  margin-top: 15px;
+}
+
+#retrieveReservationsText {
+  float: right;
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 27px;
+  text-align: right;
+}
+
+/*
 
 @media (min-width: 1010px) {
 
@@ -313,57 +374,34 @@ h9 {
   }
 
   .headerMenuRight {
+    background-color: black;
     letter-spacing: 2px;
     font-size: 15px;
-    right: 18%;
-    position: absolute;
     height: 65px;
     line-height: 65px;
-    margin-top: 5px;
+    margin: 0 auto;
     text-align: center;
-    display: inline-block;
+    display: block;
   }
 }
 
+*/
 
-
-#dropdownNav {
-  color: inherit;
-  text-decoration: none;
-  background-color: black;
+/*============== Confirmation Page CSS ==============*/
+#confirmationContainer {
+  margin: 5px auto 0 auto;
+  padding: 0 15px;
+  background-color: #e0e0d2;
+  border: 2px solid #3c3c2a;
+  border-radius: 4px;
+  width: 100%;
+  position: inherit;
 }
 
-.headerDropdown{
-  font-size: inherit;
-  color: inherit;
-  display: inline-block;
-  height: 3px;
-  line-height: 3px;
-}
+#confirmationBackground {
+  background-color: #e0e0d2;
 
-.headerDropdown img {
-  margin-top: -4px;
 }
-
-.dropdownItem {
-  background-color: black;
-}
-
-#navTop {
-  font-size: 16px;
-  margin-bottom: 40px;
-}
-
-.logoLeft {
-  left: 0;
-  position: absolute;
-}
-
-.menuRight {
-  float: right;
-  right: 0;
-}
-
 
 /*============== Footer CSS ==============*/
 .footerContainer {
@@ -371,7 +409,7 @@ h9 {
   padding: 0.25rem 9999rem;
   background: black;
   text-align: center;
-  color: #f2f2f2
+  color: #f2f2f2;
 }
 
 

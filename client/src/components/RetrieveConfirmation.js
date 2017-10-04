@@ -72,7 +72,7 @@ class RetrieveConfirmation extends Component {
         return (
             <div className="container">
 
-                <div>
+                <div id="getItinerarySpacing">
                     <Grid>
                         <Row>
                             <Col sm={2} md={3}><hr /></Col>
@@ -90,8 +90,8 @@ class RetrieveConfirmation extends Component {
                     <div>
                         <Grid>
                             <Row id="lookupForm">
-                                <Col sm={0} md={2}></Col>
-                                <Col sm={12} md={8}>
+                                <Col sm={3} md={3}></Col>
+                                <Col sm={6} md={6}>
                                     <h4>
                                         <Form>
                                             <FormGroup>
@@ -105,7 +105,7 @@ class RetrieveConfirmation extends Component {
                                         </Form>
                                     </h4>
                                 </Col>
-                                <Col sm={0} md={2}></Col>
+                                <Col sm={3} md={2}></Col>
                             </Row>
                         </Grid>
                     </div>

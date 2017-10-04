@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
-// to-do: randomly generated confirmation number.
-// to-do: update text with generated confirmation number
+import { Grid, Row, Col, Table } from 'react-bootstrap';
 
 //===============================================================================================//
 
@@ -16,44 +14,128 @@ class Confirmation extends Component {
 
         return (
 
-            <div>
+            <div className="container">
 
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={0} md={4}><hr /></Col>
-                            <Col sm={12} md={4}>
-                                <div id="roomTypeHeading">
+                            <Col sm={3} md={4}><hr /></Col>
+                            <Col sm={6} md={4}>
+                                <div id="centeredHeading">
                                     <h3>Confirmation</h3>
                                 </div>
                             </Col>
-                            <Col sm={0} md={4}><hr /></Col>
+                            <Col sm={3} md={4}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>
 
 
 
-                <div className="container">
-                        <div id="resultContainer">
-                        <h3>Your reservation has been booked! Your stay confirmation number is #{this.props.itinerary.confirmationNumber}. A receipt has been sent to your email ({this.props.itinerary.email}).
-                        </h3>
-                        <h4>
-                            Your stay details: {this.props.itinerary.enterDate} to {this.props.itinerary.exitDate} for
-                            a total cost of ${this.props.itinerary.totalCostOfStay}. To cancel and receive a full refund for your stay, please
-                            cancel by {this.props.itinerary.cancelByDate}.
-                        </h4>
-
-                        Please feel free to contact us by phone at (555) 415-5104 or by
-                        email at <a href={emailRef}>hotelnomaSF@gmail.com</a> if
+                <div id="confirmationContainer">
+                    <h4>Your reservation has been booked! We hope you look forward to your stay at Hotel NoMa, San Francisco. A copy of your receipt has been
+                        sent to your email ({this.props.itinerary.email}). Your stay confirmation number is #{this.props.itinerary.confirmationNumber}.
+                        Please feel free to contact us by phone at (555) 415-5104 or by email at <a href={emailRef}>hotelnomaSF@gmail.com</a> if
                         you have any questions or concerns. We look forward to your stay!
+                    </h4>
+                    <br />
 
-                        <p>
-                            Like Hotel NoMa? Follow us on social media to find out about exclusive promotions and events:
-                            <img src="http://optinflow.com/wp-content/uploads/2017/03/fbinstatwitter.png" id="social_links" alt="social_links"/>
-                        </p>
-                    </div>
+                    <p>
+                        Like Hotel NoMa? Follow us on social media to find out about exclusive promotions and events:
+                        <a target="_blank" href="https://www.facebook.com" rel="noopener noreferrer">
+                            <img src="https://png.icons8.com/facebook/dusk/40" title="Facebook" alt="facebook"/>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a target="_blank" href="https://www.twitter.com" rel="noopener noreferrer">
+                            <img src="https://png.icons8.com/twitter/dusk/40" title="Twitter" alt="twitter"/>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a target="_blank" href="https://www.instagram.com" rel="noopener noreferrer">
+                            <img src="https://png.icons8.com/instagram-old/dusk/40" title="Instagram Old" alt="instagram"/>
+                        </a>
+                    </p>
                 </div>
+
+                <div>
+                    <Grid>
+                        <Row>
+                            <Col sm={1} md={2}></Col>
+                            <Col sm={10} md={8}>
+                                <h3>Your Itinerary:</h3>
+                                <Table striped bordered condensed>
+                                    <tbody>
+                                    <tr>
+                                        <td>Confirmation number</td>
+                                        <td id="costAlignRight">{this.props.itinerary.confirmationNumber}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email address</td>
+                                        <td id="costAlignRight">{this.props.itinerary.email}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time at booking</td>
+                                        <td id="costAlignRight">{this.props.itinerary.bookTime}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total cost of stay</td>
+                                        <td id="costAlignRight">${this.props.itinerary.totalCostOfStay}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Room type</td>
+                                        <td id="costAlignRight">{this.props.itinerary.roomType}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number of adult guests</td>
+                                        <td id="costAlignRight">{this.props.itinerary.numAdults}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Check-in Date:</td>
+                                        <td id="costAlignRight">{this.props.itinerary.enterDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Check-out Date</td>
+                                        <td id="costAlignRight">{this.props.itinerary.exitDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Length of stay</td>
+                                        <td id="costAlignRight">{this.props.itinerary.numNights} nights</td>
+                                    </tr>
+                                    </tbody>
+                                </Table>
+
+
+                                <Table striped bordered condensed>
+                                    <tbody>
+                                    <tr>
+                                        <td><h4>Optional addons:</h4></td>
+                                        <td>{' '}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Breakfast</td>
+                                        <td id="costAlignRight">{this.props.itinerary.breakfast.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Care Package</td>
+                                        <td id="costAlignRight">{this.props.itinerary.carePackage.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Late Checkout</td>
+                                        <td id="costAlignRight">{this.props.itinerary.lateCheckout.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>shuttleRide</td>
+                                        <td id="costAlignRight">{this.props.itinerary.shuttleRide.toString()}</td>
+                                    </tr>
+                                    </tbody>
+                                </Table>
+                            </Col>
+                            <Col sm={1} md={2}>{' '}</Col>
+                        </Row>
+                    </Grid>
+                </div>
+                <br />
+
             </div>
         );
     }

@@ -5,6 +5,7 @@
 body {
   font-family: 'Pontano Sans', sans-serif;
   background-color: white;
+  overflow-x: hidden;
 }
 
 ul {
@@ -22,13 +23,14 @@ hr {
 }
 
 .container {
-  width: 70%;
+  width: 80%;
   padding-left: 0;
   padding-right: 0;
-  margin-top: 40px;
+  margin-top: 35px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
+  z-index: 0;
 }
 
 #grayed {
@@ -117,14 +119,19 @@ h9 {
   text-align: center;
 }
 
-#roomTypeHeading {
+#centeredHeading {
   text-align: center;
   letter-spacing: 3px;
 }
 
 
+#roomTypeHeading {
+  letter-spacing: 2px;
+  color: #696949;
+}
+
 #resultContainer {
-  margin: 3px auto 0 auto;
+  margin: 5px auto 0 auto;
   background-color: #e0e0d2;
   border: 2px solid #3c3c2a;
   border-radius: 4px;
@@ -232,7 +239,7 @@ h9 {
   text-align: right;
 }
 
-/* borrow searchBanner and resultContainer from results page */
+/* borrow searchBanner and #resultContainer from results page */
 
 #tableHeader {
   font-size: 1.3em;
@@ -255,9 +262,9 @@ h9 {
 
 #lookupForm {
   background-color: #e0e0d2;
-  margin-top: -15px;
+  margin-top: -32px;
 }
-/* borrow resultContainer from results page */
+/* borrow #resultContainer from results page */
 
 
 
@@ -273,25 +280,57 @@ h9 {
   width: 100%;
   height: 65px;
   background-color: black;
+  color: #f2f2f2;
 }
 
-#hotelNomaLogoLeft {
-  height: 100%;
-  left: 15%;
-  position: absolute;
+@media (min-width: 1010px) {
+
+  #hotelNomaLogoLeft {
+    height: 100%;
+    left: 18%;
+    position: absolute;
+  }
+
+  .headerMenuRight {
+    letter-spacing: 2px;
+    font-size: 15px;
+    right: 18%;
+    position: absolute;
+    height: 65px;
+    line-height: 65px;
+    margin-top: 5px;
+    text-align: center;
+    display: inline-block;
+  }
 }
 
-.headerMenuRight {
-  letter-spacing: 2px;
-  font-size: 18px;
-  right: 15%;
-  position: absolute;
-  color: #ffd100;
-  height: 65px;
-  line-height: 65px;
-  margin-top: 6px;
-  text-align: center;
-  display: inline-block;
+@media (max-width: 1009px) {
+
+  #hotelNomaLogoLeft {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .headerMenuRight {
+    letter-spacing: 2px;
+    font-size: 15px;
+    right: 18%;
+    position: absolute;
+    height: 65px;
+    line-height: 65px;
+    margin-top: 5px;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+
+
+#dropdownNav {
+  color: inherit;
+  text-decoration: none;
+  background-color: black;
 }
 
 .headerDropdown{
@@ -300,6 +339,14 @@ h9 {
   display: inline-block;
   height: 3px;
   line-height: 3px;
+}
+
+.headerDropdown img {
+  margin-top: -4px;
+}
+
+.dropdownItem {
+  background-color: black;
 }
 
 #navTop {
@@ -319,25 +366,53 @@ h9 {
 
 
 /*============== Footer CSS ==============*/
-.footer {
-  bottom: 0;
+.footerContainer {
+  margin: 15px -9999rem 0 -9999rem;
+  padding: 0.25rem 9999rem;
+  background: black;
   text-align: center;
-  opacity: 0.55;
-  margin-bottom: 20px;
+  color: #f2f2f2
 }
 
-.footerOffset {
-  margin-top: 40px;
+
+#centeredGoogleMap {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#googleMap {
-  height: 175px;
-  width: 175px;
+#centeredFooterText {
+  width: 100%;
+  line-height: 150%;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  background-color: black;
 }
 
-#social_links {
-  height: 50%;
-  width: 50%;
+#black {
+  background-color: black;
+}
+
+#footerBar {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #f2f2f2;
+  margin: 1em 0;
+  padding: 0;
+}
+
+#footerLicensingColor {
+  color: #4d4d4d;
+  margin-top: -10px;
+}
+
+#footerLicensing a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
 }
 
 /*============== END CSS ==============*/

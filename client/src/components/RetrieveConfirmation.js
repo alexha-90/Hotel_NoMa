@@ -75,13 +75,13 @@ class RetrieveConfirmation extends Component {
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={0} md={2}><hr /></Col>
-                            <Col sm={12} md={8}>
-                                <div id="roomTypeHeading">
+                            <Col sm={2} md={3}><hr /></Col>
+                            <Col sm={8} md={6}>
+                                <div id="centeredHeading">
                                     <h3>Lookup Itinerary</h3>
                                 </div>
                             </Col>
-                            <Col sm={0} md={2}><hr /></Col>
+                            <Col sm={2} md={3}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>

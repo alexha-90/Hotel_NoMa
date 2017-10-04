@@ -71,14 +71,14 @@ class ListResults extends Component {
         }
 
         return (
-            <div>
+            <div className="container">
 
                 <div>
                     <Grid>
                         <Row>
                             <Col sm={0} md={4}><hr /></Col>
                             <Col sm={12} md={4}>
-                                <div id="roomTypeHeading">
+                                <div id="centeredHeading">
                                     <h3>Itinerary</h3>
                                 </div>
                             </Col>
@@ -92,8 +92,8 @@ class ListResults extends Component {
                 <div className="searchBanner">
                     <Grid>
                         <Row>
-                            <Col sm={0} md={1}>{' '}</Col>
-                            <Col sm={12} md={10}>
+                            <Col sm={1} md={1}>{' '}</Col>
+                            <Col sm={10} md={10}>
                                 <h3>
                                     <Button bsStyle="primary" id="grayed">{this.props.itinerary.numAdults} Adult(s)</Button>
                                     {' '}
@@ -104,13 +104,10 @@ class ListResults extends Component {
                                     <Link to="/"><Button bsStyle="warning">Modify search</Button></Link>
                                 </h3>
                             </Col>
-                            <Col sm={0} md={1}>{' '}</Col>
+                            <Col sm={1} md={1}>{' '}</Col>
                         </Row>
                     </Grid>
                 </div>
-
-
-                <h2>Room options:</h2>
 
 
 
@@ -120,18 +117,18 @@ class ListResults extends Component {
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={0} md={4}><hr /></Col>
-                            <Col sm={12} md={4}>
-                                <div id="roomTypeHeading">
-                                    <h3>Premier Suites</h3>
+                            <Col sm={2} md={4}><hr /></Col>
+                            <Col sm={8} md={4}>
+                                <div id="centeredHeading">
+                                    <h3>Guest Rooms</h3>
                                 </div>
                             </Col>
-                            <Col sm={0} md={4}><hr /></Col>
+                            <Col sm={2} md={4}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>
 
-
+                <h2 id="roomTypeHeading">Premier Suites:</h2>
                 <div id="resultContainer">
                     <Grid id="fullResultSpan">
                         <Row>
@@ -326,22 +323,7 @@ class ListResults extends Component {
                 <br />
 
 
-                <div>
-                    <Grid>
-                        <Row>
-                            <Col sm={0} md={4}><hr /></Col>
-                            <Col sm={12} md={4}>
-                                <div id="roomTypeHeading">
-                                    <h3>Guest Rooms</h3>
-                                </div>
-                            </Col>
-                            <Col sm={0} md={4}><hr /></Col>
-                        </Row>
-                    </Grid>
-                </div>
-
-
-
+                <h2 id="roomTypeHeading">Traditional Rooms:</h2>
                 <div id="resultContainer">
                     <Grid id="fullResultSpan">
                         <Row>
@@ -582,9 +564,7 @@ class ListResults extends Component {
                 </div>
 
                 <br />
-                <div style={{ textAlign: 'right' }}>
-                    <a href="https://icons8.com">Icon pack by Icons8</a>
-                </div>
+
             </div>
         );
     }

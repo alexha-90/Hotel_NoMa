@@ -167,17 +167,12 @@ class Checkout extends Component {
         return (
             <div className="container">
 
-                <h4>Temporary. Your room cost is ${this.roomCostPerNight}/night for {this.props.itinerary.roomType}.
-                    Total cost is ${this.roomCostPerNight * this.props.itinerary.numNights}. Staying {this.props.itinerary.numNights} nights</h4>
-
-
-
                 <div>
                     <Grid>
                         <Row>
                             <Col sm={0} md={4}><hr /></Col>
                             <Col sm={12} md={4}>
-                                <div id="roomTypeHeading">
+                                <div id="centeredHeading">
                                     <h3>Itinerary</h3>
                                 </div>
                             </Col>
@@ -217,7 +212,7 @@ class Checkout extends Component {
                         <Row>
                             <Col sm={0} md={4}><hr /></Col>
                             <Col sm={12} md={4}>
-                                <div id="roomTypeHeading">
+                                <div id="centeredHeading">
                                     <h3>Payment</h3>
                                 </div>
                             </Col>
@@ -244,6 +239,12 @@ class Checkout extends Component {
                     {/* Imported component: Stripe billing */}
                     <CheckoutButton />
                     {/* Imported component: Stripe billing */}
+
+                    <h4>Temporary. Your room cost is ${this.roomCostPerNight}/night for {this.props.itinerary.roomType}.
+                        Total cost is ${this.roomCostPerNight * this.props.itinerary.numNights}. Staying {this.props.itinerary.numNights} nights</h4>
+
+
+
                 </div>
             </div>
         );

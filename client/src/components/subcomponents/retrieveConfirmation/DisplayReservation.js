@@ -10,6 +10,7 @@ class DisplayReservation extends Component {
         if (!this.props.itinerary.confirmationNumber) {
             throw new Error("You attempted to retrieve an itinerary before entering a reservation number. Please retrace your steps!");
         }
+        window.scrollTo(0, 0);
     }
 
     render() {

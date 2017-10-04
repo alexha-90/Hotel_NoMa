@@ -255,9 +255,14 @@ h9 {
   float: right;
 }
 
+#getAllButton {
+  float: right;
+  margin-right: 5px;
+}
+
 #deleteButton {
   float: left;
-  margin-bottom: 250px;
+  margin-bottom: 225px;
 }
 
 #lookupForm {
@@ -274,7 +279,7 @@ h9 {
 }
 
 #getItinerarySpacing {
-  margin-top: 150px;
+  margin-top: 175px;
 }
 
 

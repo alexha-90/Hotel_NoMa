@@ -49,6 +49,14 @@ class RetrieveConfirmation extends Component {
     }
 
 
+    // search database for existing itinerary and redirect to display results if match is found. If not, prompt error
+    handleGetAllReservations() {
+        setTimeout(() => {
+            alert('get all reached');
+        }, 1500);
+    }
+
+
     // search database for existing itinerary and delete if match is found. If no match, prompt error
     // currently delete removes reservation from db entirely. maybe better to set everything to null and deleted = yes
     handleDeleteReservation() {
@@ -115,6 +123,10 @@ class RetrieveConfirmation extends Component {
                 <Button id="getButton" bsStyle="success" value="getReservation"
                         onClick={this.handleGetReservation}>
                     Get reservation
+                </Button>
+                <Button id="getAllButton" bsStyle="warning" value="getAllReservations"
+                        onClick={this.handleGetAllReservations}>
+                    FOR TESTING/MANAGEMENT ONLY: Get all reservations (no input required)
                 </Button>
                 {' '}
                 <Button id="deleteButton" bsStyle="danger" value="deleteReservation"

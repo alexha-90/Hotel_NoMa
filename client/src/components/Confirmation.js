@@ -6,11 +6,10 @@ import { Grid, Row, Col, Table } from 'react-bootstrap';
 
 
 class Confirmation extends Component {
-
-
     render() {
         const replyEmail = 'hotelnoma@example.com';
         let emailRef = 'mailto:' + replyEmail + '?subject=Inquiry about Reservation#' + this.props.itinerary.enterDate;
+        window.scrollTo(0, 0);
 
         return (
 
@@ -29,7 +28,6 @@ class Confirmation extends Component {
                         </Row>
                     </Grid>
                 </div>
-
 
 
                 <div id="confirmationContainer">

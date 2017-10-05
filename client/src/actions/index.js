@@ -42,7 +42,7 @@ export const updateItineraryTotalCost = (cost) => {
 };
 
 
-// search database for existing itinerary. Return itinerary or undefined if not found
+// Fetch one - search database for a single existing itinerary. Returns itinerary or undefined if not found
 export const fetchExistingItinerary = (confirmationNum, email) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itineraryRead";
     try {
@@ -62,7 +62,24 @@ export const fetchExistingItinerary = (confirmationNum, email) => async dispatch
 };
 
 
-// search database for existing itinerary. Return string describes if query was successful
+// Fetch all - search database for all existing itineraries. Returns itineraries
+export const fetchAllItineraries = () => async dispatch => {
+    const serverAPI = "http://localhost:5000/api/itineraryReadAll";
+    try {
+        // .post search term to query database
+        const res = await axios.get(serverAPI);
+        dispatch({ type: "FETCH_ALL_ITINERARIES", payload: res.data });
+        await console.log(res.data);
+        await store.dispatch({ type: "ALL_ITINERARIES_TO_REDUX_STORE", payload: res.data });
+    } catch(res) {
+        console.log(res.err);
+    }
+};
+
+
+
+
+// Delete one - search database for existing itinerary. Return string describes if query was successful
 export const deleteExistingItinerary = (confirmationNum, email) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itineraryDelete";
     try {

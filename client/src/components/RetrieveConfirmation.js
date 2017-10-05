@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
 
 import { fetchExistingItinerary } from '../actions';
+import { fetchAllItineraries } from '../actions';
 import { deleteExistingItinerary } from '../actions';
 
 // to-do: add modal to confirm delete see: https://react-bootstrap.github.io/components.html?#modals-contained
@@ -20,7 +21,7 @@ class RetrieveConfirmation extends Component {
             email: '',
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleGetReservation = this.handleGetReservation.bind(this);
+        this.handleGetReservations = this.handleGetReservations.bind(this);
         this.handleDeleteReservation = this.handleDeleteReservation.bind(this);
     }
 
@@ -37,23 +38,33 @@ class RetrieveConfirmation extends Component {
 
 
     // search database for existing itinerary and redirect to display results if match is found. If not, prompt error
-    handleGetReservation() {
-        this.props.dispatch(fetchExistingItinerary(this.state.confirmationNum, this.state.email));
-        setTimeout(() => {
-            if (!this.props.itinerary) {
-                return alert('Shucks.... we were unable to locate an itinerary from the confirmation number and email you provided. Please check your inputs and try again.');
-            } else {
-                return this.setState({redirect: true});
+    handleGetReservations(event) {
+        switch (event.target.value) {
+            case 'getSingleReservation': {
+                this.props.dispatch(fetchExistingItinerary(this.state.confirmationNum, this.state.email));
+                setTimeout(() => {
+                    if (!this.props.itinerary) {
+                        return alert('Shucks.... we were unable to locate an itinerary from the confirmation number and email you provided. Please check your inputs and try again.');
+                    } else {
+                        return this.setState({redirectGetSingleReservation: true});
+                    }
+                }, 1500);
+                break;
             }
-        }, 1500);
-    }
 
+            case 'getAllReservations': {
+                console.log('inside get all reservations');
+                this.props.dispatch(fetchAllItineraries());
+                setTimeout(() => {
+                    return this.setState({redirectGetAllReservations: true});
+                }, 1500);
+                break;
+            }
 
-    // search database for existing itinerary and redirect to display results if match is found. If not, prompt error
-    handleGetAllReservations() {
-        setTimeout(() => {
-            alert('get all reached');
-        }, 1500);
+            default: {
+                alert('Something went wrong...please try again.');
+            }
+        }
     }
 
 
@@ -74,9 +85,16 @@ class RetrieveConfirmation extends Component {
 
     render() {
         window.scrollTo(0, 0);
-        if (this.state.redirect) {
+
+        if (this.state.redirectGetSingleReservation) {
             return <Redirect push to="/displayReservation" />;
         }
+
+        if (this.state.redirectGetAllReservations) {
+            return <Redirect push to="/displayAllReservations" />;
+        }
+
+
         return (
             <div className="container">
 
@@ -120,12 +138,12 @@ class RetrieveConfirmation extends Component {
 
                 </div>
                 <br />
-                <Button id="getButton" bsStyle="success" value="getReservation"
-                        onClick={this.handleGetReservation}>
+                <Button id="getButton" bsStyle="success" value="getSingleReservation"
+                        onClick={this.handleGetReservations}>
                     Get reservation
                 </Button>
                 <Button id="getAllButton" bsStyle="warning" value="getAllReservations"
-                        onClick={this.handleGetAllReservations}>
+                        onClick={this.handleGetReservations}>
                     FOR TESTING/MANAGEMENT ONLY: Get all reservations (no input required)
                 </Button>
                 {' '}

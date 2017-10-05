@@ -79,6 +79,11 @@ const itineraryReducerSource = (state={
             return action.payload;
 
 
+        case "FETCH_ALL_ITINERARIES":
+            console.log('fetch ALL existing itineraries reached');
+            return action.payload;
+
+
         case "DELETE_EXISTING_ITINERARY":
             //console.log('delete existing itinerary reached');
             console.log(action.payload);
@@ -91,8 +96,17 @@ const itineraryReducerSource = (state={
                 ...state,
                 itinerary: action.payload
             };
-
         }
+
+
+        case "ALL_ITINERARIES_TO_REDUX_STORE": {
+            console.log('ALL itineraries to redux store state reached');
+            return {
+                ...state,
+                itinerary: action.payload
+            };
+        }
+
 
         // cases involving backend (itinerary to db, payment) are handled separately in actions/checkoutButton.js
 

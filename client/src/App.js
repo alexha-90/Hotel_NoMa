@@ -11,6 +11,8 @@ import Checkout from './components/Checkout';
 import Confirmation from './components/Confirmation';
 import RetrieveConfirmation from './components/RetrieveConfirmation';
 import DisplayReservation from './components/subcomponents/retrieveConfirmation/DisplayReservation';
+import DisplayAllReservations from './components/subcomponents/retrieveConfirmation/DisplayAllReservations';
+
 
 // import static page routes for application
 import Header from './components/static/Header';
@@ -43,6 +45,7 @@ class App extends Component {
                       <Route exact path='/confirmation' component={Confirmation} />
                       <Route exact path='/reservations' component={RetrieveConfirmation} />
                       <Route exact path='/displayReservation' component={DisplayReservation} />
+                      <Route exact path='/displayAllReservations' component={DisplayAllReservations} />
 
 
                       { /* Define static page routes */ }

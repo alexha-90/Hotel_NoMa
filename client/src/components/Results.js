@@ -28,7 +28,7 @@ import ThriftyPhotoModal from './subcomponents/results/ThriftyPhotoModal';
 
 //===============================================================================================//
 
-
+// maybe remove props from constructor
 
 class ListResults extends Component {
     constructor(props) {

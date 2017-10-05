@@ -61,11 +61,11 @@ export function listAllItinerariesTable(itinerary) {
                 <td>{' '}</td>
             </tr>
             <tr>
-                <td>Care package</td>
+                <td>Care Package</td>
                 <td>{ itinerary.addons.carePackage.toString() }</td>
             </tr>
             <tr>
-                <td>Late check-out</td>
+                <td>Late Checkout</td>
                 <td>{ itinerary.addons.carePackage.toString() }</td>
             </tr>
             <tr>
@@ -73,8 +73,12 @@ export function listAllItinerariesTable(itinerary) {
                 <td>{ itinerary.addons.breakfast.toString() }</td>
             </tr>
             <tr>
-                <td>Shuttle ride</td>
+                <td>Shuttle Ride</td>
                 <td>{ itinerary.addons.shuttleRide.toString() }</td>
+            </tr>
+            <tr>
+                <td>Luggage Hold</td>
+                <td>{ itinerary.addons.luggageHold.toString() }</td>
             </tr>
             </tbody>
         </Table>

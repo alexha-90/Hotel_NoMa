@@ -122,8 +122,12 @@ class Confirmation extends Component {
                                         <td id="costAlignRight">{this.props.itinerary.lateCheckout.toString()}</td>
                                     </tr>
                                     <tr>
-                                        <td>shuttleRide</td>
+                                        <td>Shuttle Ride</td>
                                         <td id="costAlignRight">{this.props.itinerary.shuttleRide.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Luggage Hold</td>
+                                        <td id="costAlignRight">{this.props.itinerary.luggageHold.toString()}</td>
                                     </tr>
                                     </tbody>
                                 </Table>

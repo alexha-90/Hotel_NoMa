@@ -35,7 +35,7 @@ export function sanctuaryRooms(pricing, submit) {
                         <h4>(Room size: 424 sq. ft.)</h4>
                     </p>
                     <p className="roomExpandedRightButton">
-                        <Button bsStyle="success" value="priority" onClick={submit}>Book now</Button>
+                        <Button bsStyle="success" value="prioritySanctuary" onClick={submit}>Book now</Button>
                     </p>
                 </div>
                 <div className="roomDescription">

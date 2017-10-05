@@ -13,7 +13,7 @@ export function thriftyRooms(pricing, submit) {
                         <h4>(Room size: 200 sq. ft)</h4>
                     </p>
                     <p className="roomExpandedRightButton">
-                        <Button bsStyle="success" value="express" onClick={submit}>Book now</Button>
+                        <Button bsStyle="success" value="expressThrifty" onClick={submit}>Book now</Button>
                     </p>
                 </div>
                 <div className="roomDescription">

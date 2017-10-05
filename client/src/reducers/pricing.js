@@ -22,10 +22,11 @@ export default function(state={
     cleaningCost: 12.00,
 
     // Addon services (adjust digits below):
-    carePackageCost: 5.00,
+    carePackageCost: 7.00,
     lateCheckoutCost: 10.00,
     shuttleRideCost: 25.00,
     breakfastCost: 10.00,
+    luggageHoldCost: 0.00
 }, ) {
         return state;
     }

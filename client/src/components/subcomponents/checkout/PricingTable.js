@@ -45,7 +45,7 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                 <td>
                     <label>
                         <input name="carePackage" type="checkbox" onChange={handleAddonChange} />
-                        &nbsp;Care package (toothbrush, toothpaste, water, gum)
+                        &nbsp;Care package (${(pricing.carePackageCost).toFixed(2)}) (premium toiletries, toothpaste, mints, water jug)
                     </label>
                 </td>
                 <td id="costAlignRight">{state.carePackageCost}</td>
@@ -54,7 +54,7 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                 <td>
                     <label>
                         <input name="lateCheckout" type="checkbox" onChange={handleAddonChange} />
-                        &nbsp;Late checkout (2:00pm PST, day of departure)
+                        &nbsp;Late checkout (${(pricing.lateCheckoutCost).toFixed(2)}) (2:00pm PST, day of departure)
                     </label>
                 </td>
                 <td id="costAlignRight">{state.lateCheckoutCost}</td>
@@ -63,7 +63,7 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                 <td>
                     <label>
                         <input name="shuttleRide" type="checkbox" onChange={handleAddonChange} />
-                        &nbsp;San Francisco Airport shuttle (charged per guest, roundtrip)
+                        &nbsp;San Francisco Airport shuttle (${(pricing.shuttleRideCost).toFixed(2)} x {itinerary.numAdults} adults) (round-trip, charged per guest)
                     </label>
                 </td>
                 <td id="costAlignRight">{state.shuttleRideCost}</td>
@@ -72,10 +72,19 @@ export function pricingTable (state, itinerary, pricing, handleAddonChange, tota
                 <td>
                     <label>
                         <input name="breakfast" type="checkbox" onChange={handleAddonChange} />
-                        &nbsp;Continental Breakfast (charged per guest, per day)
+                        &nbsp;Continental breakfast (${(pricing.breakfastCost).toFixed(2)} x {itinerary.numAdults} adults x {itinerary.numNights} nights) (charged per guest, per day)
                     </label>
                 </td>
                 <td id="costAlignRight">{state.breakfastCost}</td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <input name="luggageHold" type="checkbox" onChange={handleAddonChange} />
+                        &nbsp;Luggage hold (FREE!!) (leave your luggage with us before and/or after your stay)
+                    </label>
+                </td>
+                <td id="costAlignRight">{state.luggageHoldCost}</td>
             </tr>
             <tr id="totalHighlight">
                 <td>TOTAL</td>

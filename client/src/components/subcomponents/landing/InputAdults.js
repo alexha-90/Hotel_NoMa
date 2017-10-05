@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 //===============================================================================================//
 
 export function inputAdults(props, handleNumAdultChange) {
-    let resultsURL = '/results/numAdults=' + props.itinerary.numAdults + '_from=' + props.itinerary.enterDate + '_to=' + props.itinerary.exitDate;
+    let resultsURL = '/results';
 
     return (
         <Form inline onSubmit={handleNumAdultChange}>

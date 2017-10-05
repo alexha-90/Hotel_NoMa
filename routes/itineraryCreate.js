@@ -12,7 +12,7 @@ module.exports = app => {
         console.log('attempt to post itinerary to DB');
 
         const {
-            /* from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, carePackage, lateCheckout, breakfast, shuttleRide,
+            /* from itinerary:*/ numAdults, enterDate, exitDate, cancelByDate, numNights, roomType, totalCostOfStay, carePackage, lateCheckout, breakfast, shuttleRide, luggageHold,
             /* from stripe checkout:*/ source, amount, email, customerName, customerAddress, customerCity, customerZip, customerCountry,
             /* helper info:*/ bookTime, confirmationNumber
             } = req.body;
@@ -38,7 +38,8 @@ module.exports = app => {
                 carePackage: carePackage,
                 lateCheckout: lateCheckout,
                 breakfast: breakfast,
-                shuttleRide: shuttleRide
+                shuttleRide: shuttleRide,
+                luggageHold: luggageHold
             },
             contactInfo: {
                 email: email,

@@ -14,7 +14,8 @@ const itinerarySchema = new mongoose.Schema({
         carePackage: Boolean,
         lateCheckout: Boolean,
         breakfast: Boolean,
-        shuttleRide: Boolean
+        shuttleRide: Boolean,
+        luggageHold: Boolean
     },
     contactInfo: {
         email: String,

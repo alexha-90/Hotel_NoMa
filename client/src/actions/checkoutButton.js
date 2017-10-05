@@ -70,6 +70,7 @@ class CheckoutButton extends Component {
                 lateCheckout: this.props.itinerary.lateCheckout,
                 breakfast: this.props.itinerary.breakfast,
                 shuttleRide: this.props.itinerary.shuttleRide,
+                luggageHold: this.props.itinerary.luggageHold,
 
                 // newly generated booking info
                 bookTime: bookTime,

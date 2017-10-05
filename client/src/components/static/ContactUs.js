@@ -48,6 +48,7 @@ class ContactUs extends Component {
 
 
     render() {
+        window.scrollTo(0, 0);
         const replyEmail = 'hotelnoma@example.com';
         let emailRef = 'mailto:' + replyEmail + '?subject=My question about Hotel NoMa';
 

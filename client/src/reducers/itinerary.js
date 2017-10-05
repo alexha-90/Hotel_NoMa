@@ -22,6 +22,7 @@ const itineraryReducerSource = (state={
         lateCheckout: false,
         breakfast: false,
         shuttleRide: false,
+        luggageHold: false
     }},
 
     action) => {

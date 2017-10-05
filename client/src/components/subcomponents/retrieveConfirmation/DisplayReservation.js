@@ -98,8 +98,12 @@ class DisplayReservation extends Component {
                                         <td id="costAlignRight">{this.props.itinerary.addons.lateCheckout.toString()}</td>
                                     </tr>
                                     <tr>
-                                        <td>shuttleRide</td>
+                                        <td>Shuttle Ride</td>
                                         <td id="costAlignRight">{this.props.itinerary.addons.shuttleRide.toString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Luggage Hold</td>
+                                        <td id="costAlignRight">{this.props.itinerary.addons.luggageHold.toString()}</td>
                                     </tr>
                                     </tbody>
                                 </Table>

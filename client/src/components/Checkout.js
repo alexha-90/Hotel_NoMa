@@ -6,13 +6,10 @@ import { Button, Grid, Row, Col } from 'react-bootstrap';
 
 import { updateItineraryTotalCost } from '../actions';
 import CheckoutButton from '../actions/checkoutButton';
+import { loadRoomPrice} from './subcomponents/checkout/LoadRoomPrice';
 import { addonCost } from './subcomponents/checkout/AddonCost';
 import { pricingTable } from './subcomponents/checkout/PricingTable';
-//to-do: add luggage hold (free!) to optional addons
 //to-do: change grammar for adults
-//to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
-//to-do check if roomType exists. if not, alert stop trying to cheat system and link back to homepage
-//to-do: change {this.state.roomCost} to {(this.roomCostPerNight)} when ready. Has error when attempting to calculate NaN
 
 //===============================================================================================//
 
@@ -20,16 +17,17 @@ class Checkout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            roomCost: 100, //temporary. Just for testing. Can remove entirely later.
+            roomCost: 0,
             carePackage: false,
             lateCheckout: false,
             shuttleRide: false,
             breakfast: false,
+            luggageHold: false,
             carePackageCost: null,
             lateCheckoutCost: null,
             shuttleRideCost: null,
             breakfastCost: null,
-
+            luggageHoldCost: null,
         };
         this.handleAddonChange = this.handleAddonChange.bind(this);
     }
@@ -38,33 +36,8 @@ class Checkout extends Component {
     componentWillMount() {
         window.scrollTo(0, 0);
 
-        // Associating a price with room type selected in previous results page.
-        switch (this.props.itinerary.roomType) {
-            case 'executiveSuite': {
-                this.roomCostPerNight = this.props.pricing.executiveSuite;
-                break;
-            }
-
-            case 'familyAccommodation': {
-                this.roomCostPerNight = this.props.pricing.familyAccommodation;
-                break;
-            }
-
-            case 'den': {
-                this.roomCostPerNight = this.props.pricing.den;
-                break;
-            }
-
-            case 'frugalTraveler': {
-                this.roomCostPerNight = this.props.pricing.frugalTraveler;
-                break;
-            }
-
-            default: {
-                //throw new Error("We did not receive a room type for your trip. Please return to the homepage and start a new search");
-                console.log('Placeholder for throw error. If removed, unable to access this page directly');
-            }
-        }
+        // associate a price with room type selected in previous results page.
+        this.setState({ roomCost: loadRoomPrice(this.props.itinerary, this.props.pricing, this.state.roomCost) });
     }
 
 
@@ -76,7 +49,6 @@ class Checkout extends Component {
 
     // determine if checkbox is selected for each individual addon. If yes, dynamically update the itinerary's total cost
     // price is grabbed from the props.pricing reducer. This makes it extremely easy for management to update prices
-    // NOTE: having issues refactoring and exporting this function due to event argument and amount of references
     handleAddonChange(event) {
         switch (event.target.name) {
             case 'carePackage' : {
@@ -131,13 +103,28 @@ class Checkout extends Component {
                 break;
             }
 
+            case 'luggageHold' : {
+                this.setState({luggageHold: !this.state.luggageHold});
+                setTimeout(() => {
+                    if (this.state.luggageHold) {
+                        this.props.itinerary.luggageHold = true;
+                        this.setState({luggageHoldCost: '$' + this.props.pricing.luggageHoldCost.toFixed(2)});
+                    } else {
+                        this.setState({luggageHoldCost: null});
+                    }
+                }, 200);
+                break;
+            }
+
+
             // Prevent unexpected addon behavior
             default: {
                 this.setState({
                     carePackageCost: null,
                     lateCheckoutCost: null,
                     shuttleRideCost: null,
-                    breakfastCost: null
+                    breakfastCost: null,
+                    luggageHold: null,
                 });
             }
         }
@@ -239,11 +226,6 @@ class Checkout extends Component {
                     {/* Imported component: Stripe billing */}
                     <CheckoutButton />
                     {/* Imported component: Stripe billing */}
-
-                    <h4>Temporary. Your room cost is ${this.roomCostPerNight}/night for {this.props.itinerary.roomType}.
-                        Total cost is ${this.roomCostPerNight * this.props.itinerary.numNights}. Staying {this.props.itinerary.numNights} nights</h4>
-
-
 
                 </div>
             </div>

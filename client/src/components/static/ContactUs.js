@@ -1,22 +1,55 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, ControlLabel, FormControl, Col, Grid, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+
+import { sendContactUsEmail } from '../../actions/';
 //===============================================================================================//
 
 class ContactUs extends Component {
+    constructor() {
+        super();
+        this.state = {
+            message: '',
+            email: '',
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
 
-    handleSubmit(event) {
-        event.preventDefault();
-        let contactUsTextInput = event.target.value;
-        alert(contactUsTextInput);
-        // alert your message has been sent
+    handleChange(event) {
+        if (event.target.name === 'message') {
+            this.setState({message: event.target.value});
+        }
+
+        if (event.target.name === 'email') {
+            this.setState({email: event.target.value});
+        }
+    }
+
+
+    handleSubmit() {
+        if (this.state.message.length < 40) {
+            return alert('Please make sure your message is at least 40 characters long.')
+        }
+
+        if (this.state.email.length < 5) {
+            return alert('Note: VERY LIMITED validation check here. Please enter a valid email address to see a copy ' +
+                'of what staff members would receive. Your information will not be used for any other purpose. ' +
+                'A more appropriate production ready approach would probably invoke services such as Zendesk.')
+        }
+
+        let formData = [this.state.message, this.state.email];
+        this.props.dispatch(sendContactUsEmail(formData));
+        setTimeout(() => {
+            alert('Your message has been sent!');
+        }, 1500);
     }
 
 
     render() {
         const replyEmail = 'hotelnoma@example.com';
         let emailRef = 'mailto:' + replyEmail + '?subject=My question about Hotel NoMa';
-        window.scrollTo(0, 0);
 
         return (
             <div className="container">
@@ -40,16 +73,24 @@ class ContactUs extends Component {
                 to our staff. You may also contact us via phone at (555) 415-5104 or by directly by email at <a href={emailRef}>hotelnomaSF@gmail.com</a>.
 
                 <div id="resultContainerContactUs">
+                    <br />
                     <form>
-                        <FormGroup controlId="contactUsTextField">
-                            <ControlLabel>Textarea</ControlLabel>
-                            <FormControl type="text" placeholder="Enter text here" value={this.state.text} onChange={this.handleChange}/>
-                        </FormGroup>
-                        <Button id="submitContactForm" bsStyle="success" value="submitContactForm"
+                        <div id="contactUsContainer">
+                            <FormGroup controlId="formControlsTextarea">
+                                <ControlLabel>Your message:</ControlLabel>
+                                <FormControl componentClass="textarea" style={{ height: "300px" }} type="text" name="message" value={this.state.message} onChange={this.handleChange}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>Email address:</ControlLabel>
+                                <FormControl type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
+                            </FormGroup>
+                        </div>
+                        <Button id="submitContactFormButton" bsStyle="success" value="submitContactForm"
                                 onClick={this.handleSubmit}>
                             Submit!
                         </Button>
                     </form>
+                    <br />
                 </div>
 
             </div>
@@ -57,4 +98,11 @@ class ContactUs extends Component {
     }
 }
 
-export default ContactUs;
+
+function mapStateToProps(state) {
+    return {
+        itinerary: state.itineraryReducer.itinerary,
+    };
+}
+
+export default connect(mapStateToProps)(ContactUs);

@@ -324,7 +324,7 @@ h9 {
 /*============== Contact Us CSS ==============*/
 
 #contactUsSpacing {
-  margin-top: 75px;
+  margin-top: 40px;
 }
 
 #resultContainerContactUs {
@@ -336,14 +336,20 @@ h9 {
   position: inherit;
 }
 
+#contactUsContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
 #contactUsTextField {
   height: 300px;
   width: 80%;
   margin: 0 auto;
 }
 
-#submitContactForm {
-  margin-top: 10px;
+
+#submitContactFormButton {
+  margin-top: 45px;
   float: right;
 }
 

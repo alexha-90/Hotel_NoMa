@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 const Itinerary = mongoose.model('itinerary');
-const mailer = require('../services/nodemailer');
+const mailer = require('../services/nodemailerAfterPayment');
 const stripe = require('../services/stripeBilling');
 
-//const json2csv = require('json2csv');
-//const fs = require('fs'); //node filesystem
 
 // post route for saving itinerary as an entry in mongoDB
 //===============================================================================================//

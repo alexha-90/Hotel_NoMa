@@ -5,6 +5,7 @@ const app = express();
 // mongoose DB for model schema
 const mongoose = require('mongoose');
 require('./models/itinerary');
+require('./models/contactUsEmail');
 
 
 // allow cross-origin resource sharing for development
@@ -18,15 +19,17 @@ app.use(bodyParser.json()); // handle json data
 app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 
 
-// import services (payment handling, email confirmation)
+// import services (payment handling, emails)
 require('./services/stripeBilling');
-require('./services/nodemailer');
+require('./services/nodemailerAfterPayment');
+require('./services/nodemailerContactForm');
 
 
 // import routes - [C][R][D] cycle. No [U]pdating an existing itinerary at this moment.
 require('./routes/itineraryCreate')(app);
 require('./routes/itineraryRead')(app);
 require('./routes/itineraryDelete')(app);
+require('./routes/contactUs')(app);
 
 
 // fetch hidden DB key

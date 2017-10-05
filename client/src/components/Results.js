@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateRoomType} from '../actions';
+import { updateRoomType } from '../actions';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';

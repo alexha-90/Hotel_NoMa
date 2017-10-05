@@ -42,6 +42,26 @@ export const updateItineraryTotalCost = (cost) => {
 };
 
 
+// update total cost every time an addon is toggled on the checkout page
+export const sendContactUsEmail = (formData) => async dispatch => {
+    console.log('sending contact us email!!');
+    const serverAPI = "http://localhost:5000/api/contactUsEmail";
+    try {
+        // .post search term to query database
+        const req = formData;
+        const res = await axios.post(serverAPI,
+            dispatch({
+                type: "SEND_CONTACT_US_EMAIL",
+                payload: req
+            })
+        );
+        await store.dispatch({ type: "RESULTS_TO_REDUX_STORE", payload: res.data[0] });
+    } catch(res) {
+        console.log(res.err);
+    }
+};
+
+
 // Fetch one - search database for a single existing itinerary. Returns itinerary or undefined if not found
 export const fetchExistingItinerary = (confirmationNum, email) => async dispatch => {
     const serverAPI = "http://localhost:5000/api/itineraryRead";
@@ -55,7 +75,7 @@ export const fetchExistingItinerary = (confirmationNum, email) => async dispatch
             })
         );
         await console.log(res.data[0]);
-        await store.dispatch({ type: "ITINERARY_RESULTS_TO_REDUX_STORE", payload: res.data[0] });
+        await store.dispatch({ type: "RESULTS_TO_REDUX_STORE", payload: res.data[0] });
     } catch(res) {
         console.log(res.err);
     }
@@ -70,9 +90,6 @@ export const fetchAllItineraries = () => async dispatch => {
         const res = await axios.get(serverAPI);
         dispatch({ type: "FETCH_ALL_ITINERARIES", payload: res.data });
         await console.log(res.data);
-
-
-        await store.dispatch({ type: "ALL_ITINERARIES_TO_REDUX_STORE", payload: res.data });
     } catch(res) {
         console.log(res.err);
     }

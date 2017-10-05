@@ -74,6 +74,11 @@ const itineraryReducerSource = (state={
         }
 
 
+        case "SEND_CONTACT_US_EMAIL":
+            //console.log('search existing itinerary reached');
+            return action.payload;
+
+
         case "FETCH_EXISTING_ITINERARY":
             //console.log('search existing itinerary reached');
             return action.payload;
@@ -90,7 +95,7 @@ const itineraryReducerSource = (state={
             return action.payload;
 
 
-        case "ITINERARY_RESULTS_TO_REDUX_STORE": {
+        case "RESULTS_TO_REDUX_STORE": {
             //console.log('itinerary results to redux store state reached');
             return {
                 ...state,

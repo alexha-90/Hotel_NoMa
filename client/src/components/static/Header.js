@@ -48,7 +48,7 @@ class Header extends Component {
                                 <Col sm={12} md={4} lg={3}>
                                     <div id="retrieveReservationsText">
                                         <Link to="/reservations" id="dropdownNav">
-                                            Reservation Lookup
+                                            Itinerary Lookup
                                         </Link>
                                     </div>
                                 </Col>

@@ -29,7 +29,7 @@ exports.sendConfirmation = function(customerName, confirmationNumber, email, boo
         subject: 'Your upcoming stay in San Francisco, CA (' + enterDate + '- ' + exitDate + ')',
         text: 'Thank you for booking your upcoming stay in San Francisco with us! We look forward to seeing you. ' +
         'if you need suggestions for activities in the area, please visit TBD. Your confirmation number is ' + confirmationNumber + '.',
-        html: '<h4>' + customerName + ', <br/>' + 'Thank you for booking your upcoming stay in San Francisco with us! We look forward to seeing you. If you purchased the breakfast ' +
+        html: '<h4>' + customerName + ', <br/><br/>' + 'Thank you for booking your upcoming stay in San Francisco with us! We look forward to seeing you. If you purchased the breakfast ' +
         'addon, you will receive vouchers upon checking in at the front desk. If you purchased the shuttle ride addon, a transportation specialist ' +
         'will contact you shortly before your arrival. Please feel free to call us at (555) 415-5104 or simply respond back to this email if you have any ' +
         'questions or concerns. For activity suggestions in the area, please visit <a href="http://www.sftravel.com/explore">http://www.sftravel.com/explore</a> for a great resource of local activities. </h4>' +

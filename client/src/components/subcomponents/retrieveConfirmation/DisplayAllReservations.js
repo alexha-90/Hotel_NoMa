@@ -1,64 +1,96 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table, Grid, Row, Col } from 'react-bootstrap';
+import moment from 'moment';
+import { listAllItinerariesTable } from './DisplayAllReservations-Table';
 //===============================================================================================//
 
 class DisplayAllReservations extends Component {
     constructor() {
         super();
-        this.listAllItineraries = this.listAllItineraries.bind(this);
+        this.listAllCurrentItineraries = this.listAllCurrentItineraries.bind(this);
+        this.listAllPastItineraries = this.listAllPastItineraries.bind(this);
     }
 
 
     componentWillMount() {
         if (!this.props.itinerary[1]) {
-            throw new Error("Please click the orange 'FOR TESTING/MANAGEMENT ONLY: Get all reservations (no input required)' " +
+            throw new Error("Please click the orange 'FOR DEMO/MANAGEMENT ONLY: Get all reservations (no input required)' " +
                 "button on the previous page before attempting to access all records in the database. This ensures you will receive the most recent data.");
         }
         window.scrollTo(0, 0);
+        alert('DEMO NOTE: Past itineraries are listed in red font below the active ones.')
     }
 
-    listAllItineraries() {
+
+    listAllCurrentItineraries() {
+        // map every itinerary in the database and for each one, see if enter date is current date or further. Display results in a table with JSX
         return this.props.itinerary.map((itinerary) => {
-            return (
-                <li key={itinerary.confirmationNumber}>
-                    { itinerary.numNights }
-                </li>
-
-            );
+            if (moment(itinerary.enterDate).isSameOrAfter(moment().utcOffset(-420).subtract(1, 'days'))) {
+                return listAllItinerariesTable(itinerary);
+            } else {
+                return '';
+            }
         });
-
     }
+
+
+    listAllPastItineraries() {
+        // map every itinerary in the database and for each one, see if enter date is before the current date. Display results in a table with JSX
+        return this.props.itinerary.map((itinerary) => {
+            if (moment(itinerary.enterDate).isBefore(moment().utcOffset(-420).subtract(1, 'days'))) {
+                return listAllItinerariesTable(itinerary);
+            } else {
+                return '';
+            }
+        });
+    }
+
 
     render() {
-
         return (
             <div className="container">
 
                 <div>
                     <Grid>
                         <Row>
-                            <Col sm={1} md={4}><hr /></Col>
-                            <Col sm={10} md={4}>
+                            <Col sm={1} md={2}><hr /></Col>
+                            <Col sm={10} md={8}>
                                 <div id="centeredHeading">
-                                    <h3>All Reservations</h3>
+                                    <h3>All Future and Current Itineraries</h3>
                                 </div>
                             </Col>
-                            <Col sm={1} md={4}><hr /></Col>
+                            <Col sm={1} md={2}><hr /></Col>
                         </Row>
                     </Grid>
                 </div>
 
+                {this.listAllCurrentItineraries()}
 
-                hello test in get all reservations
-                {this.listAllItineraries()}
+
+                <div className="pastItineraries">
+                    <Grid>
+                        <Row>
+                            <Col sm={1} md={2}><hr id="pastItineraryLine"/></Col>
+                            <Col sm={10} md={8}>
+                                <div id="centeredHeading">
+                                    <h3>All Past Itineraries</h3>
+                                </div>
+                            </Col>
+                            <Col sm={1} md={2}><hr id="pastItineraryLine"/></Col>
+                        </Row>
+                    </Grid>
+                </div>
+
+                <div className="pastItineraries">
+                    {this.listAllPastItineraries()}
+                </div>
+
 
             </div>
         );
     }
 }
-
-
 
 
 function mapStateToProps(state) {
@@ -68,100 +100,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(DisplayAllReservations);
-
-
-
-/*
-                <div>
-                    <Grid>
-                        <Row>
-                            <Col sm={3} md={4}><hr /></Col>
-                            <Col sm={6} md={4}>
-                                <div id="centeredHeading">
-                                    <h3>Itinerary</h3>
-                                </div>
-                            </Col>
-                            <Col sm={3} md={4}><hr /></Col>
-                        </Row>
-                    </Grid>
-                </div>
-
-                <div>
-                    <Grid>
-                        <Row>
-                            <Col sm={1} md={2}>{' '}</Col>
-                            <Col sm={10} md={8}>
-                                <Table striped bordered condensed>
-                                    <tbody>
-                                    <tr>
-                                        <td>Confirmation number</td>
-                                        <td id="costAlignRight">{this.props.itinerary.confirmationNumber}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email address</td>
-                                        <td id="costAlignRight">{this.props.itinerary.contactInfo.email}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Time at booking</td>
-                                        <td id="costAlignRight">{this.props.itinerary.bookTime}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total cost of stay</td>
-                                        <td id="costAlignRight">${this.props.itinerary.totalCostOfStay}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Room type</td>
-                                        <td id="costAlignRight">{this.props.itinerary.roomType}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Number of adult guests</td>
-                                        <td id="costAlignRight">{this.props.itinerary.numAdults}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Check-in Date:</td>
-                                        <td id="costAlignRight">{this.props.itinerary.enterDate}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Check-out Date</td>
-                                        <td id="costAlignRight">{this.props.itinerary.exitDate}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Length of stay</td>
-                                        <td id="costAlignRight">{this.props.itinerary.numNights} nights</td>
-                                    </tr>
-                                    </tbody>
-                                </Table>
-
-
-                                <Table striped bordered condensed>
-                                    <tbody>
-                                    <tr>
-                                        <td><h4>Optional addons:</h4></td>
-                                        <td>{' '}</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Breakfast</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.breakfast.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Care Package</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.carePackage.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Late Checkout</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.lateCheckout.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>shuttleRide</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.shuttleRide.toString()}</td>
-                                    </tr>
-                                    </tbody>
-                                </Table>
-                            </Col>
-                            <Col sm={1} md={2}>{' '}</Col>
-                        </Row>
-                    </Grid>
-                </div>
-
- */

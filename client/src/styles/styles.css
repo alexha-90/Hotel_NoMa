@@ -249,7 +249,7 @@ h9 {
   background: #ffff1a;
 }
 
-/*============== Retrieve Reservation CSS ==============*/
+/*============== Retrieve/Display Reservation Pages CSS ==============*/
 
 #getButton {
   float: right;
@@ -282,6 +282,70 @@ h9 {
   margin-top: 175px;
 }
 
+
+#displayAllReservationSpacing {
+  display: block;
+  margin-top: 0.4em;
+}
+
+.pastItineraries {
+  color: #b30000;
+  margin-bottom: 30px;
+}
+
+#pastItineraryLine {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid #b30000;
+  border-radius: 20px;
+  margin: 2em 0;
+  padding: 0;
+}
+
+
+/*============== Confirmation Page CSS ==============*/
+#confirmationContainer {
+  margin: 5px auto 0 auto;
+  padding: 0 15px;
+  background-color: #e0e0d2;
+  border: 2px solid #3c3c2a;
+  border-radius: 4px;
+  width: 100%;
+  position: inherit;
+}
+
+#confirmationBackground {
+  background-color: #e0e0d2;
+
+}
+
+
+/*============== Contact Us CSS ==============*/
+
+#contactUsSpacing {
+  margin-top: 75px;
+}
+
+#resultContainerContactUs {
+  margin: 25px auto 100px auto;
+  background-color: #e0e0d2;
+  border: 2px solid #3c3c2a;
+  border-radius: 4px;
+  width: 100%;
+  position: inherit;
+}
+
+#contactUsTextField {
+  height: 300px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#submitContactForm {
+  margin-top: 10px;
+  float: right;
+}
 
 
 
@@ -391,22 +455,6 @@ h9 {
 }
 
 */
-
-/*============== Confirmation Page CSS ==============*/
-#confirmationContainer {
-  margin: 5px auto 0 auto;
-  padding: 0 15px;
-  background-color: #e0e0d2;
-  border: 2px solid #3c3c2a;
-  border-radius: 4px;
-  width: 100%;
-  position: inherit;
-}
-
-#confirmationBackground {
-  background-color: #e0e0d2;
-
-}
 
 /*============== Footer CSS ==============*/
 .footerContainer {

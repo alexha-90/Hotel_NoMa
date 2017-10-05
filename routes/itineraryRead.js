@@ -25,6 +25,7 @@ module.exports = app => {
                 console.log("reached post api route for retrieving all itineraries");
                 const getItinerary = await Itinerary.find({});
                 console.log(getItinerary);
+                console.log(getItinerary.contactInfo);
                 res.send(getItinerary);
             } catch (res) {
                 console.log(res.err);

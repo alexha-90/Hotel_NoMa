@@ -144,7 +144,7 @@ class RetrieveConfirmation extends Component {
                 </Button>
                 <Button id="getAllButton" bsStyle="warning" value="getAllReservations"
                         onClick={this.handleGetReservations}>
-                    FOR TESTING/MANAGEMENT ONLY: Get all reservations (no input required)
+                    FOR DEMO/MANAGEMENT ONLY: Get all reservations (no input required)
                 </Button>
                 {' '}
                 <Button id="deleteButton" bsStyle="danger" value="deleteReservation"

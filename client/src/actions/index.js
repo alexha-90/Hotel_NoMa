@@ -70,6 +70,8 @@ export const fetchAllItineraries = () => async dispatch => {
         const res = await axios.get(serverAPI);
         dispatch({ type: "FETCH_ALL_ITINERARIES", payload: res.data });
         await console.log(res.data);
+
+
         await store.dispatch({ type: "ALL_ITINERARIES_TO_REDUX_STORE", payload: res.data });
     } catch(res) {
         console.log(res.err);

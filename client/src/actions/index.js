@@ -1,6 +1,10 @@
 import axios from 'axios';
 import store from '../index';
 // Note: payment and backend submissions are handled separately in ./checkoutButton.js
+
+// some redundant verbiage but I think it helps clarify actions.
+// same return action.payload for: "SEND_CONTACT_US_EMAIL", "FETCH_EXISTING_ITINERARY", "FETCH_ALL_ITINERARIES", "DELETE_EXISTING_ITINERARY":
+//rename to standard dispatch
 // to-do: refactor server address as an environment/global variable
 //===============================================================================================//
 
@@ -90,6 +94,7 @@ export const fetchAllItineraries = () => async dispatch => {
         const res = await axios.get(serverAPI);
         dispatch({ type: "FETCH_ALL_ITINERARIES", payload: res.data });
         await console.log(res.data);
+        await store.dispatch({ type: "RESULTS_TO_REDUX_STORE", payload: res.data })
     } catch(res) {
         console.log(res.err);
     }
@@ -110,7 +115,7 @@ export const deleteExistingItinerary = (confirmationNum, email) => async dispatc
             })
         );
         await console.log(res.data);
-        await store.dispatch({ type: "ITINERARY_RESULTS_TO_REDUX_STORE", payload: res.data });
+        await store.dispatch({ type: "RESULTS_TO_REDUX_STORE", payload: res.data });
     } catch(res) {
         console.log(res.err);
     }

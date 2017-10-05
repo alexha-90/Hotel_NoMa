@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table, Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import moment from 'moment';
 import { listAllItinerariesTable } from './DisplayAllReservations-Table';
 //===============================================================================================//
@@ -22,9 +22,8 @@ class DisplayAllReservations extends Component {
         alert('DEMO NOTE: Past itineraries are listed in red font below the active ones.')
     }
 
-
+    // map every itinerary in the database and for each one, see if user's enter date is the same as current date or further out. Display results in a table with JSX
     listAllCurrentItineraries() {
-        // map every itinerary in the database and for each one, see if enter date is current date or further. Display results in a table with JSX
         return this.props.itinerary.map((itinerary) => {
             if (moment(itinerary.enterDate).isSameOrAfter(moment().utcOffset(-420).subtract(1, 'days'))) {
                 return listAllItinerariesTable(itinerary);
@@ -35,8 +34,8 @@ class DisplayAllReservations extends Component {
     }
 
 
+    // map every itinerary in the database and for each one, see if user's enter date is before the current date. Display results in a table with JSX
     listAllPastItineraries() {
-        // map every itinerary in the database and for each one, see if enter date is before the current date. Display results in a table with JSX
         return this.props.itinerary.map((itinerary) => {
             if (moment(itinerary.enterDate).isBefore(moment().utcOffset(-420).subtract(1, 'days'))) {
                 return listAllItinerariesTable(itinerary);

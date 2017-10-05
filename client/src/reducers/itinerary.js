@@ -1,4 +1,6 @@
 import moment from 'moment';
+
+// some redundant action dispatch cases but I think it helps with clarification
 // lifecycle explanation: user input transferred here (itinerary reducer) as action.payload, received as req.body (backend via bodyParser), then back to action creator (actions/index.js) as res.data
 //===============================================================================================//
 
@@ -85,27 +87,17 @@ const itineraryReducerSource = (state={
 
 
         case "FETCH_ALL_ITINERARIES":
-            console.log('fetch ALL existing itineraries reached');
+            //console.log('fetch ALL existing itineraries reached');
             return action.payload;
 
 
         case "DELETE_EXISTING_ITINERARY":
             //console.log('delete existing itinerary reached');
-            console.log(action.payload);
             return action.payload;
 
 
         case "RESULTS_TO_REDUX_STORE": {
             //console.log('itinerary results to redux store state reached');
-            return {
-                ...state,
-                itinerary: action.payload
-            };
-        }
-
-
-        case "ALL_ITINERARIES_TO_REDUX_STORE": {
-            console.log('ALL itineraries to redux store state reached');
             return {
                 ...state,
                 itinerary: action.payload

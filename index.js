@@ -37,7 +37,7 @@ const keys = require('./config/keys');
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
-
+/*
 // basic test routes
 app.get('/', (req, res) => {
     res.send("hello @ index");
@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 app.get('/api/test', (req, res) => {
     res.send('hello @ test page');
 });
-
+*/
 
 // =================================================================================================
 // SERVER CONFIGURATION                                                                           //

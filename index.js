@@ -62,15 +62,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log("NodeJS server started")
 });
-
-
-
-
-
-// not needed: app.use(express.static(path.join(__dirname, 'client/build')));

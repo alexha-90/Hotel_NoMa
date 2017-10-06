@@ -25,31 +25,62 @@ class Landing extends Component {
 
     render () {
         return (
-            <div>
-                <div id="fullSpan">
-                    {/* Imported component - large image carousel */}
-                    <LandingCarousel />
-                    {/* Imported component - large image carousel */}
+            <div className="fullImageLanding">
+
+
+                <Grid style={{ width: '100%'}}>
+                    <Row>
+                        <Col sm={12} md={12}>
+                            <img id="splashImageLanding" alt="backgroundSplash" src="https://static.pexels.com/photos/61111/pexels-photo-61111.jpeg" />
+
+                            <div className="landingMainContainer">
+
+                                <div className="centerWelcome">
+                                    <h1>Welcome to Hotel NoMa</h1>
+                                    <h4>A premier hotel in the heart of Downtown San Francisco, CA</h4>
+                                </div>
+
+
+                                <Grid>
+                                    <Row>
+                                        <Col sm={12} md={12}>
+                                            <div className="calendarPicker">
+
+                                                {/* Imported component - dynamic calendar */}
+                                                <InputCalendar />
+                                                {/* Imported component - dynamic calendar*/}
+
+
+                                                {/* Imported component - adult guests input & submit button */}
+                                                {inputAdults(this.props, this.handleNumAdultChange.bind(this))}
+                                                {/* Imported component - adult guests input & submit button */}
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Grid>
+                            </div>
+                        </Col>
+                    </Row>
+                </Grid>
+
+                <div className="timeBanner">
+                    The local time in San Francisco, CA is currently: {moment().utcOffset(-420).format('hh:mm a')}. Local temperature is TBD.
+
                 </div>
+
+
+
+
 
 
                 <div className="container">
 
-                    <img id="citySkyline" alt="citySkyline" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F25583989%2F101442659479%2F1%2Foriginal.jpg?s=f5f3b6dd921089d2208a4fa7034f7407" />
 
                     <div className="userInput">
                         <h1 id="welcomeMsg">Welcome to Hotel NoMa</h1>
 
                         <div className="formArea">
 
-                            {/* Imported component - dynamic calendar */}
-                            <InputCalendar />
-                            {/* Imported component - dynamic calendar*/}
-
-
-                            {/* Imported component - adult guests input & submit button */}
-                            {inputAdults(this.props, this.handleNumAdultChange.bind(this))}
-                            {/* Imported component - adult guests input & submit button */}
 
                             <hr />
                             The local time in San Francisco, CA is currently: {moment().utcOffset(-420).format('hh:mm a')}. Local temperature is TBD.
@@ -116,3 +147,30 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Landing);
+
+
+/*
+
+            <div className="fullImageLanding">
+
+
+                <img id="splashImageLanding" alt="backgroundSplash" src="https://static.pexels.com/photos/61111/pexels-photo-61111.jpeg" />
+                <div className="calendarPicker">
+
+                    <Grid>
+                        <Row>
+                            <Col sm={1} md={4}><hr /></Col>
+                            <Col sm={10} md={4}>
+                                <div id="centeredHeading">
+                                    <h3>Guest Rooms</h3>
+                                </div>
+                            </Col>
+                            <Col sm={1} md={4}><hr /></Col>
+                        </Row>
+                    </Grid>
+
+
+
+                </div>
+
+ */

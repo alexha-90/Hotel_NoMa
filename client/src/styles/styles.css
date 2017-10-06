@@ -2,7 +2,19 @@
 /*============== Global CSS ==============*/
 /*   background-image: url("http://images.all-free-download.com/images/graphicthumb/linen_fabric_background_01_hd_picture_169828.jpg");
 */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
 body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+
+
+
   font-family: 'Pontano Sans', sans-serif;
   background-color: white;
   overflow-x: hidden;
@@ -32,44 +44,85 @@ hr {
   background-color: white;
 }
 
+
 #grayed {
   opacity: 0.6;
 }
 
 /*============== Landing Page CSS ==============*/
 
-#fullSpan {
-  width: 100%;
-  margin: 15px 0 20px 0;
-  position: relative;
-}
-
-#citySkyline {
-  width: 100%;
-}
 
 #welcomeMsg {
   margin-bottom: 12px;
   font-weight: bold;
 }
 
-.calendar {
-  background-color: yellow;
-  margin-bottom: 15px;
-}
-
-.topHalf {
-  background-color: darkgray;
-  padding-top: 20px;
-}
-
-.userInput {
-  border: 2px solid blue;
-  border-radius: 10px;
-  margin: 35px 0 35px;
-  background-color: darkseagreen;
+.centerWelcome {
   text-align: center;
 }
+
+.centerWelcome h1 {
+  color: #f2f2f2;
+  font-size: 50px;
+  letter-spacing: 0.1em;
+}
+
+.centerWelcome h4 {
+  color: #4d4d33;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  margin-bottom: 50px;
+}
+
+.fullImageLanding {
+  margin-left: -13%;
+  margin-right: -13%;
+  background-color: black;
+}
+
+.landingMainContainer {
+  position: absolute;
+  display: inline-block;
+  margin: 0 24%;
+  width: 52%;
+  color: #4d4d4d;
+  top: 22%;
+}
+
+.calendarPicker {
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  background-color: cornflowerblue;
+  height: 100px;
+}
+
+
+#splashImageLanding {
+  position: relative;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.calendar {
+  background-color: #e0e0d2;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border: 5px solid #3c3c2a;
+}
+
+#calendarTopText {
+  margin-top: 10px;
+  color: #4d4d33;
+  text-decoration: underline;
+}
+
 
 .formArea {
   margin: 15px 20% 20px 20%;
@@ -173,12 +226,6 @@ h9 {
 }
 
 
-#priceResult {
-  text-align: right;
-  position: inherit;
-  /* missing inline prop. forgot name */
-}
-
 .roomDescription {
   clear: both;
 }
@@ -196,7 +243,6 @@ h9 {
   max-height: 200px;
   width: 100%;
 }
-
 
 
 .amenityText {
@@ -464,13 +510,13 @@ h9 {
 
 /*============== Footer CSS ==============*/
 .footerContainer {
+  bottom: 0;
   margin: 15px -9999rem 0 -9999rem;
   padding: 0.25rem 9999rem;
   background: black;
   text-align: center;
   color: #f2f2f2;
 }
-
 
 #centeredGoogleMap {
   display: block;
@@ -513,84 +559,3 @@ h9 {
 }
 
 /*============== END CSS ==============*/
-
-/* test for slideshow. access with /blank */
-
-#landing-header {
-  z-index: 1;
-  position: relative;
-  text-align: center;
-  padding-top: 40vh;
-}
-
-#landing-header h1 {
-  color: #fff;
-}
-
-.slideshow li {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  opacity: 0;
-  z-index: 0;
-  animation: imageAnimation 50s linear infinite;
-}
-
-.slideshow li:nth-child(1) {
-  background-image: url(https://static.pexels.com/photos/268533/pexels-photo-268533.jpeg)
-}
-.slideshow li:nth-child(2) {
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
-  animation-delay: 10s;
-}
-.slideshow li:nth-child(3) {
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
-  animation-delay: 20s;
-}
-.slideshow li:nth-child(4) {
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
-  animation-delay: 30s;
-}
-.slideshow li:nth-child(5) {
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
-  animation-delay: 40s;
-}
-@keyframes imageAnimation {
-  0% {
-    opacity: 0;
-    animation-timing-function: ease-in;
-  }
-  10% {
-    opacity: 1;
-    animation-timing-function: ease-out;
-  }
-  20% {
-    opacity: 1
-  }
-  30% {
-    opacity: 0
-  }
-}
-
-
-.thumbnail {
-  padding: 0;
-}
-
-.thumbnail img {
-  width: 100%;
-}
-
-.thumbnail .caption-full {
-  padding: 10px;
-}
-
-#delete-form {
-  display: inline;
-}
-

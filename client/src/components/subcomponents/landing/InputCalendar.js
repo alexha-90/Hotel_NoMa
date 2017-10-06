@@ -50,23 +50,27 @@ class InputCalendar extends Component {
     render() {
         return (
             <div>
-                {!this.state.from && !this.state.to && <p>Interested in lodging with us? Tell us when you plan on visiting...</p>}
-                {this.state.from && !this.state.to && <p>How delightful. Now when do you plan on departing?</p>}
-                {this.state.from &&
-                this.state.to &&
-                <p>
-                    Hooray! You will be staying with us from
-                    {' '}
-                    <strong>{moment(this.state.from).format('L')}</strong>
-                    {' '}
-                    to
-                    {' '}
-                    <strong>{moment(this.state.to).format('L')}</strong>
-                    . Need to make a
-                    {' '}<a href="." onClick={this.handleCalendarResetClick}>(change)</a>
-                    ?
-                </p>}
                 <div className="calendar">
+
+                    <div id="calendarTopText">
+                        {!this.state.from && !this.state.to && <p>Interested in lodging with us? Tell us when you plan on visiting...</p>}
+                        {this.state.from && !this.state.to && <p>How delightful. Now when do you plan on departing?</p>}
+                        {this.state.from &&
+                        this.state.to &&
+                        <p>
+                            Hooray! You will be staying with us from
+                            {' '}
+                            <strong>{moment(this.state.from).format('L')}</strong>
+                            {' '}
+                            to
+                            {' '}
+                            <strong>{moment(this.state.to).format('L')}</strong>
+                            . Need to make a
+                            {' '}<a href="." onClick={this.handleCalendarResetClick}>(change)</a>
+                            ?
+                        </p>}
+                    </div>
+
                     <DayPicker
                         numberOfMonths={2}
                         disabledDays={[

@@ -9,8 +9,6 @@ if (process.env.NODE_ENV === "production") {
     };
 
 
-    
-
 } else {
     console.log('In development environment');
     module.exports = require("./dev.js");

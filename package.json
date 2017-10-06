@@ -21,7 +21,6 @@
     "concurrently": "^3.5.0",
     "cors": "^2.8.4",
     "express": "^4.15.4",
-    "json2csv": "^3.11.2",
     "mongoose": "^4.11.10",
     "nodemailer": "^4.1.1",
     "stripe": "^5.1.0"

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
-import { Button, Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 import { updateItineraryTotalCost } from '../actions';
 import CheckoutButton from '../actions/checkoutButton';
 import { loadRoomPrice} from './subcomponents/checkout/LoadRoomPrice';
 import { addonCost } from './subcomponents/checkout/AddonCost';
 import { pricingTable } from './subcomponents/checkout/PricingTable';
-//to-do: change grammar for adults
 
+//to-do: change grammar if single adult
 //===============================================================================================//
 
 class Checkout extends Component {

@@ -173,22 +173,24 @@ class Checkout extends Component {
                     <Grid>
                         <Row>
                             <Col sm={12} md={12}>
-                                <h3>
-                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.numAdults} Adult(s)</Button>
-                                    {' '}
-                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.numNights} Nights</Button>
-                                    {' '}
-                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.roomType} Room</Button>
-                                    <br />
-                                    <br />
-                                    <Button bsStyle="primary" id="grayed">{this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}</Button>
-                                    {' '}
-                                    <br />
-                                    <br />
-                                    <Link to="/"><Button bsStyle="warning">Modify dates</Button></Link>
-                                    {' '}
-                                    <Link to="/results"><Button bsStyle="warning">Modify room</Button></Link>
-                                </h3>
+                                <span id="detailWrapper">
+                                    {this.props.itinerary.numAdults} Adult(s)
+                                </span>
+                                <span id="detailWrapper">
+                                    {this.props.itinerary.numNights} Nights
+                                </span>
+                                <span id="detailWrapper">
+                                    {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}
+                                </span>
+                                <span id="detailWrapper">
+                                    {this.props.itinerary.roomType} Room
+                                </span>
+                                <span id="modifyWrapper">
+                                    <Link to="/">Modify Dates</Link>
+                                </span>
+                                <span id="modifyWrapper">
+                                    <Link to="/results">Modify Room</Link>
+                                </span>
                             </Col>
                         </Row>
                     </Grid>

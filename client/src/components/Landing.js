@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'react-day-picker/lib/style.css';
 import moment from 'moment';
-import { Jumbotron, Button, Grid, Row, Col, Glyphicon } from 'react-bootstrap';
+import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 
 
 import InputCalendar from './subcomponents/landing/InputCalendar';
@@ -11,7 +11,6 @@ import { updateNumAdults } from '../actions';
 import LandingCarousel from './subcomponents/landing/MainCarousel';
 import { inputAdults } from './subcomponents/landing/InputAdults';
 
-//bug: when number of adults changed, automatically cycles back to first pic
 //feature: validate for max stay of 30 days.
 //feature: remove need for alert message when blacked out date selected
 //===============================================================================================//
@@ -22,6 +21,8 @@ class Landing extends Component {
         let inputNumAdults = event.target.value;
         this.props.dispatch(updateNumAdults(inputNumAdults));
     }
+
+
 
     render () {
         return (
@@ -67,7 +68,8 @@ class Landing extends Component {
                         Local conditions in San Francisco, CA
                     </h1>
                     <h2>
-                        Time: {moment().utcOffset(-420).format('hh:mm a')} Weather: 68°F <img src="https://png.icons8.com/partly-cloudy-day/office/50" title="Partly Cloudy Day" />
+                        {/* weather is static at the moment */}
+                        Time: {moment().utcOffset(-420).format('hh:mm a')} Weather: 68°F <img src="https://png.icons8.com/partly-cloudy-day/office/50" title="Partly Cloudy Day" alt="cloudWeather"/>
                     </h2>
                 </div>
                 <div className="jumbotronContainer">

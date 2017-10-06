@@ -25,7 +25,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 3px solid black;
+  border-top: 3px solid #262626;
   border-radius: 20px;
   margin: 2em 0;
   padding: 0;
@@ -41,9 +41,28 @@ hr {
   background-color: white;
 }
 
+#detailWrapper {
+  padding: 10px;
+  margin: 5px 5px 0 5px;
+  color: white;
+  background-color: #737373;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.8;
+}
 
-#grayed {
-  opacity: 0.6;
+#modifyWrapper {
+  padding: 10px;
+  margin: 5px 5px 0 5px;
+  color: inherit;
+  background-color: #ffad33;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.8;
 }
 
 /*============== Landing Page CSS ==============*/
@@ -74,7 +93,7 @@ hr {
 .fullImageLanding {
   margin-left: -13%;
   margin-right: -13%;
-  background-color: black;
+  background-color: #262626;
 }
 
 .landingMainContainer {
@@ -179,7 +198,7 @@ hr {
   display: block;
   margin-left: 10%;
   width: 80%;
-  background-color: #000000;
+  background-color: #262626;
   margin-bottom: 0;
   text-align: center;
 }
@@ -234,12 +253,6 @@ hr {
   display: block;
   margin: 0 auto;
   width: 70%;
-}
-
-
-/* used for blurb vector icons */
-h9 {
-  font-size: 70px;
 }
 
 /*============== Results Page CSS ==============*/
@@ -336,18 +349,23 @@ h9 {
 
 
 /*============== Amenity Page CSS ==============*/
-#leftAmenityImage {
-  background-color: gold;
-}
-
-#rightAmenityImage {
-  background-color: gold;
+.amenityTextBox img {
+  position: absolute;
+  top: 100px;
+  margin: auto;
 }
 
 .amenityTextBox {
-  background-color: green;
+  position: relative;
   margin-bottom: 40px;
 }
+
+#amenitiesPhoto {
+  height: 500px;
+  margin-top: 10px;
+  margin-left: 13%;
+}
+
 
 /*============== Checkout Page CSS ==============*/
 #costAlignRight {
@@ -483,6 +501,38 @@ h9 {
 
 /*============== Header CSS ==============*/
 
+.navbar.navbar-default {
+  background-color: #99ccff;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar.navbar-default .navbar-collapse {
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.headerMain {
+  margin-top: -80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background-color: #262626;
+  text-align: center;
+  height: 120px;
+  z-index: 999;
+}
+
+#headerContainer {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: green;
+}
+
+
 .headerBlackout {
   position: fixed;
   top: 0;
@@ -490,7 +540,7 @@ h9 {
   z-index: 800;
   width: 100%;
   height: 70px;
-  background-color: black;
+  background-color: #262626;
   color: #f2f2f2;
 }
 
@@ -503,14 +553,8 @@ h9 {
   display: block;
   height: 65px;
   margin: 0 auto;
-  position: fixed;
-  background-color: black;
+  background-color: #262626;
 
-}
-
-#headerRow {
-  margin-top: 0;
-  width: 100%;
 }
 
 .headerContainer img {
@@ -518,26 +562,26 @@ h9 {
   height: 65px;
 }
 
-.headerRightContent {
-  float: right;
-  position: absolute;
-  display: inline-block;
+.navbarRightContent {
+  padding-right: 0;
+  background-color: #262626;
 }
 
 
 #dropdownNav {
-  color: inherit;
+  color: #f2f2f2;
   letter-spacing: 1px;
-  font-size: 15px;
+  font-size: 18px;
   text-decoration: none;
-  background-color: black;
-  margin-top: 15px;
+  background-color: #262626;
+  margin-top: 27px;
 }
 
 #retrieveReservationsText {
+  color: #f2f2f2;
   float: right;
   letter-spacing: 1px;
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 27px;
   text-align: right;
 }
@@ -545,44 +589,9 @@ h9 {
 /*
 
 @media (min-width: 1010px) {
-
-  #hotelNomaLogoLeft {
-    height: 100%;
-    left: 18%;
-    position: absolute;
-  }
-
-  .headerMenuRight {
-    letter-spacing: 2px;
-    font-size: 15px;
-    right: 18%;
-    position: absolute;
-    height: 65px;
-    line-height: 65px;
-    margin-top: 5px;
-    text-align: center;
-    display: inline-block;
-  }
 }
 
 @media (max-width: 1009px) {
-
-  #hotelNomaLogoLeft {
-    display: block;
-    height: 100%;
-    margin: 0 auto;
-  }
-
-  .headerMenuRight {
-    background-color: black;
-    letter-spacing: 2px;
-    font-size: 15px;
-    height: 65px;
-    line-height: 65px;
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-  }
 }
 
 */
@@ -592,7 +601,7 @@ h9 {
   bottom: 0;
   margin: 15px -9999rem 0 -9999rem;
   padding: 0.25rem 9999rem;
-  background: black;
+  background: #262626;
   text-align: center;
   color: #f2f2f2;
 }
@@ -610,11 +619,11 @@ h9 {
   margin-top: 5px;
   text-align: center;
   font-size: 13px;
-  background-color: black;
+  background-color: #262626;
 }
 
 #black {
-  background-color: black;
+  background-color: #262626;
 }
 
 #footerBar {

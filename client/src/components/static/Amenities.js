@@ -1,36 +1,53 @@
 import React, { Component }from 'react';
-import { Grid, Row, Col, Panel, Image} from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
+//===============================================================================================//
 
 class Amenities extends Component {
     render() {
+        window.scrollTo(0, 0);
+
         return (
             <div>
-                <Panel>
-                    <div>
-                        <Image src="http://embassysuites3.hilton.com/resources/media/es/HSVESES/en_US/img/shared/full_page_image_gallery/main/ES_extnight001_2_712x342_FitToBoxSmallDimension_Center.jpg" responsive className="img-responsive center-block"/>
-                    </div>
-                </Panel>
+                <br />
+                <br />
+                <br />
+
+                <div id="contactUsSpacing">
+                    <Grid>
+                        <Row>
+                            <Col sm={2} md={4}><hr /></Col>
+                            <Col sm={8} md={4}>
+                                <div id="centeredHeading">
+                                    <h3>Amenities</h3>
+                                </div>
+                            </Col>
+                            <Col sm={2} md={4}><hr /></Col>
+                        </Row>
+                    </Grid>
+                </div>
+                <br />
+
+                <img id="amenitiesPhoto" src="https://i.imgur.com/bkSu5QJ.jpg" alt="bigPhoto"/>
 
                 <Grid>
                     <div className="amenityTextBox">
                         <Row className="">
                             <Col sm={4} md={3} id="leftAmenityImage">
-                                <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" className="img-responsive center-block"/>
+                                <img src="https://png.icons8.com/classroom/dusk/120" alt="meetingRooms" title="Classroom" />
                             </Col>
                             <Col sm={8} md={9}>
                                 <h3>Highlight 1</h3>
                                 <p>
-                                    Think beyond the toothbrush, travel-size toothpaste and deodorant, and tote these life-enhancing items:
-                                    Eyedrops: These will help ensure you’re bright-eyed for the 7 a.m. breakfast meeting.
-                                    Hand-sanitizer: Ward off potential germs from a long day of travel and all the meeting-and-greeting at the reception.
-                                    Facial wipes: For a quick re-boot, facial wipes let you easily freshen up between your last meeting and your client dinner.
-                                    Reusable water bottle: Buy a bottle with a built-in filter to help the earth and save money.
-                                    Prepare for the Unexpected
-                                    Even if you’re just heading out of town for an overnight trip, you will want to be ready for a last-minute change in plans:
-                                    Swimsuit: Your last sales call of the day got canceled? That means there’s time to take a dip in the pool — or swim some laps — provided you brought your swimsuit.
-                                    Snack bag: When you have to power through your emails before you can go to dinner, you will be glad you brought a Ziploc stocked with nuts, dried fruit, granola or other favorite snacks.
-                                    Sweater/light jacket: Because air-conditioning inside the convention center or the office you’re visiting could make it feel like winter — even in August.
-                                    Stain-remover pen: With on-the-go food and coffee, spills are almost guaranteed, making this an essential item and especially helpful if you’re packing light.
+                                    Cras et porttitor justo. Aenean vel vestibulum ligula. Praesent finibus lacus at fermentum eleifend. Morbi
+                                    lobortis erat sit amet eros scelerisque consequat at ac nunc. In pulvinar, arcu dignissim fermentum varius,
+                                    justo augue tincidunt metus, ut feugiat libero nisi sit amet eros. Etiam in hendrerit magna. Fusce vel dui
+                                    nec risus hendrerit mattis id nec elit. Fusce sed molestie ligula, nec dapibus augue.
+                                    Aenean vel fermentum neque. Phasellus massa justo, bibendum in mattis vitae, cursus nec eni.
+                                    Donec lacinia turpis nec pharetra commodo. Cras ac ultricies urna. Fusce vel erat tristique, vehicula
+                                    metus quis, vehicula turpis. Suspendisse potenti. Praesent ac laoreet augue. Curabitur est magna, suscipit
+                                    vel feugiat ac, iaculis vitae neque. Aenean luctus maximus ullamcorper. Pellentesque habitant morbi tristique
+                                    senectus et netus et malesuada fames ac turpis egestas. In mattis nisl et lorem gravida aliquam. Nulla non
+                                    velit ante. In fermentum commodo odio, a tempor lacus faucibus et.
                                 </p>
                             </Col>
                         </Row>
@@ -40,43 +57,39 @@ class Amenities extends Component {
                             <Col sm={8} md={9}>
                                 <h3>Highlight 2</h3>
                                 <p>
-                                    Think beyond the toothbrush, travel-size toothpaste and deodorant, and tote these life-enhancing items:
-                                    Eyedrops: These will help ensure you’re bright-eyed for the 7 a.m. breakfast meeting.
-                                    Hand-sanitizer: Ward off potential germs from a long day of travel and all the meeting-and-greeting at the reception.
-                                    Facial wipes: For a quick re-boot, facial wipes let you easily freshen up between your last meeting and your client dinner.
-                                    Reusable water bottle: Buy a bottle with a built-in filter to help the earth and save money.
-                                    Prepare for the Unexpected
-                                    Even if you’re just heading out of town for an overnight trip, you will want to be ready for a last-minute change in plans:
-                                    Swimsuit: Your last sales call of the day got canceled? That means there’s time to take a dip in the pool — or swim some laps — provided you brought your swimsuit.
-                                    Snack bag: When you have to power through your emails before you can go to dinner, you will be glad you brought a Ziploc stocked with nuts, dried fruit, granola or other favorite snacks.
-                                    Sweater/light jacket: Because air-conditioning inside the convention center or the office you’re visiting could make it feel like winter — even in August.
-                                    Stain-remover pen: With on-the-go food and coffee, spills are almost guaranteed, making this an essential item and especially helpful if you’re packing light.
+                                    Cras ligula urna, rhoncus in malesuada a, convallis ac ligula. Maecenas consectetur euismod ultricies.
+                                    Cras tempus metus elit, non aliquet dui elementum faucibus. Sed quis ultrices nulla. Nam rhoncus ante sit
+                                    amet ligula elementum luctus. Proin faucibus purus quis ligula aliquet, id blandit lectus placerat. Phasellus
+                                    vel finibus leo, sed commodo dui. Curabitur placerat, turpis at consectetur sollicitudin, neque massa elementum
+                                    lorem, sed molestie orci nunc ut dui. Duis cursus vel diam et viverra. Duis felis erat, lobortis ornare sodales
+                                    id, auctor nec felis. Maecenas id est non leo finibus accumsan. Etiam fermentum vitae massa eget ornare. Cras eu
+                                    dolor quis mauris bibendum elementum. Morbi felis ante, gravida eu enim quis, auctor lacinia massa. Vivamus arcu
+                                    dolor, scelerisque vel nulla et, blandit gravida arcu. Quisque vehicula, nulla in tincidunt fringilla, eros ante
+                                    euismod lectus, id aliquam sapien mauris eu sem.
                                 </p>
                             </Col>
                             <Col sm={4} md={3} id="rightAmenityImage">
-                                <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
+                                <img alt="bed" src="https://png.icons8.com/sleeping-in-bed/dusk/120" title="Sleeping in Bed" />
                             </Col>
                         </Row>
                     </div>
                     <div className="amenityTextBox">
                         <Row className="">
                             <Col sm={4} md={3} id="leftAmenityImage">
-                                <img src="https://tcoyd.org/media/uploads/image-panel/ComplimentaryBreakfast_Lunch-icon_klGOWgZ.png.100x100_q85_scale.png" alt="breakfast_icon" />
+                                <img src="https://png.icons8.com/bench-press/color/120" alt="exercise" title="Bench Press" />
                             </Col>
                             <Col sm={8} md={9}>
                                 <h3>Highlight 3</h3>
                                 <p>
-                                    Think beyond the toothbrush, travel-size toothpaste and deodorant, and tote these life-enhancing items:
-                                    Eyedrops: These will help ensure you’re bright-eyed for the 7 a.m. breakfast meeting.
-                                    Hand-sanitizer: Ward off potential germs from a long day of travel and all the meeting-and-greeting at the reception.
-                                    Facial wipes: For a quick re-boot, facial wipes let you easily freshen up between your last meeting and your client dinner.
-                                    Reusable water bottle: Buy a bottle with a built-in filter to help the earth and save money.
-                                    Prepare for the Unexpected
-                                    Even if you’re just heading out of town for an overnight trip, you will want to be ready for a last-minute change in plans:
-                                    Swimsuit: Your last sales call of the day got canceled? That means there’s time to take a dip in the pool — or swim some laps — provided you brought your swimsuit.
-                                    Snack bag: When you have to power through your emails before you can go to dinner, you will be glad you brought a Ziploc stocked with nuts, dried fruit, granola or other favorite snacks.
-                                    Sweater/light jacket: Because air-conditioning inside the convention center or the office you’re visiting could make it feel like winter — even in August.
-                                    Stain-remover pen: With on-the-go food and coffee, spills are almost guaranteed, making this an essential item and especially helpful if you’re packing light.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse efficitur ex vel cursus imperdiet. Duis
+                                    commodo sodales tortor ut porta. Ut sit amet molestie magna. Ut laoreet urna vitae mauris placerat, eget rutrum
+                                    sapien tristique. Phasellus quis suscipit enim, vitae faucibus nisi. Aliquam erat volutpat. Suspendisse et urna
+                                    vitae libero suscipit eleifend et ut mauris. Vestibulum eu sapien a lacus eleifend placerat. Cras enim massa,
+                                    hendrerit aliquet pellentesque in, ornare quis mi. Proin quam urna, vehicula in ante ut, tincidunt sodales elit.
+                                    Nam vulputate blandit urna ac maximus. Cras pulvinar feugiat neque, a mollis arcu euismod ac. Curabitur volutpat
+                                    tincidunt turpis, id luctus quam lobortis maximus. Integer accumsan gravida nibh et dapibus. Nulla vel nunc dui.
+                                    Nullam consectetur et neque a rutrum. Praesent pellentesque lectus in dui viverra faucibus. Mauris non nulla
+                                    purus. Quisque eu ex eget purus aliquam vestibulum nec ut elit.
                                 </p>
                             </Col>
                         </Row>

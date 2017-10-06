@@ -10,29 +10,42 @@ export default () => {
                           useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                     <div>
                         <img alt="temp1"
-                             src="https://images.trvl-media.com/hotels/1000000/700000/690700/690688/690688_4_z.jpg"/>
+                             src="https://i.imgur.com/45skKIK.jpg"/>
                     </div>
                     <div>
                         <img alt="temp2"
-                             src="https://images.trvl-media.com/hotels/16000000/15830000/15822500/15822448/c0b95839_z.jpg"/>
+                             src="https://i.imgur.com/4PLUyt2.jpg"/>
                     </div>
                     <div>
                         <img alt="temp3"
-                             src="https://exp.cdn-hotels.com/hotels/18000000/17930000/17924300/17924225/dfea48a7_z.jpg"/>
+                             src="https://i.imgur.com/Ofk9AAr.jpg"/>
                     </div>
                     <div>
                         <img alt="temp4"
-                             src="https://exp.cdn-hotels.com/hotels/16000000/15830000/15822500/15822448/07e0aea9_z.jpg"/>
+                             src="https://i.imgur.com/mlvCGdB.jpg"/>
                     </div>
                     <div>
                         <img alt="temp5"
-                             src="https://storage.googleapis.com/cdncontent/web2/crestonbarkly/images/slider/crest-on-barkly-hotel-room-st-kilda-10.jpg"/>
+                             src="https://i.imgur.com/8yKSFv9.jpg"/>
                     </div>
                     <div>
                         <img alt="temp6"
-                             src="https://static1.squarespace.com/static/52e665a0e4b0b788a312e25b/53038575e4b0f8636b5f97a9/53038576e4b07a6f640a3911/1392739703363/hotel-chelton-photos-rooftop-terrace-header.jpg"/>
+                             src="https://i.imgur.com/0hRKoFZ.jpg"/>
+                    </div>
+                    <div>
+                        <img alt="temp7"
+                             src="https://i.imgur.com/bkSu5QJ.jpg"/>
+                    </div>
+                    <div>
+                        <img alt="temp8"
+                             src="https://i.imgur.com/F1tdHX1.jpg"/>
+                    </div>
+                    <div>
+                        <img alt="temp9"
+                             src="https://i.imgur.com/Vi17yoO.jpg"/>
                     </div>
                 </Carousel>
+                <br />
             </div>
         );
 }

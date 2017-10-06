@@ -8,7 +8,6 @@ if (process.env.NODE_ENV === "production") {
         emailPassword: process.env.EMAIL_PASSWORD
     };
 
-
 } else {
     console.log('In development environment');
     module.exports = require("./dev.js");

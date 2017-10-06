@@ -51,6 +51,18 @@ app.get('/api/test', (req, res) => {
 // SERVER CONFIGURATION                                                                           //
 // =================================================================================================
 
+if (process.env.NODE_ENV === 'production') {
+    // look inside react client side for files @ /client/build
+    app.use(express.static('client/build'));
+
+    // if Express is unable to locate a route, serve index.html
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
+
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

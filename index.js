@@ -1,23 +1,30 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const keys = require('./config/keys');
+
 //===============================================================================================//
 
 // mongoose DB for model schema
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 require('./models/itinerary');
 require('./models/contactUsEmail');
 
 
 // allow cross-origin resource sharing for development
-const cors = require('cors');
-app.use(cors());
+//const cors = require('cors');
+//app.use(cors());
 
 
 // middleware to parse all POST/PUT/PATCH body request as req.body on backend
-const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // handle json data
 app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
+
+// fetch hidden DB key
+mongoose.Promise = global.Promise;
+mongoose.connect(keys.mongoURI);
 
 
 // import services (payment handling, emails)
@@ -31,12 +38,6 @@ require('./routes/itineraryCreate')(app);
 require('./routes/itineraryRead')(app);
 require('./routes/itineraryDelete')(app);
 require('./routes/contactUs')(app);
-
-
-// fetch hidden DB key
-const keys = require('./config/keys');
-mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI);
 
 
 // basic test routes

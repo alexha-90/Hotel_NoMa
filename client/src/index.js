@@ -4,7 +4,7 @@ import './styles/styles.css';
 import './styles/carousel.css';
 import App from './App';
 import 'react-bootstrap';
-import axios from 'axios';
+//import axios from 'axios';
 
 // linking react to redux
 import allReducers from './reducers/index';
@@ -19,7 +19,6 @@ const store = createStore(
 );
 
 
-
 ReactDOM.render(
     <Provider
         store={ store }>
@@ -27,3 +26,5 @@ ReactDOM.render(
     </Provider>,
     document.querySelector('#root')
 );
+
+export default store;

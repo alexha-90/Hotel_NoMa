@@ -58,8 +58,9 @@ app.get('/api/test', (req, res) => {
 if (process.env.NODE_ENV === 'production') {
     //app.use(express.static('client/build'));
 
+    app.use('/alexha-90/HotelNoMas.git/', express.static(path.join(__dirname, 'alexha-90/HotelNoMas.git/')));
 
-    app.use(express.static(path.join(__dirname, 'client/build')));
+    //app.use(express.static(path.join(__dirname, 'client/build')));
 
     // look inside react client side for files @ /client/build
     //app.use(express.static('client/build'));

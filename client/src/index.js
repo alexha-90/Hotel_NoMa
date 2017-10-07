@@ -21,12 +21,9 @@ const store = createStore(
 
 
 ReactDOM.render(
-    <Provider store={ store }>
-        <div>
-            <App />
-        </div>
+    <Provider
+        store={ store }>
+        <App />
     </Provider>,
-    document.getElementById('root')
+    document.querySelector('#root')
 );
-
-export default store;

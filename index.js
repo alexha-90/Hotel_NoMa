@@ -1,21 +1,25 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const keys = require('./config/keys');
+
 const app = express();
 //===============================================================================================//
 
 // mongoose DB for model schema
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 require('./models/itinerary');
 require('./models/contactUsEmail');
 
 
 // allow cross-origin resource sharing for development
-const cors = require('cors');
+//const cors = require('cors');
 app.use(cors());
 
 
 // middleware to parse all POST/PUT/PATCH body request as req.body on backend
-const bodyParser = require('body-parser');
-app.use(bodyParser.json()); // handle json data
+//app.use(bodyParser.json()); // handle json data
 app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 
 
@@ -25,17 +29,19 @@ require('./services/nodemailerAfterPayment');
 require('./services/nodemailerContactForm');
 
 
+// fetch hidden DB key
+//const keys = require('./config/keys');
+mongoose.Promise = global.Promise;
+mongoose.connect(keys.mongoURI);
+
+
+
 // import routes - [C][R][D] cycle. No [U]pdating an existing itinerary at this moment.
 require('./routes/itineraryCreate')(app);
 require('./routes/itineraryRead')(app);
 require('./routes/itineraryDelete')(app);
 require('./routes/contactUs')(app);
 
-
-// fetch hidden DB key
-const keys = require('./config/keys');
-mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI);
 
 /*
 // basic test routes

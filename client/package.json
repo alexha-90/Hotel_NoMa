@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "deploy": "npm run build&&gh-pages -d build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "proxy": "http://localhost:5000"
 }

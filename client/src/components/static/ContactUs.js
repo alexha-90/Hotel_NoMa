@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, ControlLabel, FormControl, Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-
 import { sendContactUsEmail } from '../../actions/';
+
+//to-do: timestamp
 //===============================================================================================//
 
 class ContactUs extends Component {
@@ -76,7 +77,7 @@ class ContactUs extends Component {
                         <div id="contactUsContainer">
                             <FormGroup controlId="formControlsTextarea">
                                 <ControlLabel>Your message:</ControlLabel>
-                                <FormControl componentClass="textarea" style={{ height: "300px" }} type="text" name="message" value={this.state.message} onChange={this.handleChange}/>
+                                <FormControl placeholder="For testing purposes, please enter your email address to receive a copy of what staff members would see" componentClass="textarea" style={{ height: "300px" }} type="text" name="message" value={this.state.message} onChange={this.handleChange}/>
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>Email address:</ControlLabel>

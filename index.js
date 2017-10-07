@@ -1,14 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const keys = require('./config/keys');
-
 //===============================================================================================//
 
 // mongoose DB for model schema
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 require('./models/itinerary');
 require('./models/contactUsEmail');
 
@@ -19,10 +15,13 @@ require('./models/contactUsEmail');
 
 
 // middleware to parse all POST/PUT/PATCH body request as req.body on backend
+const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // handle json data
 app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 
+
 // fetch hidden DB key
+const keys = require('./config/keys');
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
@@ -58,11 +57,7 @@ app.get('/api/test', (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
     console.log('******** in production environment ********');
-    console.log(__dirname + '/client/build/index.html');
 
-    //app.use(express.static(path.join(__dirname, 'client/build')));
-
-    // look inside react client side for files @ /client/build
     app.use(express.static(path.resolve(__dirname, 'client/build')));
 
 
@@ -70,11 +65,6 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 
-
-    // if Express is unable to locate a route, serve index.html
-    //app.get('*', (req, res) => {
-    //    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    //});
 }
 
 
@@ -83,8 +73,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log("NodeJS server started")
 });
-
-
-//package.json
-/// previous "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-//"heroku-postbuild": "cd client && npm install && npm run build"

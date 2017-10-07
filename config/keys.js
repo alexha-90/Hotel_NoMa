@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV === "production") {
-    console.log('******** in production environment ********');
+    console.log('******** obtaining keys for production environment ********');
     // not used... causes an error during deployment. module.exports = require("./prod.js");
     module.exports = {
         mongoURI: process.env.MONGO_URI,
@@ -9,6 +9,6 @@ if (process.env.NODE_ENV === "production") {
     };
 
 } else {
-    console.log('******** in development environment ********');
+    console.log('******** obtaining keys for development environment ********');
     module.exports = require("./dev.js");
 }

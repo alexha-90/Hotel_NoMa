@@ -57,11 +57,13 @@ app.get('/api/test', (req, res) => {
 // =================================================================================================
 
 if (process.env.NODE_ENV === 'production') {
+    console.log('******** in production environment ********');
+    console.log(__dirname + '/client/build/index.html');
 
     //app.use(express.static(path.join(__dirname, 'client/build')));
 
     // look inside react client side for files @ /client/build
-    app.use(express.static('client/build'));
+    app.use(express.static(path.resolve(__dirname, 'client/build')));
 
 
     app.get('*', (req, res) => {

@@ -19,10 +19,10 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="62" column="68" lean-forward="true" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
+            <state relative-caret-position="460">
+              <caret line="74" column="1" lean-forward="true" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
               <folding>
-                <marker date="1507363012000" expanded="true" signature="2421:2423" ph="{...}" />
+                <marker date="1507363445000" expanded="true" signature="2256:2258" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -447,7 +447,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="577826000" />
+    <option name="totallyTimeSpent" value="578231000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3659" y="-164" width="1523" height="953" extended-state="0" />
@@ -873,10 +873,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="62" column="68" lean-forward="true" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
+        <state relative-caret-position="460">
+          <caret line="74" column="1" lean-forward="true" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
           <folding>
-            <marker date="1507363012000" expanded="true" signature="2421:2423" ph="{...}" />
+            <marker date="1507363445000" expanded="true" signature="2256:2258" ph="{...}" />
           </folding>
         </state>
       </provider>

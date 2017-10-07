@@ -1,5 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+
+// feature: sort displayed itineraries
 // argument received: this.props.itinerary
 //===============================================================================================//
 

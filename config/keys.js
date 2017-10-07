@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV === "production") {
-    console.log('In production environment');
+    console.log('******** in production environment ********');
     //module.exports = require("./prod.js");
     module.exports = {
         mongoURI: process.env.MONGO_URI,
@@ -9,6 +9,6 @@ if (process.env.NODE_ENV === "production") {
     };
 
 } else {
-    console.log('In development environment');
+    console.log('******** in development environment ********');
     module.exports = require("./dev.js");
 }

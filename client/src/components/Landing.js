@@ -11,6 +11,7 @@ import { updateNumAdults } from '../actions';
 import LandingCarousel from './subcomponents/landing/MainCarousel';
 import { inputAdults } from './subcomponents/landing/InputAdults';
 
+// weather is static at the moment
 //feature: validate for max stay of 30 days.
 //feature: remove need for alert message when blacked out date selected
 //===============================================================================================//

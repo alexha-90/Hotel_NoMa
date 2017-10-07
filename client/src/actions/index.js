@@ -49,11 +49,10 @@ export const updateItineraryTotalCost = (cost) => {
 // update total cost every time an addon is toggled on the checkout page
 export const sendContactUsEmail = (formData) => async dispatch => {
     console.log('sending contact us email!!');
-    const serverAPI = "http://localhost:5000/api/contactUsEmail";
     try {
         // .post search term to query database
         const req = formData;
-        const res = await axios.post(serverAPI,
+        const res = await axios.post('api/contactUsEmail',
             dispatch({
                 type: "SEND_CONTACT_US_EMAIL",
                 payload: req
@@ -68,11 +67,10 @@ export const sendContactUsEmail = (formData) => async dispatch => {
 
 // Fetch one - search database for a single existing itinerary. Returns itinerary or undefined if not found
 export const fetchExistingItinerary = (confirmationNum, email) => async dispatch => {
-    const serverAPI = "http://localhost:5000/api/itineraryRead";
     try {
         // .post search term to query database
         const req = [confirmationNum, email];
-        const res = await axios.post(serverAPI,
+        const res = await axios.post('/api/itineraryRead',
             dispatch({
                 type: "FETCH_EXISTING_ITINERARY",
                 payload: req
@@ -88,10 +86,9 @@ export const fetchExistingItinerary = (confirmationNum, email) => async dispatch
 
 // Fetch all - search database for all existing itineraries. Returns itineraries
 export const fetchAllItineraries = () => async dispatch => {
-    const serverAPI = "http://localhost:5000/api/itineraryReadAll";
     try {
         // .post search term to query database
-        const res = await axios.get(serverAPI);
+        const res = await axios.get('/api/itineraryReadAll');
         dispatch({ type: "FETCH_ALL_ITINERARIES", payload: res.data });
         await console.log(res.data);
         await store.dispatch({ type: "RESULTS_TO_REDUX_STORE", payload: res.data })
@@ -105,10 +102,9 @@ export const fetchAllItineraries = () => async dispatch => {
 
 // Delete one - search database for existing itinerary. Return string describes if query was successful
 export const deleteExistingItinerary = (confirmationNum, email) => async dispatch => {
-    const serverAPI = "http://localhost:5000/api/itineraryDelete";
     try {
         const req = [confirmationNum, email];
-        const res = await axios.post(serverAPI,
+        const res = await axios.post('api/itineraryDelete',
             dispatch({
                 type: "DELETE_EXISTING_ITINERARY",
                 payload: req

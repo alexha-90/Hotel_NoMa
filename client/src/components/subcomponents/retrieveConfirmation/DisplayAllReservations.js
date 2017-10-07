@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import moment from 'moment';
 import { listAllItinerariesTable } from './DisplayAllReservations-Table';
+
+// feature: sort displayed itineraries
 //===============================================================================================//
 
 class DisplayAllReservations extends Component {

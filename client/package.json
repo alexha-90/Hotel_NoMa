@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/alexha-90/HotelNoMas.git",
   "dependencies": {
     "axios": "^0.16.2",
     "moment": "^2.18.1",

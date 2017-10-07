@@ -44,11 +44,11 @@ mongoose.connect(keys.mongoURI);
 app.get('/', (req, res) => {
     res.send("hello @ index");
 });
-*/
 
 app.get('/api/test', (req, res) => {
     res.send('hello @ /api/test page');
 });
+*/
 
 
 // =================================================================================================
@@ -57,21 +57,21 @@ app.get('/api/test', (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
 
-    app.use(express.static(path.join(__dirname, 'client/build')));
+    //app.use(express.static(path.join(__dirname, 'client/build')));
 
     // look inside react client side for files @ /client/build
-    //app.use(express.static('client/build'));
+    app.use(express.static('client/build'));
 
-    /*
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname+'/client/build/index.html'));
-    });
-    */
 
-    // if Express is unable to locate a route, serve index.html
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
+
+
+    // if Express is unable to locate a route, serve index.html
+    //app.get('*', (req, res) => {
+    //    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    //});
 }
 
 

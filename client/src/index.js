@@ -18,20 +18,6 @@ const store = createStore(
     applyMiddleware(thunk)
 );
 
-//----------------------------------------------------------------//
-//****************************************************************//
-// below is for learning and debugging. No apparent harm in leaving
-// subscribe = listen to store
-
-store.subscribe(() => {
-    console.log("Current state of store is:", store.getState())
-});
-
-store.dispatch({type: "INC", payload: 1});
-
-window.axios = axios;
-//****************************************************************//
-//----------------------------------------------------------------//
 
 
 ReactDOM.render(

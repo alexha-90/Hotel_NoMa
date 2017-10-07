@@ -47,37 +47,6 @@ export const updateItineraryTotalCost = (cost) => {
 
 
 // update total cost every time an addon is toggled on the checkout page
-export const sendContactUsEmail = (formData) => {
-    console.log('testdeploy');
-};
-
-
-// Fetch one - search database for a single existing itinerary. Returns itinerary or undefined if not found
-export const fetchExistingItinerary = (confirmationNum, email) => async dispatch => {
-    console.log('testdeploy');
-};
-
-
-// Fetch all - search database for all existing itineraries. Returns itineraries
-export const fetchAllItineraries = () => {
-    console.log('testdeploy');
-};
-
-
-
-
-// Delete one - search database for existing itinerary. Return string describes if query was successful
-export const deleteExistingItinerary = (confirmationNum, email) => {
-    console.log('testdeploy');
-};
-
-
-
-
-
-
-/*
-// update total cost every time an addon is toggled on the checkout page
 export const sendContactUsEmail = (formData) => async dispatch => {
     console.log('sending contact us email!!');
     try {
@@ -149,4 +118,3 @@ export const deleteExistingItinerary = (confirmationNum, email) => async dispatc
         console.log(res.err);
     }
 };
-*/

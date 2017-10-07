@@ -15,19 +15,19 @@ class ExcaliburPhotoModal extends Component {
                     <div>
                         <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                             <div>
-                                <img alt="excaliburView" src="https://static.pexels.com/photos/53577/hotel-architectural-tourism-travel-53577.jpeg" />
+                                <img alt="excaliburView" src="https://i.imgur.com/yiLu7Pc.jpg" />
                                 <p className="legend">Hallway</p>
                             </div>
                             <div>
-                                <img alt="excaliburView" src="https://static.pexels.com/photos/462331/pexels-photo-462331.jpeg" />
+                                <img alt="excaliburView" src="https://i.imgur.com/Fr9aLUn.jpg" />
                                 <p className="legend">City view</p>
                             </div>
                             <div>
-                                <img alt="excaliburFamilyRoom" src="https://static.pexels.com/photos/460537/pexels-photo-460537.jpeg" />
+                                <img alt="excaliburFamilyRoom" src="https://i.imgur.com/zDv19Vr.jpg" />
                                 <p className="legend">Family room</p>
                             </div>
                             <div>
-                                <img alt="excaliburBathroom" src="https://static.pexels.com/photos/342800/pexels-photo-342800.jpeg" />
+                                <img alt="excaliburBathroom" src="https://i.imgur.com/SYGKtBc.jpg" />
                                 <p className="legend">Bathroom</p>
                             </div>
                         </Carousel>

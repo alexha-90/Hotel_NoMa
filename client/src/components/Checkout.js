@@ -34,8 +34,11 @@ class Checkout extends Component {
 
 
     componentWillMount() {
-        window.scrollTo(0, 0);
+        if (!this.props.itinerary.numNights || !this.props.itinerary.exitDate) {
+            throw new Error("Hmm... it appears something went wrong. Please restart your booking. Sorry for the inconvenience.")
+        }
 
+        window.scrollTo(0, 0);
         // associate a price with room type selected in previous results page.
         this.setState({ roomCost: loadRoomPrice(this.props.itinerary, this.props.pricing, this.state.roomCost) });
     }

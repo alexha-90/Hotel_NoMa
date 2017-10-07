@@ -15,19 +15,19 @@ class ThriftyPhotoModal extends Component {
                     <div>
                         <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                             <div>
-                                <img alt="expressBed" src="https://images.pexels.com/photos/189293/pexels-photo-189293.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />
+                                <img alt="expressBed" src="https://i.imgur.com/B5NCCYV.jpg" />
                                 <p className="legend">Bed arrangement</p>
                             </div>
                             <div>
-                                <img alt="expressRoomLayout" src="https://images.unsplash.com/photo-1453967854176-7e6e8270b0b8?dpr=1&auto=compress,format&fit=crop&w=1650&h=&q=80&cs=tinysrgb&crop=" />
+                                <img alt="expressRoomLayout" src="https://i.imgur.com/qqwTTt6.jpg" />
                                 <p className="legend">Room layout</p>
                             </div>
                             <div>
-                                <img alt="expressHallway" src="https://static.pexels.com/photos/154143/pexels-photo-154143.jpeg" />
+                                <img alt="expressHallway" src="https://i.imgur.com/wrLkvHx.jpg" />
                                 <p className="legend">Hallway</p>
                             </div>
                             <div>
-                                <img alt="expressBatroom" src="https://images.unsplash.com/photo-1414452110837-9dab484a417d?dpr=1&auto=compress,format&fit=crop&w=1655&h=&q=80&cs=tinysrgb&crop=" />
+                                <img alt="expressBatroom" src="https://i.imgur.com/wrLkvHx.jpg" />
                                 <p className="legend">Bathroom</p>
                             </div>
                         </Carousel>

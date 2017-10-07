@@ -15,19 +15,19 @@ class StandardPhotoModal extends Component {
                     <div>
                         <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                             <div>
-                                <img alt="standardBed" src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />
+                                <img alt="standardBed" src="https://i.imgur.com/6Rw90rg.jpg" />
                                 <p className="legend">Bed arrangement</p>
                             </div>
                             <div>
-                                <img alt="standardRoom" src="https://static.pexels.com/photos/271619/pexels-photo-271619.jpeg" />
+                                <img alt="standardRoom" src="https://i.imgur.com/2s42qzN.jpg" />
                                 <p className="legend">Room layout</p>
                             </div>
                             <div>
-                                <img alt="standardLivingArea" src="https://static.pexels.com/photos/271624/pexels-photo-271624.jpeg" />
+                                <img alt="standardLivingArea" src="https://i.imgur.com/zQvhotf.jpg" />
                                 <p className="legend">Living area</p>
                             </div>
                             <div>
-                                <img alt="standardBathroom" src="https://static.pexels.com/photos/262005/pexels-photo-262005.jpeg" />
+                                <img alt="standardBathroom" src="https://i.imgur.com/7txbfGG.jpg" />
                                 <p className="legend">Bathroom</p>
                             </div>
                         </Carousel>

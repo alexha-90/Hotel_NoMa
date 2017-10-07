@@ -15,19 +15,19 @@ class MardiGrasPhotoModal extends Component {
                     <div>
                         <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                             <div>
-                                <img alt="mardiLivingArea" src="https://cdn.pixabay.com/photo/2016/11/14/02/29/apartment-1822410_960_720.jpg" />
+                                <img alt="mardiLivingArea" src="https://i.imgur.com/2bh5ZWF.jpg" />
                                 <p className="legend">Bed arrangement</p>
                             </div>
                             <div>
-                                <img alt="mardiLivingArea" src="https://static.pexels.com/photos/237371/pexels-photo-237371.jpeg" />
+                                <img alt="mardiLivingArea" src="https://i.imgur.com/aWXFvRA.jpg" />
                                 <p className="legend">Living area</p>
                             </div>
                             <div>
-                                <img alt="mardiFamilyArea" src="https://static.pexels.com/photos/276551/pexels-photo-276551.jpeg" />
+                                <img alt="mardiFamilyArea" src="https://i.imgur.com/wA2vSay.jpg" />
                                 <p className="legend">Family Area</p>
                             </div>
                             <div>
-                                <img alt="mardiBathroom" src="https://static.pexels.com/photos/280209/pexels-photo-280209.jpeg" />
+                                <img alt="mardiBathroom" src="https://i.imgur.com/foraGYw.jpg" />
                                 <p className="legend">Bathroom</p>
                             </div>
                         </Carousel>

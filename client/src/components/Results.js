@@ -5,8 +5,8 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 
-import ExcaliburPhotoModal from './subcomponents/results/ExcaliburModal';
-import MardiGrasPhotoModal from './subcomponents/results/MardiGrasModal';
+import ExcaliburPhotoModal from './subcomponents/results/ExcaliburPhotoModal';
+import MardiGrasPhotoModal from './subcomponents/results/MardiGrasPhotoModal';
 import SanctuaryPhotoModal from './subcomponents/results/SanctuaryPhotoModal';
 import StandardPhotoModal from './subcomponents/results/StandardPhotoModal';
 import ThriftyPhotoModal from './subcomponents/results/ThriftyPhotoModal';
@@ -24,8 +24,7 @@ import { standardRooms } from './subcomponents/results/StandardRooms';
 import { thriftyRooms } from './subcomponents/results/ThriftyRooms';
 
 
-// Cluttered page but there is a lot of information to display. Want to make this modular and easy to adjust.
-
+// imgur photo links: https://imgur.com/a/wwfXK, https://imgur.com/a/oNr4d, https://imgur.com/a/roguQ
 //===============================================================================================//
 
 // maybe remove props from constructor
@@ -132,7 +131,7 @@ class ListResults extends Component {
                         <Row>
                             <Col id="thumbResult" sm={4} md={4}>
                                 <div className="thumbPhoto">
-                                    <img alt="excaliburPreview" onClick={()=>this.setState({ excaliburShow: true })} src="https://static.pexels.com/photos/53577/hotel-architectural-tourism-travel-53577.jpeg" />
+                                    <img alt="excaliburPreview" onClick={()=>this.setState({ excaliburShow: true })} src="https://i.imgur.com/yiLu7Pc.jpg" />
                                     <ExcaliburPhotoModal show={this.state.excaliburShow} onHide={()=>this.setState({ excaliburShow: false })} />
                                 </div>
                             </Col>
@@ -160,7 +159,7 @@ class ListResults extends Component {
                         <Row>
                             <Col id="thumbResult" sm={4} md={4}>
                                 <div className="thumbPhoto">
-                                    <img alt="mardiGrasPreview" onClick={()=>this.setState({ mardiGrasShow: true })} src="https://cdn.pixabay.com/photo/2016/11/14/02/29/apartment-1822410_960_720.jpg" />
+                                    <img alt="mardiGrasPreview" onClick={()=>this.setState({ mardiGrasShow: true })} src="https://i.imgur.com/2bh5ZWF.jpg" />
                                     <MardiGrasPhotoModal show={this.state.mardiGrasShow} onHide={()=>this.setState({ mardiGrasShow: false })} />
                                 </div>
                             </Col>
@@ -193,7 +192,7 @@ class ListResults extends Component {
                         <Row>
                             <Col id="thumbResult" sm={4} md={4}>
                                 <div className="thumbPhoto">
-                                    <img alt="sanctuaryPreview" onClick={()=>this.setState({ sanctuaryShow: true })} src="https://static.pexels.com/photos/164595/pexels-photo-164595.jpeg" />
+                                    <img alt="sanctuaryPreview" onClick={()=>this.setState({ sanctuaryShow: true })} src="https://i.imgur.com/5RUIngv.jpg" />
                                     <SanctuaryPhotoModal show={this.state.sanctuaryShow} onHide={()=>this.setState({ sanctuaryShow: false })} />
                                 </div>
                             </Col>
@@ -221,7 +220,7 @@ class ListResults extends Component {
                         <Row>
                             <Col id="thumbResult" sm={4} md={4}>
                                 <div className="thumbPhoto">
-                                    <img alt="sanctuaryPreview" onClick={()=>this.setState({ standardShow: true })} src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />
+                                    <img alt="sanctuaryPreview" onClick={()=>this.setState({ standardShow: true })} src="https://i.imgur.com/6Rw90rg.jpg" />
                                     <StandardPhotoModal show={this.state.standardShow} onHide={()=>this.setState({ standardShow: false })} />
                                 </div>
                             </Col>
@@ -253,7 +252,7 @@ class ListResults extends Component {
                         <Row>
                             <Col id="thumbResult" sm={4} md={4}>
                                 <div className="thumbPhoto">
-                                    <img alt="sanctuaryPreview" onClick={()=>this.setState({ thriftyShow: true })} src="https://images.pexels.com/photos/189293/pexels-photo-189293.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />
+                                    <img alt="sanctuaryPreview" onClick={()=>this.setState({ thriftyShow: true })} src="https://i.imgur.com/B5NCCYV.jpg" />
                                     <ThriftyPhotoModal show={this.state.thriftyShow} onHide={()=>this.setState({ thriftyShow: false })} />
                                 </div>
                             </Col>

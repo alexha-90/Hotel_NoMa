@@ -15,19 +15,19 @@ class SanctuaryPhotoModal extends Component {
                     <div>
                         <Carousel className="carouselLanding" autoPlay={true} dynamicHeight width={"100%"} useKeyboardArrows={false} showStatus={false} infiniteLoop={true}>
                             <div>
-                                <img alt="sanctuaryBed" src="https://static.pexels.com/photos/164595/pexels-photo-164595.jpeg" />
+                                <img alt="sanctuaryBed" src="https://i.imgur.com/5RUIngv.jpg" />
                                 <p className="legend">Bed arrangement area</p>
                             </div>
                             <div>
-                                <img alt="sanctuaryLivingArea" src="https://static.pexels.com/photos/189333/pexels-photo-189333.jpeg" />
+                                <img alt="sanctuaryLivingArea" src="https://i.imgur.com/kkNpxln.jpg" />
                                 <p className="legend">Living area</p>
                             </div>
                             <div>
-                                <img alt="sanctuaryGift" src="https://static.pexels.com/photos/67723/pexels-photo-67723.jpeg" />
+                                <img alt="sanctuaryGift" src="https://i.imgur.com/EeOj3X7.jpg" />
                                 <p className="legend">Gift towels</p>
                             </div>
                             <div>
-                                <img alt="sanctuaryBathroom" src="https://static.pexels.com/photos/271631/pexels-photo-271631.jpeg" />
+                                <img alt="sanctuaryBathroom" src="https://i.imgur.com/Drnza7e.jpg" />
                                 <p className="legend">Bathroom</p>
                             </div>
                         </Carousel>

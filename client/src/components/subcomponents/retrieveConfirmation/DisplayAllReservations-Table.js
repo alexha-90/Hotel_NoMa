@@ -78,14 +78,11 @@ export function listAllItinerariesTable(itinerary) {
                 <td>Shuttle Ride</td>
                 <td>{ itinerary.addons.shuttleRide.toString() }</td>
             </tr>
-            </tbody>
-        </Table>
-    );
-}
-
-/*
             <tr>
                 <td>Luggage Hold</td>
                 <td>{ itinerary.addons.luggageHold.toString() }</td>
             </tr>
- */
+            </tbody>
+        </Table>
+    );
+}

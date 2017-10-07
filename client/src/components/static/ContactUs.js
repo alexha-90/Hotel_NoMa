@@ -29,8 +29,8 @@ class ContactUs extends Component {
 
 
     handleSubmit() {
-        if (this.state.message.length < 40) {
-            return alert('Please make sure your message is at least 40 characters long.')
+        if (this.state.message.length < 20) {
+            return alert('Please make sure your message is at least 20 characters long.')
         }
 
         if (this.state.email.length < 5) {
@@ -41,9 +41,6 @@ class ContactUs extends Component {
 
         let formData = [this.state.message, this.state.email];
         this.props.dispatch(sendContactUsEmail(formData));
-        setTimeout(() => {
-            alert('Your message has been sent!');
-        }, 1500);
     }
 
 

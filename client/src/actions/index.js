@@ -59,6 +59,8 @@ export const sendContactUsEmail = (formData) => async dispatch => {
             })
         );
         await store.dispatch({ type: "RESULTS_TO_REDUX_STORE", payload: res.data[0] });
+        await alert('Your message has been sent!');
+        await window.location.reload();
     } catch(res) {
         console.log(res.err);
     }

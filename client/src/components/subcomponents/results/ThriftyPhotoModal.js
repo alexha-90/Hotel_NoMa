@@ -23,7 +23,7 @@ class ThriftyPhotoModal extends Component {
                                 <p className="legend">Room layout</p>
                             </div>
                             <div>
-                                <img alt="expressHallway" src="https://i.imgur.com/wrLkvHx.jpg" />
+                                <img alt="expressHallway" src="https://i.imgur.com/E1ipL8n.jpg" />
                                 <p className="legend">Hallway</p>
                             </div>
                             <div>

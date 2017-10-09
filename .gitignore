@@ -3,9 +3,4 @@ node_modules
 .idea
 
 #keys
-/config
-keys.js
 dev.js
-prod.js
-itinerary-get.js
-itinerary-delete.js

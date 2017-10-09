@@ -26,9 +26,5 @@ yarn-error.log*
 
 
 # personal note docs
-/src/assets
-tempkeys.js
 .gitignore
-users.js
-handleAddonChange.js
-totalCost.js
+notesANDlimitations.txt

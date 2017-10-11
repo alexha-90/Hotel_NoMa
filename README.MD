@@ -1,8 +1,8 @@
 # &#9733; Hotel NoMa - San Francisco &#9733;
 
 Hotel NoMa is a fictitious hotel based in San Francisco, CA. The client-side of this project is built 
-using a Single Page Application (SPA) model and incorporates most traditional features of a typical hotel website. 
-The server-side incorporates a RESTful API architecture to manipulate a database where 
+using a Single Page Application (SPA) model and incorporates core functionalities found on traditional hotel websites. 
+The server-side of this application follows a RESTful API architecture to manipulate a database where 
 itineraries are stored. Payments are handled externally through a third-party API.
 
 # Live demo
@@ -81,56 +81,55 @@ version of the message you submitted will be sent to the email address you provi
 to add a customer service management system like Zendesk.  
 
 <a name="highlights"></a>
-### Application highlights
+## Application highlights
 * All pricing is referenced from and handled in a single pricing.js file
 * All dates and times are defined using Moment.js and relative to the hotel's location (California)
 * Limited booking dates. An itinerary cannot start before or end two months out from the current date 
 * Generated confirmation number is arranged in a strategic manner that helps quickly identify itinerary details
-* Redux store updates dynamically and dispatches all booking information at once to the backend upon payment submission
-* RESTful architecture for querying the database
+* Redux store updates dynamically and dispatches all itinerary information to the backend at once upon payment submission
+* RESTful server-side architecture for querying the database
 
 <a name="limitationsAndShortcomings"></a>
-### Application limitations and shortcomings
-* Responsive resizing could be vastly improved. There are currently a fair amount of buggy display elements for smaller window sizes
+## Application limitations and shortcomings
+* Responsive resizing needs improvement. Currently a fair amount of buggy display elements for smaller window sizes
 * Cannot update an existing itinerary. Must cancel and rebook instead.
-* No inventory management for guest rooms. Any room can be booked an unlimited amount of times for any valid dates
-* Refunds are not processed automatically upon cancellation. Must be issued manually via Stripe. 
-* Itinerary is removed from database entirely upon user delete action. Might make more sense to update most itinerary values to null instead for record-keeping. 
+* No inventory management for guest rooms. Any room can be booked an unlimited amount of times
+* Refunds are not processed automatically upon cancellation. Must be issued manually via Stripe
+* Itinerary is entirely removed from database upon user delete action. More logical to update most values to null instead for record-keeping 
 * Make use of the cancelBy variable that is currently associated with each itinerary
-* Filter guest room options based on number of guests selected
 * CSS file structure could be improved by using a pre-processor like Sass
 * Weather graphic and temperature on landing page is static. Does not call an API for current weather
-* No login feature for users and management alike
 * Improve aesthetics
 
 <a name="potentialFeatures"></a>
-### Potential features
+## Potential features
 * Limit max stay to 30 calendar days
 * Update the current itinerary via a dropdown menu instead of repeating selection process
 * Book a reservation for someone other than the person submitting payment
-* Dynamic pricing that fluctuates based on dates of stay
-* Specify amount of people to purchase Breakfast and Shuttle Ride addons for. Currently must be the whole party.
+* Specify amount of people to purchase Breakfast and Shuttle Ride addons for. Currently must be the whole party
+* Filter guest room options based on number of guests selected
 * Replace alert messages with more pleasant prompts
 * Choose particular room based on dynamic availability
+* Dynamic pricing that fluctuates based on dates of stay
+* Add account registration feature for customers and management
 
 <a name="screenshots"></a>
-### Screenshots
-<img align="middle" alt='homepage' height='500' src='https://i.imgur.com/XkHJO48.png' />
+## Screenshots
+<img align="middle" alt='homepage' width='430' src='https://i.imgur.com/XkHJO48.png' />
 
-<img align="middle" alt='results' height='500' src='https://i.imgur.com/zW7tVNi.png' />
+<img align="middle" alt='results' width='430' src='https://i.imgur.com/zW7tVNi.png' />
 
-<img align="middle" alt='checkout' height='500' src='https://i.imgur.com/Wj0Uoqp.png' />
+<img align="middle" alt='checkout' width='430' src='https://i.imgur.com/Wj0Uoqp.png' />
 
-<img align="middle" alt='confirmation' height='500' src='https://i.imgur.com/dh92Nst.png' />
+<img align="middle" alt='confirmation' width='430' src='https://i.imgur.com/dh92Nst.png' />
 
-<img align="middle" alt='confirmationEmail' height='500' src='https://i.imgur.com/YRUzXOU.png' />
+<img align="middle" alt='confirmationEmail' width='430' src='https://i.imgur.com/YRUzXOU.png' />
 
-<img align="middle" alt='stripeDashboard' height='500' src='https://i.imgur.com/7xG8lWI.png' />
+<img align="middle" alt='stripeDashboard' width='430' src='https://i.imgur.com/7xG8lWI.png' />
 
 
 <a name="license"></a>
 ## License
-
  * Copyright (C) 2017 Alex Ha
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,

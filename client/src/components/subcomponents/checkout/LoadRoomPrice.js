@@ -52,6 +52,8 @@ export function loadRoomPrice(itinerary, pricing, roomCost) {
 
         default: {
             //console.log('Placeholder for throw error. If removed, unable to access this page directly');
+            // redundancy to show error in production environment
+            alert("We did not receive a room type for your trip. Please return to the homepage and start a new search");
             throw new Error("We did not receive a room type for your trip. Please return to the homepage and start a new search");
         }
     }

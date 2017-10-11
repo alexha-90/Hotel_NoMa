@@ -8,6 +8,8 @@ class DisplayReservation extends Component {
 
     componentWillMount() {
         if (!this.props.itinerary.confirmationNumber) {
+            // redundancy to show error in production environment
+            alert("You attempted to retrieve an itinerary before entering a reservation number. Please retrace your steps!");
             throw new Error("You attempted to retrieve an itinerary before entering a reservation number. Please retrace your steps!");
         }
         window.scrollTo(0, 0);

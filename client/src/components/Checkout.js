@@ -35,6 +35,8 @@ class Checkout extends Component {
 
     componentWillMount() {
         if (!this.props.itinerary.numNights || !this.props.itinerary.exitDate) {
+            // redundancy to show error in production environment
+            alert("Hmm... it appears something went wrong. Please restart your booking. Sorry for the inconvenience.");
             throw new Error("Hmm... it appears something went wrong. Please restart your booking. Sorry for the inconvenience.")
         }
 

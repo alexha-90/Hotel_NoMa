@@ -6,16 +6,11 @@ import { connect } from 'react-redux';
 import axios from 'axios'
 import moment from 'moment';
 
-//import { Redirect} from 'react-router';
-// refactor to make action here and updating in reducer.
 // ******** very helpful guide: https://www.robinwieruch.de/react-express-stripe-payment/
 // to-do: maybe add description back into stripe
-// to-do: get customer phoen number
-//to-do: let stringVar = this.props. if equal to moment().utc420 today, then set stringVar = ''
-//to-do: want to set this up as an async/dispatch. Catch is firing upon success instead of failure
+// to-do: get customer phone number
 
 // this component handles submitting the payment to backend and dispatching action for posting itinerary to db. Found it simpler to batch these actions here
-
 //===============================================================================================//
 
 class CheckoutButton extends Component {
@@ -30,6 +25,7 @@ class CheckoutButton extends Component {
         console.log('token is:');
         console.log(token);
         console.log(token.id);
+
         // fetch time of payment submission in PST
         const bookTime = moment().utcOffset(-420).format("MM/DD/YYYY") + ' @ ' + moment().utcOffset(-420).format('hh:mm a') + ' (PST)';
 

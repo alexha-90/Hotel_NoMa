@@ -392,6 +392,11 @@ hr {
   background: #ffff1a;
 }
 
+#fakeCCText {
+  color: red;
+}
+
+
 /*============== Retrieve/Display Reservation Pages CSS ==============*/
 
 #getButton {

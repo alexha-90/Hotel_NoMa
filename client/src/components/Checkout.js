@@ -226,10 +226,11 @@ class Checkout extends Component {
                     {/* Imported component: entire table output */}
                 </div>
                 <div id="checkoutButton">
-                    <h5>Note: for testing please use credit card
+                    <h3 id="fakeCCText">
+                        Note: for testing please use credit card
                         <br/>
                         #4242424242424242. Exp 4/22. CVC 222
-                    </h5>
+                    </h3>
                     {/* Imported component: Stripe billing */}
                     <CheckoutButton />
                     {/* Imported component: Stripe billing */}

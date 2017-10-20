@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'react-day-picker/lib/style.css';
 import moment from 'moment';
-import { Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
+import { Jumbotron, Button } from 'react-bootstrap';
 
 
 import InputCalendar from './subcomponents/landing/InputCalendar';
@@ -18,61 +18,49 @@ import { inputAdults } from './subcomponents/landing/InputAdults';
 
 class Landing extends Component {
 
+    componentWillMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleNumAdultChange(event) {
         let inputNumAdults = event.target.value;
         this.props.dispatch(updateNumAdults(inputNumAdults));
     }
 
 
-
     render () {
+        alert('Note 10/20/17: working on making the pages more responsive. Please excuse any strange display behavior today.');
+
         return (
-            <div className="fullImageLanding">
+            <div className="landingContainer">
 
-                <Grid style={{ width: '100%'}}>
-                    <Row>
-                        <Col sm={12} md={12}>
-                            <img id="splashImageLanding" alt="backgroundSplash" src="https://static.pexels.com/photos/61111/pexels-photo-61111.jpeg" />
+                <img id="splashImageLanding" alt="backgroundSplash" src="https://static.pexels.com/photos/61111/pexels-photo-61111.jpeg" />
 
-                            <div className="landingMainContainer">
+                <div className="centerWelcomeAndCalendar">
+                    <h1>Welcome to Hotel NoMa</h1>
+                    <h4>A premier hotel in the heart of Downtown San Francisco, CA</h4>
 
-                                <div className="centerWelcome">
-                                    <h1>Welcome to Hotel NoMa</h1>
-                                    <h4>A premier hotel in the heart of Downtown San Francisco, CA</h4>
-                                </div>
+                    <div id="calendarPicker">
+                        {/* Imported component - dynamic calendar */}
+                        <InputCalendar />
+                        {/* Imported component - dynamic calendar*/}
 
+                        {/* Imported component - adult guests input & submit button */}
+                        {inputAdults(this.props, this.handleNumAdultChange.bind(this))}
+                        {/* Imported component - adult guests input & submit button */}
+                    </div>
+                </div>
 
-                                <Grid>
-                                    <Row>
-                                        <Col sm={12} md={12}>
-                                            <div className="calendarPicker">
-
-                                                {/* Imported component - dynamic calendar */}
-                                                <InputCalendar />
-                                                {/* Imported component - dynamic calendar*/}
-
-
-                                                {/* Imported component - adult guests input & submit button */}
-                                                {inputAdults(this.props, this.handleNumAdultChange.bind(this))}
-                                                {/* Imported component - adult guests input & submit button */}
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </Grid>
-                            </div>
-                        </Col>
-                    </Row>
-                </Grid>
-
-                <div id="weatherAndTimeBannerContainer">
+                <div className="weatherAndTimeBannerContainer">
                     <h1>
                         Local conditions in San Francisco, CA
                     </h1>
                     <h2>
-                        {/* weather is static at the moment */}
+                        {/* weather is static for right now */}
                         Time: {moment().utcOffset(-420).format('hh:mm a')} Weather: 68°F <img src="https://png.icons8.com/partly-cloudy-day/office/50" title="Partly Cloudy Day" alt="cloudWeather"/>
                     </h2>
                 </div>
+
                 <div className="jumbotronContainer">
                     <div>
                         <Jumbotron style={{ marginBottom: '0' }}>
@@ -82,66 +70,64 @@ class Landing extends Component {
                                 San Francisco's historic Market Street. Fantastic restaurants are plentiful and only short walks away.
                                 Public transportation via BART and MUNI are very accessible.
                             </h4>
+                            <br />
                             <div className="learnMoreButton">
                                 <Link to="/amenities"><Button bsStyle="primary">Learn more</Button></Link>
                             </div>
-                            <br />
                         </Jumbotron>
                     </div>
                 </div>
 
-                <div id="carouselLanding">
+                <div className="carouselContainer">
+                    <div id="carouselLanding">
                     {/* Imported component - large image carousel */}
                     <LandingCarousel />
                     {/* Imported component - large image carousel */}
+                    </div>
                 </div>
-
 
 
                 <div id="threeBlurbsContainer">
 
-                    <div className="threeBlurbs">
-                        <div className="blurbHeader">
-                            <h2>Make your experience extraordinary.</h2>
-                        </div>
-                        <div id="reduceBlurbs">
-                            <Grid>
-                                <Row>
-                                    <Col sm={4} md={4}>
-                                        <div className="blurbBG1">
-                                            <h3>Breakfast</h3>
-                                            <p>Start your morning right with a delicious bite in our downstairs lobby. We have exquisite chefs that prepare fresh, quality breakfasts every morning. Meals can be brought up to your room and even delivered upon request!</p>
-                                            <br />
-                                            <img src="https://png.icons8.com/toaster/color/70" alt="breakfast" title="Toaster" />
-                                        </div>
-                                    </Col>
-                                    <Col sm={4} md={4}>
-                                        <div className="blurbBG2">
-                                            <h3>SFO Shuttle</h3>
-                                            <p>Simplify your travel experience by taking our shuttle directly from the San Francisco Airport to our hotel. We operate on a bi-hourly schedule and our courteous staff will always arrive early and be ready to handle your luggage.</p>
-                                            <br />
-                                            <img src="https://png.icons8.com/shuttle/color/70" alt="shuttleRide" title="Shuttle" />
-                                        </div>
-                                    </Col>
-                                    <Col sm={4} md={4}>
-                                        <div className="blurbBG1">
-                                            <h3>Late Checkout</h3>
-                                            <p>Late risers, busy morning people, and delayed flights victims rejoice. We offer a 2pm checkout for those that need their room longer than most. Our maids will not visit your room until after the allotted time has passed.</p>
-                                            <br />
-                                            <img src="https://png.icons8.com/lamp/color/70" alt="lateCheckout" title="Lamp" />
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </Grid>
-                        </div>
-                        <br />
+                    <h2 id="blurbHeader">Make your experience extraordinary</h2>
+                    <br />
 
+                    <div className="threeBlurbs">
+                        <div id="leftBlurb">
+                            <div className="blurbBG1">
+                                <h3>Breakfast</h3>
+                                <p>Start your morning right with a delicious bite in our downstairs lobby. We have exquisite chefs that prepare fresh, quality breakfasts every morning. Meals can be brought up to your room and even delivered upon request!</p>
+                                <br />
+                                <img src="https://png.icons8.com/toaster/color/70" alt="breakfast" title="Toaster" />
+                            </div>
+                        </div>
+                        <div id="middleBlurb">
+                            <div className="blurbBG2">
+                                <h3>SFO Shuttle</h3>
+                                <p>Simplify your travel experience by taking our shuttle directly from the San Francisco Airport to our hotel. We operate on a bi-hourly schedule and our courteous staff will always arrive early and be ready to handle your luggage.</p>
+                                <br />
+                                <img src="https://png.icons8.com/shuttle/color/70" alt="shuttleRide" title="Shuttle" />
+                            </div>
+                        </div>
+                        <div id="rightBlurb">
+                            <div className="blurbBG1">
+                                <h3>Late Checkout</h3>
+                                <p>Late risers, busy morning people, and delayed flights victims rejoice. We offer a 2pm checkout for those that need their room longer than most. Our maids will not visit your room until after the allotted time has passed.</p>
+                                <br />
+                                <img src="https://png.icons8.com/lamp/color/70" alt="lateCheckout" title="Lamp" />
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         );
     }
 }
+
+
+
+
 
 function mapStateToProps(state) {
     return {

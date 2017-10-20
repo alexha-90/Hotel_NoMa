@@ -1,12 +1,21 @@
 # &#9733; Hotel NoMa - San Francisco &#9733;
 
 Hotel NoMa is a fictitious hotel based in San Francisco, CA. The client-side of this project is built 
-using a Single Page Application (SPA) model and incorporates core functionalities found on traditional hotel websites. 
+using a Single Page Application (SPA) model and incorporates most core functionalities found on traditional hotel websites. 
 The server-side of this application follows a RESTful API architecture to manipulate a database where 
 itineraries are stored. Payments are handled externally through a third-party API.
 
 # Live demo
-<https://hotel-noma.herokuapp.com/> (note: CSS is currently not optimized for handheld devices)
+<https://hotel-noma.herokuapp.com> (note: CSS is currently not optimized for handheld devices)
+
+# Why this project
+Many fortnights ago, I needed a hotel room for an out-of-town visit 
+and spent way too much time shopping for an accommodation that optimized
+pricing and location. Silly or not, my short-lived obsession encouraged me to dive deeper into the 
+hotel reservation process. I soon realized that making my own hotel
+website would be a great project for me to apply my knowledge and learn
+from. I scribbled down a storyboard, added to the project piece by piece,
+and here it is now... mostly complete but fully functional! 
 
 # Table of contents
 * [Built with](#builtWith)
@@ -75,9 +84,9 @@ of the page.
 <a name="contact"></a>
 <h5>Contact management:</h5>
 This feature is intended for users that have questions, comments, or suggestions for management.
-The 'Contact Us' link is automatically rendered on each webpage's footer element. Once on this page, fill out the
+The 'Contact Us' link is automatically rendered on each webpage's footer component. Once on this page, fill out the
 form and click the 'Submit!' button to send your message to management and the database. For demonstration purposes, a staff 
-version of the message you submitted will be sent to the email address you provided. In a real application, it may be wise
+version of the message you just submitted will be sent to the email address you provided. In a real application, it may be wise
 to add a customer service management system like Zendesk.  
 
 <a name="highlights"></a>
@@ -91,13 +100,12 @@ to add a customer service management system like Zendesk.
 
 <a name="limitationsAndShortcomings"></a>
 ## Application limitations and shortcomings
-* Responsive resizing needs improvement. Currently a fair amount of buggy display elements for smaller window sizes
+* Responsive resizing needs improvement. Currently a fair amount of buggy elements for smaller window sizes
 * Cannot update an existing itinerary. Must cancel and rebook instead.
 * No inventory management for guest rooms. Any room can be booked an unlimited amount of times
 * Refunds are not processed automatically upon cancellation. Must be issued manually via Stripe
-* Itinerary is entirely removed from database upon user delete action. More logical to update most values to null instead for record-keeping 
-* Make use of the cancelBy variable that is currently associated with each itinerary
-* CSS file structure could be improved by using a pre-processor like Sass
+* Itinerary is entirely removed from database upon user delete action. More logical to update most object values to null instead for record-keeping 
+* CSS organization could be improved
 * Weather graphic and temperature on landing page is static. Does not call an API for current weather
 * Improve aesthetics
 
@@ -108,10 +116,11 @@ to add a customer service management system like Zendesk.
 * Book a reservation for someone other than the person submitting payment
 * Specify amount of people to purchase Breakfast and Shuttle Ride addons for. Currently must be the whole party
 * Filter guest room options based on number of guests selected
+* Make use of the cancelBy variable that is currently associated with each itinerary
+* Obtain customer phone number during Stripe checkout
 * Replace alert messages with more pleasant prompts
-* Choose particular room based on dynamic availability
 * Dynamic pricing that fluctuates based on dates of stay
-* Add account registration feature for customers and management
+* Account registration for both customers and management
 
 <a name="screenshots"></a>
 ## Screenshots

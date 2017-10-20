@@ -32,7 +32,7 @@ import BlankPageTemplate from './components/static/Page2';
 class App extends Component {
   render() {
         return (
-          <div className="container">
+          <div>
               <BrowserRouter>
                   <div>
 

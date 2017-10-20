@@ -1,19 +1,21 @@
 
 /*============== Global CSS ==============*/
 /*   background-image: url("http://images.all-free-download.com/images/graphicthumb/linen_fabric_background_01_hd_picture_169828.jpg");
-*/
+
 html {
-  height: 100%;
   box-sizing: border-box;
 }
+*/
 
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 
 body {
-  position: relative;
-  margin: 0;
-  min-height: 100%;
   font-family: 'Pontano Sans', sans-serif;
-  background-color: white;
+  background-color: #f2f2f2;
   overflow-x: hidden;
 }
 
@@ -31,14 +33,307 @@ hr {
   padding: 0;
 }
 
+/* bring back later
 .container {
-  width: 80%;
+  width: 100%;
   padding-left: 0;
   padding-right: 0;
   margin-top: 35px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
+}
+
+
+
+*/
+
+/*============== Landing Page CSS ==============*/
+
+
+#welcomeMsg {
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.landingContainer {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+#splashImageLanding {
+  display: block;
+  width: 100%;
+  height: 90vh;
+  opacity: 0.8;
+}
+
+
+.centerWelcomeAndCalendar {
+  position: absolute;
+  margin-top: -725px;
+  width: 100%;
+  text-align: center;
+}
+
+.centerWelcomeAndCalendar h1 {
+  color: #f2f2f2;
+  font-size: 50px;
+  letter-spacing: 0.1em;
+}
+
+
+.centerWelcomeAndCalendar h4 {
+  color: #4d4d33;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#calendarPicker {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+}
+
+.calendar {
+  background-color: #e0e0d2;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border: 5px solid #3c3c2a;
+}
+
+#calendarTopText {
+  margin-top: 10px;
+  color: #4d4d33;
+  text-decoration: underline;
+}
+
+.weatherAndTimeBannerContainer {
+  background-color: #CFCFCF;
+  text-align: center;
+  height: 200px;
+  width: 100%;
+}
+
+.weatherAndTimeBannerContainer h1 {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto 0 auto;
+  padding-top: 30px;
+  font-size: 40px;
+  letter-spacing: 0.15em;
+}
+
+.weatherAndTimeBannerContainer h2 {
+  margin-top: 0;
+  padding-top: 30px;
+  font-size: 30px;
+  letter-spacing: 0.15em;
+  color: #4d4d33;
+}
+
+.jumbotronContainer {
+  background-color: #f2f2f2;
+  text-align: center;
+  width: 100%;
+}
+
+.jumbotronContainer  h2 {
+  margin-top: -5px;
+  color: #664400;
+  letter-spacing: 0.05em;
+}
+
+.jumbotronContainer  h4 {
+  color: #996600;
+  display: block;
+  margin: 0 auto;
+  width: 65%;
+}
+
+.jumbotronContainer Button {
+  width: 300px;
+  background-color: #d3a178;
+  border-color: #6b4c33;
+}
+
+.jumbotronContainer Button:hover {
+  width: 300px;
+  background-color: #a88263;
+}
+
+.carouselContainer {
+  width: 100%;
+  background-color: #262626;
+}
+
+#carouselLanding {
+  display: block;
+  margin: 0 auto 5px auto;
+  width: 80%;
+  text-align: center;
+}
+
+
+#blurbHeader {
+  text-align: center;
+  padding: 18px 0;
+  font-size: 30px;
+  color: #404040;
+  letter-spacing: 0.05em;
+}
+
+.threeBlurbs {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+#leftBlurb {
+  display: inline-block;
+  width: 26%;
+  margin: 0 4% 0 7%;
+}
+
+#middleBlurb {
+  display: inline-block;
+  width: 26%;
+}
+
+#rightBlurb {
+  display: inline-block;
+  width: 26%;
+  margin: 0 7% 0 4%;
+}
+
+.threeBlurbs h3 {
+  font-size: 175%;
+  text-decoration: underline;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+.threeBlurbs p {
+  font-size: 125%;
+}
+
+.threeBlurbs img {
+  height: 75px;
+  display: block;
+  margin: auto auto;
+}
+
+
+.blurbBG1 {
+  display: block;
+  height: 350px;
+  padding: 0 30px 30px 30px;
+  border: 2px solid #696949;
+  border-radius: 10px;
+  background-color: #e6e6e6;
+}
+
+.blurbBG2 {
+  display: block;
+  height: 350px;
+  padding: 0 30px 30px 30px;
+  border: 2px solid #696949;
+  border-radius: 10px;
+  background-color: #cc9966;
+}
+
+@media (max-width: 1100px) {
+  #calendarPicker {
+    width: 55%;
+  }
+}
+
+@media (max-width: 810px) {
+  #calendarPicker {
+    width: 70%;
+  }
+
+  #calendarPicker select {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+  }
+}
+
+@media (max-width: 675px) {
+  #calendarPicker {
+    width: 90%;
+  }
+
+
+}
+
+@media (max-width: 500px) {
+  .centerWelcomeAndCalendar {
+    margin-top: -940px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #calendarPicker {
+    width: 75%;
+  }
+
+  #splashImageLanding {
+    height: 1000px;
+  }
+
+  .centerWelcomeAndCalendar h4 {
+    color: #f2f2f2;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+  }
+
+  .weatherAndTimeBannerContainer {
+    height: 350px;
+  }
+
+
+  #leftBlurb {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 95%;
+  }
+
+  #middleBlurb {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 95%;
+  }
+
+  #rightBlurb {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 95%;
+  }
+
+  .threeBlurbs img {
+    margin: -20px auto;
+  }
+
+
+}
+
+
+/*============== Results Page CSS ==============*/
+
+.searchBanner {
+  margin-top: -20px;
+  padding-bottom: 0.1em;
+  text-align: center;
+}
+
+#centeredHeading {
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
 }
 
 #detailWrapper {
@@ -64,210 +359,6 @@ hr {
   text-align: center;
   opacity: 0.8;
 }
-
-/*============== Landing Page CSS ==============*/
-
-
-#welcomeMsg {
-  margin-bottom: 12px;
-  font-weight: bold;
-}
-
-.centerWelcome {
-  text-align: center;
-}
-
-.centerWelcome h1 {
-  color: #f2f2f2;
-  font-size: 50px;
-  letter-spacing: 0.1em;
-}
-
-.centerWelcome h4 {
-  color: #4d4d33;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  margin-bottom: 50px;
-}
-
-.fullImageLanding {
-  margin-left: -13%;
-  margin-right: -13%;
-  background-color: #262626;
-}
-
-.landingMainContainer {
-  position: absolute;
-  display: inline-block;
-  margin: 0 24%;
-  width: 52%;
-  color: #4d4d4d;
-  top: 22%;
-}
-
-.calendarPicker {
-  font-size: 15px;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  background-color: cornflowerblue;
-  height: 100px;
-}
-
-#splashImageLanding {
-  position: relative;
-  margin-top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 100%;
-  opacity: 0.8;
-}
-
-.calendar {
-  background-color: #e0e0d2;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  border: 5px solid #3c3c2a;
-}
-
-#calendarTopText {
-  margin-top: 10px;
-  color: #4d4d33;
-  text-decoration: underline;
-}
-
-#weatherAndTimeBannerContainer {
-  margin-left: 0;
-  margin-right: -13%;
-  background-color: #CFCFCF;
-  text-align: center;
-  height: 200px;
-  width: 100%;
-}
-
-#weatherAndTimeBannerContainer h1 {
-  display: inline-block;
-  width: 100%;
-  margin-top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 30px;
-  font-size: 40px;
-  letter-spacing: 0.15em;
-}
-
-#weatherAndTimeBannerContainer h2 {
-  margin-top: 0;
-  padding-top: 30px;
-  font-size: 30px;
-  letter-spacing: 0.15em;
-  color: #4d4d33;
-}
-
-.jumbotronContainer {
-  margin-left: 0;
-  margin-right: -13%;
-  background-color: #f2f2f2;
-  text-align: center;
-  width: 100%;
-}
-
-.jumbotronContainer  h2 {
-  color: #664400;
-  letter-spacing: 0.05em;
-}
-
-.jumbotronContainer  h4 {
-  color: #996600;
-}
-
-#jumbotronContainer div {
-  display: inline-block;
-  margin: 0 auto;
-  width: 80%;
-  background-color: #f2f2f2;
-}
-
-.learnMoreButton {
-  float: right;
-}
-
-#carouselLanding {
-  display: block;
-  margin-left: 10%;
-  width: 80%;
-  background-color: #262626;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-
-.threeBlurbsContainer {
-  display: inline-block;
-  background-color: #ffffff;
-  text-align: center;
-  height: 200px;
-}
-
-
-
-.blurbHeader {
-  margin-top: -20px;
-  padding-top: 20px;
-  font-size: 30px;
-  color: #404040;
-  letter-spacing: 0.05em;
-}
-
-.threeBlurbs {
-  font-size: 20px;
-  text-align: center;
-  background-color: #ffffff;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.threeBlurbs h3 {
-  font-size: 24px;
-  text-decoration: underline;
-  letter-spacing: 0.15em;
-}
-
-.blurbBG1 {
-  padding: 0 30px 30px 30px;
-  border: 2px solid #696949;
-  border-radius: 10px;
-  background-color: #e6e6e6;
-}
-
-.blurbBG2 {
-  padding: 0 30px 30px 30px;
-  border: 2px solid #696949;
-  border-radius: 10px;
-  background-color: #cc9966;
-}
-
-#reduceBlurbs {
-  display: block;
-  margin: 0 auto;
-  width: 70%;
-}
-
-/*============== Results Page CSS ==============*/
-
-.searchBanner {
-  margin-top: -20px;
-  padding-bottom: 0.1em;
-  text-align: center;
-}
-
-#centeredHeading {
-  text-align: center;
-  letter-spacing: 3px;
-}
-
 
 #roomTypeHeading {
   letter-spacing: 2px;
@@ -505,101 +596,60 @@ hr {
 
 
 /*============== Header CSS ==============*/
-
-.navbar.navbar-default {
-  background-color: #99ccff;
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.navbar.navbar-default .navbar-collapse {
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.headerMain {
-  margin-top: -80px;
-  top: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
+.navBar {
+  height: 75px;
+  border: none;
+  border-radius: 0;
   background-color: #262626;
-  text-align: center;
-  height: 120px;
-  z-index: 999;
+  margin-bottom: 0;
 }
 
-#headerContainer {
-  margin-left: 10%;
-  margin-right: 10%;
-  background-color: green;
+.navBar img {
+  height: 275%;
+  margin-top: -6px;
 }
 
-
-.headerBlackout {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 800;
-  width: 100%;
-  height: 70px;
-  background-color: #262626;
+.navBarRightContent {
+  font-size: 140%;
+  margin-top: 14px;
   color: #f2f2f2;
 }
 
-.headerContainer {
-  margin: 0 18% 5px 18%;
+.navbar-default .navbar-nav>li>a {
+  color: #f2f2f2;
 }
-
-
-#hotelNomaLogoLeft {
-  display: block;
-  height: 65px;
-  margin: 0 auto;
-  background-color: #262626;
-
-}
-
-.headerContainer img {
-  margin-left: 0;
-  height: 65px;
-}
-
-.navbarRightContent {
-  padding-right: 0;
-  background-color: #262626;
-}
-
 
 #dropdownNav {
-  color: #f2f2f2;
-  letter-spacing: 1px;
-  font-size: 18px;
   text-decoration: none;
   background-color: #262626;
-  margin-top: 27px;
-}
-
-#retrieveReservationsText {
   color: #f2f2f2;
-  float: right;
-  letter-spacing: 1px;
-  font-size: 18px;
-  margin-top: 27px;
-  text-align: right;
 }
 
-/*
+@media (max-width: 500px) {
 
-@media (min-width: 1010px) {
+  .navBar {
+    width: 100%;
+    height: 200px;
+    z-index: 999;
+  }
+
+  .navBar img {
+    display: block;
+    width: 100%;
+    margin-top: -6px;
+  }
+
+  .navBarRightContent {
+    height: 50px;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  #test {
+    z-index: 1000;
+    width: 100%;
+  }
 }
-
-@media (max-width: 1009px) {
-}
-
-*/
 
 /*============== Footer CSS ==============*/
 .footerContainer {

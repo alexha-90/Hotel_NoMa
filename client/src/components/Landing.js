@@ -29,8 +29,6 @@ class Landing extends Component {
 
 
     render () {
-        alert('Note 10/20/17: working on making the pages more responsive. Please excuse any strange display behavior today.');
-
         return (
             <div className="landingContainer">
 
@@ -97,7 +95,6 @@ class Landing extends Component {
                             <div className="blurbBG1">
                                 <h3>Breakfast</h3>
                                 <p>Start your morning right with a delicious bite in our downstairs lobby. We have exquisite chefs that prepare fresh, quality breakfasts every morning. Meals can be brought up to your room and even delivered upon request!</p>
-                                <br />
                                 <img src="https://png.icons8.com/toaster/color/70" alt="breakfast" title="Toaster" />
                             </div>
                         </div>
@@ -105,7 +102,6 @@ class Landing extends Component {
                             <div className="blurbBG2">
                                 <h3>SFO Shuttle</h3>
                                 <p>Simplify your travel experience by taking our shuttle directly from the San Francisco Airport to our hotel. We operate on a bi-hourly schedule and our courteous staff will always arrive early and be ready to handle your luggage.</p>
-                                <br />
                                 <img src="https://png.icons8.com/shuttle/color/70" alt="shuttleRide" title="Shuttle" />
                             </div>
                         </div>
@@ -113,7 +109,6 @@ class Landing extends Component {
                             <div className="blurbBG1">
                                 <h3>Late Checkout</h3>
                                 <p>Late risers, busy morning people, and delayed flights victims rejoice. We offer a 2pm checkout for those that need their room longer than most. Our maids will not visit your room until after the allotted time has passed.</p>
-                                <br />
                                 <img src="https://png.icons8.com/lamp/color/70" alt="lateCheckout" title="Lamp" />
                             </div>
                         </div>

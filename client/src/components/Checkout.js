@@ -173,33 +173,41 @@ class Checkout extends Component {
                     </Grid>
                 </div>
 
+                <br />
 
-                <div className="searchBanner">
-                    <Grid>
-                        <Row>
-                            <Col sm={12} md={12}>
-                                <span id="detailWrapper">
-                                    {this.props.itinerary.numAdults} Adult(s)
-                                </span>
-                                <span id="detailWrapper">
-                                    {this.props.itinerary.numNights} Nights
-                                </span>
-                                <span id="detailWrapper">
-                                    {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}
-                                </span>
-                                <span id="detailWrapper">
-                                    {this.props.itinerary.roomType} Room
-                                </span>
-                                <span id="modifyWrapper">
-                                    <Link to="/">Modify Dates</Link>
-                                </span>
-                                <span id="modifyWrapper">
-                                    <Link to="/results">Modify Room</Link>
-                                </span>
-                            </Col>
-                        </Row>
-                    </Grid>
+
+                <div className="resultsBanner">
+                    <span>
+                        {this.props.itinerary.numAdults} Adult(s)
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span>
+                        {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}
+                    </span>
+                    <br />
+                    <div id="secondRow">
+                        <span>
+                            {this.props.itinerary.numNights} Nights
+                        </span>
+                        &nbsp;&nbsp;&nbsp;
+                        <span>
+                            {this.props.itinerary.roomType} Room
+                        </span>
+                    </div>
+                    <br />
+                    <div id="thirdRow">
+                        <span>
+                            <Link to="/">Modify Dates</Link>
+                        </span>
+                        &nbsp;&nbsp;&nbsp;
+                        <span>
+                            <Link to="/results">Modify Room</Link>
+                        </span>
+                    </div>
                 </div>
+
+                <br />
+
 
                 <div>
                     <Grid>

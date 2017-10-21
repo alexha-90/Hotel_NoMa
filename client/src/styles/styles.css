@@ -33,20 +33,12 @@ hr {
   padding: 0;
 }
 
-/* bring back later
 .container {
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  margin-top: 35px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
+  width: 70%;
+  padding: 0;
+  margin: 35px auto;
 }
 
-
-
-*/
 
 /*============== Landing Page CSS ==============*/
 
@@ -64,14 +56,14 @@ hr {
 #splashImageLanding {
   display: block;
   width: 100%;
-  height: 90vh;
+  height: 85vh;
   opacity: 0.8;
 }
 
 
 .centerWelcomeAndCalendar {
   position: absolute;
-  margin-top: -725px;
+  margin-top: -710px;
   width: 100%;
   text-align: center;
 }
@@ -187,28 +179,33 @@ hr {
 
 .threeBlurbs {
   width: 100%;
-  margin-bottom: 40px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 #leftBlurb {
+  height: 100%;
   display: inline-block;
-  width: 26%;
-  margin: 0 4% 0 7%;
+  width: 300px;
+  margin-right: 3%;
 }
 
 #middleBlurb {
+  height: 100%;
   display: inline-block;
-  width: 26%;
+  width: 300px;
 }
 
 #rightBlurb {
+  height: 100%;
   display: inline-block;
-  width: 26%;
-  margin: 0 7% 0 4%;
+  width: 300px;
+  margin-left: 3%;
 }
 
 .threeBlurbs h3 {
-  font-size: 175%;
+  font-size: 25px;
   text-decoration: underline;
   letter-spacing: 0.15em;
   text-align: center;
@@ -247,9 +244,31 @@ hr {
   #calendarPicker {
     width: 55%;
   }
+
+  #leftBlurb {
+    width: 250px;
+  }
+
+  #middleBlurb {
+    width: 250px;
+  }
+
+  #rightBlurb {
+    width: 250px;
+  }
+
+  .threeBlurbs h3 {
+    font-size: 20px;
+  }
+
+  .threeBlurbs p {
+    font-size: 16px;
+  }
+
 }
 
-@media (max-width: 810px) {
+
+@media (max-width: 840px) {
   #calendarPicker {
     width: 70%;
   }
@@ -259,6 +278,13 @@ hr {
     margin: 0 auto;
     width: 50%;
   }
+
+  #rightBlurb {
+    margin-top: 30px;
+    margin-bottom: -15px;
+  }
+
+
 }
 
 @media (max-width: 675px) {
@@ -266,12 +292,41 @@ hr {
     width: 90%;
   }
 
+  #leftBlurb {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 95%;
+  }
 
+  #middleBlurb {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 95%;
+  }
+
+  #rightBlurb {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 95%;
+  }
+
+  .threeBlurbs img {
+    margin: 0 auto;
+  }
+
+
+  .threeBlurbs h3 {
+    font-size: 35px;
+  }
+
+  .threeBlurbs p {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 500px) {
   .centerWelcomeAndCalendar {
-    margin-top: -940px;
+    margin-top: -960px;
     width: 100%;
     text-align: center;
   }
@@ -295,40 +350,10 @@ hr {
     height: 350px;
   }
 
-
-  #leftBlurb {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 95%;
-  }
-
-  #middleBlurb {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 95%;
-  }
-
-  #rightBlurb {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 95%;
-  }
-
-  .threeBlurbs img {
-    margin: -20px auto;
-  }
-
-
 }
 
 
 /*============== Results Page CSS ==============*/
-
-.searchBanner {
-  margin-top: -20px;
-  padding-bottom: 0.1em;
-  text-align: center;
-}
 
 #centeredHeading {
   text-align: center;
@@ -336,28 +361,42 @@ hr {
   margin-bottom: 30px;
 }
 
-#detailWrapper {
-  padding: 10px;
-  margin: 5px 5px 0 5px;
-  color: white;
-  background-color: #737373;
-  border-radius: 5px;
-  display: inline-block;
-  font-size: 14px;
+.searchBanner {
+  display: block;
+  margin: -25px auto;
+  padding-bottom: 0.1em;
   text-align: center;
-  opacity: 0.8;
+  color: white;
 }
 
-#modifyWrapper {
-  padding: 10px;
-  margin: 5px 5px 0 5px;
-  color: inherit;
-  background-color: #ffad33;
+.searchBanner span {
+  border: 1px solid #474646;
   border-radius: 5px;
-  display: inline-block;
-  font-size: 14px;
-  text-align: center;
-  opacity: 0.8;
+  background-color: #737373;
+  padding: 10px 30px;
+}
+
+.searchBanner #secondRow {
+  margin: 30px auto 5px auto;
+  display: block;
+}
+
+.searchBanner #secondRow span {
+  background-color: #ffad33;
+}
+
+@media (max-width: 660px) {
+  .searchBanner span {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 5px;
+    width: 70%;
+  }
+
+  .searchBanner #secondRow {
+    margin-top: 0;
+  }
+
 }
 
 #roomTypeHeading {
@@ -439,6 +478,8 @@ hr {
 
 
 
+
+
 /*============== Amenity Page CSS ==============*/
 .amenityTextBox img {
   position: absolute;
@@ -452,9 +493,9 @@ hr {
 }
 
 #amenitiesPhoto {
-  height: 500px;
-  margin-top: 10px;
-  margin-left: 20%;
+  width: 70%;
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -472,7 +513,44 @@ hr {
   text-align: right;
 }
 
-/* borrow searchBanner and #resultContainer from results page */
+.resultsBanner {
+  margin: -50px 0;
+  padding-bottom: 0.1em;
+  text-align: center;
+  color: white;
+}
+
+.resultsBanner span {
+  border: 1px solid #474646;
+  border-radius: 5px;
+  background-color: #737373;
+  padding: 10px 30px;
+}
+
+.resultsBanner #secondRow {
+  margin: 25px;
+  display: block;
+}
+
+.resultsBanner #thirdRow {
+  margin-top: -20px;
+  display: block;
+}
+
+.resultsBanner #thirdRow span {
+  background-color: #ffad33;
+}
+
+
+@media (max-width: 480px) {
+  .resultsBanner span {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 5px;
+    width: 70%;
+  }
+
+}
 
 #tableHeader {
   font-size: 1.3em;
@@ -596,27 +674,39 @@ hr {
 
 
 /*============== Header CSS ==============*/
-.navBar {
+
+#blackHeader {
+  position: absolute;
+  margin-top: 55px;
+  width: 100%;
   height: 75px;
+  background-color: #262626;
+}
+
+.navBar {
   border: none;
   border-radius: 0;
   background-color: #262626;
   margin-bottom: 0;
+  margin-top: -50px;
+  height: 100px;
 }
 
 .navBar img {
-  height: 275%;
-  margin-top: -6px;
+  height: 250%;
+  margin-top: 13px;
 }
 
 .navBarRightContent {
-  font-size: 140%;
-  margin-top: 14px;
+  font-size: 130%;
   color: #f2f2f2;
+  margin-top: 30px;
+  background-color: #262626;
 }
 
 .navbar-default .navbar-nav>li>a {
   color: #f2f2f2;
+  margin-bottom: 15px;
 }
 
 #dropdownNav {
@@ -625,37 +715,64 @@ hr {
   color: #f2f2f2;
 }
 
+.mobileComponents {
+  display: none;
+}
+
 @media (max-width: 500px) {
 
-  .navBar {
+  #blackHeader {
+    position: absolute;
+    margin-top: 0;
     width: 100%;
-    height: 200px;
-    z-index: 999;
+    height: 150px;
+    background-color: #262626;
+  }
+
+  .navBar {
+    display: block;
+    width: 100%;
+    height: 150px;
   }
 
   .navBar img {
-    display: block;
-    width: 100%;
-    margin-top: -6px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 65px auto 0 auto;
+    height: 60px;
   }
 
   .navBarRightContent {
     height: 50px;
     width: 100%;
-    z-index: 1000;
+    font-size: 15px;
   }
 
-  #test {
-    z-index: 1000;
-    width: 100%;
+  button.navbar-toggle.collapsed {
+    display: none;
+  }
+
+  .mobileComponents {
+    margin-top: 40px;
+    display: block;
+    text-decoration: overline;
+  }
+
+  .mobileComponents h3 {
+    text-align: center;
+    font-size: 15px;
+    color: inherit;
   }
 }
-
-/*============== Footer CSS ==============*/
-.footerContainer {
-  bottom: 0;
+/*============== Footer CSS ==============
   margin: 15px -9999rem 0 -9999rem;
   padding: 0.25rem 9999rem;
+
+*/
+.footerContainer {
+  bottom: 0;
+  padding-top: 15px;
   background: #262626;
   text-align: center;
   color: #f2f2f2;
@@ -686,19 +803,24 @@ hr {
   height: 1px;
   border: 0;
   border-top: 1px solid #f2f2f2;
-  margin: 1em 0;
+  margin-top: 1em;
+  margin-bottom: 0;
   padding: 0;
 }
 
 #footerLicensingColor {
   color: #4d4d4d;
-  margin-top: -10px;
 }
 
 #footerLicensing a {
   display: inline-block;
   color: inherit;
   text-decoration: none;
+  margin-bottom: 15px;
+}
+
+#footerLicensing h6 {
+  margin: 0;
 }
 
 /*============== END CSS ==============*/

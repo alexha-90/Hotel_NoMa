@@ -87,26 +87,24 @@ class ListResults extends Component {
                 </div>
 
                 <div className="searchBanner">
-                    <Grid>
-                        <Row>
-                            <Col sm={1} md={1}>{' '}</Col>
-                            <Col sm={10} md={10}>
-                                <span id="detailWrapper">
-                                    {this.props.itinerary.numAdults} Adult(s)
-                                </span>
-                                <span id="detailWrapper">
-                                    {this.props.itinerary.numNights} Nights
-                                </span>
-                                <span id="detailWrapper">
-                                    {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}
-                                </span>
-                                <span id="modifyWrapper">
-                                    <Link to="/">Modify Dates</Link>
-                                </span>
-                            </Col>
-                            <Col sm={1} md={1}>{' '}</Col>
-                        </Row>
-                    </Grid>
+                    <span>
+                        {this.props.itinerary.numAdults} Adult(s)
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span>
+                        {this.props.itinerary.numNights} Nights
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span>
+                        {this.props.itinerary.enterDate} - {this.props.itinerary.exitDate}
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                    <br />
+                    <div id="secondRow">
+                        <span>
+                            <Link to="/">Modify Dates</Link>
+                        </span>
+                    </div>
                 </div>
 
 

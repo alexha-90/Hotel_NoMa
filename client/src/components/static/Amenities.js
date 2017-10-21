@@ -31,6 +31,8 @@ class Amenities extends Component {
 
                 <Grid>
                     <div className="amenityTextBox">
+                        <h3>TO FIX: pictures after frame under width=770px</h3>
+
                         <Row className="">
                             <Col sm={4} md={3} id="leftAmenityImage">
                                 <img src="https://png.icons8.com/classroom/dusk/120" alt="meetingRooms" title="Classroom" />
@@ -51,8 +53,8 @@ class Amenities extends Component {
                                 </p>
                             </Col>
                         </Row>
-                    </div>
-                    <div className="amenityTextBox">
+
+
                         <Row className="">
                             <Col sm={8} md={9}>
                                 <h3>Highlight 2</h3>
@@ -72,8 +74,7 @@ class Amenities extends Component {
                                 <img alt="bed" src="https://png.icons8.com/sleeping-in-bed/dusk/120" title="Sleeping in Bed" />
                             </Col>
                         </Row>
-                    </div>
-                    <div className="amenityTextBox">
+
                         <Row className="">
                             <Col sm={4} md={3} id="leftAmenityImage">
                                 <img src="https://png.icons8.com/bench-press/color/120" alt="exercise" title="Bench Press" />

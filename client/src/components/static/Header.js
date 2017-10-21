@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MenuItem, NavDropdown, Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 //future feature: login
 //===============================================================================================//
@@ -8,6 +9,10 @@ class Header extends Component {
     render() {
         return (
             <div>
+                <span id="blackHeader">
+                .
+                </span>
+
                 <Navbar className="navBar">
                     <Navbar.Header>
                         <Navbar.Brand>
@@ -17,6 +22,14 @@ class Header extends Component {
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
+
+                    <div className="mobileComponents">
+                        <h3>
+                            <Link to="/reservations">Itinerary Lookup</Link>
+                        </h3>
+
+                    </div>
+
                     <Navbar.Collapse className="navBarRightContent">
                         <Nav pullRight>
                             <NavDropdown eventKey="1" title="Our Other Properties" id="dropdownNav">
@@ -36,7 +49,7 @@ class Header extends Component {
                                 </MenuItem>
                                 <MenuItem divider />
                             </NavDropdown>
-                            <NavItem eventKey={2} id="test" href="/reservations">Itinerary Lookup</NavItem>
+                            <NavItem eventKey={2} href="/reservations">Itinerary Lookup</NavItem>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

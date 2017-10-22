@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f2653a8-7671-4ace-8981-c32732f63282" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/src/components/static/ContactUs.js" afterPath="$PROJECT_DIR$/client/src/components/ContactUs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/App.js" afterPath="$PROJECT_DIR$/client/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Confirmation.js" afterPath="$PROJECT_DIR$/client/src/components/Confirmation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Landing.js" afterPath="$PROJECT_DIR$/client/src/components/Landing.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/RetrieveConfirmation.js" afterPath="$PROJECT_DIR$/client/src/components/RetrieveConfirmation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/static/Amenities.js" afterPath="$PROJECT_DIR$/client/src/components/static/Amenities.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/static/Header.js" afterPath="$PROJECT_DIR$/client/src/components/static/Header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/results/ExcaliburRooms.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/results/ExcaliburRooms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/results/MardiGrasRooms.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/results/MardiGrasRooms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/results/SanctuaryRooms.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/results/SanctuaryRooms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/results/StandardRooms.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/results/StandardRooms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/results/ThriftyRooms.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/results/ThriftyRooms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayReservation.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayReservation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations-Table.js" afterPath="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations-Table.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/styles/styles.css" afterPath="$PROJECT_DIR$/client/src/styles/styles.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -33,18 +22,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/styles/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="739" column="0" lean-forward="true" selection-start-line="739" selection-start-column="0" selection-end-line="739" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DisplayReservation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayReservation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="19" column="49" lean-forward="false" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            <state relative-caret-position="397">
+              <caret line="348" column="20" lean-forward="false" selection-start-line="348" selection-start-column="20" selection-end-line="348" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -53,8 +32,8 @@
       <file leaf-file-name="RetrieveConfirmation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/RetrieveConfirmation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="100" column="16" lean-forward="false" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
+            <state relative-caret-position="-62">
+              <caret line="126" column="56" lean-forward="false" selection-start-line="126" selection-start-column="56" selection-end-line="126" selection-end-column="56" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -62,11 +41,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DisplayReservation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayReservation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="19" column="49" lean-forward="false" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Confirmation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Confirmation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="673">
+              <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -77,9 +66,11 @@
       <file leaf-file-name="DisplayAllReservations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="360">
+              <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +78,8 @@
       <file leaf-file-name="DisplayAllReservations-Table.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations-Table.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1040">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-223">
+              <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -154,9 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>headercon</find>
-      <find>header CSS</find>
-      <find>landing css</find>
       <find>test</find>
       <find>test`</find>
       <find>landing page</find>
@@ -184,6 +172,9 @@
       <find>header css</find>
       <find>headerContainer</find>
       <find>pastI</find>
+      <find>reservat</find>
+      <find>resultcontainer</find>
+      <find>input</find>
     </findStrings>
     <replaceStrings>
       <replace>this.props.pricing.numnights</replace>
@@ -243,7 +234,6 @@
         <option value="$PROJECT_DIR$/client/src/components/static/ContactUs.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/client/public/index.html" />
-        <option value="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations-Table.js" />
         <option value="$PROJECT_DIR$/client/src/components/subcomponents/results/ExcaliburPhotoModal.js" />
         <option value="$PROJECT_DIR$/client/src/components/subcomponents/results/MardiGrasPhotoModal.js" />
         <option value="$PROJECT_DIR$/client/src/components/subcomponents/results/SanctuaryPhotoModal.js" />
@@ -276,8 +266,9 @@
         <option value="$PROJECT_DIR$/client/src/components/Landing.js" />
         <option value="$PROJECT_DIR$/client/src/components/static/Header.js" />
         <option value="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations.js" />
-        <option value="$PROJECT_DIR$/client/src/components/RetrieveConfirmation.js" />
         <option value="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayReservation.js" />
+        <option value="$PROJECT_DIR$/client/src/components/RetrieveConfirmation.js" />
+        <option value="$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations-Table.js" />
         <option value="$PROJECT_DIR$/client/src/styles/styles.css" />
       </list>
     </option>
@@ -501,12 +492,12 @@
       <workItem from="1507614303104" duration="5929000" />
       <workItem from="1507656397028" duration="18373000" />
       <workItem from="1507942461255" duration="12037000" />
-      <workItem from="1508488264880" duration="37383000" />
+      <workItem from="1508488264880" duration="40119000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="681542000" />
+    <option name="totallyTimeSpent" value="684278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3766" y="-354" width="1651" height="953" extended-state="0" />
@@ -918,38 +909,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations-Table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1040">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Confirmation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/RetrieveConfirmation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="100" column="16" lean-forward="false" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
+        <state relative-caret-position="673">
+          <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -958,16 +921,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayReservation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="171">
           <caret line="19" column="49" lean-forward="false" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/RetrieveConfirmation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
+          <caret line="126" column="56" lean-forward="false" selection-start-line="126" selection-start-column="56" selection-end-line="126" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations-Table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-223">
+          <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/subcomponents/retrieveConfirmation/DisplayAllReservations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/styles/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="739" column="0" lean-forward="true" selection-start-line="739" selection-start-column="0" selection-end-line="739" selection-end-column="0" />
+        <state relative-caret-position="397">
+          <caret line="348" column="20" lean-forward="false" selection-start-line="348" selection-start-column="20" selection-end-line="348" selection-end-column="20" />
           <folding />
         </state>
       </provider>

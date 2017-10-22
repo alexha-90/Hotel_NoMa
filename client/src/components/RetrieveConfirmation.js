@@ -98,7 +98,7 @@ class RetrieveConfirmation extends Component {
 
 
         return (
-            <div>
+            <div className="container">
 
                 <div id="getItinerarySpacing">
                     <Grid>
@@ -146,13 +146,7 @@ class RetrieveConfirmation extends Component {
                 </Button>
                 <Button id="getAllButton" bsStyle="warning" value="getAllReservations"
                         onClick={this.handleGetReservations}>
-
-                    <span id="allReservationDisplayLarge">
-                        FOR DEMO/MANAGEMENT ONLY: Get all reservations (no input required)
-                    </span>
-                    <span id="allReservationDisplayMobile">
-                        All reservations (no input req.)
-                    </span>
+                    All reservations (no input req.)
                 </Button>
                 {' '}
                 <Button id="deleteButton" bsStyle="danger" value="deleteReservation"

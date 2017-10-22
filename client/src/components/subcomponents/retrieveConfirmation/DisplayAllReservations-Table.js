@@ -7,7 +7,7 @@ import { Table } from 'react-bootstrap';
 
 export function listAllItinerariesTable(itinerary) {
     return (
-        <Table striped bordered condensed key={itinerary.confirmationNumber}>
+        <Table striped bordered condensed key={itinerary.confirmationNumber} id="displayAllItineraries">
             <thead id="tableHeader">
             <tr>
                 <th>Confirmation #: { itinerary.confirmationNumber } - { itinerary.contactInfo.customerName }</th>

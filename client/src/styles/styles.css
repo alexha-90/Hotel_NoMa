@@ -346,7 +346,7 @@ hr {
   }
 
   .centerWelcomeAndCalendar {
-    margin-top: -850px;
+    margin-top: -875px;
     width: 100%;
     text-align: center;
   }
@@ -680,7 +680,6 @@ hr {
   background-color: #e0e0d2;
   margin-top: -32px;
 }
-/* borrow #resultContainer from results page */
 
 .displayItineraryTable {
   display: block;
@@ -714,10 +713,6 @@ hr {
   padding: 0;
 }
 
-#allReservationDisplayMobile {
-  display: none;
-}
-
 
 .getItineraryContainer {
   width: 70%;
@@ -730,23 +725,22 @@ hr {
   #getButton, #getAllButton, #deleteButton {
     display: block;
     margin: 0 auto 10px auto;
-    width: 70%;
+    width: 90%;
     float: none;
-  }
-
-  #allReservationDisplayLarge {
-    display: none;
-  }
-
-  #allReservationDisplayMobile {
-    display: block;
-    font-size: 70%;
   }
 }
 
 @media (max-width: 500px) {
   .getItineraryContainer {
     margin-top: 0;
+  }
+
+  #displayAllItineraries{
+    margin-left: -15px;
+  }
+
+  #displayAllItineraries {
+    width: 100%;
   }
 }
 

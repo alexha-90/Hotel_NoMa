@@ -8,10 +8,13 @@ export function thriftyRooms(pricing, submit) {
         <div>
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        Express ${(pricing.expressThrifty).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        Express
+                        <div id="roomPrice">
+                            ${(pricing.expressThrifty).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 200 sq. ft)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="expressThrifty" onClick={submit}>Book now</Button>
                     </p>

@@ -40,6 +40,7 @@ class Confirmation extends Component {
 
                     <p>
                         Like Hotel NoMa? Follow us on social media to find out about exclusive promotions and events:
+                        <br />
                         <a target="_blank" href="https://www.facebook.com" rel="noopener noreferrer">
                             <img src="https://png.icons8.com/facebook/dusk/40" title="Facebook" alt="facebook"/>
                         </a>
@@ -54,87 +55,79 @@ class Confirmation extends Component {
                     </p>
                 </div>
 
-                <div>
-                    <Grid>
-                        <Row>
-                            <Col sm={1} md={2}></Col>
-                            <Col sm={10} md={8}>
-                                <h3>Your Itinerary:</h3>
-                                <Table striped bordered condensed>
-                                    <tbody>
-                                    <tr>
-                                        <td>Confirmation number</td>
-                                        <td id="costAlignRight">{this.props.itinerary.confirmationNumber}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email address</td>
-                                        <td id="costAlignRight">{this.props.itinerary.email}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Time at booking</td>
-                                        <td id="costAlignRight">{this.props.itinerary.bookTime}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total cost of stay</td>
-                                        <td id="costAlignRight">${this.props.itinerary.totalCostOfStay}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Room type</td>
-                                        <td id="costAlignRight">{this.props.itinerary.roomType}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Number of adult guests</td>
-                                        <td id="costAlignRight">{this.props.itinerary.numAdults}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Check-in Date:</td>
-                                        <td id="costAlignRight">{this.props.itinerary.enterDate}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Check-out Date</td>
-                                        <td id="costAlignRight">{this.props.itinerary.exitDate}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Length of stay</td>
-                                        <td id="costAlignRight">{this.props.itinerary.numNights} nights</td>
-                                    </tr>
-                                    </tbody>
-                                </Table>
+                <div className="itineraryTable">
 
+                    <h3>Your Itinerary:</h3>
+                    <Table striped bordered condensed>
+                        <tbody>
+                        <tr>
+                            <td>Confirmation number</td>
+                            <td id="costAlignRight">{this.props.itinerary.confirmationNumber}</td>
+                        </tr>
+                        <tr>
+                            <td>Email address</td>
+                            <td id="costAlignRight">{this.props.itinerary.email}</td>
+                        </tr>
+                        <tr>
+                            <td>Time at booking</td>
+                            <td id="costAlignRight">{this.props.itinerary.bookTime}</td>
+                        </tr>
+                        <tr>
+                            <td>Total cost of stay</td>
+                            <td id="costAlignRight">${this.props.itinerary.totalCostOfStay}</td>
+                        </tr>
+                        <tr>
+                            <td>Room type</td>
+                            <td id="costAlignRight">{this.props.itinerary.roomType}</td>
+                        </tr>
+                        <tr>
+                            <td>Number of adult guests</td>
+                            <td id="costAlignRight">{this.props.itinerary.numAdults}</td>
+                        </tr>
+                        <tr>
+                            <td>Check-in Date:</td>
+                            <td id="costAlignRight">{this.props.itinerary.enterDate}</td>
+                        </tr>
+                        <tr>
+                            <td>Check-out Date</td>
+                            <td id="costAlignRight">{this.props.itinerary.exitDate}</td>
+                        </tr>
+                        <tr>
+                            <td>Length of stay</td>
+                            <td id="costAlignRight">{this.props.itinerary.numNights} nights</td>
+                        </tr>
+                        </tbody>
+                    </Table>
 
-                                <Table striped bordered condensed>
-                                    <tbody>
-                                    <tr>
-                                        <td><h4>Optional addons:</h4></td>
-                                        <td>{' '}</td>
+                    <Table striped bordered condensed>
+                        <tbody>
+                        <tr>
+                            <td><h4>Optional addons:</h4></td>
+                            <td>{' '}</td>
 
-                                    </tr>
-                                    <tr>
-                                        <td>Breakfast</td>
-                                        <td id="costAlignRight">{this.props.itinerary.breakfast.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Care Package</td>
-                                        <td id="costAlignRight">{this.props.itinerary.carePackage.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Late Checkout</td>
-                                        <td id="costAlignRight">{this.props.itinerary.lateCheckout.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Shuttle Ride</td>
-                                        <td id="costAlignRight">{this.props.itinerary.shuttleRide.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Luggage Hold</td>
-                                        <td id="costAlignRight">{this.props.itinerary.luggageHold.toString()}</td>
-                                    </tr>
-                                    </tbody>
-                                </Table>
-                            </Col>
-                            <Col sm={1} md={2}>{' '}</Col>
-                        </Row>
-                    </Grid>
+                        </tr>
+                        <tr>
+                            <td>Breakfast</td>
+                            <td id="costAlignRight">{this.props.itinerary.breakfast.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Care Package</td>
+                            <td id="costAlignRight">{this.props.itinerary.carePackage.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Late Checkout</td>
+                            <td id="costAlignRight">{this.props.itinerary.lateCheckout.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Shuttle Ride</td>
+                            <td id="costAlignRight">{this.props.itinerary.shuttleRide.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Luggage Hold</td>
+                            <td id="costAlignRight">{this.props.itinerary.luggageHold.toString()}</td>
+                        </tr>
+                        </tbody>
+                    </Table>
                 </div>
                 <br />
 

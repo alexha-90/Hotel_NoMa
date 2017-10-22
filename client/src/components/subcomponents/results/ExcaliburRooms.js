@@ -5,13 +5,16 @@ import { Button } from 'react-bootstrap';
 
 export function excaliburRooms(pricing, submit) {
     return (
-        <div>
+        <div className="excaliburContainer">
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        Executive Suite ${(pricing.executiveSuite).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        Executive Suite
+                        <div id="roomPrice">
+                            ${(pricing.executiveSuite).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 986 sq. ft.)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="executiveSuite" onClick={submit}>Book now</Button>
                     </p>
@@ -30,10 +33,13 @@ export function excaliburRooms(pricing, submit) {
             <hr />
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        Bachelor Suite ${(pricing.bachelorSuite).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        Bachelor Suite
+                        <div id="roomPrice">
+                            ${(pricing.bachelorSuite).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 875 sq. ft.)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="bachelorSuite" onClick={submit}>Book now</Button>
                     </p>

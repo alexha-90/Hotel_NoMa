@@ -26,6 +26,10 @@ class RetrieveConfirmation extends Component {
     }
 
 
+    componentWillMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleChange(event) {
         if (event.target.name === 'confirmationNum') {
             this.setState({confirmationNum: event.target.value});
@@ -84,8 +88,6 @@ class RetrieveConfirmation extends Component {
 
 
     render() {
-        window.scrollTo(0, 0);
-
         if (this.state.redirectGetSingleReservation) {
             return <Redirect push to="/displayReservation" />;
         }
@@ -96,7 +98,7 @@ class RetrieveConfirmation extends Component {
 
 
         return (
-            <div className="container">
+            <div>
 
                 <div id="getItinerarySpacing">
                     <Grid>
@@ -144,7 +146,13 @@ class RetrieveConfirmation extends Component {
                 </Button>
                 <Button id="getAllButton" bsStyle="warning" value="getAllReservations"
                         onClick={this.handleGetReservations}>
-                    FOR DEMO/MANAGEMENT ONLY: Get all reservations (no input required)
+
+                    <span id="allReservationDisplayLarge">
+                        FOR DEMO/MANAGEMENT ONLY: Get all reservations (no input required)
+                    </span>
+                    <span id="allReservationDisplayMobile">
+                        All reservations (no input req.)
+                    </span>
                 </Button>
                 {' '}
                 <Button id="deleteButton" bsStyle="danger" value="deleteReservation"

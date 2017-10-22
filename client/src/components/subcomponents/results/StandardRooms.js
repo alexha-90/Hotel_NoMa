@@ -8,10 +8,13 @@ export function standardRooms(pricing, submit) {
         <div>
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        With View ${(pricing.viewStandard).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        With View
+                        <div id="roomPrice">
+                            ${(pricing.viewStandard).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 375 sq. ft)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="viewStandard" onClick={submit}>Book now</Button>
                     </p>
@@ -31,10 +34,13 @@ export function standardRooms(pricing, submit) {
             <hr />
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        No View ${(pricing.noViewStandard).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        No View
+                        <div id="roomPrice">
+                            ${(pricing.noViewStandard).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 325 sq. ft.)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="noViewStandard" onClick={submit}>Book now</Button>
                     </p>

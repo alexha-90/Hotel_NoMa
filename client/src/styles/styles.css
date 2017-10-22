@@ -11,6 +11,7 @@ html {
   margin: 0;
   padding: 0;
   border: 0;
+  max-width: 100%;
 }
 
 body {
@@ -39,6 +40,9 @@ hr {
   margin: 35px auto;
 }
 
+.row {
+  margin: 0;
+}
 
 /*============== Landing Page CSS ==============*/
 
@@ -53,11 +57,15 @@ hr {
   background-color: #f2f2f2;
 }
 
-#splashImageLanding {
+#splashImageLandingLarge {
   display: block;
   width: 100%;
   height: 85vh;
   opacity: 0.8;
+}
+
+#splashImageLandingSmall {
+  display: none;
 }
 
 
@@ -316,7 +324,7 @@ hr {
 
 
   .threeBlurbs h3 {
-    font-size: 35px;
+    font-size: 26px;
   }
 
   .threeBlurbs p {
@@ -325,25 +333,40 @@ hr {
 }
 
 @media (max-width: 500px) {
+
+  #splashImageLandingLarge {
+    display: none;
+  }
+
+  #splashImageLandingSmall {
+    display: block;
+    width: 100%;
+    height: 160vh;
+    opacity: 0.8;
+  }
+
   .centerWelcomeAndCalendar {
-    margin-top: -960px;
+    margin-top: -850px;
     width: 100%;
     text-align: center;
   }
 
-  #calendarPicker {
-    width: 75%;
-  }
 
-  #splashImageLanding {
-    height: 1000px;
+  .centerWelcomeAndCalendar h1 {
+    color: #262626;
+    font-size: 25px;
+    letter-spacing: 0.1em;
   }
 
   .centerWelcomeAndCalendar h4 {
-    color: #f2f2f2;
+    color: #262626;
     font-size: 14px;
     letter-spacing: 0.1em;
     margin-bottom: 40px;
+  }
+
+  #calendarPicker {
+    width: 75%;
   }
 
   .weatherAndTimeBannerContainer {
@@ -383,20 +406,6 @@ hr {
 
 .searchBanner #secondRow span {
   background-color: #ffad33;
-}
-
-@media (max-width: 660px) {
-  .searchBanner span {
-    display: block;
-    margin: 0 auto;
-    padding: 5px 5px;
-    width: 70%;
-  }
-
-  .searchBanner #secondRow {
-    margin-top: 0;
-  }
-
 }
 
 #roomTypeHeading {
@@ -477,25 +486,115 @@ hr {
 }
 
 
+@media (max-width: 890px) {
+  #roomPrice {
+    font-size: 15px;
+  }
+}
 
+@media (max-width: 660px) {
+  .searchBanner span {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 5px;
+    width: 70%;
+  }
+
+  .searchBanner #secondRow {
+    margin-top: 0;
+  }
+}
 
 
 /*============== Amenity Page CSS ==============*/
-.amenityTextBox img {
-  position: absolute;
-  top: 100px;
-  margin: auto;
-}
-
-.amenityTextBox {
-  position: relative;
-  margin-bottom: 40px;
-}
-
 #amenitiesPhoto {
   width: 70%;
   display: block;
   margin: 0 auto;
+}
+
+.amenitiesContainer {
+  width: 70%;
+  display: block;
+  margin: 20px auto;
+  height: 300px;
+}
+
+.amenitiesContainer #leftImage {
+  display: inline-block;
+  float: left;
+  text-align: center;
+  line-height: 225px;
+  vertical-align: middle;
+  width: 20%;
+}
+
+.amenitiesContainer #rightText {
+  display: inline-block;
+  float: right;
+  width: 75%;
+}
+
+.amenitiesContainer #rightImage {
+  display: inline-block;
+  float: right;
+  width: 20%;
+  text-align: center;
+  line-height: 225px;
+  vertical-align: middle;
+}
+
+.amenitiesContainer #leftText {
+  display: inline-block;
+  float: left;
+  width: 75%;
+}
+
+@media (max-width: 960px) {
+
+  .amenitiesContainer {
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  .amenitiesContainer #leftImage {
+    display: block;
+    margin: 0 auto;
+    float: none;
+    line-height: normal;
+  }
+
+  .amenitiesContainer #rightText {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+
+  .amenitiesContainer #rightImage {
+    margin: 0 auto;
+    line-height: normal;
+    display: block;
+    float: none;
+
+  }
+
+  .amenitiesContainer #leftText {
+    display: block;
+    float: none;
+    width: 100%;
+
+  }
+}
+
+@media (max-width: 505px) {
+  #AmenitiesSpacing {
+    margin-top: -50px;
+  }
+
+  #amenitiesPhoto {
+    margin-top: -50px;
+    margin-bottom: -10px;
+  }
 }
 
 
@@ -541,17 +640,6 @@ hr {
   background-color: #ffad33;
 }
 
-
-@media (max-width: 480px) {
-  .resultsBanner span {
-    display: block;
-    margin: 0 auto;
-    padding: 5px 5px;
-    width: 70%;
-  }
-
-}
-
 #tableHeader {
   font-size: 1.3em;
   text-decoration: underline;
@@ -565,7 +653,14 @@ hr {
   color: red;
 }
 
-
+@media (max-width: 480px) {
+  .resultsBanner span {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 5px;
+    width: 70%;
+  }
+}
 /*============== Retrieve/Display Reservation Pages CSS ==============*/
 
 #getButton {
@@ -579,7 +674,6 @@ hr {
 
 #deleteButton {
   float: left;
-  margin-bottom: 225px;
 }
 
 #lookupForm {
@@ -596,7 +690,7 @@ hr {
 }
 
 #getItinerarySpacing {
-  margin-top: 175px;
+  margin-top: 35px;
 }
 
 
@@ -620,6 +714,41 @@ hr {
   padding: 0;
 }
 
+#allReservationDisplayMobile {
+  display: none;
+}
+
+
+.getItineraryContainer {
+  width: 70%;
+  padding: 0;
+  margin: 60px auto;
+}
+
+
+@media (max-width: 1025px) {
+  #getButton, #getAllButton, #deleteButton {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 70%;
+    float: none;
+  }
+
+  #allReservationDisplayLarge {
+    display: none;
+  }
+
+  #allReservationDisplayMobile {
+    display: block;
+    font-size: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  .getItineraryContainer {
+    margin-top: 0;
+  }
+}
 
 /*============== Confirmation Page CSS ==============*/
 #confirmationContainer {
@@ -634,8 +763,20 @@ hr {
 
 #confirmationBackground {
   background-color: #e0e0d2;
-
 }
+
+.itineraryTable {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+}
+
+@media (max-width: 1025px) {
+  .itineraryTable {
+    width: 100%;
+  }
+}
+
 
 
 /*============== Contact Us CSS ==============*/
@@ -733,14 +874,20 @@ hr {
     display: block;
     width: 100%;
     height: 150px;
+    text-align: center;
   }
 
-  .navBar img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 65px auto 0 auto;
-    height: 60px;
+  #headerContent {
+    display: block;
+    margin: 0 auto;
+  }
+
+  #headerImage {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 15px auto 0 0;
+    height: 45px;
   }
 
   .navBarRightContent {
@@ -761,7 +908,7 @@ hr {
 
   .mobileComponents h3 {
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
     color: inherit;
   }
 }

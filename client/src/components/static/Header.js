@@ -14,10 +14,10 @@ class Header extends Component {
                 </span>
 
                 <Navbar className="navBar">
-                    <Navbar.Header>
+                    <Navbar.Header id="headerContent">
                         <Navbar.Brand>
                             <a href="/">
-                                <img src="https://i.imgur.com/w7vxAMG.png" alt="logo"/>
+                                <img src="https://i.imgur.com/w7vxAMG.png" alt="logo" id="headerImage"/>
                             </a>
                         </Navbar.Brand>
                         <Navbar.Toggle />
@@ -25,7 +25,7 @@ class Header extends Component {
 
                     <div className="mobileComponents">
                         <h3>
-                            <Link to="/reservations">Itinerary Lookup</Link>
+                            <Link to="/reservations">&nbsp;&nbsp;Existing Itinerary Lookup&nbsp;&nbsp;</Link>
                         </h3>
 
                     </div>

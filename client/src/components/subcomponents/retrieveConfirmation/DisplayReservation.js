@@ -17,7 +17,7 @@ class DisplayReservation extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="getItineraryContainer">
 
                 <div>
                     <Grid>
@@ -33,86 +33,78 @@ class DisplayReservation extends Component {
                     </Grid>
                 </div>
 
-                <div>
-                    <Grid>
-                        <Row>
-                            <Col sm={1} md={2}>{' '}</Col>
-                            <Col sm={10} md={8}>
-                                <Table striped bordered condensed>
-                                    <tbody>
-                                    <tr>
-                                        <td>Confirmation number</td>
-                                        <td id="costAlignRight">{this.props.itinerary.confirmationNumber}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email address</td>
-                                        <td id="costAlignRight">{this.props.itinerary.contactInfo.email}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Time at booking</td>
-                                        <td id="costAlignRight">{this.props.itinerary.bookTime}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total cost of stay</td>
-                                        <td id="costAlignRight">${this.props.itinerary.totalCostOfStay}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Room type</td>
-                                        <td id="costAlignRight">{this.props.itinerary.roomType}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Number of adult guests</td>
-                                        <td id="costAlignRight">{this.props.itinerary.numAdults}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Check-in Date:</td>
-                                        <td id="costAlignRight">{this.props.itinerary.enterDate}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Check-out Date</td>
-                                        <td id="costAlignRight">{this.props.itinerary.exitDate}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Length of stay</td>
-                                        <td id="costAlignRight">{this.props.itinerary.numNights} nights</td>
-                                    </tr>
-                                    </tbody>
-                                </Table>
+                <div className="itineraryTable">
+                    <Table striped bordered condensed>
+                        <tbody>
+                        <tr>
+                            <td>Confirmation number</td>
+                            <td id="costAlignRight">{this.props.itinerary.confirmationNumber}</td>
+                        </tr>
+                        <tr>
+                            <td>Email address</td>
+                            <td id="costAlignRight">{this.props.itinerary.contactInfo.email}</td>
+                        </tr>
+                        <tr>
+                            <td>Time at booking</td>
+                            <td id="costAlignRight">{this.props.itinerary.bookTime}</td>
+                        </tr>
+                        <tr>
+                            <td>Total cost of stay</td>
+                            <td id="costAlignRight">${(this.props.itinerary.totalCostOfStay).toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                            <td>Room type</td>
+                            <td id="costAlignRight">{this.props.itinerary.roomType}</td>
+                        </tr>
+                        <tr>
+                            <td>Number of adult guests</td>
+                            <td id="costAlignRight">{this.props.itinerary.numAdults}</td>
+                        </tr>
+                        <tr>
+                            <td>Check-in Date:</td>
+                            <td id="costAlignRight">{this.props.itinerary.enterDate}</td>
+                        </tr>
+                        <tr>
+                            <td>Check-out Date</td>
+                            <td id="costAlignRight">{this.props.itinerary.exitDate}</td>
+                        </tr>
+                        <tr>
+                            <td>Length of stay</td>
+                            <td id="costAlignRight">{this.props.itinerary.numNights} nights</td>
+                        </tr>
+                        </tbody>
+                    </Table>
 
 
-                                <Table striped bordered condensed>
-                                    <tbody>
-                                    <tr>
-                                        <td><h4>Optional addons:</h4></td>
-                                        <td>{' '}</td>
+                    <Table striped bordered condensed>
+                        <tbody>
+                        <tr>
+                            <td><h4>Optional addons:</h4></td>
+                            <td>{' '}</td>
 
-                                    </tr>
-                                    <tr>
-                                        <td>Breakfast</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.breakfast.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Care Package</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.carePackage.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Late Checkout</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.lateCheckout.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Shuttle Ride</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.shuttleRide.toString()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Luggage Hold</td>
-                                        <td id="costAlignRight">{this.props.itinerary.addons.luggageHold.toString()}</td>
-                                    </tr>
-                                    </tbody>
-                                </Table>
-                            </Col>
-                            <Col sm={1} md={2}>{' '}</Col>
-                        </Row>
-                    </Grid>
+                        </tr>
+                        <tr>
+                            <td>Breakfast</td>
+                            <td id="costAlignRight">{this.props.itinerary.addons.breakfast.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Care Package</td>
+                            <td id="costAlignRight">{this.props.itinerary.addons.carePackage.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Late Checkout</td>
+                            <td id="costAlignRight">{this.props.itinerary.addons.lateCheckout.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Shuttle Ride</td>
+                            <td id="costAlignRight">{this.props.itinerary.addons.shuttleRide.toString()}</td>
+                        </tr>
+                        <tr>
+                            <td>Luggage Hold</td>
+                            <td id="costAlignRight">{this.props.itinerary.addons.luggageHold.toString()}</td>
+                        </tr>
+                        </tbody>
+                    </Table>
                 </div>
 
             </div>

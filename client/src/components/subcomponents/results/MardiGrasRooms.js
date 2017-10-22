@@ -8,10 +8,13 @@ export function mardiGrasRooms(pricing, submit) {
         <div>
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        Miniature Suite ${(pricing.miniatureSuite).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        Miniature Suite
+                        <div id="roomPrice">
+                            ${(pricing.miniatureSuite).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 725 sq. ft)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="miniatureSuite" onClick={submit}>Book now</Button>
                     </p>
@@ -29,10 +32,13 @@ export function mardiGrasRooms(pricing, submit) {
             <hr />
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        Family Special ${(pricing.familySpecialSuite).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        Family Special
+                        <div id="roomPrice">
+                            ${(pricing.familySpecialSuite).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 718 sq. ft.)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="familySpecialSuite" onClick={submit}>Book now</Button>
                     </p>

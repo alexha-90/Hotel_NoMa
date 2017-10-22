@@ -20,7 +20,7 @@ import Footer from './components/static/Footer';
 import Terms from './components/static/Terms';
 import Amenities from './components/static/Amenities';
 import About from './components/static/About';
-import ContactUs from './components/static/ContactUs';
+import ContactUs from './components/ContactUs';
 
 // test page(s)
 import BlankPageTemplate from './components/static/Page2';

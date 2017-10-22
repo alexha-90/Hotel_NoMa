@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, ControlLabel, FormControl, Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { sendContactUsEmail } from '../../actions/';
+import { sendContactUsEmail } from '../actions/index';
 
 //to-do: timestamp
 //===============================================================================================//
@@ -46,7 +46,6 @@ class ContactUs extends Component {
 
 
     render() {
-        window.scrollTo(0, 0);
         const replyEmail = 'hotelnoma@example.com';
         let emailRef = 'mailto:' + replyEmail + '?subject=My question about Hotel NoMa';
 

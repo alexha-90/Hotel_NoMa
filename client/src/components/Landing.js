@@ -32,7 +32,9 @@ class Landing extends Component {
         return (
             <div className="landingContainer">
 
-                <img id="splashImageLanding" alt="backgroundSplash" src="https://static.pexels.com/photos/61111/pexels-photo-61111.jpeg" />
+                <img id="splashImageLandingLarge" alt="backgroundSplashLarge" src="https://i.imgur.com/P0c9Ny3.jpg" />
+
+                <img id="splashImageLandingSmall" alt="backgroundSplashSmall" src="https://i.imgur.com/v167VbU.jpg"/>
 
                 <div className="centerWelcomeAndCalendar">
                     <h1>Welcome to Hotel NoMa</h1>

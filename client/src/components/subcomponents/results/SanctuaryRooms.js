@@ -8,10 +8,12 @@ export function sanctuaryRooms(pricing, submit) {
         <div>
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        Villa ${(pricing.villaSanctuary).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        <div id="roomPrice">
+                            Villa ${(pricing.villaSanctuary).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 466 sq. ft.)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="villaSanctuary" onClick={submit}>Book now</Button>
                     </p>
@@ -30,10 +32,13 @@ export function sanctuaryRooms(pricing, submit) {
             <hr />
             <div>
                 <div>
-                    <p className="roomExpandedLeftHeadline">
-                        Priority ${(pricing.prioritySanctuary).toFixed(2)}/night
+                    <div className="roomExpandedLeftHeadline">
+                        Priority
+                        <div id="roomPrice">
+                            ${(pricing.prioritySanctuary).toFixed(2)}/night
+                        </div>
                         <h4>(Room size: 424 sq. ft.)</h4>
-                    </p>
+                    </div>
                     <p className="roomExpandedRightButton">
                         <Button bsStyle="success" value="prioritySanctuary" onClick={submit}>Book now</Button>
                     </p>

@@ -18,9 +18,9 @@ class DisplayAllReservations extends Component {
     componentWillMount() {
         if (!this.props.itinerary[1]) {
             // redundancy to show error in production environment
-            alert("Please click the orange 'FOR DEMO/MANAGEMENT ONLY: Get all reservations (no input required)' " +
+            alert("Please click the orange 'All reservations (no input req.)' " +
                 "button on the previous page before attempting to access all records in the database. This ensures you will receive the most recent data.");
-            throw new Error("Please click the orange 'FOR DEMO/MANAGEMENT ONLY: Get all reservations (no input required)' " +
+            throw new Error("Please click the orange 'All reservations (no input req.)' " +
                 "button on the previous page before attempting to access all records in the database. This ensures you will receive the most recent data.");
         }
         window.scrollTo(0, 0);

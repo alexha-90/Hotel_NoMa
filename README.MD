@@ -6,7 +6,7 @@ The server-side of this application follows a RESTful API architecture to manipu
 itineraries are stored. Payments are handled externally through a third-party API.
 
 # Live demo
-<https://hotel-noma.herokuapp.com> (note: CSS is currently not optimized for handheld devices)
+<https://hotel-noma.herokuapp.com>
 
 # Why this project
 Many fortnights ago, I needed a hotel room for an out-of-town visit 
@@ -100,13 +100,12 @@ to add a customer service management system like Zendesk.
 
 <a name="limitationsAndShortcomings"></a>
 ## Application limitations and shortcomings
-* Responsive resizing needs improvement. Currently a fair amount of buggy elements for smaller window sizes
 * Cannot update an existing itinerary. Must cancel and rebook instead.
 * No inventory management for guest rooms. Any room can be booked an unlimited amount of times
 * Refunds are not processed automatically upon cancellation. Must be issued manually via Stripe
 * Itinerary is entirely removed from database upon user delete action. More logical to update most object values to null instead for record-keeping 
-* CSS organization could be improved
 * Weather graphic and temperature on landing page is static. Does not call an API for current weather
+* CSS organization could be improved
 * Improve aesthetics
 
 <a name="potentialFeatures"></a>

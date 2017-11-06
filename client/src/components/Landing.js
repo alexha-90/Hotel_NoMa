@@ -31,23 +31,20 @@ class Landing extends Component {
     render () {
         return (
             <div className="landingContainer">
+                <div className="splashContent">
+                    <div id="centerWelcomeAndCalendar">
+                        <h1>Welcome to Hotel NoMa</h1>
+                        <h4>A premier hotel in the heart of Downtown San Francisco, CA</h4>
 
-                <img id="splashImageLandingLarge" alt="backgroundSplashLarge" src="https://i.imgur.com/P0c9Ny3.jpg" />
+                        <div id="calendarPicker">
+                            {/* Imported component - dynamic calendar */}
+                            <InputCalendar />
+                            {/* Imported component - dynamic calendar*/}
 
-                <img id="splashImageLandingSmall" alt="backgroundSplashSmall" src="https://i.imgur.com/v167VbU.jpg"/>
-
-                <div className="centerWelcomeAndCalendar">
-                    <h1>Welcome to Hotel NoMa</h1>
-                    <h4>A premier hotel in the heart of Downtown San Francisco, CA</h4>
-
-                    <div id="calendarPicker">
-                        {/* Imported component - dynamic calendar */}
-                        <InputCalendar />
-                        {/* Imported component - dynamic calendar*/}
-
-                        {/* Imported component - adult guests input & submit button */}
-                        {inputAdults(this.props, this.handleNumAdultChange.bind(this))}
-                        {/* Imported component - adult guests input & submit button */}
+                            {/* Imported component - adult guests input & submit button */}
+                            {inputAdults(this.props, this.handleNumAdultChange.bind(this))}
+                            {/* Imported component - adult guests input & submit button */}
+                        </div>
                     </div>
                 </div>
 
@@ -133,3 +130,9 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Landing);
+
+/*
+<img id="splashImageLandingLarge" alt="backgroundSplashLarge" src="https://i.imgur.com/P0c9Ny3.jpg" />
+
+<img id="splashImageLandingSmall" alt="backgroundSplashSmall" src="https://i.imgur.com/v167VbU.jpg"/>
+*/

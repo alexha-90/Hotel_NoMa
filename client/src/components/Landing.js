@@ -130,9 +130,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Landing);
-
-/*
-<img id="splashImageLandingLarge" alt="backgroundSplashLarge" src="https://i.imgur.com/P0c9Ny3.jpg" />
-
-<img id="splashImageLandingSmall" alt="backgroundSplashSmall" src="https://i.imgur.com/v167VbU.jpg"/>
-*/

@@ -1,65 +1,50 @@
-
 /*============== Global CSS ==============*/
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    max-width: 100%;
 }
 
 body {
-  font-family: 'Pontano Sans', sans-serif;
-  background-color: #f2f2f2;
-  overflow-x: hidden;
+    font-family: 'Pontano Sans', sans-serif;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
 }
 
 ul {
-  margin: 2px 0;
+    margin: 2px 0;
 }
 
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 3px solid #262626;
-  border-radius: 20px;
-  margin: 2em 0;
-  padding: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 3px solid #262626;
+    border-radius: 20px;
+    margin: 2em 0;
+    padding: 0;
 }
 
 .container {
-  width: 70%;
-  padding: 0;
-  margin: 35px auto;
+    width: 70%;
+    padding: 0;
+    margin: 35px auto;
 }
 
 .row {
-  margin: 0;
+    margin: 0;
 }
 
 /*============== Landing Page CSS ==============*/
-
-
 #welcomeMsg {
-  margin-bottom: 12px;
-  font-weight: bold;
+    margin-bottom: 12px;
+    font-weight: bold;
 }
 
 .landingContainer {
-  width: 100%;
-  background-color: #f2f2f2;
-}
-
-/* might not need two below*/
-#splashImageLandingLarge {
-  display: block;
-  width: 100%;
-  height: 85vh;
-  opacity: 0.8;
-}
-
-#splashImageLandingSmall {
-  display: none;
+    width: 100%;
+    background-color: #f2f2f2;
 }
 
 .splashContent {
@@ -79,7 +64,6 @@ hr {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-
 }
 
 .splashContent #centerWelcomeAndCalendar h1 {
@@ -132,648 +116,615 @@ hr {
 }
 
 .weatherAndTimeBannerContainer h2 {
-  margin-top: 0;
-  padding-top: 30px;
-  font-size: 30px;
-  letter-spacing: 0.15em;
-  color: #4d4d33;
+    margin-top: 0;
+    padding-top: 30px;
+    font-size: 30px;
+    letter-spacing: 0.15em;
+    color: #4d4d33;
 }
 
 .jumbotronContainer {
-  background-color: #f2f2f2;
-  text-align: center;
-  width: 100%;
+    background-color: #f2f2f2;
+    text-align: center;
+    width: 100%;
 }
 
 .jumbotronContainer  h2 {
-  margin-top: -5px;
-  color: #664400;
-  letter-spacing: 0.05em;
+    margin-top: -5px;
+    color: #664400;
+    letter-spacing: 0.05em;
 }
 
 .jumbotronContainer  h4 {
-  color: #996600;
-  display: block;
-  margin: 0 auto;
-  width: 65%;
+    color: #996600;
+    display: block;
+    margin: 0 auto;
+    width: 65%;
 }
 
 .jumbotronContainer Button {
-  width: 300px;
-  background-color: #d3a178;
-  border-color: #6b4c33;
+    width: 300px;
+    background-color: #d3a178;
+    border-color: #6b4c33;
 }
 
 .jumbotronContainer Button:hover {
-  width: 300px;
-  background-color: #a88263;
+    width: 300px;
+    background-color: #a88263;
 }
 
 .carouselContainer {
-  width: 100%;
-  background-color: #262626;
+    width: 100%;
+    background-color: #262626;
 }
 
 #carouselLanding {
-  display: block;
-  margin: 0 auto 5px auto;
-  width: 80%;
-  text-align: center;
+    display: block;
+    margin: 0 auto 5px auto;
+    width: 80%;
+    text-align: center;
 }
 
 
 #blurbHeader {
-  text-align: center;
-  padding: 18px 0;
-  font-size: 30px;
-  color: #404040;
-  letter-spacing: 0.05em;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 30px;
+    color: #404040;
+    letter-spacing: 0.05em;
 }
 
 .threeBlurbs {
-  width: 100%;
-  display: inline-block;
-  text-align: center;
-  margin-bottom: 50px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 #leftBlurb {
-  height: 100%;
-  display: inline-block;
-  width: 300px;
-  margin-right: 3%;
+    height: 100%;
+    display: inline-block;
+    width: 300px;
+    margin-right: 3%;
 }
 
 #middleBlurb {
-  height: 100%;
-  display: inline-block;
-  width: 300px;
+    height: 100%;
+    display: inline-block;
+    width: 300px;
 }
 
 #rightBlurb {
-  height: 100%;
-  display: inline-block;
-  width: 300px;
-  margin-left: 3%;
+    height: 100%;
+    display: inline-block;
+    width: 300px;
+    margin-left: 3%;
 }
 
 .threeBlurbs h3 {
-  font-size: 25px;
-  text-decoration: underline;
-  letter-spacing: 0.15em;
-  text-align: center;
+    font-size: 25px;
+    text-decoration: underline;
+    letter-spacing: 0.15em;
+    text-align: center;
 }
 
 .threeBlurbs p {
-  font-size: 125%;
+    font-size: 125%;
 }
 
 .threeBlurbs img {
-  height: 75px;
-  display: block;
-  margin: auto auto;
+    height: 75px;
+    display: block;
+    margin: auto auto;
 }
 
-
 .blurbBG1 {
-  display: block;
-  height: 350px;
-  padding: 0 30px 30px 30px;
-  border: 2px solid #696949;
-  border-radius: 10px;
-  background-color: #e6e6e6;
+    display: block;
+    height: 350px;
+    padding: 0 30px 30px 30px;
+    border: 2px solid #696949;
+    border-radius: 10px;
+    background-color: #e6e6e6;
 }
 
 .blurbBG2 {
-  display: block;
-  height: 350px;
-  padding: 0 30px 30px 30px;
-  border: 2px solid #696949;
-  border-radius: 10px;
-  background-color: #cc9966;
+    display: block;
+    height: 350px;
+    padding: 0 30px 30px 30px;
+    border: 2px solid #696949;
+    border-radius: 10px;
+    background-color: #cc9966;
 }
 
 @media screen and (max-width: 1100px) {
-  #calendarPicker {
-    width: 55%;
-  }
+    #calendarPicker {
+        width: 55%;
+    }
 
-  #leftBlurb {
-    width: 250px;
-  }
+    #leftBlurb {
+        width: 250px;
+    }
 
-  #middleBlurb {
-    width: 250px;
-  }
+    #middleBlurb {
+        width: 250px;
+    }
 
-  #rightBlurb {
-    width: 250px;
-  }
+    #rightBlurb {
+        width: 250px;
+    }
 
-  .threeBlurbs h3 {
-    font-size: 20px;
-  }
+    .threeBlurbs h3 {
+        font-size: 20px;
+    }
 
-  .threeBlurbs p {
-    font-size: 16px;
-  }
-
+    .threeBlurbs p {
+        font-size: 16px;
+    }
 }
 
 
 @media screen and (max-width: 840px) {
-  #calendarPicker {
-    width: 70%;
-  }
+    #calendarPicker {
+        width: 70%;
+    }
 
-  #calendarPicker select {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-  }
+    #calendarPicker select {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
 
-  #rightBlurb {
-    margin-top: 30px;
-    margin-bottom: -15px;
-  }
-
-
+    #rightBlurb {
+        margin-top: 30px;
+        margin-bottom: -15px;
+    }
 }
 
 @media screen and (max-width: 675px) {
-  #calendarPicker {
-    width: 90%;
-  }
+    #calendarPicker {
+        width: 90%;
+    }
 
-  #leftBlurb {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 95%;
-  }
+    #leftBlurb {
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 95%;
+    }
 
-  #middleBlurb {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 95%;
-  }
+    #middleBlurb {
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 95%;
+    }
 
-  #rightBlurb {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 95%;
-  }
+    #rightBlurb {
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 95%;
+    }
 
-  .threeBlurbs img {
-    margin: 0 auto;
-  }
+    .threeBlurbs img {
+        margin: 0 auto;
+    }
 
+    .threeBlurbs h3 {
+        font-size: 26px;
+    }
 
-  .threeBlurbs h3 {
-    font-size: 26px;
-  }
-
-  .threeBlurbs p {
-    font-size: 18px;
-  }
+    .threeBlurbs p {
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 500px) {
+    .splashContent {
+        height: 130vh;
+    }
 
-  #splashImageLandingLarge {
-    display: none;
-  }
+    .splashContent #centerWelcomeAndCalendar h1 {
+        font-size: 25px;
+        letter-spacing: 0.1em;
+    }
 
-  #splashImageLandingSmall {
-    display: block;
-    width: 100%;
-    height: 160vh;
-    opacity: 0.8;
-  }
+    .splashContent #centerWelcomeAndCalendar h4 {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        margin-bottom: 40px;
+    }
 
-  .centerWelcomeAndCalendar {
-    margin-top: -875px;
-    width: 100%;
-    text-align: center;
-  }
+    .splashContent #calendarPicker {
+        width: 75%;
+    }
 
-
-  .centerWelcomeAndCalendar h1 {
-    color: #262626;
-    font-size: 25px;
-    letter-spacing: 0.1em;
-  }
-
-  .centerWelcomeAndCalendar h4 {
-    color: #262626;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    margin-bottom: 40px;
-  }
-
-  #calendarPicker {
-    width: 75%;
-  }
-
-  .weatherAndTimeBannerContainer {
-    height: 350px;
-  }
-
+    .weatherAndTimeBannerContainer {
+        height: 350px;
+    }
 }
 
-
 /*============== Results Page CSS ==============*/
-
 #centeredHeading {
-  text-align: center;
-  letter-spacing: 3px;
-  margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
 }
 
 .searchBanner {
-  display: block;
-  margin: -25px auto;
-  padding-bottom: 0.1em;
-  text-align: center;
-  color: white;
+    display: block;
+    margin: -25px auto;
+    padding-bottom: 0.1em;
+    text-align: center;
+    color: white;
 }
 
 .searchBanner span {
-  border: 1px solid #474646;
-  border-radius: 5px;
-  background-color: #737373;
-  padding: 10px 30px;
+    border: 1px solid #474646;
+    border-radius: 5px;
+    background-color: #737373;
+    padding: 10px 30px;
 }
 
 .searchBanner #secondRow {
-  margin: 30px auto 5px auto;
-  display: block;
+    margin: 30px auto 5px auto;
+    display: block;
 }
 
 .searchBanner #secondRow span {
-  background-color: #ffad33;
+    background-color: #ffad33;
 }
 
 #roomTypeHeading {
-  letter-spacing: 2px;
-  color: #696949;
+    letter-spacing: 2px;
+    color: #696949;
 }
 
 #resultContainer {
-  margin: 5px auto 0 auto;
-  background-color: #e0e0d2;
-  border: 2px solid #3c3c2a;
-  border-radius: 4px;
-  width: 100%;
-  position: inherit;
+    margin: 5px auto 0 auto;
+    background-color: #e0e0d2;
+    border: 2px solid #3c3c2a;
+    border-radius: 4px;
+    width: 100%;
+    position: inherit;
 }
 
 #fullResultSpan {
-  background-color: #e0e0d2;
-  width: 100%;
-  margin: 15px 0 15px 0;
-  padding: 0 15px 0 15px;
-  position: relative;
+    background-color: #e0e0d2;
+    width: 100%;
+    margin: 15px 0 15px 0;
+    padding: 0 15px 0 15px;
+    position: relative;
 }
 
 .alignLeft {
-  float: left;
-  font-size: 30px;
-  vertical-align: top;
-  letter-spacing: 2px;
+    float: left;
+    font-size: 30px;
+    vertical-align: top;
+    letter-spacing: 2px;
 }
 
 .alignRight {
-  float: right;
-  margin-top: 10px;
-  font-size: 20px;
+    float: right;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .roomExpandedLeftHeadline {
-  float: left;
-  font-size: 25px;
-  vertical-align: top;
-  letter-spacing: 2px;
+    float: left;
+    font-size: 25px;
+    vertical-align: top;
+    letter-spacing: 2px;
 }
 
 .roomExpandedRightButton {
-  float: right;
-  font-size: 25px;
-  vertical-align: top;
+    float: right;
+    font-size: 25px;
+    vertical-align: top;
 }
 
-
 .roomDescription {
-  clear: both;
+    clear: both;
 }
 
 .resultsThumbs {
-  clear: both;
-  text-align: center;
+    clear: both;
+    text-align: center;
 }
 
 .thumbPhoto {
-  width: 100%;
+    width: 100%;
 }
 
 .thumbPhoto img {
-  max-height: 200px;
-  width: 100%;
+    height: 200px;
+    width: 100%;
 }
 
-
 .amenityText {
-  color: #5a5a3f;
-  background-color: #e0e0d2;
+    color: #5a5a3f;
+    background-color: #e0e0d2;
 }
 
 #highlightResult {
-  background-color: #e0e0d2;
+    background-color: #e0e0d2;
 }
 
-
 @media screen and (max-width: 890px) {
-  #roomPrice {
-    font-size: 15px;
-  }
+    #roomPrice {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 660px) {
-  .searchBanner span {
-    display: block;
-    margin: 0 auto;
-    padding: 5px 5px;
-    width: 70%;
-  }
+    .searchBanner span {
+        display: block;
+        margin: 0 auto;
+        padding: 5px 5px;
+        width: 70%;
+    }
 
-  .searchBanner #secondRow {
-    margin-top: 0;
-  }
+    .searchBanner #secondRow {
+        margin-top: 0;
+    }
 }
-
 
 /*============== Amenity Page CSS ==============*/
 #amenitiesPhoto {
-  width: 70%;
-  display: block;
-  margin: 0 auto;
+    width: 70%;
+    display: block;
+    margin: 0 auto;
 }
 
 .amenitiesContainer {
-  width: 70%;
-  display: block;
-  margin: 20px auto;
-  height: 300px;
+    width: 70%;
+    display: block;
+    margin: 20px auto;
+    height: 300px;
 }
 
 .amenitiesContainer #leftImage {
-  display: inline-block;
-  float: left;
-  text-align: center;
-  line-height: 225px;
-  vertical-align: middle;
-  width: 20%;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    line-height: 225px;
+    vertical-align: middle;
+    width: 20%;
 }
 
 .amenitiesContainer #rightText {
-  display: inline-block;
-  float: right;
-  width: 75%;
+    display: inline-block;
+    float: right;
+    width: 75%;
 }
 
 .amenitiesContainer #rightImage {
-  display: inline-block;
-  float: right;
-  width: 20%;
-  text-align: center;
-  line-height: 225px;
-  vertical-align: middle;
+    display: inline-block;
+    float: right;
+    width: 20%;
+    text-align: center;
+    line-height: 225px;
+    vertical-align: middle;
 }
 
 .amenitiesContainer #leftText {
-  display: inline-block;
-  float: left;
-  width: 75%;
+    display: inline-block;
+    float: left;
+    width: 75%;
 }
 
 @media screen and (max-width: 960px) {
+    .amenitiesContainer {
+        height: auto;
+        margin-bottom: 25px;
+    }
 
-  .amenitiesContainer {
-    height: auto;
-    margin-bottom: 25px;
-  }
+    .amenitiesContainer #leftImage {
+        display: block;
+        margin: 0 auto;
+        float: none;
+        line-height: normal;
+    }
 
-  .amenitiesContainer #leftImage {
-    display: block;
-    margin: 0 auto;
-    float: none;
-    line-height: normal;
-  }
+    .amenitiesContainer #rightText {
+        display: block;
+        float: none;
+        width: 100%;
+    }
 
-  .amenitiesContainer #rightText {
-    display: block;
-    float: none;
-    width: 100%;
-  }
+    .amenitiesContainer #rightImage {
+        margin: 0 auto;
+        line-height: normal;
+        display: block;
+        float: none;
+    }
 
-  .amenitiesContainer #rightImage {
-    margin: 0 auto;
-    line-height: normal;
-    display: block;
-    float: none;
-
-  }
-
-  .amenitiesContainer #leftText {
-    display: block;
-    float: none;
-    width: 100%;
-
-  }
+    .amenitiesContainer #leftText {
+        display: block;
+        float: none;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 505px) {
-  #AmenitiesSpacing {
-    margin-top: -50px;
-  }
+    #AmenitiesSpacing {
+        margin-top: -50px;
+    }
 
-  #amenitiesPhoto {
-    margin-top: -50px;
-    margin-bottom: -10px;
-  }
+    #amenitiesPhoto {
+        margin-top: -50px;
+        margin-bottom: -10px;
+    }
 }
-
 
 /*============== Checkout Page CSS ==============*/
 #costAlignRight {
-  text-align: right;
+    text-align: right;
 }
 
 #costAlignRight {
-  text-align: right;
+    text-align: right;
 }
 
 #checkoutButton {
-  font-style: italic;
-  text-align: right;
+    font-style: italic;
+    text-align: right;
 }
 
 .resultsBanner {
-  margin: -50px 0;
-  padding-bottom: 0.1em;
-  text-align: center;
-  color: white;
+    margin: -50px 0;
+    padding-bottom: 0.1em;
+    text-align: center;
+    color: white;
 }
 
 .resultsBanner span {
-  border: 1px solid #474646;
-  border-radius: 5px;
-  background-color: #737373;
-  padding: 10px 30px;
+    border: 1px solid #474646;
+    border-radius: 5px;
+    background-color: #737373;
+    padding: 10px 30px;
 }
 
 .resultsBanner #secondRow {
-  margin: 25px;
-  display: block;
+    margin: 25px;
+    display: block;
 }
 
 .resultsBanner #thirdRow {
-  margin-top: -20px;
-  display: block;
+    margin-top: -20px;
+    display: block;
 }
 
 .resultsBanner #thirdRow span {
-  background-color: #ffad33;
+    background-color: #ffad33;
 }
 
 #tableHeader {
-  font-size: 1.3em;
-  text-decoration: underline;
+    font-size: 1.3em;
+    text-decoration: underline;
 }
 
 #totalHighlight {
-  background: #ffff1a;
+    background: #ffff1a;
 }
 
 #fakeCCText {
-  color: red;
+    color: #e63900;
 }
 
 @media screen and (max-width: 480px) {
-  .resultsBanner span {
-    display: block;
-    margin: 0 auto;
-    padding: 5px 5px;
-    width: 70%;
-  }
+    .resultsBanner span {
+        display: block;
+        margin: 0 auto;
+        padding: 5px 5px;
+        width: 70%;
+    }
 }
 /*============== Retrieve/Display Reservation Pages CSS ==============*/
 
 #getButton {
-  float: right;
+    float: right;
 }
 
 #getAllButton {
-  float: right;
-  margin-right: 5px;
+    float: right;
+    margin-right: 5px;
 }
 
 #deleteButton {
-  float: left;
+    float: left;
 }
 
 #lookupForm {
-  background-color: #e0e0d2;
-  margin-top: -32px;
+    background-color: #e0e0d2;
+    margin-top: -32px;
 }
 
 .displayItineraryTable {
-  display: block;
-  margin-left: 15%;
-  margin-right: 15%;
-  width: 50%;
+    display: block;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 50%;
 }
 
 #getItinerarySpacing {
-  margin-top: 35px;
+    margin-top: 35px;
 }
 
 
 #displayAllReservationSpacing {
-  display: block;
-  margin-top: 0.4em;
+    display: block;
+    margin-top: 0.4em;
 }
 
 .pastItineraries {
-  color: #b30000;
-  margin-bottom: 30px;
+    color: #b30000;
+    margin-bottom: 30px;
 }
 
 #pastItineraryLine {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 3px solid #b30000;
-  border-radius: 20px;
-  margin: 2em 0;
-  padding: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 3px solid #b30000;
+    border-radius: 20px;
+    margin: 2em 0;
+    padding: 0;
 }
 
 
 .getItineraryContainer {
-  width: 70%;
-  padding: 0;
-  margin: 60px auto;
+    width: 70%;
+    padding: 0;
+    margin: 60px auto;
 }
 
 
 @media screen and (max-width: 1025px) {
-  #getButton, #getAllButton, #deleteButton {
-    display: block;
-    margin: 0 auto 10px auto;
-    width: 90%;
-    float: none;
-  }
+    #getButton, #getAllButton, #deleteButton {
+        display: block;
+        margin: 0 auto 10px auto;
+        width: 90%;
+        float: none;
+    }
 }
 
 @media screen and (max-width: 500px) {
-  .getItineraryContainer {
-    margin-top: 0;
-  }
+    .getItineraryContainer {
+        margin-top: 0;
+    }
 
-  #displayAllItineraries{
-    margin-left: -15px;
-  }
+    #displayAllItineraries{
+        margin-left: -15px;
+    }
 
-  #displayAllItineraries {
-    width: 100%;
-  }
+    #displayAllItineraries {
+        width: 100%;
+    }
 }
 
 /*============== Confirmation Page CSS ==============*/
 #confirmationContainer {
-  margin: 5px auto 0 auto;
-  padding: 0 15px;
-  background-color: #e0e0d2;
-  border: 2px solid #3c3c2a;
-  border-radius: 4px;
-  width: 100%;
-  position: inherit;
+    margin: 5px auto 0 auto;
+    padding: 0 15px;
+    background-color: #e0e0d2;
+    border: 2px solid #3c3c2a;
+    border-radius: 4px;
+    width: 100%;
+    position: inherit;
 }
 
 #confirmationBackground {
-  background-color: #e0e0d2;
+    background-color: #e0e0d2;
 }
 
 .itineraryTable {
-  display: block;
-  margin: 0 auto;
-  width: 60%;
+    display: block;
+    margin: 0 auto;
+    width: 60%;
 }
 
 @media screen and (max-width: 1025px) {
-  .itineraryTable {
-    width: 100%;
-  }
+    .itineraryTable {
+        width: 100%;
+    }
 }
 
 
@@ -781,37 +732,34 @@ hr {
 /*============== Contact Us CSS ==============*/
 
 #contactUsSpacing {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 #resultContainerContactUs {
-  margin: 25px auto 100px auto;
-  background-color: #e0e0d2;
-  border: 2px solid #3c3c2a;
-  border-radius: 4px;
-  width: 100%;
-  position: inherit;
+    margin: 25px auto 100px auto;
+    background-color: #e0e0d2;
+    border: 2px solid #3c3c2a;
+    border-radius: 4px;
+    width: 100%;
+    position: inherit;
 }
 
 #contactUsContainer {
-  width: 80%;
-  margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #contactUsTextField {
-  height: 300px;
-  width: 80%;
-  margin: 0 auto;
+    height: 300px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 
 #submitContactFormButton {
-  margin-top: 45px;
-  float: right;
+    margin-top: 45px;
+    float: right;
 }
-
-
-
 
 /*============== Header CSS ==============*/
 nav .container {
@@ -843,17 +791,20 @@ nav img {
     text-decoration: none;
 }
 
-
 #dropdownNav {
     text-decoration: none;
     background-color: #262626;
     color: #f2f2f2;
 }
 
-.navbar-default .navbar-nav>li>a:hover {
+.navBarRightContent #headerItineraryLink a {
+    color: #f2f2f2;
     text-decoration: none;
-    background-color: #262626;
+}
+
+.navBarRightContent #headerItineraryLink a:hover {
     color: #808080;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 850px) {
@@ -867,165 +818,75 @@ nav img {
 }
 
 @media screen and (max-width: 500px) {
+    nav {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
     nav .container {
-        width: 95%;
+        width: 80%;
+        display: block;
+        margin: 0 auto;
         border: none;
         border-radius: 0;
     }
 
-    nav.navbar {
-        display: block;
-
+    .navbar button {
+        margin-right: -15px;
     }
-
-
-
 }
-
-
-
-/*
-.navBar {
-  border: none;
-  border-radius: 0;
-  background-color: #262626;
-  margin-bottom: 0;
-  height: 75px;
-}
-
-.navBar img {
-  height: 250%;
-  margin-top: 13px;
-}
-
-.navBarRightContent {
-  font-size: 130%;
-  color: #f2f2f2;
-  margin-top: 30px;
-  background-color: #262626;
-}
-
-.navbar-default .navbar-nav>li>a {
-  color: #f2f2f2;
-  margin-bottom: 15px;
-}
-
-#dropdownNav {
-  text-decoration: none;
-  background-color: #262626;
-  color: #f2f2f2;
-}
-
-.mobileComponents {
-  display: none;
-}
-
-@media screen and (max-width: 500px) {
-
-  #blackHeader {
-    position: absolute;
-    margin-top: 0;
-    width: 100%;
-    height: 150px;
-    background-color: #262626;
-  }
-
-  .navBar {
-    display: block;
-    width: 100%;
-    height: 150px;
-    text-align: center;
-  }
-
-  #headerContent {
-    display: block;
-    margin: 0 auto;
-  }
-
-  #headerImage {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin: 15px auto 0 0;
-    height: 45px;
-  }
-
-  .navBarRightContent {
-    height: 50px;
-    width: 100%;
-    font-size: 15px;
-  }
-
-  button.navbar-toggle.collapsed {
-    display: none;
-  }
-
-  .mobileComponents {
-    margin-top: 40px;
-    display: block;
-    text-decoration: overline;
-  }
-
-  .mobileComponents h3 {
-    text-align: center;
-    font-size: 12px;
-    color: inherit;
-  }
-}
-*/
 
 /*============== Footer CSS ==============*/
 .footerContainer {
-  bottom: 0;
-  padding-top: 15px;
-  background: #262626;
-  text-align: center;
-  color: #f2f2f2;
+    bottom: 0;
+    padding-top: 15px;
+    background: #262626;
+    text-align: center;
+    color: #f2f2f2;
 }
 
 #centeredGoogleMap {
-  display: block;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin: 10px auto 0 auto;
 }
 
 #centeredFooterText {
-  width: 100%;
-  line-height: 150%;
-  margin-top: 5px;
-  text-align: center;
-  font-size: 13px;
-  background-color: #262626;
+    width: 100%;
+    line-height: 150%;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 13px;
+    background-color: #262626;
 }
 
 #black {
-  background-color: #262626;
+    background-color: #262626;
 }
 
 #footerBar {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #f2f2f2;
-  margin-top: 1em;
-  margin-bottom: 0;
-  padding: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #f2f2f2;
+    margin-top: 1em;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 #footerLicensingColor {
-  color: #4d4d4d;
+    color: #4d4d4d;
 }
 
 #footerLicensing a {
-  display: inline-block;
-  color: inherit;
-  text-decoration: none;
-  margin-bottom: 15px;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    margin-bottom: 15px;
 }
 
 #footerLicensing h6 {
-  margin: 0;
+    margin: 0;
 }
 
 /*============== END CSS ==============*/

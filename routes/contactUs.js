@@ -16,7 +16,7 @@ module.exports = app => {
         // create new contactUsEmail instance
         const contactUsEmail = new ContactUsEmail({
             textContent: message,
-            emailAddress: req.body.payload[1]
+            emailAddress: emailAddress
         });
 
         // grab data from instance above.

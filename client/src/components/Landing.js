@@ -54,7 +54,7 @@ class Landing extends Component {
                     </h1>
                     <h2>
                         {/* weather is static for right now */}
-                        Time: {moment().utcOffset(-420).format('hh:mm a')} Weather: 68°F <img src="https://png.icons8.com/partly-cloudy-day/office/50" title="Partly Cloudy Day" alt="cloudWeather"/>
+                        Time: {moment().utcOffset(-480).format('hh:mm a')} Weather: 68°F <img src="https://png.icons8.com/partly-cloudy-day/office/50" title="Partly Cloudy Day" alt="cloudWeather"/>
                     </h2>
                 </div>
 

@@ -80,7 +80,7 @@ class ContactUs extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>Email address:</ControlLabel>
-                                <FormControl type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
+                                <FormControl type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
                             </FormGroup>
                         </div>
                         <Button id="submitContactFormButton" bsStyle="success" value="submitContactForm"

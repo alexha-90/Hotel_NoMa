@@ -79,7 +79,7 @@ export const fetchExistingItinerary = (confirmationNum, email) => async dispatch
             })
         );
         await console.log(res.data[0]);
-        await store.dispatch({ type: "RESULTS_TO_REDUX_STORE", payload: res.data[0] });
+        await store.dispatch({ type: "RESULTS_TO_REDUX_STATE", payload: res.data[0] });
     } catch(res) {
         console.log(res.err);
     }

@@ -26,11 +26,11 @@ class InputCalendar extends Component {
     };
 
     handleCalendarDayClick = day => {
-        if (moment(day).isAfter(moment().utcOffset(-420).add(2, 'months').add(1, 'days'))) {
+        if (moment(day).isAfter(moment().utcOffset(-480).add(2, 'months').add(1, 'days'))) {
             return alert('Sorry we only accept reservations two months out from today. You may need to adjust your departure date.');
         }
 
-        if (moment(day).isBefore(moment().utcOffset(-420))) {
+        if (moment(day).isBefore(moment().utcOffset(-480))) {
             return alert('Sorry that date has already passed. Please select a valid date.');
         }
 
@@ -75,13 +75,13 @@ class InputCalendar extends Component {
                         numberOfMonths={2}
                         disabledDays={[
                             {
-                                before: new Date(moment().utcOffset(-420)),
-                                after: new Date(moment().utcOffset(-420).add(2, 'months')),
+                                before: new Date(moment().utcOffset(-480)),
+                                after: new Date(moment().utcOffset(-480).add(2, 'months')),
                             },
                         ]}
 
-                        fromMonth={new Date(moment().utcOffset(-420))}
-                        toMonth={new Date(moment().utcOffset(-420).add(2, 'months'))}
+                        fromMonth={new Date(moment().utcOffset(-480))}
+                        toMonth={new Date(moment().utcOffset(-480).add(2, 'months'))}
                         selectedDays={this.state.selectedDays}
                         onDayClick={this.handleCalendarDayClick}
                         fixedWeeks

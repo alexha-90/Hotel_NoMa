@@ -30,7 +30,7 @@ class DisplayAllReservations extends Component {
     // map every itinerary in the database and for each one, see if user's enter date is the same as current date or further out. Display results in a table with JSX
     listAllCurrentItineraries() {
         return this.props.itinerary.map((itinerary) => {
-            if (moment(itinerary.enterDate).isSameOrAfter(moment().utcOffset(-420).subtract(1, 'days'))) {
+            if (moment(itinerary.enterDate).isSameOrAfter(moment().utcOffset(-480).subtract(1, 'days'))) {
                 return listAllItinerariesTable(itinerary);
             } else {
                 return '';
@@ -42,7 +42,7 @@ class DisplayAllReservations extends Component {
     // map every itinerary in the database and for each one, see if user's enter date is before the current date. Display results in a table with JSX
     listAllPastItineraries() {
         return this.props.itinerary.map((itinerary) => {
-            if (moment(itinerary.enterDate).isBefore(moment().utcOffset(-420).subtract(1, 'days'))) {
+            if (moment(itinerary.enterDate).isBefore(moment().utcOffset(-480).subtract(1, 'days'))) {
                 return listAllItinerariesTable(itinerary);
             } else {
                 return '';

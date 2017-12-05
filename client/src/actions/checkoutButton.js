@@ -27,7 +27,7 @@ class CheckoutButton extends Component {
         console.log(token.id);
 
         // fetch time of payment submission in PST
-        const bookTime = moment().utcOffset(-420).format("MM/DD/YYYY") + ' @ ' + moment().utcOffset(-420).format('hh:mm a') + ' (PST)';
+        const bookTime = moment().utcOffset(-480).format("MM/DD/YYYY") + ' @ ' + moment().utcOffset(-480).format('hh:mm a') + ' (PST)';
 
         // generate a confirmation number upon payment submission
         const confirmationNumber = this.props.itinerary.numAdults + billingAddress.billing_name.slice(0,1) + this.props.itinerary.numNights
